@@ -1,5 +1,3 @@
-<title>{{ if .Page.Title }}{{ .Page.Title }}{{ else }}{{ .Site.Title }}{{ end }}</title>
-
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -11,6 +9,9 @@
 
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+<title>{{ if .Page.Title }}{{ .Page.Title }}{{ else }}{{ .Site.Title }}{{ end }}</title>
+<meta name="description" content="{{ if .Page.Description }}{{ .Page.Description }}{{ else }}{{ .Site.Params.Description }}{{ end }}">
 <link rel="canonical" href="{{ .Permalink }}" />
 
 <meta property="og:title" content="{{ if .Page.Title }}{{ .Page.Title }}{{ else }}{{ .Site.Title }}{{ end }}">
@@ -18,4 +19,4 @@
 <meta property="og:url" content="{{ .Permalink }}">
 <meta property="og:description" content="{{ if .Page.Description }}{{ .Page.Description }}{{ else }}{{ .Site.Params.Description }}{{ end }}">
 <meta property="og:type" content=website>
-<meta property="og:image" content="{{ .Site.BaseURL }}images/share-image.png">
+<meta property="og:image" content="{{ .Site.BaseURL }}/images/share-image.png">
