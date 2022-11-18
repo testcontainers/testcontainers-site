@@ -34,10 +34,12 @@ sections:
         label: .NET
         code: |
           ```
-          var _container = new TestcontainersBuilder<TestcontainersContainer>()
+          await new TestcontainersBuilder<TestcontainersContainer>()
             .WithImage("alpine")
             .WithEntrypoint("top")
-            .Build();
+            .Build()
+            .StartAsync()
+            .ConfigureAwait(false);
           ```
       - id: python
         label: Python
