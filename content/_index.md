@@ -3,7 +3,7 @@ title: Testcontainers
 sections:
   - partial: hero-banner
     title: Unit tests with real dependencies
-    description: Testcontainers is an opensource framework for providing lightweight, throwaway instances of common daidases, Selenium web browsers, or anything else that can run in a Docker container.
+    description: Testcontainers is an opensource framework for providing lightweight, throwaway instances of common databases, Selenium web browsers, or anything else that can run in a Docker container.
   - partial: code-examples
     small_title: How it works
     title: Test dependencies as code
