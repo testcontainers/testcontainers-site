@@ -1,0 +1,102 @@
+#site-footer {
+    padding-top: 60px;
+    padding-bottom: 100px;
+    background: linear-gradient(180deg, #FBFBFF 0%, #FFFFFF 21.88%);
+
+    .container {
+        display: grid;
+        gap: 60px;
+
+        @media (min-width: 500px) {
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 30px;
+        }
+
+        @media (min-width: 900px) {
+            grid-template-columns: repeat(3, 1fr); 
+        }
+    }
+
+    h2 {
+        margin-bottom: 20px;
+        font-size: 16px;
+        font-weight: 500;
+
+        @media (min-width: 500px) {
+            margin-top: 40px;
+        }
+    }
+
+    img {
+        max-width: 100%;
+    }
+
+    .atomicjar-callout {
+        a {
+            display: block;
+            max-width: max-content;
+            transition: opacity 0.2s ease;
+
+            &:hover {
+                opacity: .5;
+            }
+        }
+
+        img {
+            display: block;
+            max-height: 50px;
+            width: auto;
+        }
+    }
+
+    .footer-links {
+        ul {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+    }
+
+    .community-col {
+        @media (min-width: 500px) and (max-width: 899px) {
+            grid-column: 1 / 3;
+        }
+    }
+
+    .community-callout {
+        color: $catskill;
+        background: linear-gradient(10.88deg, rgba(102, 56, 242, 0.15) 9.56%, rgba(102, 56, 242, 0.73) 100%), #291A3F;
+        box-shadow: 0px 20px 45px rgba($smoke, 0.75);
+        border-radius: 10px;
+        padding: 40px 30px;
+
+        h2 {
+            font-size: 24px;
+            margin: 0 0 20px 0;
+            color: $catskill;
+        }
+
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        a {
+            transition: opacity 0.2s ease;
+
+            &:hover {
+                opacity: 0.5;
+            }
+
+            img {
+                height: 24px;
+
+                @media (min-width: 480px) {
+                    height: 30px;
+                }
+            }
+        }
+    }
+}

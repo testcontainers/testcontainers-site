@@ -1,0 +1,7 @@
+{{ define "main" }}
+    <main>
+        {{ range $section := .Params.Sections  }}
+            {{ partial (printf "%s%s" "sections/" .partial) (dict "section" $section )}}
+        {{ end }}
+    </main>
+{{ end }}

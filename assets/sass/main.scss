@@ -1,0 +1,111 @@
+@import "variables";
+
+@function rem($px) {
+    @return ($px / 16px) * 1rem;
+}
+
+@import "modern-normalize";
+@import "fonts";
+
+body {
+    color: $storm;
+    font-family: 'Rubik', Arial, Helvetica, sans-serif;
+    font-size: rem(12px);
+    line-height: 1.5;
+
+    @media (min-width: 500px) {
+        font-size: rem(16px);
+    }
+}
+
+.container {
+    max-width: 1320px;
+    padding: 0 20px;
+    margin: 0 auto;
+
+    @media (min-width: 500px) {
+        padding: 0 40px;
+    }
+}
+
+h1 {
+    color: $eggplant;
+    font-size: rem(24px);
+    font-weight: 700;
+    line-height: 1.1;
+
+    @media (min-width: 780px) {
+        font-size: rem(48px);
+    } 
+}
+
+h2 {
+    color: $eggplant;
+    font-size: rem(20px);
+    font-weight: 500;
+    margin: 0;
+
+    @media (min-width: 780px) {
+        font-size: rem(24px);
+    } 
+}
+
+.small-header {
+    max-width: max-content;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+
+    &.gradient {
+        background: linear-gradient(90deg, $topaz 0%, $violet 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    @media (min-width: 780px) {
+        margin-bottom: 20px;
+    }
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+img {
+    width: auto;
+    max-width: 100%;
+}
+
+a {
+    color: $teal;
+    transition: color 0.2s ease;
+
+    &:hover {
+        color: $aqua;
+    }
+}
+
+.sr-only {
+    clip: rect(0 0 0 0); 
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap; 
+    width: 1px;
+}
+
+.error-404 {
+    padding: 100px 0;
+    text-align: center
+}
+
+@import "footer";
+@import "header";
+@import "sections/code-examples";
+@import "sections/company-logos";
+@import "sections/hero-banner";
+@import "sections/icon-columns";
+@import "sections/sponsor-credits";
+@import "sections/supported-languages";

@@ -1,0 +1,4 @@
+{{ $image := resources.Get .image }}
+{{ $size := partial "util/image-size.html" .image}}
+
+<img class="{{ .class }}" src="{{ $image.RelPermalink }}" alt="{{ .alt }}" width="{{ $size.width }}" height="{{ $size.height }}">

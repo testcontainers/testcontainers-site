@@ -1,0 +1,33 @@
+<section class="code-examples">
+    <div class="container">
+        <div class="content">
+            <div class="small-header gradient">{{ .section.small_title }}</div>
+            <h2>{{ .section.title }}</h2>
+            <div>{{ .section.description | markdownify }}</div>
+        </div>
+        <div class="examples">
+            <div class="tab-labels">
+                {{ range $index, $example := .section.examples }}
+                    {{ if eq $index 0 }}
+                        <button class="active" data-target="{{ $example.id }}">{{ $example.label }}</button>
+                    {{ else }}
+                        <button data-target="{{ $example.id }}">{{ $example.label }}</button>
+                    {{ end }}
+                {{ end }}
+            </div>
+            <div class="tab-panels">
+                {{ range $index, $example := .section.examples }}
+                    {{ if eq $index 0 }}
+                        <div class="tab-panel active" data-id="{{ $example.id }}">
+                            {{ $example.code | markdownify }}
+                        </div>
+                    {{ else }}
+                        <div class="tab-panel" data-id="{{ $example.id }}">
+                            {{ $example.code | markdownify }}
+                        </div>
+                    {{ end }}
+                {{ end }}
+            </div>
+        </div>
+    </div>
+</section>

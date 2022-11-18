@@ -1,0 +1,27 @@
+<section class="sponsor-credits">
+    <div class="container">
+        <div class="small-header gradient">{{ .section.small_title }}</div>
+        <h2>{{ .section.bronze_sponsors_title }}</h2>
+        <div class="sponsors">
+            {{ range .section.bronze_sponsors }}
+                <a href="{{ .link }}">
+                    {{ partial "img.html" (dict "image" (resources.Get .logo) "alt" .name) }}
+                </a>
+            {{ end }}
+        </div>
+        <h2>{{ .section.donors_title }}</h2>
+        <div class="donors">
+            {{ range .section.donors }}
+                <a href="{{ .link }}">
+                    {{ partial "img.html" (dict "image" (resources.Get .logo) "alt" .name) }}
+                </a>
+            {{ end }}
+        </div>
+        <h2>{{ .section.backers_title }}</h2>
+        <div class="backers">
+            {{ range .section.backers }}
+                <a href="{{ .link }}">{{ .name }}</a>
+            {{ end }}
+        </div>
+    </div>
+</section>

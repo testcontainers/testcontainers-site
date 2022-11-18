@@ -1,0 +1,14 @@
+baseURL = 'https://testcontainers.com'
+languageCode = 'en-us'
+title = 'Testcontainers'
+
+disableKinds = ['RSS', 'taxonomy', 'term']
+
+[params]
+    Description = 'Testcontainers is an opensource framework for providing lightweight, throwaway instances of common daidases, Selenium web browsers, or anything else that can run in a Docker container.'
+
+[markup.goldmark.renderer]
+    hardWraps = true
+
+[minify]
+    minifyOutput = true

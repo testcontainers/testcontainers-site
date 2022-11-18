@@ -1,0 +1,165 @@
+#site-header {
+    position: absolute;
+    width: 100%;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px;
+
+    @media (min-width: 500px) {
+        padding: 20px 40px;
+    }
+
+    .logo {
+        display: flex; 
+
+        img {
+            height: rem(30px);
+            width: auto;
+
+            @media (min-width: 500px) {
+                height: rem(48px);
+            }
+        }
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    nav {
+
+    }
+
+    .menu {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+
+        @media (min-width: 500px) {
+            gap: 30px;
+        }
+    }
+
+    .menu-item {
+        display: flex;
+        align-items: center;
+
+        @media (min-width: 500px) {
+            position: relative;
+        }
+
+        button,
+        a {
+            min-height: 30px;
+            display: flex;
+            gap: 6px;
+            align-items: center;
+            border: none;
+            background: none;
+            cursor: pointer;
+            padding: 0;
+            font-weight: 500;
+            color: $eggplant;
+            text-decoration: none;
+            font-size: rem(12px);
+            transition: color 0.2s ease;
+
+            @media (min-width: 500px) {
+                min-height: 48px;
+                gap: 8px;
+                font-size: rem(16px);
+            }
+
+            &:hover {
+                color: $topaz;
+            }
+        }
+
+        .icon-caret {
+            opacity: .3;
+            height: rem(8px);
+
+            @media (min-width: 500px) {
+                height: rem(10px);
+            }
+        }
+
+        .icon-slack,
+        .icon-github {
+            height: rem(18px);
+
+            @media (min-width: 500px) {
+                height: rem(24px);
+            }
+        }
+    }
+
+    .menu-dropdown {
+        @at-root body.js & {
+            display: none;
+        }
+
+        position: absolute;
+        top: 100%;
+        right: -8px;
+        flex-direction: column;
+        border: 1px solid $mist;
+        border-radius: 6px;
+        background: #fff;
+        box-shadow: 0px 30px 35px rgba($smoke, 0.75);
+        min-width: 200px;
+
+        @media (max-width: 499px) {
+            top: calc(100% - 20px);
+            right: 20px;
+            width: calc(100% - 40px);
+        }
+    }
+
+    .menu-item.has-children.active .menu-dropdown {
+        display: flex;
+    }
+
+    .menu-dropdown-item {
+
+        + .menu-dropdown-item {
+            border-top: 1px solid $mist;
+        }
+
+        a {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            padding: 10px 20px;
+            font-weight: 500;
+            color: $eggplant;
+            text-decoration: none;
+            transition: 
+                color 0.2s ease,
+                background 0.2s ease;
+
+            &:hover {
+                background-color: rgba($catskill, 0.45);
+            }
+        }
+
+        img {
+            height: 24px;
+        }
+
+        .icon-external {
+            margin-left: auto;
+            color: $fog;
+            flex-shrink: 0;
+        }
+
+        a:hover .icon-external {
+            color: $topaz;
+        }
+    }
+}

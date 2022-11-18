@@ -1,0 +1,14 @@
+<!-- Addapted from https://github.com/gohugoio/hugo/issues/3700#issuecomment-705857100 by https://github.com/vkrissz -->
+{{ $width := 1 }}
+{{ $height := 1 }}
+{{ if strings.HasSuffix . ".svg"}}
+    {{ $svgContent := (resources.Get .).Content }}
+    {{ $width = index (split (index (split $svgContent `width=`) 1) `"`) 1 }}
+    {{ $height = index (split (index (split $svgContent `height=`) 1) `"`) 1 }}
+{{ else }}
+    {{ $image := (resources.Get .) }}
+    {{ $width = float $image.Width }}
+    {{ $height = float $image.Height }}
+{{ end }}
+
+{{ return (dict "width" $width "height" $height) }}

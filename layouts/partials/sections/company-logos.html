@@ -1,0 +1,17 @@
+<section class="company-logos">
+    <div class="container">
+        <div class="wrapper">
+            <div class="content">
+                <div class="small-header">{{ .section.small_title }}</div>
+                <h2>{{ .section.title }}</h2>
+            </div>
+            <div class="companies">
+                {{ range .section.companies }}
+                    <a href="{{ .link }}">
+                        {{ partial "img.html" (dict "image" (resources.Get .logo) "alt" .name) }}
+                    </a>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+</section>

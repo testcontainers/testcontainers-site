@@ -1,0 +1,50 @@
+<footer id="site-footer">
+    <div class="container">
+        <div class="atomicjar-callout">
+            <h2>This website brought to you by</h2>
+            <a href="https://atomicjar.com">
+                {{ partial "img.html" (dict "image" (resources.Get "/images/atomicjar-logo.svg") "alt" "AtomicJar Logo") }}
+            </a>
+        </div>
+        <div class="footer-links">
+            <h2>Links</h2>
+            <ul>
+                {{ range .Site.Data.languages }}
+                    <li>
+                        <a href="{{ .link }}">
+                            Testcontainers for {{ .label }}
+                        </a>
+                    </li>
+                {{ end }}
+            </ul>
+        </div>
+        <div class="community-col">
+            <div class="community-callout">
+                <h2>Join the community</h2>
+                <p>We hope that you find Tetcontainers reliable and intuitive to use. However sometimes things don't go the way we'd expect and we'd like to try and help out if we can.</p>
+                <ul>
+                    <li>
+                        <a href="#">
+                            {{ partial "img.html" (dict "image" (resources.Get "/images/slack.svg") "alt" "Slack") }}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            {{ partial "img.html" (dict "image" (resources.Get "/images/github.svg") "alt" "GitHub") }}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            {{ partial "img.html" (dict "image" (resources.Get "/images/stackoverflow.svg") "alt" "StackOverflow") }}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            {{ partial "img.html" (dict "image" (resources.Get "/images/twitter.svg") "alt" "Twitter") }}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
