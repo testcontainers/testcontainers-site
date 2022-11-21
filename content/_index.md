@@ -7,9 +7,9 @@ sections:
   - partial: code-examples
     small_title: How it works
     title: Test dependencies as code
-    description: | 
+    description: |
       No more need for mocks or complicated environment configurations. Define your test dependencies as containers that will be created when your tests are run and then deleted.
-      
+
       With support for many languages and testing frameworks, all you need is Docker.
     examples:
       - id: java
@@ -33,9 +33,12 @@ sections:
         label: .NET
         code: |
           ```
-          _ = new TestcontainersBuilder<TestcontainersContainer>()
-            .WithEntrypoint("nginx")
-            .WithCommand("-t")
+          await new TestcontainersBuilder<TestcontainersContainer>()
+            .WithImage("alpine")
+            .WithEntrypoint("top")
+            .Build()
+            .StartAsync()
+            .ConfigureAwait(false);
           ```
       - id: python
         label: Python
