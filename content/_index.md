@@ -3,12 +3,12 @@ title: Testcontainers
 sections:
   - partial: hero-banner
     title: Unit tests with real dependencies
-    description: Testcontainers is an opensource framework for providing lightweight, throwaway instances of common databases, Selenium web browsers, or anything else that can run in a Docker container.
+    description: Testcontainers is an open source framework for providing throwaway, lightweight instances of databases, message brokers, web browsers, or just about anything that can run in a Docker container.
   - partial: code-examples
     small_title: How it works
     title: Test dependencies as code
     description: |
-      No more need for mocks or complicated environment configurations. Define your test dependencies as containers that will be created when your tests are run and then deleted.
+      No more need for mocks or complicated environment configurations. Define your test dependencies as code, then simply run your tests and containers will be created and then deleted.
 
       With support for many languages and testing frameworks, all you need is Docker.
     examples:
@@ -70,15 +70,15 @@ sections:
       - icon: /images/icons/database.svg
         title: Data access layer integration tests
         description: |
-          Use a containerized instance of your database to test to test your data access layer code for complete compatibility, but without requiring complex setup on developers' machines and safe in the knowledge that your tests will always start with a known state.
+          Use a containerized instance of your database to test your data access layer code for complete compatibility, without requiring a complex setup on developer machines. Trust that your tests will always start with a known state.
       - icon: /images/icons/browser.svg
         title: UI/Acceptance tests
         description: |
-          Use containerized web browsers, compatible with Selenium, for conducting automated UI tests. Each test can get a fresh instance of the browser, with no browser state, plugin variations or automated browser upgrades to worry about.
+          Use containerized web browsers, compatible with Selenium, to run automated UI tests. Each test gets a fresh, clean instance of the browser, without having to worry about variations in plugins or required updates.
       - icon: /images/icons/puzzle.svg
         title: Application integration tests
         description: |
-          Run your application in a short-lived test mode with dependencies, such as databases, message queues or web servers.
+          Run your application in a short-lived test mode with dependencies, such as databases, message queues or web servers, to give you a rich interactive and explorative testing environment
   - partial: supported-languages
     small_title: Get started
     title: Supported Languages
