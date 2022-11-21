@@ -78,7 +78,7 @@ sections:
       - icon: /images/icons/puzzle.svg
         title: Application integration tests
         description: |
-          Run your application in a short-lived test mode with dependencies, such as databases, message queues or web servers, to give you a rich interactive and explorative testing environment
+          Run your application in a short-lived test mode with dependencies, such as databases, message queues or web servers, to give you a rich interactive and explorative testing environment.
   - partial: supported-languages
     small_title: Get started
     title: Supported Languages
