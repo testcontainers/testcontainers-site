@@ -2,7 +2,7 @@
     <div class="container">
         <div class="atomicjar-callout">
             <h2>This website brought to you by</h2>
-            <a href="https://atomicjar.com">
+            <a href="https://atomicjar.com" target="_blank">
                 {{ partial "img.html" (dict "image" (resources.Get "/images/atomicjar-logo.svg") "alt" "AtomicJar Logo") }}
             </a>
         </div>
@@ -11,7 +11,7 @@
             <ul>
                 {{ range .Site.Data.languages }}
                     <li>
-                        <a href="{{ .link }}">
+                        <a href="{{ .link }}" target="_blank">
                             Testcontainers for {{ .label }}
                         </a>
                     </li>
@@ -24,22 +24,22 @@
                 <p>We hope that you find Testcontainers reliable and intuitive to use. However sometimes things don't go the way we'd expect and we'd like to try and help out if we can.</p>
                 <ul>
                     <li>
-                        <a href="https://slack.testcontainers.org/">
+                        <a href="https://slack.testcontainers.org/" target="_blank">
                             {{ partial "img.html" (dict "image" (resources.Get "/images/slack.svg") "alt" "Slack") }}
                         </a>
                     </li>
                     <li>
-                        <a href="https://github.com/testcontainers">
+                        <a href="https://github.com/testcontainers" target="_blank">
                             {{ partial "img.html" (dict "image" (resources.Get "/images/github.svg") "alt" "GitHub") }}
                         </a>
                     </li>
                     <li>
-                        <a href="https://stackoverflow.com/questions/tagged/testcontainers">
+                        <a href="https://stackoverflow.com/questions/tagged/testcontainers" target="_blank">
                             {{ partial "img.html" (dict "image" (resources.Get "/images/stackoverflow.svg") "alt" "StackOverflow") }}
                         </a>
                     </li>
                     <li>
-                        <a href="https://twitter.com/testcontainers">
+                        <a href="https://twitter.com/testcontainers" target="_blank">
                             {{ partial "img.html" (dict "image" (resources.Get "/images/twitter.svg") "alt" "Twitter") }}
                         </a>
                     </li>

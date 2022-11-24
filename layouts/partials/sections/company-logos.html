@@ -7,7 +7,7 @@
             </div>
             <div class="companies">
                 {{ range .section.companies }}
-                    <a href="{{ .link }}">
+                    <a href="{{ .link }}" target="_blank">
                         {{ partial "img.html" (dict "image" (resources.Get .logo) "alt" .name) }}
                     </a>
                 {{ end }}
