@@ -4,7 +4,7 @@
         <h2>{{ .section.bronze_sponsors_title }}</h2>
         <div class="sponsors">
             {{ range .section.bronze_sponsors }}
-                <a href="{{ .link }}">
+                <a href="{{ .link }}" target="_blank">
                     {{ partial "img.html" (dict "image" (resources.Get .logo) "alt" .name) }}
                 </a>
             {{ end }}
@@ -12,7 +12,7 @@
         <h2>{{ .section.donors_title }}</h2>
         <div class="donors">
             {{ range .section.donors }}
-                <a href="{{ .link }}">
+                <a href="{{ .link }}" target="_blank">
                     {{ partial "img.html" (dict "image" (resources.Get .logo) "alt" .name) }}
                 </a>
             {{ end }}
@@ -20,7 +20,7 @@
         <h2>{{ .section.backers_title }}</h2>
         <div class="backers">
             {{ range .section.backers }}
-                <a href="{{ .link }}">{{ .name }}</a>
+                <a href="{{ .link }}" target="_blank">{{ .name }}</a>
             {{ end }}
         </div>
     </div>

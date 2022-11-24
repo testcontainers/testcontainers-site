@@ -7,7 +7,7 @@
         </div>
         <div class="languages">
             {{ range .section.languages }}
-                <a href="{{ .link }}">
+                <a href="{{ .link }}" target="_blank">
                     {{ partial "img.html" (dict "image" (resources.Get .logo) "alt" "") }}
                     {{ .label }}
                     <svg class="icon-external" width="15" height="17" viewBox="0 0 15 17">
