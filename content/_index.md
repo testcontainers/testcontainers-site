@@ -52,7 +52,7 @@ sections:
         code: |
           ```
           const { GenericContainer, Wait } = require("testcontainers");
-          const container = await new GenericContainer("redis:5.0.3-alpine")
+          const redis = await new GenericContainer("redis:5.0.3-alpine")
               .withExposedPorts(6379)
               .withWaitStrategy(Wait.forLogMessage("Ready to accept connections"))
               .start();
@@ -61,7 +61,9 @@ sections:
         label: Rust
         code: |
           ```
-          let container = docker.run(MyImage::default());
+          use testcontainers::{clients, images::redis};
+          let docker = clients::Cli::default();
+          let redis = docker.run(redis::Redis::default());
           ```
   - partial: icon-columns
     small_title: Use cases
