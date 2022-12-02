@@ -24,38 +24,38 @@ sections:
         code: |
           ```
           req := testcontainers.ContainerRequest{
-            Image:        "redis:latest",
-            ExposedPorts: []string{"6379/tcp"},
-            WaitingFor:   wait.ForLog("Ready to accept connections"),
+              Image:        "redis:5.0.3-alpine",
+              ExposedPorts: []string{"6379/tcp"},
+              WaitingFor:   wait.ForLog("Ready to accept connections"),
           }
           ```
       - id: dotnet
         label: .NET
         code: |
           ```
-          await new TestcontainersBuilder<TestcontainersContainer>()
-            .WithImage("alpine")
-            .WithEntrypoint("top")
-            .Build()
-            .StartAsync()
-            .ConfigureAwait(false);
+          await new TestcontainersBuilder<RedisTestcontainer>()
+              .WithDatabase(new RedisTestcontainerConfiguration())
+              .Build()
+              .StartAsync()
+              .ConfigureAwait(false);
           ```
       - id: python
         label: Python
         code: |
           ```
           with PostgresContainer("postgres:9.5") as postgres:
-            e = sqlalchemy.create_engine(postgres.get_connection_url())
-            result = e.execute("select version()")
+              e = sqlalchemy.create_engine(postgres.get_connection_url())
+              result = e.execute("select version()")
           ```
       - id: nodejs
         label: Node.js
         code: |
           ```
-          const { GenericContainer } = require("testcontainers");
-          const container = await new GenericContainer("alpine")
-            .withExposedPorts(22, 80, 443)
-            .start();
+          const { GenericContainer, Wait } = require("testcontainers");
+          const container = await new GenericContainer("redis:5.0.3-alpine")
+              .withExposedPorts(6379)
+              .withWaitStrategy(Wait.forLogMessage("Ready to accept connections"))
+              .start();
           ```
       - id: rust
         label: Rust
