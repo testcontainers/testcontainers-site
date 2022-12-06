@@ -54,7 +54,6 @@ sections:
         label: Node.js
         code: |
           ```
-          const { GenericContainer, Wait } = require("testcontainers");
           const redis = await new GenericContainer("redis:5.0.3-alpine")
               .withExposedPorts(6379)
               .withWaitStrategy(Wait.forLogMessage("Ready to accept connections"))
