@@ -43,9 +43,12 @@ sections:
         label: Python
         code: |
           ```
-          with PostgresContainer("postgres:9.5") as postgres:
-              e = sqlalchemy.create_engine(postgres.get_connection_url())
-              result = e.execute("select version()")
+          redis = (
+              DockerContainer("redis:5.0.3-alpine")
+                  .with_exposed_ports(6379)
+          )
+          redis.start()
+          wait_for_logs(redis, "Ready to accept connections")
           ```
       - id: nodejs
         label: Node.js
