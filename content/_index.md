@@ -64,7 +64,6 @@ sections:
         label: Rust
         code: |
           ```
-          use testcontainers::{clients, images::redis};
           let docker = clients::Cli::default();
           let redis = docker.run(redis::Redis::default());
           ```
