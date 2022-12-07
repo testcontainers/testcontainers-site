@@ -23,11 +23,14 @@ sections:
         label: Go
         code: |
           ```
-          req := testcontainers.ContainerRequest{
-              Image:        "redis:5.0.3-alpine",
-              ExposedPorts: []string{"6379/tcp"},
-              WaitingFor:   wait.ForLog("Ready to accept connections"),
-          }
+          container, err := testcontainers.GenericContainer(ctx, testcontainers.GenericContainerRequest{
+              ContainerRequest: testcontainers.ContainerRequest{
+                  Image:        "redis:5.0.3-alpine",
+                  ExposedPorts: []string{"6379/tcp"},
+                  WaitingFor:   wait.ForLog("Ready to accept connections"),
+              },
+              Started:          true,
+          })
           ```
       - id: dotnet
         label: .NET
