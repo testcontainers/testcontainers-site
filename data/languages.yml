@@ -10,15 +10,19 @@
   label: .NET
   logo: /images/language-logos/dotnet.svg
   link: https://dotnet.testcontainers.org/
-- id: python
-  label: Python
-  logo: /images/language-logos/python.svg
-  link: https://testcontainers-python.readthedocs.io/en/latest/
 - id: nodejs
   label: Node.js
   logo: /images/language-logos/nodejs.svg
   link: https://github.com/testcontainers/testcontainers-node
+- id: python
+  label: Python
+  logo: /images/language-logos/python.svg
+  link: https://testcontainers-python.readthedocs.io/en/latest/
 - id: rust
   label: Rust
   logo: /images/language-logos/rust.svg
   link: https://docs.rs/testcontainers/latest/testcontainers/
+- id: haskell
+  label: Haskell
+  logo: /images/language-logos/haskell.svg
+  link: https://github.com/testcontainers/testcontainers-hs

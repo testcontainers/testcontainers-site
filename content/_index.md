@@ -42,6 +42,15 @@ sections:
               .StartAsync()
               .ConfigureAwait(false);
           ```
+      - id: nodejs
+        label: Node.js
+        code: |
+          ```
+          const redis = await new GenericContainer("redis:5.0.3-alpine")
+              .withExposedPorts(6379)
+              .withWaitStrategy(Wait.forLogMessage("Ready to accept connections"))
+              .start();
+          ```
       - id: python
         label: Python
         code: |
@@ -53,21 +62,22 @@ sections:
           redis.start()
           wait_for_logs(redis, "Ready to accept connections")
           ```
-      - id: nodejs
-        label: Node.js
-        code: |
-          ```
-          const redis = await new GenericContainer("redis:5.0.3-alpine")
-              .withExposedPorts(6379)
-              .withWaitStrategy(Wait.forLogMessage("Ready to accept connections"))
-              .start();
-          ```
       - id: rust
         label: Rust
         code: |
           ```
           let docker = clients::Cli::default();
           let redis = docker.run(redis::Redis::default());
+          ```
+      - id: haskell
+        label: Haskell
+        code: |
+          ```
+          redis <-
+            run $
+              containerRequest (TestContainers.fromTag "redis:5.0.3-alpine")
+                & setExpose ["6379/tcp"]
+                & setWaitingFor (waitUntilMappedPortReachable "6379/tcp")
           ```
   - partial: icon-columns
     small_title: Use cases
@@ -100,15 +110,18 @@ sections:
       - logo: /images/language-logos/dotnet.svg
         label: .NET
         link: https://dotnet.testcontainers.org/
-      - logo: /images/language-logos/python.svg
-        label: Python
-        link: https://testcontainers-python.readthedocs.io/en/latest/
       - logo: /images/language-logos/nodejs.svg
         label: Node.js
         link: https://github.com/testcontainers/testcontainers-node/
+      - logo: /images/language-logos/python.svg
+        label: Python
+        link: https://testcontainers-python.readthedocs.io/en/latest/
       - logo: /images/language-logos/rust.svg
         label: Rust
         link: https://docs.rs/testcontainers/latest/testcontainers/
+      - logo: /images/language-logos/haskell.svg
+        label: Haskell
+        link: https://github.com/testcontainers/testcontainers-hs
   - partial: company-logos
     small_title: Industry standard
     title: Companies using Testcontainers
