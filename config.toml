@@ -12,3 +12,18 @@ disableKinds = ['RSS', 'taxonomy', 'term']
 
 [minify]
     minifyOutput = true
+
+[markup]
+    [markup.asciidocExt]
+        [markup.asciidocExt.attributes]
+            allow-uri-read = ""
+
+[security]
+    enableInlineShortcodes = false
+
+[security.exec]
+    allow = ['^asciidoctor$']
+
+[security.http]
+    methods = ['(?i)GET|POST']
+    urls = ['.*']
