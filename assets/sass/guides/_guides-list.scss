@@ -1,0 +1,22 @@
+.guides-list {
+    padding: 60px 0;
+
+    @media (min-width: 780px) {
+        padding: 60px 0;
+    }
+
+    .guides-list-items {
+        display: grid;
+        gap: 72px;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .guides-search-empty {
+        text-align: center;
+        display: none;
+
+        &.show {
+            display: block;
+        }
+    }
+}
