@@ -1,5 +1,9 @@
 .guide-content {
-    padding: 10px 0 100px 0;
+    padding: 10px 0 60px 0;
+
+    @media (min-width: 500px) {
+        padding: 10px 0 100px 0;  
+    }
 
     .content {
         max-width: 900px;
