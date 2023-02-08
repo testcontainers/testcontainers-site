@@ -1,0 +1,76 @@
+.guide-header {
+    padding: 70px 0 40px 0;
+
+    @media (min-width: 500px) {
+        padding: 88px 0 40px 0;
+    }
+
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    aside {
+        width: 100%;
+    }
+
+    .back-link {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        text-decoration: none;
+        font-weight: 600;
+
+        svg {
+            transform: rotate(90deg);
+        } 
+    }
+    
+    h1 {
+        max-width: 600px;
+        margin: 0;
+    }
+
+    .github-link {
+        display: flex;
+        width: max-content;
+        align-items: center;
+        gap: 10px;
+        border: 1px solid $mist;
+        border-radius: 6px;
+        padding: 10px;
+        text-decoration: none;
+        color: $eggplant;
+        font-weight: 500;
+        transition: 
+            color 0.2s ease,
+            background 0.2s ease;
+
+        @media (min-width: 650px) {  
+            padding: 20px 30px;
+        }
+
+        .icon-external {
+            height: rem(10px);
+            flex-shrink: 0;
+            color: $fog;
+            margin-left: auto;
+
+            @media (min-width: 600px) {
+                height: rem(15px);
+            }
+        } 
+
+        &:hover {
+            color: $topaz;
+            background: rgba($catskill, 0.45);
+
+            .icon-external {
+                color: $topaz;
+            }
+        }
+    }
+}

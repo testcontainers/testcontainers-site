@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en-us">
-    {{- partial "head.html" . -}}
+    <head>
+        {{- partial "head.html" . -}}
+        {{- block "pageScripts" . }}{{- end }}
+    </head>
     <body>
         <script>
             // Allow graceful fallback when js disabled via css.
