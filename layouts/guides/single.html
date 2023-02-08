@@ -1,5 +1,9 @@
 {{ define "pageScripts" }}
-{{ $script := resources.Get "/js/prism.js" }}
+{{ $style := resources.Get "/sass/guides.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
+<link rel="stylesheet" href="{{ $style.RelPermalink }}">
+
+<script src="/js/highlight.min.js"></script>
+{{ $script := resources.Get "/js/guide.js" | js.Build | resources.Minify }}
 <script src="{{ $script.RelPermalink }}" defer></script>
 {{ end }}
 

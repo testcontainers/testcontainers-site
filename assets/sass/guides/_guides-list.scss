@@ -11,6 +11,12 @@
         grid-template-columns: repeat(2, 1fr);
     }
 
+    .guides-list-item {
+        .description {
+            margin-top: 20px;
+        }
+    }
+
     .guides-search-empty {
         text-align: center;
         display: none;

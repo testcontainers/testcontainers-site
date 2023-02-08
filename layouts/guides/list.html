@@ -1,4 +1,7 @@
 {{ define "pageScripts" }}
+{{ $style := resources.Get "/sass/guides.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
+<link rel="stylesheet" href="{{ $style.RelPermalink }}">
+
 {{ $script := resources.Get "/js/guides.js" | js.Build | resources.Minify }}
 <script src="{{ $script.RelPermalink }}" defer></script>
 {{ end }}
@@ -23,7 +26,7 @@
             {{ range .Paginator.Pages }}
               <article class="guides-list-item" data-search='{{ dict "title" .Title "description" .Description | jsonify }}'>
                 <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-                {{ .Description }}
+                {{ if .Description }}<div class="description">{{ .Description }}</div>{{ end }}
               </article>
             {{ end }}
           </div>
