@@ -50,6 +50,17 @@ h2 {
     } 
 }
 
+h3 {
+    color: $eggplant;
+    font-size: rem(18px);
+    font-weight: 500;
+    margin: 0;
+
+    @media (min-width: 780px) {
+        font-size: rem(20px);
+    } 
+}
+
 .small-header {
     max-width: max-content;
     text-transform: uppercase;
