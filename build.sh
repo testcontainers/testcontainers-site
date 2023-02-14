@@ -4,6 +4,7 @@ echo "---------------- Downloading Guides -----------------------------"
 GIT_ORG="https://github.com/testcontainers"
 GUIDE_REPOS=(
   'tc-guide-introducing-testcontainers'
+  'tc-guide-testing-spring-boot-rest-api'
 )
 
 GUIDE_REPOS_CLONE_DIR="./guide-repos"
