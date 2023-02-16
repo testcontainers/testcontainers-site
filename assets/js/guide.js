@@ -21,3 +21,21 @@ hljs.addPlugin({
     },
 });
 hljs.highlightAll();
+
+const tocObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            document.querySelectorAll('#TableOfContents a').forEach((link) => {
+                link.classList.remove('current');
+            });
+            const id = entry.target.getAttribute("id");
+            const link = document.querySelector(`#TableOfContents a[href="#${id}"]`);
+            link.classList.add('current');
+        }
+    })
+}, {
+    rootMargin: '0px 0px -50% 0px'
+});
+document.querySelectorAll('#TableOfContents a').forEach((link) => {
+    tocObserver.observe(document.querySelector(link.hash));
+});

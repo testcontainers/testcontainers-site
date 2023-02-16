@@ -7,6 +7,10 @@
 @import "modern-normalize";
 @import "fonts";
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     color: $storm;
     font-family: 'Rubik', Arial, Helvetica, sans-serif;

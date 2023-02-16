@@ -5,9 +5,51 @@
         padding: 10px 0 100px 0;  
     }
 
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+
+        @media (min-width: 1024px) {
+            flex-direction: row-reverse;
+            justify-content: space-between;
+        }
+    }
+
     .content {
         max-width: 900px;
 
         @import "asciidoctor.scss";
+    }
+
+    .toc {
+        align-self: flex-start;
+        font-size: 15px;
+        flex: 0 0 auto;
+
+        @media (min-width: 1024px) {
+            position: sticky;
+            top: 20px;
+        }
+
+        a {
+            color: $eggplant;
+            font-weight: 500;
+            display: inline-block;
+            padding: 5px 0px 5px 10px;
+            text-decoration: none;
+            border-left: 4px solid $mist;
+            transition: border-color 0.3s ease;
+
+            &.current {
+                @media (min-width: 1024px) {
+                    border-color: $aqua;
+                }
+            }
+
+            &:hover {
+                color: $aqua;
+            }
+        }
     }
 }
