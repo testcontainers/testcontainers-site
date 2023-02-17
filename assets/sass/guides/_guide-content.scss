@@ -17,7 +17,7 @@
     }
 
     .content {
-        max-width: 900px;
+        max-width: 820px;
 
         @import "asciidoctor.scss";
     }
@@ -30,6 +30,7 @@
         @media (min-width: 1024px) {
             position: sticky;
             top: 20px;
+            width: 320px;
         }
 
         a {
@@ -38,7 +39,9 @@
             text-decoration: none;
             transition: border-color 0.3s ease;
             color: $storm;
-            padding: 5px 0px 5px 20px;
+            padding: 8px 0px 8px 20px;
+            line-height: 1.125;
+            word-break: break-word;
 
             &:hover {
                 color: $aqua;
@@ -54,7 +57,7 @@
         nav > ul > li > a {
             color: $eggplant;
             font-weight: 500;
-            padding: 5px 0px 5px 10px;
+            padding: 8px 0px 8px 10px;
         }
     }
 }
