@@ -33,23 +33,28 @@
         }
 
         a {
-            color: $eggplant;
-            font-weight: 500;
             display: inline-block;
-            padding: 5px 0px 5px 10px;
-            text-decoration: none;
             border-left: 4px solid $mist;
+            text-decoration: none;
             transition: border-color 0.3s ease;
+            color: $storm;
+            padding: 5px 0px 5px 20px;
+
+            &:hover {
+                color: $aqua;
+            }
 
             &.current {
                 @media (min-width: 1024px) {
                     border-color: $aqua;
                 }
             }
+        }
 
-            &:hover {
-                color: $aqua;
-            }
+        nav > ul > li > a {
+            color: $eggplant;
+            font-weight: 500;
+            padding: 5px 0px 5px 10px;
         }
     }
 }
