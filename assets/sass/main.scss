@@ -7,6 +7,10 @@
 @import "modern-normalize";
 @import "fonts";
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     color: $storm;
     font-family: 'Rubik', Arial, Helvetica, sans-serif;
@@ -47,6 +51,17 @@ h2 {
 
     @media (min-width: 780px) {
         font-size: rem(24px);
+    } 
+}
+
+h3 {
+    color: $eggplant;
+    font-size: rem(18px);
+    font-weight: 500;
+    margin: 0;
+
+    @media (min-width: 780px) {
+        font-size: rem(20px);
     } 
 }
 

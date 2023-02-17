@@ -1,0 +1,44 @@
+{{ define "pageScripts" }}
+{{ $style := resources.Get "/sass/guides.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
+<link rel="stylesheet" href="{{ $style.RelPermalink }}">
+
+<script src="/js/highlight.min.js"></script>
+{{ $script := resources.Get "/js/guide.js" | js.Build | resources.Minify }}
+<script src="{{ $script.RelPermalink }}" defer></script>
+{{ end }}
+
+{{ define "main" }}
+  <main>
+    <article>
+      <header class="guide-header">
+        <div class="container">
+          <aside>
+            <a href="/guides" class="back-link">{{ partial "svgs/caret" }}Guides</a>
+          </aside>
+          <h1>
+            {{ .Title }}
+          </h1>
+          {{ if .Params.Repo }}
+            <a class="github-link" href="{{ .Params.Repo }}" target="_blank">
+              {{ partial "svgs/github" }}
+              Get the code
+              <svg class="icon-external" width="15" height="17" viewBox="0 0 15 17">
+                <use href="#icon-external"></use>
+              </svg>
+            </a>
+          {{ end }}
+        </div>
+      </header>
+      <div class="guide-content">
+        <div class="container">
+          <aside class="toc">
+            {{ .TableOfContents }}
+          </aside>
+          <div class="content">
+            {{- .Content -}}
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+{{ end }}

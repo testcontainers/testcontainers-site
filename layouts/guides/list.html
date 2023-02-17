@@ -1,0 +1,40 @@
+{{ define "pageScripts" }}
+{{ $style := resources.Get "/sass/guides.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
+<link rel="stylesheet" href="{{ $style.RelPermalink }}">
+
+{{ $script := resources.Get "/js/guides.js" | js.Build | resources.Minify }}
+<script src="{{ $script.RelPermalink }}" defer></script>
+{{ end }}
+
+{{ define "main" }}
+  <main>
+    <section class="guides-banner">
+        <div class="container">
+          <div class="content">
+            <h1>{{ .Title }}</h1>
+            <div class="description">{{ .Description | markdownify }}</div>
+            <div class="search">
+              <input id="guides-search" type="text" placeholder="Search"/>
+            </div>
+          </div>
+        </div>
+    </section>
+    <section class="guides-list">
+      <div class="container">
+        <div class="content">
+          <div class="guides-list-items">
+            {{ range .Paginator.Pages }}
+              <article class="guides-list-item" data-search='{{ dict "title" .Title "description" .Description | jsonify }}'>
+                <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+                {{ if .Description }}<div class="description">{{ .Description }}</div>{{ end }}
+              </article>
+            {{ end }}
+          </div>
+          <div class="guides-search-empty">
+            No search results
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+{{ end }}
