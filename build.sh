@@ -17,7 +17,7 @@ for repo_name in "${GUIDE_REPOS[@]}"; do
   echo "Cloning ${GIT_ORG}/${repo_name}.git"
   git clone "${GIT_ORG}/${repo_name}.git" "${GUIDE_REPOS_CLONE_DIR}/${repo_name}/"
   rm -rf "${GUIDES_TARGET_DIR:?}/${repo_name}"
-  cp -r "${GUIDE_REPOS_CLONE_DIR}/${repo_name}/guide/" "${GUIDES_TARGET_DIR}"
+  cp -r "${GUIDE_REPOS_CLONE_DIR}/${repo_name}/guide/." "${GUIDES_TARGET_DIR}"
 done
 echo "------------------Guides Setup Completed ---------------------------"
 
