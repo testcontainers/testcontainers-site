@@ -13,7 +13,7 @@
 - id: nodejs
   label: Node.js
   logo: /images/language-logos/nodejs.svg
-  link: https://github.com/testcontainers/testcontainers-node
+  link: https://node.testcontainers.org/
 - id: python
   label: Python
   logo: /images/language-logos/python.svg

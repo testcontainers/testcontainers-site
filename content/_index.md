@@ -112,7 +112,7 @@ sections:
         link: https://dotnet.testcontainers.org/
       - logo: /images/language-logos/nodejs.svg
         label: Node.js
-        link: https://github.com/testcontainers/testcontainers-node/
+        link: https://node.testcontainers.org/
       - logo: /images/language-logos/python.svg
         label: Python
         link: https://testcontainers-python.readthedocs.io/en/latest/
