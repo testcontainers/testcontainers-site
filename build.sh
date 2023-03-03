@@ -5,6 +5,7 @@ GIT_ORG="https://github.com/testcontainers"
 GUIDE_REPOS=(
   'tc-guide-introducing-testcontainers'
   'tc-guide-testing-spring-boot-rest-api'
+  'tc-guide-testcontainers-lifecycle'
 )
 
 GUIDE_REPOS_CLONE_DIR="./guide-repos"
