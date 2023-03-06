@@ -17,6 +17,7 @@ disableKinds = ['RSS', 'taxonomy', 'term']
     [markup.asciidocExt]
         [markup.asciidocExt.attributes]
             allow-uri-read = ""
+            icons = "font"
 
 [security]
     enableInlineShortcodes = false
