@@ -7,7 +7,15 @@
 
     h1,
     .description {
-        max-width: 600px;
+        max-width: 1024px;
+    }
+
+    .description {
+        font-size: rem(16px);
+
+        @media (min-width: 500px) {
+            font-size: rem(24px);
+        }
     }
 
     .search {
@@ -18,7 +26,7 @@
             border: 1px solid $fog;
             border-radius: 3px;
             width: 100%;
-            max-width: 600px;
+            max-width: 610px;
         }
     }
 }
