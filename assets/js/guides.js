@@ -9,7 +9,7 @@ const guides = [];
 
 allGuides.forEach((guide) => guides.push({ element: guide, data: JSON.parse(guide.dataset.search) }));
 
-const fuse = new Fuse(guides, { keys: ['data.title', 'data.description', 'data.languages'], ignoreLocation: true });
+const fuse = new Fuse(guides, { keys: ['data.title', 'data.description', 'data.languages', 'data.tags'], ignoreLocation: true });
 
 function showSearchResults(searchTerm) {
     if (!searchTerm) {

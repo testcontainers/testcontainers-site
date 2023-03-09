@@ -24,7 +24,7 @@
         <div class="content">
           <div class="guides-list-items">
             {{ range .Paginator.Pages }}
-              <a href="{{ .RelPermalink }}" class="guides-list-item" data-search='{{ dict "title" .Title "description" .Description "languages" .Params.Languages | jsonify }}'>       
+              <a href="{{ .RelPermalink }}" class="guides-list-item" data-search='{{ dict "title" .Title "description" .Description "languages" .Params.Languages "tags" .Params.Tags | jsonify }}'>       
                 <h2>{{ .Title }}</h2>
                 {{ if .Description }}
                   <div class="description">{{ .Description }}</div>
