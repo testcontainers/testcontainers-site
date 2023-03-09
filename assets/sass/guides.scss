@@ -1,7 +1,12 @@
 @import "variables";
 
+@function rem($px) {
+    @return ($px / 16px) * 1rem;
+}
+
 @import "guides/guide-content";
 @import "guides/guide-header";
 @import "guides/guides-banner";
 @import "guides/guides-list";
 @import "guides/highlight";
+@import "guides/tag-list";

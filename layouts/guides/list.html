@@ -24,10 +24,22 @@
         <div class="content">
           <div class="guides-list-items">
             {{ range .Paginator.Pages }}
-              <article class="guides-list-item" data-search='{{ dict "title" .Title "description" .Description | jsonify }}'>
-                <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-                {{ if .Description }}<div class="description">{{ .Description }}</div>{{ end }}
-              </article>
+              <a href="{{ .RelPermalink }}" class="guides-list-item" data-search='{{ dict "title" .Title "description" .Description "languages" .Params.Languages | jsonify }}'>       
+                <h2>{{ .Title }}</h2>
+                {{ if .Description }}
+                  <div class="description">{{ .Description }}</div>
+                {{ end }}
+                {{ if or (.GetTerms "languages") (.GetTerms "tags") }}
+                  <ul class="tag-list">
+                    {{ range (.GetTerms "languages") }}
+                        <li class="tag language">{{ .Title }}</li>
+                    {{ end }}
+                    {{ range (.GetTerms "tags") }}
+                        <li class="tag">{{ .Title }}</li>
+                    {{ end }}
+                  </ul>
+                {{ end }}
+              </a>
             {{ end }}
           </div>
           <div class="guides-search-empty">

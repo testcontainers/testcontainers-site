@@ -28,6 +28,12 @@
             transform: rotate(90deg);
         } 
     }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
     
     h1 {
         max-width: 880px;

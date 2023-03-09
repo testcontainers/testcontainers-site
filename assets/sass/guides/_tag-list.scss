@@ -1,0 +1,22 @@
+.tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    .tag {
+        padding: 5px 16px;
+        background: $plum;
+        color: $catskill;
+        border-radius: 1000px;
+        font-size: rem(12px);
+        font-weight: 500;
+
+        @media (min-width: 500px) {
+            font-size: rem(16px);
+        }
+
+        &.language {
+            background: $violet;
+        }
+    }
+}
