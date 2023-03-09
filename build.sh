@@ -6,7 +6,7 @@ GUIDE_REPOS=(
   'tc-guide-introducing-testcontainers'
   'tc-guide-testing-spring-boot-rest-api'
   'tc-guide-testcontainers-lifecycle'
-  'tc-guide-configuring-application-dependencies'
+  'tc-guide-configuration-of-services-running-in-container'
 )
 
 GUIDE_REPOS_CLONE_DIR="./guide-repos"
