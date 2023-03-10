@@ -15,9 +15,21 @@
           <aside>
             <a href="/guides" class="back-link">{{ partial "svgs/caret" }}Guides</a>
           </aside>
-          <h1>
-            {{ .Title }}
-          </h1>
+          <div class="content">
+            <h1>
+              {{ .Title }}
+            </h1>
+            {{ if or (.GetTerms "languages") (.GetTerms "tags") }}
+              <ul class="tag-list">
+                {{ range (.GetTerms "languages") }}
+                    <li class="tag language">{{ .Title }}</li>
+                {{ end }}
+                {{ range (.GetTerms "tags") }}
+                    <li class="tag">{{ .Title }}</li>
+                {{ end }}
+              </ul>
+            {{ end }}
+          </div>
           {{ if .Params.Repo }}
             <a class="github-link" href="{{ .Params.Repo }}" target="_blank">
               {{ partial "svgs/github" }}

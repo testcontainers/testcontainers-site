@@ -2,10 +2,14 @@ baseURL = 'https://testcontainers.com'
 languageCode = 'en-us'
 title = 'Testcontainers'
 
-disableKinds = ['RSS', 'taxonomy', 'term']
+disableKinds = ['RSS']
 
 [params]
     Description = 'Testcontainers is an opensource framework for providing lightweight, throwaway instances of common databases, Selenium web browsers, or anything else that can run in a Docker container.'
+
+[taxonomies]
+  language = 'languages'
+  tag = 'tags'
 
 [markup.goldmark.renderer]
     hardWraps = true
