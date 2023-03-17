@@ -7,6 +7,7 @@ GUIDE_REPOS=(
   'tc-guide-testing-spring-boot-rest-api'
   'tc-guide-testcontainers-lifecycle'
   'tc-guide-configuration-of-services-running-in-container'
+  'tc-guide-replace-h2-with-real-database-for-testing'
 )
 
 GUIDE_REPOS_CLONE_DIR="./guide-repos"
