@@ -1064,10 +1064,10 @@ table.tableblock #preamble>.sectionbody>[class="paragraph"]:first-of-type p {
     font-size: .8125em
 }
 
-.literalblock pre.nowrap,
-.literalblock pre[class].nowrap,
-.listingblock pre.nowrap,
-.listingblock pre[class].nowrap {
+.literalblock pre.nowrap code,
+.literalblock pre[class].nowrap code,
+.listingblock pre.nowrap code,
+.listingblock pre[class].nowrap code {
     overflow-x: auto;
     white-space: pre;
     word-wrap: normal
