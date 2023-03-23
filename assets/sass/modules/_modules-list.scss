@@ -1,0 +1,212 @@
+.modules-list {
+    padding: 30px 0 60px 0;
+
+    @media (min-width: 500px) {
+        padding: 60px 0;
+    }
+
+    .container {
+        display: grid;
+        gap: 40px;
+
+        @media (min-width: 780px) {
+            grid-template-columns: 300px 1fr;
+        }
+    }
+
+    .filter {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .status-filter {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }  
+
+    .language-filter {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .category-filter {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .checkbox {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        cursor: pointer;
+
+        span {
+            font-weight: 500;
+            color: $smoke;
+        }
+
+        &:hover {
+            span {
+                color: $eggplant
+            }
+            .checkbox-proxy {
+                border-color: $aqua;
+            }
+        }
+    }
+
+    .checkbox-proxy {
+        padding: 5px;
+        border: 2px solid $fog;
+        border-radius: 6px;
+
+        svg {
+            fill: $catskill;
+            display: block;
+            opacity: 0;
+        }
+    }
+
+    input[type=checkbox]:focus-visible ~ .checkbox {
+        .checkbox-proxy {
+            outline: 2px solid #000;
+        }
+    }
+
+    input[type=checkbox]:checked ~ .checkbox {
+        .checkbox-proxy {
+            background: $aqua;
+            border-color: $aqua;
+
+            svg  {
+                opacity: 1;
+            }
+        }
+    }
+
+    .content {
+
+    }
+
+    .modules-list-items {
+        display: grid;
+        gap: 20px;
+
+        @media (min-width: 700px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (min-width: 780px) {
+            grid-template-columns: 1fr;
+        }
+
+        @media (min-width: 1080px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    .modules-list-item {
+        border: 1px solid $mist;
+        border-radius: 6px;
+        padding: 20px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+        text-decoration: none;
+        color: inherit;
+        transition: background-color 0.2s ease;
+        overflow: hidden;
+
+        &:hover {
+            background: rgba($catskill, 0.45);
+
+            h2 {
+                color: $topaz;
+            }
+
+            .language {
+                background: $mist;
+            }
+        }
+
+        img {
+            width: 60px;
+            height: 60px;
+        }
+
+        .modules-list-item-content {
+            display: flex;
+            flex-direction: column;
+            //align-items: center;
+            gap: 5px;
+            flex-grow: 1;
+        }
+
+        .title {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 10px;
+            overflow: hidden;
+        }
+
+        h2 {
+            line-height: 1;
+            font-size: rem(20px);
+            transition: color 0.2s ease;
+            text-align: left;
+            flex-shrink: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            flex-shrink: 1;
+        }
+
+        .official {
+            padding: 5px 8px;
+            background: $violet;
+            color: $catskill;
+            border-radius: 1000px;
+            font-size: rem(10px);
+            letter-spacing: 0.04em;
+            font-weight: 500;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+
+        div {
+            text-align: left;
+        }
+
+        .description {
+        }
+
+        .languages {
+            display: flex;
+            gap: 5px;
+            margin-top: 10px;
+        }
+
+        .language {
+            padding: 5px 10px;
+            background: $catskill;
+            color: $eggplant;
+            font-size: rem(12px);
+            border-radius: 1000px;
+            transition: background-color 0.2s ease;
+        }
+    }
+
+    .modules-filter-empty {
+        text-align: center;
+        display: none;
+
+        &.show {
+            display: block;
+        }
+    }
+}

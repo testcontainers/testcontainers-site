@@ -1,0 +1,98 @@
+.module-header {
+    padding: 70px 0 20px 0;
+
+    @media (min-width: 680px) {
+        padding: 88px 0 40px 0;
+    }
+
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    aside {
+        width: 100%;
+    }
+
+    .back-link {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        text-decoration: none;
+        font-weight: 600;
+
+        svg {
+            transform: rotate(90deg);
+        } 
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .banner-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+
+        @media (min-width: 680px) {
+            flex-direction: row;
+        }
+    }
+
+    img {
+        width: 50px;
+        height: 50px;
+
+        @media (min-width: 680px) {
+            width: 100px;
+        height: 100px;
+        }
+    }
+
+    .banner {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .title {
+        display: flex;
+        gap: 20px;
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+    
+    h1 {
+        max-width: 880px;
+        margin: 0;
+        font-size: rem(36px);
+    }
+
+    .official {
+        background: $violet;
+        color: $catskill;
+        font-weight: 500;
+        font-size: rem(16px);
+        padding: 6px 15px;
+        border-radius: 1000px;
+    }
+
+    .languages {
+        display: flex;
+        gap: 5px;
+    }
+
+    .language {
+        padding: 5px 10px;
+        background: $catskill;
+        color: $eggplant;
+        font-size: rem(14px);
+        border-radius: 1000px;
+    }
+}

@@ -1,0 +1,28 @@
+.modules-banner {
+    padding: 70px 0 40px 0;
+
+    @media (min-width: 500px) {
+        padding: 88px 0 0 0;
+    }
+
+    h1 {
+        max-width: 1024px;
+    }
+
+    .description {
+        max-width: 600px;
+        font-size: rem(18px);
+    }
+
+    .search {
+        margin-top: 40px;
+
+        input {
+            padding: 15px 20px;
+            border: 1px solid $fog;
+            border-radius: 3px;
+            width: 100%;
+            max-width: 610px;
+        }
+    }
+}

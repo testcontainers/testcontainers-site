@@ -1,0 +1,87 @@
+{{ define "pageScripts" }}
+    {{ $style := resources.Get "/sass/modules.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
+    <link rel="stylesheet" href="{{ $style.RelPermalink }}">
+{{ end }}
+
+{{ define "main" }}
+  <main>
+    <article>
+      <header class="module-header">
+        <div class="container">
+          <aside>
+            <a href="/modules" class="back-link">{{ partial "svgs/caret" }}Modules</a>
+          </aside>
+          <div class="content">
+            <div class="banner-wrapper">
+              {{ partial "img.html" (dict "image" (resources.Get .Params.Logo) "alt" "") }}
+              <div class="banner">
+                <div class="title">
+                  <h1>
+                    {{ .Title }}
+                  </h1>
+                  {{ if .Params.isOfficial }}
+                    <div class="official">Official</div>
+                  {{ end }}
+                </div>
+                {{ if .GetTerms "categories" }}
+                  <div>
+                    {{ range (.GetTerms "categories") }}
+                      <div class="category">{{ .Title }}</div>
+                    {{ end }}
+                  </div>
+                {{ end }}
+                {{ if or (.GetTerms "languages") (.GetTerms "tags") }}
+                  <ul class="languages">
+                    {{ range (.GetTerms "languages") }}
+                        <li class="language">{{ .Title }}</li>
+                    {{ end }}
+                  </ul>
+                {{ end }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="module-content">
+        <div class="container">
+            <div class="sidebar">
+              <div>
+                <h2>Documentation</h2>
+                {{ $docs := .Params.Docs }}
+                {{ range .Site.Data.languages }}
+                  {{ if isset $docs .id }}
+                    {{ $lang := index $docs .id }}
+                    <a href="{{ $lang.url }}" target="_blank">
+                      {{ partial "img.html" (dict "image" (resources.Get .logo) "alt" "") }}
+                      {{ .label }}
+                      {{ if $lang.isThirdParty }}
+                        <div class="third-party">3<sup>rd</sup> Party</div>
+                      {{ end }}
+                      <svg class="icon-external" width="15" height="17" viewBox="0 0 15 17">
+                          <use href="#icon-external"></use>
+                      </svg>
+                    </a>
+                  {{ end }}
+                {{end}} 
+              </div>
+              {{ if .Params.isOfficial }}
+                <div class="disclaimer">  
+                  <h2>About Official Modules</h2>
+                  <div>Testcontainers partners with software developers to make testing effortless.</div>
+                </div>
+              {{ end }}
+              {{ if .Params.isThirdParty }}
+                <div class="disclaimer">  
+                  <h2>About 3<sup>rd</sup> Party Modules</h2>
+                  <div>These are implementations of modules that are maintained outside of the Testcontainers project.</div>
+                </div>
+              {{ end }}
+            </div>
+            <div class="description">
+              {{ .Description | markdownify }}
+            </div>
+        </div>
+      </div>
+    </article>
+  </main>
+{{ end }}

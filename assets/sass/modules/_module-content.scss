@@ -1,0 +1,108 @@
+.module-content {
+    padding: 50px 0 100px 0;
+
+    @media (min-width: 680px) {
+        padding: 20px 0 50px 0;
+    }
+
+    .container {
+        display: grid;
+        gap: 50px;
+
+        @media (min-width: 1024px) {
+            gap: 100px;
+            grid-template-columns: 300px 1fr;
+        }
+    }
+
+    .sidebar {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+
+        > div {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        } 
+
+        a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid $mist;
+            border-radius: 6px;
+            padding: 10px;
+            text-decoration: none;
+            color: $eggplant;
+            font-weight: 500;
+            transition: 
+                color 0.2s ease,
+                background 0.2s ease;
+
+            @media (min-width: 650px) {  
+                padding: 10px 15px;
+            }
+
+            .third-party {
+                font-size: rem(14px);
+                padding: 3px 15px;
+                background: $teal;
+                color: $catskill;
+                border-radius: 1000px;
+            }
+
+            .icon-external {
+                height: rem(10px);
+                flex-shrink: 0;
+                color: $fog;
+                margin-left: auto;
+
+                @media (min-width: 600px) {
+                    height: rem(15px);
+                }
+            } 
+
+            &:hover {
+                color: $topaz;
+                background: rgba($catskill, 0.45);
+
+                .icon-external {
+                    color: $topaz;
+                }
+            }
+        }
+    }
+
+    .description {
+        overflow: hidden;
+
+        h2 {
+            font-size: rem(37px);
+            margin: 0.83em 0;
+
+            &:first-child {
+                margin-top: 0;
+            }
+        }
+
+        pre {
+            position: relative;
+            overflow: hidden;
+        }
+    
+        code {
+            display: block;
+            overflow-x: auto;
+            font-family: "Roboto Mono", 'Courier New', Courier, monospace;
+            background: $plum;
+            color: $catskill;
+            padding: 20px;
+            border-radius: 6px;
+    
+            @media (min-width: 500px) {
+                padding: 40px;
+            }
+        }
+    }
+}
