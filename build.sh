@@ -23,6 +23,12 @@ for repo_name in "${GUIDE_REPOS[@]}"; do
   rm -rf "${GUIDES_TARGET_DIR:?}/${repo_name}"
   cp -r "${GUIDE_REPOS_CLONE_DIR}/${repo_name}/guide/." "${GUIDES_TARGET_DIR}"
 done
+
+echo "Cloning ${GIT_ORG}/tc-guide-getting-started-with-testcontainers-for-java.git"
+git clone -b generic-tc-intro "${GIT_ORG}/tc-guide-getting-started-with-testcontainers-for-java.git" "${GUIDE_REPOS_CLONE_DIR}/tc-guide-getting-started-with-testcontainers-for-java/"
+rm -rf "${GUIDES_TARGET_DIR:?}/tc-guide-getting-started-with-testcontainers-for-java"
+cp -r "${GUIDE_REPOS_CLONE_DIR}/tc-guide-getting-started-with-testcontainers-for-java/guide/." "${GUIDES_TARGET_DIR}"
+
 echo "------------------Guides Setup Completed ---------------------------"
 
 # output some version numbers:
