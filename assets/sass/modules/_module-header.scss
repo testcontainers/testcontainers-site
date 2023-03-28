@@ -115,7 +115,11 @@
         padding: 5px 10px;
         background: $catskill;
         color: $eggplant;
-        font-size: rem(14px);
+        font-size: rem(10px);
         border-radius: 1000px;
+
+        @media (min-width: 500px) {
+            font-size: rem(12px);
+        }
     }
 }

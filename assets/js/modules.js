@@ -4,6 +4,7 @@ const filterEmpty = document.querySelector('.modules-filter-empty');
 const clearFilter = document.getElementById('clear-filter');
 const inputs = document.querySelectorAll(`.filter-input`);
 const search = document.getElementById('modules-search');
+const filterToggle = document.getElementById('filter-toggle');
 
 const modules = [];
 all.forEach((module) => modules.push({ element: module, data: JSON.parse(module.dataset.filter) }));
@@ -63,8 +64,13 @@ function clearTheFilter() {
     showFilterResults();
 }
 
+function handleFilterToggle() {
+    document.body.classList.toggle('filter-toggled');
+}
+
 inputs.forEach((input) => {
     input.addEventListener('change', showFilterResults);
 })
 search.addEventListener('keyup', showFilterResults);
 clearFilter.addEventListener('click', clearTheFilter);
+filterToggle.addEventListener('click', handleFilterToggle)

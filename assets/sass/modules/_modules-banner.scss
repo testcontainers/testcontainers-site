@@ -11,13 +11,21 @@
 
     .description {
         max-width: 900px;
-        font-size: rem(24px);
+        font-size: rem(16px);
+
+        @media (min-width: 780px) {
+            font-size: rem(24px);
+        }
     }
 
     .search {
         margin-top: 40px;
         display: flex;
-        gap: 20px;
+        gap: 10px;
+
+        @media (min-width: 780px) {
+            gap: 20px;
+        }
 
         input {
             padding: 15px 20px;
@@ -32,7 +40,7 @@
         border: 2px solid $plum;
         background: none;
         color: $plum;
-        padding: 10px 20px;
+        padding: 12px 20px;
         border-radius: 3px;
         flex-shrink: 0;
         cursor: pointer;
@@ -48,6 +56,25 @@
             background: none;
             color: $fog;
             cursor: not-allowed;
+        }
+    }
+
+    #filter-toggle {
+        border: 2px solid $topaz;
+        background: none;
+        color: $topaz;
+        padding: 12px;
+        border-radius: 3px;
+        flex-shrink: 0;
+        cursor: pointer;
+
+        @media (min-width: 500px) {
+            display: none;
+        }
+
+        .filter-toggled & {
+            background: $topaz;
+            color: #fff;
         }
     }
 }
