@@ -4,6 +4,7 @@ echo "---------------- Downloading Guides -----------------------------"
 GIT_ORG="https://github.com/testcontainers"
 GUIDE_REPOS=(
   'tc-guide-introducing-testcontainers'
+  'tc-guide-getting-started-with-testcontainers-for-java'
   'tc-guide-testing-spring-boot-rest-api'
   'tc-guide-testcontainers-lifecycle'
   'tc-guide-configuration-of-services-running-in-container'
