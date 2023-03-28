@@ -6,8 +6,9 @@ docs:
   - id: java
     url: https://www.testcontainers.org/modules/databases/presto/
     example: |
-      ```
+      ```java
+      PrestoContainer presto = new PrestoContainer();
       ```
 description: |
-  What is this
+  Presto is a distributed query engine for big data using the SQL query language. Its architecture allows users to query data sources such as Hadoop, Cassandra, Kafka, AWS S3, Alluxio, MySQL, MongoDB and Teradata, and allows use of multiple data sources within a query.
 ---

@@ -7,8 +7,9 @@ docs:
     url: https://github.com/dajudge/kindcontainer
     isThirdParty: true
     example: |
-      ```
+      ```java
+      KindContainer<?> KUBE = new KindContainer<>();
       ```
 description: |
-  What is this
+  Kindcontainer provides ephemeral Kubernetes clusters for integration testing.
 ---

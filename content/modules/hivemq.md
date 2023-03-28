@@ -6,8 +6,10 @@ docs:
   - id: java
     url: https://www.testcontainers.org/modules/hivemq/
     example: |
-      ```
+      ```java
+      HiveMQContainer hivemqCe = new HiveMQContainer(DockerImageName.parse("hivemq/hivemq-ce")
+        .withTag("2021.3"))
       ```
 description: |
-  An MQTT broker
+  HiveMQ is an MQTT broker and a client based messaging platform designed for the fast, efficient and reliable movement of data to and from connected IoT devices.
 ---

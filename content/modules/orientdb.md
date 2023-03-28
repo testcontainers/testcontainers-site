@@ -5,10 +5,10 @@ categories:
 docs:
   - id: java
     url: https://www.testcontainers.org/modules/databases/orientdb/
-    isThirdParty: false
     example: |
-      ```
+      ```java
+      OrientDBContainer container = new OrientDBContainer();
       ```
 description: |
-  What is this
+  OrientDB is an open source NoSQL database management system. It is a Multi-model database, supporting graph, document, key/value, and object models, but the relationships are managed as in graph databases with direct connections between records.
 ---

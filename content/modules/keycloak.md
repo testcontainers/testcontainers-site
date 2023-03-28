@@ -7,8 +7,9 @@ docs:
     url: https://github.com/dasniko/testcontainers-keycloak
     isThirdParty: true
     example: |
-      ```
+      ```java
+      KeycloakContainer keycloak = new KeycloakContainer();
       ```
 description: |
-  What is this
+  Keycloak is an open source identity and access management application that provides user federation, strong authentication, user management, fine-grained authorization, and more.
 ---
