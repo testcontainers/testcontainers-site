@@ -8,6 +8,11 @@ docs:
     example: |
       ```
       ```
+  - id: go
+    url: https://golang.testcontainers.org/modules/vault/
+    example: |
+      ```
+      ```
 description: |
   A secure token vault
 ---

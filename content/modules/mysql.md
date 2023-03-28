@@ -8,6 +8,11 @@ docs:
     example: |
       ```
       ```
+  - id: go
+    url: https://golang.testcontainers.org/modules/mysql/
+    example: |
+      ```
+      ```
   - id: dotnet
     url: https://dotnet.testcontainers.org/modules/
     example: |
