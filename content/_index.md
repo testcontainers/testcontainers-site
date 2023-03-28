@@ -36,11 +36,8 @@ sections:
         label: .NET
         code: |
           ```
-          await new TestcontainersBuilder<RedisTestcontainer>()
-              .WithDatabase(new RedisTestcontainerConfiguration())
-              .Build()
-              .StartAsync()
-              .ConfigureAwait(false);
+          RedisContainer redisContainer = new RedisBuilder().Build();
+          await redisContainer.StartAsync();
           ```
       - id: nodejs
         label: Node.js
