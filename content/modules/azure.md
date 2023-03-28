@@ -1,17 +1,13 @@
 ---
 title: Azure
-logo: /images/modules/azure-mark.svg
-summary: The Microsoft Azure SDK
-isOfficial: false
-supportsTCC: true 
-categories: 
-    - cloud-platform
-languages:
-    - java
+categories:
+  - cloud-platform
 docs:
-    java:
-        url: https://www.testcontainers.org/modules/azure/
+  - id: java
+    url: https://www.testcontainers.org/modules/azure/
+    example: |
+      ```
+      ```
 description: |
-    ## Benefits
-    ## Examples
+  The Microsoft Azure SDK
 ---

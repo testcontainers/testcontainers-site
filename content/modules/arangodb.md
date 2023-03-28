@@ -1,22 +1,19 @@
 ---
 title: ArangoDB
-logo: /images/modules/arangodb-mark.svg
-summary: A database
-isOfficial: false
-supportsTCC: true 
-isThirdParty: true
 categories: 
-    - database
-languages:
-    - java
-    - nodejs
+  - database
 docs:
-    java:
-        url: https://github.com/GoodforGod/arangodb-testcontainers
-        isThirdParty: true
-    nodejs:
-        url: https://node.testcontainers.org/modules/arangodb/
+  - id: java
+    url: https://github.com/GoodforGod/arangodb-testcontainers
+    isThirdParty: true
+    example: |
+      ```
+      ```
+  - id: nodejs
+    url: https://node.testcontainers.org/modules/arangodb/
+    example: |
+      ```
+      ```
 description: |
-    ## Benefits
-    ## Examples
+  What is this
 ---

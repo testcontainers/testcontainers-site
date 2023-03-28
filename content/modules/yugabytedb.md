@@ -1,17 +1,15 @@
 ---
 title: YugabyteDB
-logo: /images/modules/yugabytedb-mark.svg
-summary: A cloud native database
 isOfficial: true
-supportsTCC: true 
-categories: 
-    - database
-languages:
-    - java
+categories:
+  - database
 docs:
-    java:
-        url: https://www.testcontainers.org/modules/databases/yugabytedb/
+  - id: java
+    url: https://www.testcontainers.org/modules/databases/yugabytedb/
+    isThirdParty: false
+    example: |
+      ```
+      ```
 description: |
-    ## Benefits
-    ## Examples
+  A cloud native database
 ---

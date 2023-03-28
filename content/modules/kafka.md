@@ -1,23 +1,23 @@
 ---
 title: Kafka
-logo: /images/modules/kafka-mark.svg
-summary: A distributed event streaming platform
-isOfficial: false
-supportsTCC: true 
-categories: 
-    - event-streaming
-languages:
-    - java
-    - dotnet
-    - nodejs
+categories:
+  - event-streaming
 docs:
-    java:
-        url: https://www.testcontainers.org/modules/kafka/
-    dotnet:
-        url: https://dotnet.testcontainers.org/modules/
-    nodejs:
-        url: https://node.testcontainers.org/modules/kafka/
+  - id: java
+    url: https://www.testcontainers.org/modules/kafka/
+    example: |
+      ```
+      ```
+  - id: dotnet
+    url: https://dotnet.testcontainers.org/modules/
+    example: |
+      ```
+      ```
+  - id: nodejs
+    url: https://node.testcontainers.org/modules/kafka/
+    example: |
+      ```
+      ```
 description: |
-    ## Benefits
-    ## Examples
+  A distributed event streaming platform
 ---

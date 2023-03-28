@@ -1,23 +1,24 @@
 ---
 title: Couchbase
-logo: /images/modules/couchbase-mark.svg
-summary: A document oriented NoSQL database
-isOfficial: false
-supportsTCC: true 
-categories: 
-    - database
-languages:
-    - java
-    - go
-    - dotnet
+isOfficial: true
+categories:
+  - database
 docs:
-    java:
-        url: https://www.testcontainers.org/modules/databases/couchbase/
-    go:
-        url: https://golang.testcontainers.org/modules/couchbase/
-    dotnet:
-        url: https://dotnet.testcontainers.org/modules/
+  - id: java
+    url: https://www.testcontainers.org/modules/databases/couchbase/
+    example: |
+      ```
+      ```
+  - id: go
+    url: https://golang.testcontainers.org/modules/couchbase/
+    example: |
+      ```
+      ```
+  - id: dotnet
+    url: https://dotnet.testcontainers.org/modules/
+    example: |
+      ```
+      ```
 description: |
-    ## Benefits
-    ## Examples
+  A document oriented NoSQL database
 ---

@@ -1,9 +1,14 @@
 {{ define "pageScripts" }}
     {{ $style := resources.Get "/sass/modules.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
     <link rel="stylesheet" href="{{ $style.RelPermalink }}">
+
+    <script src="/js/highlight.min.js"></script>
+    {{ $script := resources.Get "/js/guide.js" | js.Build | resources.Minify }}
+    <script src="{{ $script.RelPermalink }}" defer></script>
 {{ end }}
 
 {{ define "main" }}
+  {{ $langaugesData := .Site.Data.languages }}
   <main>
     <article>
       <header class="module-header">
@@ -13,14 +18,24 @@
           </aside>
           <div class="content">
             <div class="banner-wrapper">
-              {{ partial "img.html" (dict "image" (resources.Get .Params.Logo) "alt" "") }}
+              {{ $logoPath := printf "/images/modules/%s-mark.svg" .File.BaseFileName }}
+              {{ $logoImage := resources.Get $logoPath }}
+              {{ if $logoImage }}
+                {{ partial "img.html" (dict "image" $logoImage "alt" "") }}
+              {{ else }}
+                {{ partial "img.html" (dict "image" (resources.Get "/images/modules/none.svg") "alt" "") }}
+              {{ end }}
               <div class="banner">
                 <div class="title">
                   <h1>
                     {{ .Title }}
                   </h1>
                   {{ if .Params.isOfficial }}
-                    <div class="official">Official</div>
+                    <div class="official">
+                      <svg width="30" height="30" viewBox="0 0 30 30">
+                        <use href="#icon-award"></use>
+                      </svg>
+                    </div>
                   {{ end }}
                 </div>
                 {{ if .GetTerms "categories" }}
@@ -30,10 +45,12 @@
                     {{ end }}
                   </div>
                 {{ end }}
-                {{ if or (.GetTerms "languages") (.GetTerms "tags") }}
+                {{ if .Params.Docs }}
                   <ul class="languages">
-                    {{ range (.GetTerms "languages") }}
-                        <li class="language">{{ .Title }}</li>
+                    {{ range .Params.Docs }}
+                      {{ $language := where $langaugesData "id" .id }}
+                      {{ $lang := index $language 0 }}
+                      <li class="language">{{ $lang.label }}</li>
                     {{ end }}
                   </ul>
                 {{ end }}
@@ -47,39 +64,88 @@
             <div class="sidebar">
               <div>
                 <h2>Documentation</h2>
-                {{ $docs := .Params.Docs }}
-                {{ range .Site.Data.languages }}
-                  {{ if isset $docs .id }}
-                    {{ $lang := index $docs .id }}
-                    <a href="{{ $lang.url }}" target="_blank">
-                      {{ partial "img.html" (dict "image" (resources.Get .logo) "alt" "") }}
-                      {{ .label }}
-                      {{ if $lang.isThirdParty }}
-                        <div class="third-party">3<sup>rd</sup> Party</div>
-                      {{ end }}
-                      <svg class="icon-external" width="15" height="17" viewBox="0 0 15 17">
-                          <use href="#icon-external"></use>
+                {{ $thirdParyDocs := false }}
+                {{ range .Params.Docs }}
+                  {{ $language := where $langaugesData "id" .id }}
+                  {{ $lang := index $language 0 }}
+                  <a href="{{ .url }}" target="_blank">
+                    {{ with $lang.logo }}
+                      {{ partial "img.html" (dict "image" (resources.Get $lang.logo) "alt" "") }}
+                    {{ end }}
+                    {{ $lang.label }}
+                    {{ if .isThirdParty }}
+                      {{ $thirdParyDocs = true }}
+                      <svg class="icon-community" height="16" viewBox="0 0 40 32">
+                        <use href="#icon-community"></use>
                       </svg>
-                    </a>
-                  {{ end }}
+                    {{ end }}
+                    <svg class="icon-external" width="15" height="17" viewBox="0 0 15 17">
+                        <use href="#icon-external"></use>
+                    </svg>
+                  </a>
                 {{end}} 
               </div>
               {{ if .Params.isOfficial }}
                 <div class="disclaimer">  
-                  <h2>About Official Modules</h2>
+                  <h2>
+                    <svg class="icon-award" width="24" height="24" viewBox="0 0 30 30">
+                      <use href="#icon-award"></use>
+                    </svg> Official Modules</h2>
                   <div>Testcontainers partners with software developers to make testing effortless.</div>
                 </div>
               {{ end }}
-              {{ if .Params.isThirdParty }}
+
+              {{ if $thirdParyDocs }}
                 <div class="disclaimer">  
-                  <h2>About 3<sup>rd</sup> Party Modules</h2>
-                  <div>These are implementations of modules that are maintained outside of the Testcontainers project.</div>
+                  <h2>
+                    <svg class="icon-community" height="24" viewBox="0 0 40 32">
+                      <use href="#icon-community"></use>
+                    </svg> Community Modules</h2>
+                  <div>These modules are maintained by the community, outside of the Testcontainers project.</div>
                 </div>
               {{ end }}
             </div>
             <div class="description">
-              {{ .Description | markdownify }}
-            </div>
+              {{ if .Description }}
+                <div class="section">
+                  <h2>Description</h2>
+                  {{ .Description | markdownify }}
+                </div>
+              {{ end }}
+              {{ if .Params.Docs }}
+                <div class="section">
+                  <h2>Examples</h2>
+                  <div class="code-examples examples">
+                    <div class="tab-labels">
+                      {{ range $index, $doc := .Params.Docs }}
+                        {{ $language := where $langaugesData "id" $doc.id }}
+                        {{ $lang := index $language 0 }}
+                        {{ if eq $index 0 }}
+                          <button class="active" data-target="{{ $doc.id }}">{{ $lang.label }}</button>
+                        {{ else }}
+                          <button data-target="{{ $doc.id }}">{{ $lang.label }}</button>
+                        {{ end }}
+                      {{ end }}
+                    </div>
+                    <div class="tab-panels">
+                      {{ range $index, $doc := .Params.Docs }}
+                        {{ $language := where $langaugesData "id" $doc.id }}
+                        {{ $lang := index $language 0 }}
+                        {{ if eq $index 0 }}
+                          <div class="tab-panel active" data-id="{{ $doc.id }}">
+                            {{ $doc.example | markdownify }}
+                          </div>
+                        {{ else }}
+                          <div class="tab-panel" data-id="{{ $doc.id }}">
+                            {{ $doc.example | markdownify }}
+                          </div>
+                        {{ end }}
+                      {{ end }}
+                    </div>
+                  </div>
+                </div>
+              {{ end }}
+          </div>
         </div>
       </div>
     </article>

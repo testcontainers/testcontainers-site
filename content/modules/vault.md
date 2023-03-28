@@ -1,17 +1,13 @@
 ---
 title: Vault
-logo: /images/modules/vault-mark.svg
-summary: A secure token vault
-isOfficial: false
-supportsTCC: true 
-categories: 
-    - secret-store
-languages:
-    - java
+categories:
+  - secret-store
 docs:
-    java:
-        url: https://www.testcontainers.org/modules/vault/
+  - id: java
+    url: https://www.testcontainers.org/modules/vault/
+    example: |
+      ```
+      ```
 description: |
-    ## Benefits
-    ## Examples
+  A secure token vault
 ---

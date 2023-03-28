@@ -1,4 +1,4 @@
 ---
-title: .Net
+title: .NET
 slug: dotnet
 ---

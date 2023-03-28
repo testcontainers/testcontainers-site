@@ -1,23 +1,23 @@
 ---
 title: MongoDB
-logo: /images/modules/mongodb-mark.svg
-summary: A NoSQL database
-isOfficial: false
-supportsTCC: true 
-categories: 
-    - database
-languages:
-    - java
-    - dotnet
-    - nodejs
+categories:
+  - database
 docs:
-    java:
-        url: https://www.testcontainers.org/modules/databases/mongodb/
-    dotnet:
-        url: https://dotnet.testcontainers.org/modules/
-    nodejs:
-        url: https://node.testcontainers.org/modules/mongodb/
+  - id: java
+    url: https://www.testcontainers.org/modules/databases/mongodb/
+    example: |
+      ```
+      ```
+  - id: dotnet
+    url: https://dotnet.testcontainers.org/modules/
+    example: |
+      ```
+      ```
+  - id: nodejs
+    url: https://node.testcontainers.org/modules/mongodb/
+    example: |
+      ```
+      ```
 description: |
-    ## Benefits
-    ## Examples
+  A NoSQL database
 ---

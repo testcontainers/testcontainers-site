@@ -1,17 +1,13 @@
 ---
 title: Nginx
-logo: /images/modules/nginx-mark.svg
-summary: A web server
-isOfficial: false
-supportsTCC: true 
-categories: 
-    - database
-languages:
-    - java
+categories:
+  - web-server
 docs:
-    java:
-        url: https://www.testcontainers.org/modules/nginx/
+  - id: java
+    url: https://www.testcontainers.org/modules/nginx/
+    example: |
+      ```
+      ```
 description: |
-    ## Benefits
-    ## Examples
+  A web server
 ---

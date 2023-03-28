@@ -5,15 +5,20 @@
         padding: 60px 0;
     }
 
+    @media (min-width: 1440px) {
+        padding: 60px 52px;
+    }
+
     .container {
         display: grid;
         gap: 40px;
+        max-width: 2000px;
 
         @media (min-width: 780px) {
             grid-template-columns: 300px 1fr;
         }
     }
-
+    
     .filter {
         display: flex;
         flex-direction: column;
@@ -36,6 +41,12 @@
         display: flex;
         flex-direction: column;
         gap: 10px;
+    }
+
+    .filter-field {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
     }
 
     .checkbox {
@@ -71,13 +82,15 @@
         }
     }
 
-    input[type=checkbox]:focus-visible ~ .checkbox {
+    input[type=checkbox]:focus-visible ~ .checkbox,
+    input[type=radio]:focus-visible ~ .checkbox {
         .checkbox-proxy {
             outline: 2px solid #000;
         }
     }
 
-    input[type=checkbox]:checked ~ .checkbox {
+    input[type=checkbox]:checked ~ .checkbox,
+    input[type=radio]:checked ~ .checkbox {
         .checkbox-proxy {
             background: $aqua;
             border-color: $aqua;
@@ -88,6 +101,33 @@
         }
     }
 
+    .official-label {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+
+        svg {
+            fill: $violet;
+            display: block;
+        }
+    }
+
+    .disclaimer {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        h2 {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+    }
+    .icon-award {
+        fill: $violet;
+        display: block;
+    }
+
     .content {
 
     }
@@ -96,7 +136,7 @@
         display: grid;
         gap: 20px;
 
-        @media (min-width: 700px) {
+        @media (min-width: 768px) {
             grid-template-columns: repeat(2, 1fr);
         }
 
@@ -104,8 +144,12 @@
             grid-template-columns: 1fr;
         }
 
-        @media (min-width: 1080px) {
+        @media (min-width: 1130px) {
             grid-template-columns: repeat(2, 1fr);
+        }
+        
+        @media (min-width: 1600px) {
+            grid-template-columns: repeat(3, 1fr);
         }
     }
 
@@ -150,7 +194,7 @@
         .title {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
+            align-items: center;
             gap: 10px;
             overflow: hidden;
         }
@@ -167,7 +211,7 @@
         }
 
         .official {
-            padding: 5px 8px;
+            /*padding: 5px 8px;
             background: $violet;
             color: $catskill;
             border-radius: 1000px;
@@ -176,6 +220,11 @@
             font-weight: 500;
             line-height: 1;
             flex-shrink: 0;
+            */
+            svg {
+                fill: $violet;
+                display: block;
+            }
         }
 
         div {

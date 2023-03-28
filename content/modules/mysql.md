@@ -1,23 +1,23 @@
 ---
 title: MySQL
-logo: /images/modules/mysql-mark.svg
-summary: An SQL database
-isOfficial: false
-supportsTCC: true 
-categories: 
-    - database
-languages:
-    - java
-    - dotnet
-    - nodejs
+categories:
+  - database
 docs:
-    java:
-        url: https://www.testcontainers.org/modules/databases/mysql/
-    dotnet:
-        url: https://dotnet.testcontainers.org/modules/
-    nodejs:
-        url: https://node.testcontainers.org/modules/mysql/
+  - id: java
+    url: https://www.testcontainers.org/modules/databases/mysql/
+    example: |
+      ```
+      ```
+  - id: dotnet
+    url: https://dotnet.testcontainers.org/modules/
+    example: |
+      ```
+      ```
+  - id: nodejs
+    url: https://node.testcontainers.org/modules/mysql/
+    example: |
+      ```
+      ```
 description: |
-    ## Benefits
-    ## Examples
+  An SQL database
 ---

@@ -10,6 +10,7 @@
 {{ end }}
 
 {{ define "main" }}
+  {{ $langaugesData := .Site.Data.languages }}
   <main>
     <section class="modules-banner">
         <div class="container">
@@ -20,6 +21,7 @@
             {{ end }}
             <div class="search">
               <input id="modules-search" type="text" placeholder="Search"/>
+              <button type="button" id="clear-filter" disabled>Clear Filter</button>
             </div>
           </div>
         </div>
@@ -29,60 +31,111 @@
         <div class="filter">
             <div class="status-filter">
               <div class="filter-field">
-                  <input type="checkbox" id="status-official" name="status-official" class="sr-only"/>
-                  <label for="status-official" class="checkbox">
-                    <div class="checkbox-proxy">
-                      <svg class="icon-external" width="10" height="10" viewBox="0 0 10 10">
-                          <use href="#icon-check"></use>
-                      </svg>
-                    </div>
+                <input type="checkbox" id="status-official" name="status-official" class="filter-input sr-only"/>
+                <label for="status-official" class="checkbox">
+                  <div class="checkbox-proxy">
+                    <svg width="10" height="10" viewBox="0 0 10 10">
+                      <use href="#icon-check"></use>
+                    </svg>
+                  </div>
+                  <div class="official-label">
+                    <svg width="20" height="20" viewBox="0 0 30 30">
+                      <use href="#icon-award"></use>
+                    </svg>
                     <span>Official Modules</span>
-                  </label>
+                  </div>
+                </label>
               </div>
             </div>
             <div class="language-filter">
               <h3>Languages</h3>
+              <div class="filter-field">
+                <input type="radio" id="language-all" name="language" class="filter-input sr-only" checked/>
+                <label for="language-all" class="checkbox">
+                  <div class="checkbox-proxy">
+                    <svg class="icon-external" width="10" height="10" viewBox="0 0 10 10">
+                      <use href="#icon-check"></use>
+                    </svg>
+                  </div>
+                  <span>All</span>
+                </label>
+              </div>
               {{ range .Site.Taxonomies.languages }}
                 <div class="filter-field">
-                    <input type="checkbox" id="language-{{ .Page.Params.slug }}" name="language-{{ .Page.Params.slug }}" class="sr-only"/>
-                    <label for="language-{{ .Page.Params.slug }}" class="checkbox">
-                      <div class="checkbox-proxy">
-                        <svg class="icon-external" width="10" height="10" viewBox="0 0 10 10">
-                            <use href="#icon-check"></use>
-                        </svg>
-                      </div>
-                      <span>{{ .Page.Title }}</span>
-                    </label>
+                  <input type="radio" id="language-{{ .Page.Params.slug }}" name="language" class="filter-input sr-only"/>
+                  <label for="language-{{ .Page.Params.slug }}" class="checkbox">
+                    <div class="checkbox-proxy">
+                      <svg class="icon-external" width="10" height="10" viewBox="0 0 10 10">
+                        <use href="#icon-check"></use>
+                      </svg>
+                    </div>
+                    <span>{{ .Page.Title }}</span>
+                  </label>
                 </div>
               {{ end }}
             </div>
             <div class="category-filter">
               <h3>Categories</h3>
+              <div class="filter-field">
+                <input type="radio" id="category-all" name="category" class="filter-input sr-only" checked/>
+                <label for="category-all" class="checkbox">
+                  <div class="checkbox-proxy">
+                    <svg class="icon-external" width="10" height="10" viewBox="0 0 10 10">
+                      <use href="#icon-check"></use>
+                    </svg>
+                  </div>
+                  <span>All</span>
+                </label>
+              </div>
               {{ range .Site.Taxonomies.categories }}
                 <div class="filter-field">
-                    <input type="checkbox" id="category-{{ .Page.Params.slug }}" name="category-{{ .Page.Params.slug }}" class="sr-only"/>
-                    <label for="category-{{ .Page.Params.slug }}" class="checkbox">
-                      <div class="checkbox-proxy">
-                        <svg class="icon-external" width="10" height="10" viewBox="0 0 10 10">
-                            <use href="#icon-check"></use>
-                        </svg>
-                      </div>
-                      <span>{{ .Page.Title }}</span>
-                    </label>
+                  <input type="radio" id="category-{{ .Page.Params.slug }}" name="category" class="filter-input sr-only"/>
+                  <label for="category-{{ .Page.Params.slug }}" class="checkbox">
+                    <div class="checkbox-proxy">
+                      <svg class="icon-external" width="10" height="10" viewBox="0 0 10 10">
+                        <use href="#icon-check"></use>
+                      </svg>
+                    </div>
+                    <span>{{ .Page.Title }}</span>
+                  </label>
                 </div>
               {{ end }}
+            </div>
+            <div class="disclaimer">  
+              <h2>
+                <svg class="icon-award" width="24" height="24" viewBox="0 0 30 30">
+                  <use href="#icon-award"></use>
+                </svg> About Official Modules</h2>
+              <div>Testcontainers partners with software developers to make testing effortless.</div>
             </div>
         </div>
         <div class="content">
           <div class="modules-list-items">
             {{ range .Paginator.Pages }}
-              <a href="{{ .RelPermalink }}" class="modules-list-item" data-filter='{{ dict "title" .Title "languages" .Params.Languages "categories" .Params.Categories "official" .Params.isOfficial | jsonify }}'>
-                {{ partial "img.html" (dict "image" (resources.Get .Params.Logo) "alt" "") }}
+              {{ $languages := slice }}
+              {{ range .Params.Docs }}
+                {{ if .id }}
+                  {{ $languages = $languages | append .id }}
+                {{ end }}
+              {{ end }}
+              <a href="{{ .RelPermalink }}" class="modules-list-item" data-filter='{{ dict "title" .Title "languages" $languages "categories" .Params.Categories "official" .Params.isOfficial | jsonify }}'>
+                {{ $logoPath :=printf "/images/modules/%s-mark.svg" .File.BaseFileName }}
+                {{ $logoImage := resources.Get $logoPath }}
+                {{ if $logoImage }}
+                  {{ partial "img.html" (dict "image" $logoImage "alt" "") }}
+                {{ else }}
+                  {{ partial "img.html" (dict "image" (resources.Get "/images/modules/none.svg") "alt" "") }}
+                {{ end }}
+                
                 <div class="modules-list-item-content">
                     <div class="title">
                       <h2>{{ .Title }}</h2>
                       {{ if .Params.isOfficial }}
-                        <div class="official">Official</div>
+                        <div class="official">
+                          <svg width="20" height="20" viewBox="0 0 30 30">
+                            <use href="#icon-award"></use>
+                          </svg>
+                        </div>
                       {{ end }}
                     </div>
                     {{ if .GetTerms "categories" }}
@@ -92,10 +145,12 @@
                         {{ end }}
                       </div>
                     {{ end }}
-                    {{ if .GetTerms "languages" }}
+                    {{ if $languages }}
                       <ul class="languages">
-                        {{ range (.GetTerms "languages") }}
-                            <li class="language">{{ .Title }}</li>
+                        {{ range $id := $languages }}
+                          {{ $language := where $langaugesData "id" $id }}
+                          {{ $lang := index $language 0 }}
+                          <li class="language">{{ $lang.label }}</li>
                         {{ end }}
                       </ul>
                     {{ end }}
@@ -104,7 +159,7 @@
             {{ end }}
           </div>
           <div class="modules-filter-empty">
-            No search results
+            No modules found
           </div>
         </div>
       </div>

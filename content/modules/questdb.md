@@ -1,17 +1,13 @@
 ---
 title: QuestDB
-logo: /images/modules/questdb-mark.svg
-summary: A relational database management system
-isOfficial: false
-supportsTCC: true 
-categories: 
-    - database
-languages:
-    - java
+categories:
+  - database
 docs:
-    java:
-        url: https://www.testcontainers.org/modules/databases/questdb/
+  - id: java
+    url: https://www.testcontainers.org/modules/databases/questdb/
+    example: |
+      ```
+      ```
 description: |
-    ## Benefits
-    ## Examples
+  A relational database management system
 ---

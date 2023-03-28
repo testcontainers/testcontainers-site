@@ -1,29 +1,32 @@
 const list = document.querySelector('.modules-list-items');
 const all = document.querySelectorAll('.modules-list-item');
 const filterEmpty = document.querySelector('.modules-filter-empty');
-const inputs = document.querySelectorAll(`.filter input[type='checkbox']`);
+const clearFilter = document.getElementById('clear-filter');
+const inputs = document.querySelectorAll(`.filter-input`);
 const search = document.getElementById('modules-search');
 
 const modules = [];
 all.forEach((module) => modules.push({ element: module, data: JSON.parse(module.dataset.filter) }));
 
 function getFilterValues(filterPrefix) {
-    const inputs = document.querySelectorAll(`input[type='checkbox'][id^='${filterPrefix}-']`);
+    const inputs = document.querySelectorAll(`.filter-input[id^='${filterPrefix}-']`);
     const filters = [];
     inputs.forEach((input) => {
-        if (input.checked) filters.push(input.id.replace(`${filterPrefix}-`, ''));
+        const id = input.id.replace(`${filterPrefix}-`, '');
+        if (id != 'all' && input.checked) filters.push(id);
     });
     return filters;
 }
 
 function showFilterResults() {
     const searchTerm = search.value.trim().toLowerCase().replace(' ', '');
-    const officialFilter = document.querySelector(`input[type='checkbox']#status-official`).checked;
+    const officialFilter = document.querySelector(`.filter-input#status-official`).checked;
     const languageFilter = getFilterValues('language');
     const categoryFilter = getFilterValues('category');
 
     if (!(officialFilter || languageFilter.length > 0 || categoryFilter.length > 0 || searchTerm.length > 0)) {
         filterEmpty.classList.remove('show');
+        clearFilter.disabled = true;
         return list.replaceChildren(...modules.map((module) => module.element));
     }
 
@@ -48,9 +51,20 @@ function showFilterResults() {
     } else {
         filterEmpty.classList.remove('show');
     }
+
+    clearFilter.disabled = false;
+}
+
+function clearTheFilter() {
+    search.value = '';
+    inputs.forEach((input) => {
+        input.checked = input.id === 'language-all' || input.id === 'category-all';
+    });
+    showFilterResults();
 }
 
 inputs.forEach((input) => {
     input.addEventListener('change', showFilterResults);
 })
 search.addEventListener('keyup', showFilterResults);
+clearFilter.addEventListener('click', clearTheFilter);

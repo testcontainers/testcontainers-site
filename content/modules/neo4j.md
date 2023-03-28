@@ -1,23 +1,29 @@
 ---
 title: Neo4j
-logo: /images/modules/neo4j-mark.svg
-summary: A graph database management system
-isOfficial: false
-supportsTCC: true 
-categories: 
-    - database
-languages:
-    - java
-    - dotnet
-    - nodejs
+isOfficial: true
+categories:
+  - database
 docs:
-    java:
-        url: https://www.testcontainers.org/modules/databases/neo4j/
-    dotnet:
-        url: https://dotnet.testcontainers.org/modules/
-    nodejs:
-        url: https://node.testcontainers.org/modules/neo4j/
+  - id: java
+    url: https://www.testcontainers.org/modules/databases/neo4j/
+    example: |
+      ```
+      ```
+  - id: go
+    url: https://golang.testcontainers.org/modules/neo4j/
+    example: |
+      ```
+      ```
+  - id: dotnet
+    url: https://dotnet.testcontainers.org/modules/
+    example: |
+      ```
+      ```
+  - id: nodejs
+    url: https://node.testcontainers.org/modules/neo4j/
+    example: |
+      ```
+      ```
 description: |
-    ## Benefits
-    ## Examples
+  A graph database management system
 ---

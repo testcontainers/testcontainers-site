@@ -1,17 +1,13 @@
 ---
 title: HiveMQ
-logo: /images/modules/hivemq-mark.svg
-summary: An MQTT broker
-isOfficial: false
-supportsTCC: true 
-categories: 
-    - message-broker
-languages:
-    - java
+categories:
+  - message-broker
 docs:
-    java:
-        url: https://www.testcontainers.org/modules/hivemq/
+  - id: java
+    url: https://www.testcontainers.org/modules/hivemq/
+    example: |
+      ```
+      ```
 description: |
-    ## Benefits
-    ## Examples
+  An MQTT broker
 ---

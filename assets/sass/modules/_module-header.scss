@@ -38,10 +38,11 @@
     .banner-wrapper {
         display: flex;
         flex-direction: column;
-        gap: 40px;
+        gap: 10px;
 
-        @media (min-width: 680px) {
+        @media (min-width: 500px) {
             flex-direction: row;
+            gap: 40px;
         }
     }
 
@@ -51,7 +52,7 @@
 
         @media (min-width: 680px) {
             width: 100px;
-        height: 100px;
+            height: 100px;
         }
     }
 
@@ -63,24 +64,46 @@
 
     .title {
         display: flex;
-        gap: 20px;
-        align-items: flex-start;
+        gap: 5px;
+        align-items: center;
         flex-wrap: wrap;
+
+        @media (min-width: 500px) {
+            gap: 10px;
+        }
+
+        @media (min-width: 1024px) {
+            gap: 20px;
+        }
     }
     
     h1 {
-        max-width: 880px;
         margin: 0;
-        font-size: rem(36px);
+        font-size: rem(18px);
+
+        @media (min-width: 500px) {
+            font-size: rem(24px);
+        }
+
+        @media (min-width: 1024px) {
+            font-size: rem(36px);
+        }
     }
 
     .official {
-        background: $violet;
-        color: $catskill;
-        font-weight: 500;
-        font-size: rem(16px);
-        padding: 6px 15px;
-        border-radius: 1000px;
+        svg {
+            fill: $violet;
+            display: block;
+            height: rem(18px);
+
+            @media (min-width: 500px) {
+                height: rem(20px);
+            }
+    
+            @media (min-width: 1024px) {
+                height: rem(30px);
+            }
+        }
     }
 
     .languages {
