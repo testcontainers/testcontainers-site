@@ -8,6 +8,11 @@ docs:
     example: |
       ```
       ```
+  - id: go
+    url: https://golang.testcontainers.org/features/docker_compose/
+    example: |
+      ```
+      ```
 description: |
   What is this
 ---
