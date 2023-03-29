@@ -15,6 +15,7 @@ docs:
     url: https://golang.testcontainers.org/modules/localstack/
     example: |
       ```
+      container, err := localstack.StartContainer(ctx)
       ```
   - id: dotnet
     url: https://golang.testcontainers.org/modules/localstack/

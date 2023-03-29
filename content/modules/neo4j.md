@@ -15,6 +15,10 @@ docs:
     url: https://golang.testcontainers.org/modules/neo4j/
     example: |
       ```
+      container, err := neo4j.StartContainer(ctx,
+        neo4j.WithAdminPassword("letmein!"),
+        neo4j.WithLabsPlugin(neo4j.Apoc),
+      )
       ```
   - id: dotnet
     url: https://dotnet.testcontainers.org/modules/
