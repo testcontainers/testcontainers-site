@@ -7,8 +7,8 @@ docs:
     url: https://www.testcontainers.org/modules/databases/tidb/
     example: |
       ```java
-      TiDBContainer container = new TiDBContainer();
-      container.start();
+      var tidb = new TiDBContainer(DockerImageName.parse("pingcap/tidb:v6.1.0"));
+      tidb.start();
       ```
 description: |
   TiDB is an open-source NewSQL database that supports Hybrid Transactional and Analytical Processing workloads. It is MySQL compatible and can provide horizontal scalability, strong consistency, and high availability.

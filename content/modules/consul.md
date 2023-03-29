@@ -7,7 +7,8 @@ docs:
     url: https://www.testcontainers.org/modules/consul/
     example: |
       ```java
-      ConsulContainer consulContainer = new ConsulContainer("hashicorp/consul:1.15");
+      var consul = new ConsulContainer(DockerImageName.parse()"hashicorp/consul:1.15"));
+      consul.start();
       ```
 description: |
   Consul is a service mesh and distributed key-value store.

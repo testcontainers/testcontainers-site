@@ -7,6 +7,8 @@ docs:
     url: https://www.testcontainers.org/modules/elasticsearch/
     example: |
       ```
+      var elastic = new ElasticsearchContainer(DockerImageName.parse("docker.elastic.co/elasticsearch/elasticsearch:7.9.2"));
+      elastic.start();
       ```
   - id: dotnet
     url: https://golang.testcontainers.org/modules/localstack/

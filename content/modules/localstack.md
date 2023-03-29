@@ -8,11 +8,8 @@ docs:
     url: https://www.testcontainers.org/modules/localstack/
     example: |
       ```
-      DockerImageName localstackImage = DockerImageName.parse("localstack/localstack:0.11.3");
-
-      @Rule
-      public LocalStackContainer localstack = new LocalStackContainer(localstackImage)
-          .withServices(S3);
+      var localstack = new LocalStackContainer(DockerImageName.parse("localstack/localstack:0.11.3"));
+      localstack.start();
       ```
   - id: go
     url: https://golang.testcontainers.org/modules/localstack/

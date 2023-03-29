@@ -7,9 +7,10 @@ docs:
     url: https://www.testcontainers.org/modules/azure/
     example: |
       ```java
-      public CosmosDBEmulatorContainer emulator = new CosmosDBEmulatorContainer(
+      var cosmos = new CosmosDBEmulatorContainer(
         DockerImageName.parse("mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator:latest")
       );
+      cosmos.start();
       ```
 description: |
   The Azure SDK delivers a platform for developers to leverage the wide variety of Azure services.

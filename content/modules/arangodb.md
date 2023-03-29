@@ -8,9 +8,8 @@ docs:
     isThirdParty: true
     example: |
       ```java
-      @Container
-      private static final ArangoContainer container = new ArangoContainer()
-        .withoutAuth();
+      var arango = new ArangoContainer();
+      arango.start();
       ```
   - id: nodejs
     url: https://node.testcontainers.org/modules/arangodb/

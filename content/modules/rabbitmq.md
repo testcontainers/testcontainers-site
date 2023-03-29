@@ -7,7 +7,8 @@ docs:
     url: https://www.testcontainers.org/modules/rabbitmq/
     example: |
       ```java
-      RabbitMQContainer container = new RabbitMQContainer();
+      var rabbit = new RabbitMQContainer(DockerImageName.parse("rabbitmq:3.7.25-management-alpine"));
+      rabbit.start();
       ```
   - id: dotnet
     url: https://dotnet.testcontainers.org/modules/

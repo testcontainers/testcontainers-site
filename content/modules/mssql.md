@@ -7,8 +7,9 @@ docs:
     url: https://www.testcontainers.org/modules/databases/mssqlserver/
     example: |
       ```java
-      MSSQLServerContainer mssqlserver = new MSSQLServerContainer()
+      var mssqlserver = new MSSQLServerContainer()
         .acceptLicense();
+      mssqlserver.start();
       ```
   - id: dotnet
     url: https://dotnet.testcontainers.org/modules/

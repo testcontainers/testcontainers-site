@@ -7,7 +7,8 @@ docs:
     url: https://www.testcontainers.org/modules/kafka/
     example: |
       ```java
-      KafkaContainer kafka = new KafkaContainer(DockerImageName.parse("confluentinc/cp-kafka:6.2.1"))
+      var kafka = new KafkaContainer(DockerImageName.parse("confluentinc/cp-kafka:6.2.1"));
+      kafka.start();
       ```
   - id: dotnet
     url: https://dotnet.testcontainers.org/modules/

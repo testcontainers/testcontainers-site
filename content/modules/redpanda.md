@@ -8,6 +8,8 @@ docs:
     url: https://www.testcontainers.org/modules/redpanda/
     example: |
       ```
+      var redpanda = new RedpandaContainer(DockerImageName.parse("docker.redpanda.com/redpandadata/redpanda:v22.2.1"));
+      redpanda.start();
       ```
   - id: dotnet
     url: https://dotnet.testcontainers.org/modules/

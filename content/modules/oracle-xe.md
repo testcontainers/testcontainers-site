@@ -7,10 +7,8 @@ docs:
     url: https://www.testcontainers.org/modules/databases/oraclexe/
     example: |
       ```java
-      OracleContainer oracle = new OracleContainer("gvenzl/oracle-xe:21-slim-faststart")
-        .withDatabaseName("testDB")
-        .withUsername("testUser")
-        .withPassword("testPassword")
+      var oracle = new OracleContainer(DockerImageName.parse("gvenzl/oracle-xe:21-slim-faststart"));
+      oracle.start();
       ```
   - id: dotnet
     url: https://dotnet.testcontainers.org/modules/

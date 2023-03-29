@@ -7,7 +7,7 @@ docs:
     url: https://www.testcontainers.org/modules/databases/cassandra/
     example: |
       ```java
-      var cassandra = new CassandraContainer<>("cassandra:3.11.2");
+      var cassandra = new CassandraContainer<>(DockerImageName.parse("cassandra:3.11.2"));
       cassandra.start();
       ```
 description: |

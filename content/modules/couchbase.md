@@ -8,6 +8,10 @@ docs:
     url: https://www.testcontainers.org/modules/databases/couchbase/
     example: |
       ```
+      var couchbase = new CouchbaseContainer(DockerImageName.parse(
+        "couchbase/server:community-7.0.2"
+      ));
+      couchbase.start();
       ```
   - id: go
     url: https://golang.testcontainers.org/modules/couchbase/

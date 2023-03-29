@@ -7,9 +7,10 @@ docs:
     url: https://www.testcontainers.org/modules/gcloud/
     example: |
       ```java
-      public BigtableEmulatorContainer emulator = new BigtableEmulatorContainer(
+      var bigtable = new BigtableEmulatorContainer(
         DockerImageName.parse("gcr.io/google.com/cloudsdktool/google-cloud-cli:380.0.0-emulators")
       );
+      bigtable.start();
       ```
 description: |
   Google's Cloud SDK provides a platform to work with the services provided through their Cloud Platform.

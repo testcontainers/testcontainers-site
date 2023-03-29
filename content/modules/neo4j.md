@@ -8,6 +8,8 @@ docs:
     url: https://www.testcontainers.org/modules/databases/neo4j/
     example: |
       ```
+      var neo4j = new Neo4jContainer<>(DockerImageName.parse("neo4j:4.4"));
+      neo4j.start();
       ```
   - id: go
     url: https://golang.testcontainers.org/modules/neo4j/

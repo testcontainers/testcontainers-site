@@ -8,7 +8,8 @@ docs:
     isThirdParty: true
     example: |
       ```java
-      RedisContainer redis = new RedisContainer();
+      var redis = new RedisContainer();
+      redis.start();
       ```
   - id: dotnet
     url: https://dotnet.testcontainers.org/modules/

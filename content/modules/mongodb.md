@@ -7,7 +7,7 @@ docs:
     url: https://www.testcontainers.org/modules/databases/mongodb/
     example: |
       ```java
-      MongoDBContainer mongoDBContainer = new MongoDBContainer(DockerImageName.parse("mongo:4.0.10"));
+      var mongoDBContainer = new MongoDBContainer(DockerImageName.parse("mongo:4.0.10"));
       mongoDBContainer.start();
       ```
   - id: dotnet

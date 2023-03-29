@@ -7,7 +7,8 @@ docs:
     url: https://www.testcontainers.org/modules/databases/mariadb/
     example: |
       ```java
-      MariaDBContainer mariaDB = new MariaDBContainer<>(DockerImageName.parse("mariadb:10.5.5"));
+      var mariaDB = new MariaDBContainer<>(DockerImageName.parse("mariadb:10.5.5"));
+      mariaDB.start();
       ```
   - id: dotnet
     url: https://dotnet.testcontainers.org/modules/

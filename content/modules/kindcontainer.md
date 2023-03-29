@@ -8,7 +8,8 @@ docs:
     isThirdParty: true
     example: |
       ```java
-      KindContainer<?> KUBE = new KindContainer<>();
+      var kind = new KindContainer<>();
+      kind.start();
       ```
 description: |
   Kindcontainer provides ephemeral Kubernetes clusters for integration testing.

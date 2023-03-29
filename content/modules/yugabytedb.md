@@ -9,6 +9,8 @@ docs:
     isThirdParty: false
     example: |
       ```
+      var yugabyte = new YugabyteDBYSQLContainer(DockerImageName.parse("yugabytedb/yugabyte:2.14.4.0-b26"));
+      yugabyte.start();
       ```
 description: |
   A cloud native database
