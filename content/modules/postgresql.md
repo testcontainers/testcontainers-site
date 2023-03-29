@@ -14,19 +14,12 @@ docs:
     url: https://golang.testcontainers.org/modules/postgres/
     example: |
       ```go
-      import "github.com/testcontainers/testcontainers-go/modules/postgres"
-
-      ...
-
       container, err := postgres.StartContainer(ctx,
-          postgres.WithImage("postgres:9.6"),
+          testcontainers.WithImage("postgres:9.6"),
           postgres.WithDatabase("test"),
           postgres.WithUsername("user"),
           postgres.WithPassword("password"),
       )
-      if err != nil {
-          t.Fatal(err)
-      }
       ```
   - id: dotnet
     url: https://dotnet.testcontainers.org/modules/postgres/

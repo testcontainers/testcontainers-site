@@ -17,6 +17,10 @@ docs:
     url: https://golang.testcontainers.org/modules/couchbase/
     example: |
       ```
+      container, err := couchbase.StartContainer(ctx,
+        couchbase.WithImageName("couchbase/server:community-7.0.2"),
+        couchbase.WithBucket(couchbase.NewBucket("bucketName")),
+      )
       ```
   - id: dotnet
     url: https://dotnet.testcontainers.org/modules/
