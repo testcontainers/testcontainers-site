@@ -45,21 +45,62 @@
     .language-filter {
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 5px;
+
+        h3 {
+            margin-bottom: 10px;
+        }
     }
 
     .category-filter {
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 5px;
+        margin-bottom: 20px;
+
+        h3 {
+            margin-bottom: 10px;
+        }
     }
 
     .filter-field {
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
     }
 
+    /* Radio filter styling */
+    .radio-button {
+        cursor: pointer;
+        padding: 5px 16px;
+        border-left: 4px solid transparent;
+
+        span {
+            font-weight: 500;
+            color: $smoke;
+        }
+
+        &:hover {
+            border-color: $mist;
+
+            span {
+                color: $topaz;
+            }
+        }
+    }
+    input[type=checkbox]:focus-visible ~ .radio-button,
+    input[type=radio]:focus-visible ~ .radio-button {
+        outline: 2px solid #000;
+    }
+    input[type=checkbox]:checked ~ .radio-button,
+    input[type=radio]:checked ~ .radio-button {
+        border-color: $aqua;
+
+        span {
+            color: $topaz;
+        }
+    }
+
+    /* Checkbox filter styling */
     .checkbox {
         display: flex;
         gap: 16px;

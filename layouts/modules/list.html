@@ -56,24 +56,21 @@
               <h3>Languages</h3>
               <div class="filter-field">
                 <input type="radio" id="language-all" name="language" class="filter-input sr-only" checked/>
-                <label for="language-all" class="checkbox">
-                  <div class="checkbox-proxy">
-                    <svg class="icon-external" width="10" height="10" viewBox="0 0 10 10">
-                      <use href="#icon-check"></use>
-                    </svg>
-                  </div>
+                <label for="language-all" class="radio-button">
                   <span>All</span>
                 </label>
               </div>
               {{ range .Site.Taxonomies.languages }}
                 <div class="filter-field">
                   <input type="radio" id="language-{{ .Page.Params.slug }}" name="language" class="filter-input sr-only"/>
-                  <label for="language-{{ .Page.Params.slug }}" class="checkbox">
+                  <label for="language-{{ .Page.Params.slug }}" class="radio-button">
+                    <!--
                     <div class="checkbox-proxy">
-                      <svg class="icon-external" width="10" height="10" viewBox="0 0 10 10">
+                      <svg class="icon-check" width="10" height="10" viewBox="0 0 10 10">
                         <use href="#icon-check"></use>
                       </svg>
                     </div>
+                    -->
                     <span>{{ .Page.Title }}</span>
                   </label>
                 </div>
@@ -83,27 +80,19 @@
               <h3>Categories</h3>
               <div class="filter-field">
                 <input type="radio" id="category-all" name="category" class="filter-input sr-only" checked/>
-                <label for="category-all" class="checkbox">
-                  <div class="checkbox-proxy">
-                    <svg class="icon-external" width="10" height="10" viewBox="0 0 10 10">
-                      <use href="#icon-check"></use>
-                    </svg>
-                  </div>
+                <label for="category-all" class="radio-button">
                   <span>All</span>
                 </label>
               </div>
-              {{ range .Site.Taxonomies.categories }}
-                <div class="filter-field">
-                  <input type="radio" id="category-{{ .Page.Params.slug }}" name="category" class="filter-input sr-only"/>
-                  <label for="category-{{ .Page.Params.slug }}" class="checkbox">
-                    <div class="checkbox-proxy">
-                      <svg class="icon-external" width="10" height="10" viewBox="0 0 10 10">
-                        <use href="#icon-check"></use>
-                      </svg>
-                    </div>
-                    <span>{{ .Page.Title }}</span>
-                  </label>
-                </div>
+              {{ with ($.Site.GetPage "categories") }}					
+						    {{ range sort .Pages.ByWeight ".Weight" "asc" }}
+                  <div class="filter-field">
+                    <input type="radio" id="category-{{ .Page.Params.slug }}" name="category" class="filter-input sr-only"/>
+                    <label for="category-{{ .Page.Params.slug }}" class="radio-button">
+                      <span>{{ .Page.Title }}</span>
+                    </label>
+                  </div>
+                {{ end }}
               {{ end }}
             </div>
             <div class="disclaimer">  
