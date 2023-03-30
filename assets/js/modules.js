@@ -20,7 +20,7 @@ function getFilterValues(filterPrefix) {
 }
 
 function showFilterResults() {
-    const searchTerm = search.value.trim().toLowerCase().replace(' ', '');
+    const searchTerm = search.value.trim().toLowerCase().replaceAll(' ', '');
     const officialFilter = document.querySelector(`.filter-input#status-official`).checked;
     const languageFilter = getFilterValues('language');
     const categoryFilter = getFilterValues('category');
@@ -39,7 +39,11 @@ function showFilterResults() {
             show = false;
         if (categoryFilter.length > 0 && !module.data.categories.some((category) => categoryFilter.includes(category))) 
             show = false;
-        if (searchTerm.length > 0 && !module.data.title.toLowerCase().replace(' ', '').includes(searchTerm))
+        if (
+            searchTerm.length > 0 && 
+            !module.data.title.toLowerCase().replaceAll(' ', '').includes(searchTerm) && 
+            !module.data.description.toLowerCase().replaceAll(' ', '').includes(searchTerm)
+        )
             show = false;
         return show;
     });

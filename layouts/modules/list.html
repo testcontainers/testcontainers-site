@@ -112,7 +112,7 @@
                   {{ $languages = $languages | append .id }}
                 {{ end }}
               {{ end }}
-              <a href="{{ .RelPermalink }}" class="modules-list-item" data-filter='{{ dict "title" .Title "languages" $languages "categories" .Params.Categories "official" .Params.isOfficial | jsonify }}'>
+              <a href="{{ .RelPermalink }}" class="modules-list-item" data-filter='{{ dict "title" .Title "description" .Description "languages" $languages "categories" .Params.Categories "official" .Params.isOfficial | jsonify }}'>
                 {{ $logoPath :=printf "/images/modules/%s-mark.svg" .File.BaseFileName }}
                 {{ $logoImage := resources.Get $logoPath }}
                 {{ if $logoImage }}
