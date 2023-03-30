@@ -1,7 +1,7 @@
 ---
 title: Vault
 categories:
-  - secret-store
+  - other
 docs:
   - id: java
     url: https://www.testcontainers.org/modules/vault/

@@ -1,7 +1,7 @@
 ---
 title: Consul
 categories:
-  - kv-store
+  - other
 docs:
   - id: java
     url: https://www.testcontainers.org/modules/consul/

@@ -1,7 +1,7 @@
 ---
 title: ArangoDB
 categories: 
-  - database
+  - nosql-database
 docs:
   - id: java
     url: https://github.com/GoodforGod/arangodb-testcontainers

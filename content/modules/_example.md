@@ -1,5 +1,6 @@
 ---
 # Example module template, copy and delete as necessary.
+draft: true
 title: Name
 isOfficial: false
 categories:

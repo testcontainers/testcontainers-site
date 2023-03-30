@@ -1,7 +1,7 @@
 ---
 title: Keycloak
 categories:
-  - sso
+  - other
 docs:
   - id: java
     url: https://github.com/dasniko/testcontainers-keycloak

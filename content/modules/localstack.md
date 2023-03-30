@@ -2,7 +2,7 @@
 title: LocalStack
 isOfficial: true
 categories:
-  - cloud-platform
+  - cloud
 docs:
   - id: java
     url: https://www.testcontainers.org/modules/localstack/

@@ -1,7 +1,7 @@
 ---
 title: Kindcontainer
 categories:
-  - container-manager
+  - other
 docs:
   - id: java
     url: https://github.com/dajudge/kindcontainer

@@ -2,7 +2,7 @@
 title: Redpanda
 isOfficial: true
 categories:
-  - event-streaming
+  - message-broker
 docs:
   - id: java
     url: https://www.testcontainers.org/modules/redpanda/

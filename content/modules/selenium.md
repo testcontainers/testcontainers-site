@@ -1,7 +1,7 @@
 ---
 title: Selenium
 categories:
-  - web-driver
+  - web
 docs:
   - id: java
     url: https://www.testcontainers.org/modules/webdriver_containers/

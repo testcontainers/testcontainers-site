@@ -1,7 +1,7 @@
 ---
 title: Google Cloud
 categories:
-  - cloud-platform
+  - cloud
 docs:
   - id: java
     url: https://www.testcontainers.org/modules/gcloud/

@@ -1,7 +1,7 @@
 ---
 title: Redis
 categories:
-  - database
+  - nosql-database
 docs:
   - id: java
     url: https://github.com/redis-developer/testcontainers-redis

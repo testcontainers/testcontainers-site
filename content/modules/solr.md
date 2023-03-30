@@ -1,7 +1,7 @@
 ---
 title: Solr
 categories:
-  - search
+  - nosql-database
 docs:
   - id: java
     url: https://www.testcontainers.org/modules/solr/

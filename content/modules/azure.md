@@ -1,8 +1,7 @@
 ---
 title: Azure
-ogTitle: Azure + Testcontainers
 categories:
-  - cloud-platform
+  - cloud
 docs:
   - id: java
     url: https://www.testcontainers.org/modules/azure/

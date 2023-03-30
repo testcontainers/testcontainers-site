@@ -1,7 +1,7 @@
 ---
 title: K3S
 categories:
-  - container-manager
+  - other
 docs:
   - id: java
     url: https://www.testcontainers.org/modules/k3s/

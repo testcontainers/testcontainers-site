@@ -1,7 +1,7 @@
 ---
 title: ClickHouse
 categories:
-  - database
+  - relational-database
 docs:
   - id: java
     url: https://www.testcontainers.org/modules/databases/clickhouse/

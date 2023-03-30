@@ -1,7 +1,7 @@
 ---
 title: DynamoDB
 categories:
-  - database
+  - nosql-database
 docs:
   - id: dotnet
     url: https://dotnet.testcontainers.org/modules/

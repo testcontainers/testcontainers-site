@@ -1,7 +1,7 @@
 ---
 title: MinIO
 categories:
-  - storage
+  - other
 docs:
   - id: dotnet
     url: https://dotnet.testcontainers.org/modules/
