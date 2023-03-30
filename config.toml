@@ -20,6 +20,8 @@ paginate = 9999
     minifyOutput = true
 
 [markup]
+    [markup.highlight]
+        codeFences = false
     [markup.asciidocExt]
         [markup.asciidocExt.attributes]
             allow-uri-read = ""
