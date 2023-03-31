@@ -14,10 +14,8 @@ docs:
     url: https://dotnet.testcontainers.org/modules/
     example: |
       ```csharp
-      var mongoDBContainer = new MongoDBBuilder().Build();
-
-      await mongoDBContainer.StartAsync()
-        .ConfigureAwait(false);
+      var mongoDbContainer = new MongoDbBuilder().Build();
+      await mongoDbContainer.StartAsync();
       ```
   - id: nodejs
     url: https://node.testcontainers.org/modules/mongodb/

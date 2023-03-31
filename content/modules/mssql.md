@@ -15,10 +15,8 @@ docs:
     url: https://dotnet.testcontainers.org/modules/
     example: |
       ```csharp
-      var sqlServerContainer = new SQLServerBuilder().Build();
-
-      await sqlServerContainer.StartAsync()
-        .ConfigureAwait(false);
+      var sqlServerContainer = new SqlServerBuilder().Build();
+      await sqlServerContainer.StartAsync();
       ```
 description: |
   Microsoft SQL Server is a relational database management system.

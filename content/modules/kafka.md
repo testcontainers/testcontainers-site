@@ -15,9 +15,7 @@ docs:
     example: |
       ```csharp
       var kafkaContainer = new KafkaBuilder().Build();
-
-      await kafkaContainer.StartAsync()
-        .ConfigureAwait(false);
+      await kafkaContainer.StartAsync();
       ```
   - id: nodejs
     url: https://node.testcontainers.org/modules/kafka/

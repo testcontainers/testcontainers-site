@@ -15,9 +15,7 @@ docs:
     example: |
       ```csharp
       var oracleContainer = new OracleBuilder().Build();
-
-      await oracleContainer.StartAsync()
-        .ConfigureAwait(false);
+      await oracleContainer.StartAsync();
       ```
 description: |
   Oracle Database Express Edition is a free, smaller-footprint edition of Oracle Database.

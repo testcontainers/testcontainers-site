@@ -14,10 +14,8 @@ docs:
     url: https://dotnet.testcontainers.org/modules/
     example: |
       ```csharp
-      var mariaDBContainer = new MariaDBBuilder().Build();
-
-      await mariaDBContainer.StartAsync()
-        .ConfigureAwait(false);
+      var mariaDbContainer = new MariaDbBuilder().Build();
+      await mariaDbContainer.StartAsync();
       ```
 description: |
   MariaDB is a community-developed, commercially supported fork of the MySQL relational database management system.

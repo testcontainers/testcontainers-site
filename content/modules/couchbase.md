@@ -7,7 +7,7 @@ docs:
   - id: java
     url: https://www.testcontainers.org/modules/databases/couchbase/
     example: |
-      ```
+      ```java
       var couchbase = new CouchbaseContainer(DockerImageName.parse(
         "couchbase/server:community-7.0.2"
       ));
@@ -16,7 +16,7 @@ docs:
   - id: go
     url: https://golang.testcontainers.org/modules/couchbase/
     example: |
-      ```
+      ```go
       container, err := couchbase.StartContainer(ctx,
         couchbase.WithImageName("couchbase/server:community-7.0.2"),
         couchbase.WithBucket(couchbase.NewBucket("bucketName")),
@@ -25,8 +25,10 @@ docs:
   - id: dotnet
     url: https://dotnet.testcontainers.org/modules/
     example: |
-      ```
+      ```csharp
+      var couchbaseContainer = new CouchbaseBuilder().Build();
+      await couchbaseContainer.StartAsync();
       ```
 description: |
-  A document oriented NoSQL database
+  Couchbase is an open-source, distributed, multi-model, document oriented, NoSQL database. 
 ---

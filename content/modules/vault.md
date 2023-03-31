@@ -6,7 +6,7 @@ docs:
   - id: java
     url: https://www.testcontainers.org/modules/vault/
     example: |
-      ```
+      ```java
       var vault = new VaultContainer<>(DockerImageName.parse(("hashicorp/vault:1.13.0"));
       vault.start();
       ```
@@ -22,5 +22,5 @@ docs:
       )
       ```
 description: |
-  A secure token vault
+  HashiCorp Vault is an identity-based secrets and encryption management system for storing API encryption keys, passwords, and certificates.
 ---
