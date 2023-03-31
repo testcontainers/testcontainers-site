@@ -1,6 +1,6 @@
 ---
 title: CockroachDB
-isOfficial: true
+isOfficial: false
 categories:
   - relational-database
 docs:

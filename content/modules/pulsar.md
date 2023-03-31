@@ -1,5 +1,6 @@
 ---
 title: Pulsar
+isOfficial: true
 categories:
   - message-broker
 docs:

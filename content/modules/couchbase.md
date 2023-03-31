@@ -1,6 +1,6 @@
 ---
 title: Couchbase
-isOfficial: true
+isOfficial: false
 categories:
   - nosql-database
 docs:
