@@ -11,6 +11,12 @@ docs:
       var redis = new RedisContainer();
       redis.start();
       ```
+  - id: go
+    url: https://golang.testcontainers.org/modules/redis/
+    example: |
+      ```go
+      redisContainer, err := redis.StartContainer(ctx, WithImage("redis:6"))
+      ```
   - id: dotnet
     url: https://dotnet.testcontainers.org/modules/
     example: |
