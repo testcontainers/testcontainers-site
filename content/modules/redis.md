@@ -8,7 +8,7 @@ docs:
     isThirdParty: true
     example: |
       ```java
-      var redis = new RedisContainer();
+      var redis = new RedisContainer(DockerImageName.parse("redis:6.2.6"));
       redis.start();
       ```
   - id: go

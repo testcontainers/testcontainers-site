@@ -13,5 +13,5 @@ docs:
       await sqlEdgeContainer.StartAsync();
       ```
 description: |
-  Azure SQL Edge, a Internet of Things (IoT) database for edge computing, combines capabilities such as data streaming and time series with built-in machine learning and graph features.
+  Azure SQL Edge is an Internet of Things (IoT) database for edge computing which combines capabilities such as data streaming and time series with built-in machine learning and graph features.
 ---

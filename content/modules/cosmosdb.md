@@ -22,5 +22,5 @@ docs:
   #     await cosmosDbContainer.StartAsync();
   #     ```
 description: |
-  The Azure SDK delivers a platform for developers to leverage the wide variety of Azure services.
+  Azure Cosmo DB is a fully managed, horizontally scalable, NoSQL and relational database.
 ---
