@@ -15,7 +15,7 @@ docs:
     example: |
       ```go
       container, err := vault.StartContainer(ctx,
-        vault.WithImageName("hashicorp/vault:1.13.0"),
+        testcontainers.WithImage("hashicorp/vault:1.13.0"),
         vault.WithToken("root-token"),
         vault.WithInitCommand("secrets enable transit", "write -f transit/keys/my-key"),
         vault.WithInitCommand("kv put secret/test1 foo1=bar1"),
