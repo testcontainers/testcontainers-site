@@ -16,6 +16,7 @@ docs:
     example: |
       ```go
       container, err := neo4j.StartContainer(ctx,
+        testcontainers.WithImage("neo4j:4.4"),
         neo4j.WithAdminPassword("letmein!"),
         neo4j.WithLabsPlugin(neo4j.Apoc),
       )

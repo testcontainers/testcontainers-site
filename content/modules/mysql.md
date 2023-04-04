@@ -14,7 +14,7 @@ docs:
     url: https://golang.testcontainers.org/modules/mysql/
     example: |
       ```go
-      container, err := mysql.StartContainer(ctx, mysql.WithImage("mysql:5.7.34"))
+      container, err := mysql.StartContainer(ctx, testcontainers.WithImage("mysql:5.7.34"))
       ```
   - id: dotnet
     url: https://dotnet.testcontainers.org/modules/
