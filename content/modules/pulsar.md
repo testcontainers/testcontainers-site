@@ -16,7 +16,7 @@ docs:
     example: |
       ```go
       container, err := pulsar.StartContainer(ctx,
-        testcontainers.WithPulsar("apachepulsar/pulsar:2.10.0"),
+        testcontainers.WithImage("apachepulsar/pulsar:2.10.0"),
         pulsar.WithPulsarEnv("brokerDeduplicationEnabled", "true"),
         pulsar.WithFunctionsWorker(),
         pulsar.WithTransactions(),
