@@ -1,0 +1,162 @@
+{{ define "pageScripts" }}
+    {{ $style := resources.Get "/sass/modules.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
+    <link rel="stylesheet" href="{{ $style.RelPermalink }}">
+
+    {{ $guidesstyle := resources.Get "/sass/guides.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
+    <link rel="stylesheet" href="{{ $guidesstyle.RelPermalink }}">
+
+    {{ $script := resources.Get "/js/modules.js" | js.Build | resources.Minify }}
+    <script src="{{ $script.RelPermalink }}" defer></script>
+{{ end }}
+
+{{ define "main" }}
+  {{ $langaugesData := .Site.Data.languages }}
+  <main>
+    <section class="modules-banner">
+        <div class="container">
+          <div class="content">
+            <h1>{{ .Title }}</h1>
+            {{ if .Description }}
+              <div class="description">{{ .Description | markdownify }}</div>
+            {{ end }}
+            <div class="search">
+              <input id="modules-search" type="text" placeholder="Search"/>
+              <button type="button" id="clear-filter" disabled>Clear Filter</button>
+              <button type="button" id="filter-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="16" height="16">
+                  <path fill="currentColor" d="M0 416c0 17.7 14.3 32 32 32l54.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48L480 448c17.7 0 32-14.3 32-32s-14.3-32-32-32l-246.7 0c-12.3-28.3-40.5-48-73.3-48s-61 19.7-73.3 48L32 384c-17.7 0-32 14.3-32 32zm128 0a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zM320 256a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zm32-80c-32.8 0-61 19.7-73.3 48L32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l246.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48l54.7 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-54.7 0c-12.3-28.3-40.5-48-73.3-48zM192 128a32 32 0 1 1 0-64 32 32 0 1 1 0 64zm73.3-64C253 35.7 224.8 16 192 16s-61 19.7-73.3 48L32 64C14.3 64 0 78.3 0 96s14.3 32 32 32l86.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48L480 128c17.7 0 32-14.3 32-32s-14.3-32-32-32L265.3 64z"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+    </section>
+    <section class="modules-list">
+      <div class="container">
+        <div class="filter">
+            <div class="status-filter">
+              <div class="filter-field">
+                <input type="checkbox" id="status-official" name="status-official" class="filter-input sr-only"/>
+                <label for="status-official" class="checkbox">
+                  <div class="checkbox-proxy">
+                    <svg width="10" height="10" viewBox="0 0 10 10">
+                      <use href="#icon-check"></use>
+                    </svg>
+                  </div>
+                  <div class="official-label">
+                    <svg width="20" height="20" viewBox="0 0 30 30">
+                      <use href="#icon-award"></use>
+                    </svg>
+                    <span>Official Modules</span>
+                  </div>
+                </label>
+              </div>
+            </div>
+            <div class="language-filter">
+              <h3>Languages</h3>
+              <div class="filter-field">
+                <input type="radio" id="language-all" name="language" class="filter-input sr-only" checked/>
+                <label for="language-all" class="radio-button">
+                  <span>All</span>
+                </label>
+              </div>
+              {{ range .Site.Taxonomies.languages }}
+                <div class="filter-field">
+                  <input type="radio" id="language-{{ .Page.Params.slug }}" name="language" class="filter-input sr-only"/>
+                  <label for="language-{{ .Page.Params.slug }}" class="radio-button">
+                    <!--
+                    <div class="checkbox-proxy">
+                      <svg class="icon-check" width="10" height="10" viewBox="0 0 10 10">
+                        <use href="#icon-check"></use>
+                      </svg>
+                    </div>
+                    -->
+                    <span>{{ .Page.Title }}</span>
+                  </label>
+                </div>
+              {{ end }}
+            </div>
+            <div class="category-filter">
+              <h3>Categories</h3>
+              <div class="filter-field">
+                <input type="radio" id="category-all" name="category" class="filter-input sr-only" checked/>
+                <label for="category-all" class="radio-button">
+                  <span>All</span>
+                </label>
+              </div>
+              {{ with ($.Site.GetPage "categories") }}					
+						    {{ range sort .Pages.ByWeight ".Weight" "asc" }}
+                  <div class="filter-field">
+                    <input type="radio" id="category-{{ .Page.Params.slug }}" name="category" class="filter-input sr-only"/>
+                    <label for="category-{{ .Page.Params.slug }}" class="radio-button">
+                      <span>{{ .Page.Title }}</span>
+                    </label>
+                  </div>
+                {{ end }}
+              {{ end }}
+            </div>
+            <div class="disclaimer">  
+              <h2>
+                <svg class="icon-award" width="24" height="24" viewBox="0 0 30 30">
+                  <use href="#icon-award"></use>
+                </svg> About Official Modules</h2>
+              <div>Testcontainers partners with software developers to make testing effortless.</div>
+            </div>
+        </div>
+        <div class="content">
+          <div class="modules-list-items">
+            {{ range .Paginator.Pages }}
+              {{ $languages := slice }}
+              {{ range .Params.Docs }}
+                {{ if .id }}
+                  {{ $languages = $languages | append .id }}
+                {{ end }}
+              {{ end }}
+              <a href="{{ .RelPermalink }}" class="modules-list-item" data-filter='{{ dict "title" .Title "description" .Description "languages" $languages "categories" .Params.Categories "official" .Params.isOfficial | jsonify }}'>
+                {{ $logoPath :=printf "/images/modules/%s-mark.svg" .File.BaseFileName }}
+                {{ $logoImage := resources.Get $logoPath }}
+                {{ if $logoImage }}
+                  {{ partial "img.html" (dict "image" $logoImage "alt" "") }}
+                {{ else }}
+                  {{ partial "img.html" (dict "image" (resources.Get "/images/modules/none.svg") "alt" "") }}
+                {{ end }}
+                
+                <div class="modules-list-item-content">
+                    <div class="title">
+                      <h2>{{ .Title }}</h2>
+                      {{ if .Params.isOfficial }}
+                        <div class="official">
+                          <svg width="20" height="20" viewBox="0 0 30 30">
+                            <use href="#icon-award"></use>
+                          </svg>
+                        </div>
+                      {{ end }}
+                    </div>
+                    {{ if .GetTerms "categories" }}
+                      <div>
+                        {{ range (.GetTerms "categories") }}
+                          <div class="category">{{ .Title }}</div>
+                        {{ end }}
+                      </div>
+                    {{ end }}
+                    {{ if $languages }}
+                      <ul class="languages">
+                        {{ range $id := $languages }}
+                          {{ $language := where $langaugesData "id" $id }}
+                          {{ $lang := index $language 0 }}
+                          <li class="language">{{ $lang.label }}</li>
+                        {{ end }}
+                      </ul>
+                    {{ end }}
+                </div>
+              </a>
+            {{ end }}
+          </div>
+          <div class="modules-filter-empty">
+            No modules found
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+{{ end }}

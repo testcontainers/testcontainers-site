@@ -14,9 +14,47 @@
 <meta name="description" content="{{ if .Page.Description }}{{ .Page.Description }}{{ else }}{{ .Site.Params.Description }}{{ end }}">
 <link rel="canonical" href="{{ .Permalink }}" />
 
-<meta property="og:title" content="{{ if .Page.Title }}{{ .Page.Title }}{{ else }}{{ .Site.Title }}{{ end }}">
+{{ $langaugesData := .Site.Data.languages }}
+{{ $pageDocs := .Page.Params.Docs }}
+{{ $siteBaseUrl := .Site.BaseURL }}
+{{ $fileBaseName := .File.BaseFileName }}
+
+{{ $ogTitle := .Site.Title }}
+{{ $ogDescription := .Site.Params.Description }}
+{{ $ogImage := printf "%s/images/share-image.png" $siteBaseUrl }}
+
+{{ if and (not .IsSection) (eq .Section "modules") }}
+    {{ with .Page.Title }}
+        {{ $ogTitle = printf "Testcontainers %s Module" . }}
+
+        {{ $languages := slice }}
+        {{ range $pageDocs }}
+            {{ $language := where $langaugesData "id" .id }}
+            {{ $lang := index $language 0 }}
+            {{ $languages = $languages | append $lang.label }}
+        {{ end }}
+
+        {{ $ogDescription = printf "Start testing with real dependencies using the %s Module for Testcontainers for %s" . (delimit $languages ", " ", and ") }}
+    {{ end }}
+    {{ $shareImagePath := printf "/images/modules/%s-share.png" $fileBaseName }}
+    {{ $shareImage := resources.Get $shareImagePath }}
+    {{ if $shareImage }}
+        {{ $ogImage = $shareImage.Permalink }}
+    {{ else }}
+        {{ $ogImage = printf "%s/images/module-share-image.png" $siteBaseUrl }}
+    {{ end }}
+{{ else }}
+    {{ with .Page.Title }}
+        {{ $ogTitle = . }}
+    {{ end }}
+    {{ with .Page.Description }}
+        {{ $ogDescription = . }}
+    {{ end }}
+{{ end }}
+
+<meta property="og:title" content="{{ $ogTitle }}">
 <meta property="og:site_name" content="{{ .Site.Title }}">
 <meta property="og:url" content="{{ .Permalink }}">
-<meta property="og:description" content="{{ if .Page.Description }}{{ .Page.Description }}{{ else }}{{ .Site.Params.Description }}{{ end }}">
+<meta property="og:description" content="{{ $ogDescription }}">
 <meta property="og:type" content=website>
-<meta property="og:image" content="{{ .Site.BaseURL }}/images/share-image.png">
+<meta property="og:image" content="{{ $ogImage }}">

@@ -1,0 +1,181 @@
+.module-content {
+    padding: 0 0 50px 0;
+
+    @media (min-width: 680px) {
+        padding: 20px 0 50px 0;
+    }
+
+    .container {
+        display: grid;
+        gap: 50px;
+
+        @media (min-width: 1024px) {
+            gap: 100px;
+            grid-template-columns: 300px 1fr;
+        }
+    }
+
+    .sidebar {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+
+        > div {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        } 
+
+        h2 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .icon-award {
+            fill: $violet;
+            display: block;
+        }
+
+        .icon-community {
+            display: block;
+            fill: $teal;
+        }
+
+        a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid $mist;
+            border-radius: 6px;
+            padding: 10px;
+            text-decoration: none;
+            color: $eggplant;
+            font-weight: 500;
+            transition: 
+                color 0.2s ease,
+                background 0.2s ease;
+
+            @media (min-width: 650px) {  
+                padding: 10px 15px;
+            }
+
+            .third-party {
+                font-size: rem(14px);
+                padding: 3px 15px;
+                background: $teal;
+                color: $catskill;
+                border-radius: 1000px;
+            }
+
+            .icon-external {
+                height: rem(15px);
+                flex-shrink: 0;
+                color: $fog;
+                margin-left: auto;
+
+                @media (min-width: 600px) {
+                    height: rem(15px);
+                }
+            } 
+
+            &:hover {
+                color: $topaz;
+                background: rgba($catskill, 0.45);
+
+                .icon-external {
+                    color: $topaz;
+                }
+            }
+        }
+    }
+
+    .description {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        overflow: hidden;
+
+        h2 {
+            margin-bottom: 10px;
+        }
+
+        .code-examples.examples {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 0;
+        }
+    
+        .tab-labels {
+            display: flex;
+            position: relative;
+            gap: 30px;
+            overflow: auto;
+            box-shadow: inset 0 -3px 0 0 $mist;
+    
+            button {
+                background: none;
+                border: none;
+                padding: 10px 0;
+                cursor: pointer;
+                border-bottom: 3px solid transparent;
+                font-weight: 500;
+                color: $storm;
+                transition: 
+                    color 0.2s ease,
+                    border-color 0.2s ease;
+    
+                &:hover {
+                    color: $topaz;
+                }
+    
+                &.active {
+                    color: $topaz;
+                    border-color: $aqua;
+                }
+            }
+        }
+    
+        .tab-panels {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+    
+        .tab-panel {
+            width: 100%;
+    
+            @at-root body.js & {
+                display: none;
+            }
+    
+            @at-root body.js &.active {
+                display: block;
+            }
+        }
+    
+        pre {
+            position: relative;
+            overflow: hidden;
+            margin: 0;
+            border-radius: 6px;
+        }
+    
+        code {
+            display: block;
+            overflow-x: auto;
+            font-family: "Roboto Mono", 'Courier New', Courier, monospace;
+            background: $plum;
+            color: $catskill;
+            padding: 20px;
+            border-radius: 6px;
+    
+            @media (min-width: 500px) {
+                padding: 40px;
+            }
+        }
+    }
+}
