@@ -18,10 +18,12 @@ docs:
       container, err := localstack.StartContainer(ctx)
       ```
   - id: dotnet
-    url: https://golang.testcontainers.org/modules/localstack/
+    url: https://www.nuget.org/packages/Testcontainers.LocalStack
     example: |
       ```csharp
-      var localStackContainer = new LocalStackBuilder().Build();
+      var localStackContainer = new LocalStackBuilder()
+        .WithImage("localstack/localstack:2.0")
+        .Build();
       await localStackContainer.StartAsync();
       ```
 description: |

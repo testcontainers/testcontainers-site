@@ -11,10 +11,12 @@ docs:
       elastic.start();
       ```
   - id: dotnet
-    url: https://golang.testcontainers.org/modules/localstack/
+    url: https://www.nuget.org/packages/Testcontainers.Elasticsearch
     example: |
       ```csharp
-      var elasticsearchContainer = new ElasticsearchBuilder().Build();
+      var elasticsearchContainer = new ElasticsearchBuilder()
+        .WithImage("elasticsearch:8.6.1")
+        .Build();
       await elasticsearchContainer.StartAsync();
       ```
   - id: nodejs

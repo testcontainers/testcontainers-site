@@ -21,10 +21,12 @@ docs:
       )
       ```
   - id: dotnet
-    url: https://dotnet.testcontainers.org/modules/
+    url: https://www.nuget.org/packages/Testcontainers.Neo4j
     example: |
       ```csharp
-      var neo4jContainer = new Neo4jBuilder().Build();
+      var neo4jContainer = new Neo4jBuilder()
+        .WithImage("neo4j:5.4")
+        .Build();
       await neo4jContainer.StartAsync();
       ```
   - id: nodejs

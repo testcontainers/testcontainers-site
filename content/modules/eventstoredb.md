@@ -4,10 +4,12 @@ categories:
   - nosql-database
 docs:
   - id: dotnet
-    url: https://dotnet.testcontainers.org/modules/
+    url: https://www.nuget.org/packages/Testcontainers.EventStoreDb
     example: |
       ```csharp
-      var eventStoreDbContainer = new EventStoreDbBuilder().Build();
+      var eventStoreDbContainer = new EventStoreDbBuilder()
+        .WithImage("eventstore/eventstore:22.10.1-buster-slim")
+        .Build();
       await eventStoreDbContainer.StartAsync();
       ```
 description: |

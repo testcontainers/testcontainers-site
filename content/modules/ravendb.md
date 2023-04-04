@@ -4,10 +4,12 @@ categories:
   - nosql-database
 docs:
   - id: dotnet
-    url: https://dotnet.testcontainers.org/modules/
+    url: https://www.nuget.org/packages/Testcontainers.RavenDb
     example: |
       ```csharp
-      var ravenDbContainer = new RavenDbBuilder().Build();
+      var ravenDbContainer = new RavenDbBuilder()
+        .WithImage("ravendb/ravendb:5.4-ubuntu-latest")
+        .Build();
       await ravenDbContainer.StartAsync();
       ```
 description: |

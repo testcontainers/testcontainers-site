@@ -1,6 +1,6 @@
 ---
 title: ArangoDB
-categories: 
+categories:
   - nosql-database
 docs:
   - id: java

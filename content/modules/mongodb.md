@@ -11,10 +11,12 @@ docs:
       mongoDBContainer.start();
       ```
   - id: dotnet
-    url: https://dotnet.testcontainers.org/modules/
+    url: https://www.nuget.org/packages/Testcontainers.MongoDb
     example: |
       ```csharp
-      var mongoDbContainer = new MongoDbBuilder().Build();
+      var mongoDbContainer = new MongoDbBuilder()
+        .WithImage("mongo:6.0")
+        .Build();
       await mongoDbContainer.StartAsync();
       ```
   - id: nodejs

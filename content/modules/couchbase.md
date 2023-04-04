@@ -23,12 +23,14 @@ docs:
       )
       ```
   - id: dotnet
-    url: https://dotnet.testcontainers.org/modules/
+    url: https://www.nuget.org/packages/Testcontainers.Couchbase
     example: |
       ```csharp
-      var couchbaseContainer = new CouchbaseBuilder().Build();
+      var couchbaseContainer = new CouchbaseBuilder()
+        .WithImage("couchbase:community-7.0.2")
+        .Build();
       await couchbaseContainer.StartAsync();
       ```
 description: |
-  Couchbase is an open-source, distributed, multi-model, document oriented, NoSQL database. 
+  Couchbase is an open-source, distributed, multi-model, document oriented, NoSQL database.
 ---

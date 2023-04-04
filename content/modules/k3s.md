@@ -10,6 +10,15 @@ docs:
       var k3s = new K3sContainer(DockerImageName.parse("rancher/k3s:v1.21.3-k3s1"));
       k3s.start();
       ```
+  # - id: dotnet
+  #   url: https://www.nuget.org/packages/Testcontainers.K3s
+  #   example: |
+  #     ```csharp
+  #     var k3sConainter = new K3sBuilder()
+  #       .WithImage("rancher/k3s:v1.26.2-k3s1")
+  #       .Build();
+  #     await k3sConainter.StartAsync();
+  #     ```
 description: |
   K3s is a highly available, certified Kubernetes distribution designed for production workloads in unattended, resource-constrained, remote locations or inside IoT appliances.
 ---

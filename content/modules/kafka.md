@@ -11,10 +11,12 @@ docs:
       kafka.start();
       ```
   - id: dotnet
-    url: https://dotnet.testcontainers.org/modules/
+    url: https://www.nuget.org/packages/Testcontainers.Kafka
     example: |
       ```csharp
-      var kafkaContainer = new KafkaBuilder().Build();
+      var kafkaContainer = new KafkaBuilder()
+        .WithImage("confluentinc/cp-kafka:6.2.10")
+        .Build();
       await kafkaContainer.StartAsync();
       ```
   - id: nodejs

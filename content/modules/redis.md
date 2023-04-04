@@ -18,10 +18,12 @@ docs:
       redisContainer, err := redis.StartContainer(ctx, redis.WithImage("redis:6"))
       ```
   - id: dotnet
-    url: https://dotnet.testcontainers.org/modules/
+    url: https://www.nuget.org/packages/Testcontainers.Redis
     example: |
       ```csharp
-      var redisContainer = new RedisBuilder().Build();
+      var redisContainer = new RedisBuilder()
+        .WithImage("redis:7.0")
+        .Build();
       await redisContainer.StartAsync();
       ```
 description: |
