@@ -1,5 +1,5 @@
 ---
-title: Azure
+title: Azure Cosmos DB
 categories:
   - cloud
 docs:
@@ -12,6 +12,15 @@ docs:
       );
       cosmos.start();
       ```
+  # - id: dotnet
+  #   url: https://www.nuget.org/packages/Testcontainers.CosmosDb
+  #   example: |
+  #     ```csharp
+  #     var cosmosDbContainer = new CosmosDbBuilder()
+  #       .WithImage("mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator:latest")
+  #       .Build();
+  #     await cosmosDbContainer.StartAsync();
+  #     ```
 description: |
   The Azure SDK delivers a platform for developers to leverage the wide variety of Azure services.
 ---

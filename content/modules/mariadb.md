@@ -11,10 +11,12 @@ docs:
       mariaDB.start();
       ```
   - id: dotnet
-    url: https://dotnet.testcontainers.org/modules/
+    url: https://www.nuget.org/packages/Testcontainers.MariaDb
     example: |
       ```csharp
-      var mariaDbContainer = new MariaDbBuilder().Build();
+      var mariaDbContainer = new MariaDbBuilder()
+        .WithImage("mariadb:10.10")
+        .Build();
       await mariaDbContainer.StartAsync();
       ```
 description: |

@@ -11,10 +11,12 @@ docs:
       rabbit.start();
       ```
   - id: dotnet
-    url: https://dotnet.testcontainers.org/modules/
+    url: https://www.nuget.org/packages/Testcontainers.RabbitMq
     example: |
       ```csharp
-      var rabbitMqContainer = new RabbitMqBuilder().Build();
+      var rabbitMqContainer = new RabbitMqBuilder()
+        .WithImage("rabbitmq:3.11")
+        .Build();
       await rabbitMqContainer.StartAsync();
       ```
 description: |

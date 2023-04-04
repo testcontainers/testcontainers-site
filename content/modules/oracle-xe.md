@@ -11,10 +11,12 @@ docs:
       oracle.start();
       ```
   - id: dotnet
-    url: https://dotnet.testcontainers.org/modules/
+    url: https://www.nuget.org/packages/Testcontainers.Oracle
     example: |
       ```csharp
-      var oracleContainer = new OracleBuilder().Build();
+      var oracleContainer = new OracleBuilder()
+        .WithImage("gvenzl/oracle-xe:21.3.0-slim-faststart")
+        .Build();
       await oracleContainer.StartAsync();
       ```
 description: |

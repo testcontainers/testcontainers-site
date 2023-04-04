@@ -17,11 +17,13 @@ docs:
       container, err := mysql.StartContainer(ctx, mysql.WithImage("mysql:5.7.34"))
       ```
   - id: dotnet
-    url: https://dotnet.testcontainers.org/modules/
+    url: https://www.nuget.org/packages/Testcontainers.MySql
     example: |
       ```csharp
-      var mySqlServerContainer = new MySqlServerBuilder().Build();
-      await mySqlServerContainer.StartAsync();
+      var mySqlContainer = new MySqlBuilder()
+        .WithImage("mysql:8.0")
+        .Build();
+      await mySqlContainer.StartAsync();
       ```
   - id: nodejs
     url: https://node.testcontainers.org/modules/mysql/

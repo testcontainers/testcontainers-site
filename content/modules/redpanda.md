@@ -12,10 +12,12 @@ docs:
       redpanda.start();
       ```
   - id: dotnet
-    url: https://dotnet.testcontainers.org/modules/
+    url: https://www.nuget.org/packages/Testcontainers.Redpanda
     example: |
       ```csharp
-      var redpandaContainer = new RedpandaBuilder().Build();
+      var redpandaContainer = new RedpandaBuilder()
+        .WithImage("docker.redpanda.com/redpandadata/redpanda:v22.2.1")
+        .Build();
       await redpandaContainer.StartAsync();
       ```
 description: |

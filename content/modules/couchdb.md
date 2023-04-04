@@ -4,10 +4,12 @@ categories:
   - nosql-database
 docs:
   - id: dotnet
-    url: https://dotnet.testcontainers.org/modules/
+    url: https://www.nuget.org/packages/Testcontainers.CouchDb
     example: |
       ```csharp
-      var couchDbContainer = new CouchDbBuilder().Build();
+      var couchDbContainer = new CouchDbBuilder()
+        .WithImage("couchdb:3.3")
+        .Build();
       await couchDbContainer.StartAsync();
       ```
 description: |

@@ -4,10 +4,12 @@ categories:
   - nosql-database
 docs:
   - id: dotnet
-    url: https://dotnet.testcontainers.org/modules/
+    url: https://www.nuget.org/packages/Testcontainers.DynamoDb
     example: |
       ```csharp
-      var dynamoDbContainer = new DynamoDbBuilder().Build();
+      var dynamoDbContainer = new DynamoDbBuilder()
+        .WithImage("amazon/dynamodb-local:1.21.0")
+        .Build();
       await dynamoDbContainer.StartAsync();
       ```
 description: |

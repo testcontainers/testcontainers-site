@@ -1,6 +1,6 @@
 ---
 title: PostgreSQL
-categories: 
+categories:
   - relational-database
 docs:
   - id: java
@@ -15,18 +15,20 @@ docs:
     example: |
       ```go
       container, err := postgres.StartContainer(ctx,
-          testcontainers.WithImage("postgres:9.6"),
-          postgres.WithDatabase("test"),
-          postgres.WithUsername("user"),
-          postgres.WithPassword("password"),
+        testcontainers.WithImage("postgres:9.6"),
+        postgres.WithDatabase("test"),
+        postgres.WithUsername("user"),
+        postgres.WithPassword("password"),
       )
       ```
   - id: dotnet
-    url: https://dotnet.testcontainers.org/modules/postgres/
+    url: https://www.nuget.org/packages/Testcontainers.PostgreSql
     example: |
       ```csharp
-      PostgreSqlContainer postgres = new PostgreSqlBuilder().Build();
-      postgres.StartAsync();
+      var postgreSqlContainer = new PostgreSqlBuilder()
+        .WithImage("postgres:15.1")
+        .Build();
+      postgreSqlContainer.StartAsync();
       ```
   - id: nodejs
     url: https://node.testcontainers.org/modules/postgresql/
