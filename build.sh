@@ -10,6 +10,7 @@ GUIDE_REPOS=(
   'tc-guide-configuration-of-services-running-in-container'
   'tc-guide-replace-h2-with-real-database-for-testing'
   'tc-guide-testing-aspnet-core'
+  'tc-guide-testing-spring-boot-kafka-listener'
 )
 
 GUIDE_REPOS_CLONE_DIR="./guide-repos"
