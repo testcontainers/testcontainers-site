@@ -1,4 +1,4 @@
 ---
-title: Getting Started
-slug: getting-started
+title: JUnit
+slug: junit
 ---
