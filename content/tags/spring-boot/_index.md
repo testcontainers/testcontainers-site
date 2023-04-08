@@ -1,4 +1,4 @@
 ---
-title: LocalStack
-slug: localstack
+title: Spring Boot
+slug: spring-boot
 ---
