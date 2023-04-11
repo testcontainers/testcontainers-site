@@ -27,7 +27,9 @@
             <li class="menu-item has-children">
                 <button>
                     Docs
-                    {{ partial "svgs/caret" }}
+                    <svg class="icon-caret" height="10" viewBox="0 0 10 10">
+                        <use href="#icon-caret"></use>
+                    </svg>
                 </button>
                 <ul class="menu-dropdown">
                     {{ range .Site.Data.languages }}
