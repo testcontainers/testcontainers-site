@@ -12,6 +12,17 @@
         padding: 20px 40px;
     }
 
+    @media (max-width: 1023px) {
+        flex-direction: column;
+    }
+
+    .brand {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        width: 100%;
+    }
+
     .logo {
         display: flex; 
 
@@ -25,6 +36,27 @@
         }
     }
 
+    #mobile-menu-toggle {
+        background: none;
+        border: none;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+        color: $eggplant;
+        padding: 0;
+        margin: 0;
+        font-weight: 500;
+
+        body.mobile-menu & {
+            color: $topaz;
+        }
+
+        @media (min-width: 1024px) {
+            display: none;
+        }
+    }
+
     ul {
         list-style: none;
         padding: 0;
@@ -32,24 +64,49 @@
     }
 
     nav {
+        display: none;
 
+        @media (max-width: 1023px) {
+            body.mobile-menu & {
+                display: flex;
+            }
+
+            position: relative;
+            width: 100%;
+            flex-direction: column;
+            border: 1px solid $mist;
+            border-radius: 6px;
+            background: #fff;
+            box-shadow: 0px 30px 35px rgba($smoke, 0.75);
+            min-width: 200px;
+        }
+
+        @media (min-width: 1024px) {
+            display: block;
+        }
     }
 
     .menu {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-
-        @media (min-width: 500px) {
+        @media (min-width: 1024px) {
+            display: flex;
+            justify-content: center;
             gap: 30px;
         }
     }
 
     .menu-item {
         display: flex;
-        align-items: center;
 
-        @media (min-width: 500px) {
+        @media (max-width: 1023px) {
+            flex-direction: column;
+
+            + .menu-item {
+                border-top: 1px solid $mist;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            align-items: center;
             position: relative;
         }
 
@@ -66,10 +123,14 @@
             font-weight: 500;
             color: $eggplant;
             text-decoration: none;
-            font-size: rem(12px);
+            font-size: rem(14px);
             transition: color 0.2s ease;
 
-            @media (min-width: 500px) {
+            @media (max-width: 1023px) {
+                padding: 10px 20px;
+            }
+
+            @media (min-width: 1024px) {
                 min-height: 48px;
                 gap: 8px;
                 font-size: rem(16px);
@@ -77,6 +138,12 @@
 
             &:hover {
                 color: $topaz;
+            }
+
+            .icon-external {
+                margin-left: auto;
+                opacity: .3;
+                flex-shrink: 0;
             }
         }
 
@@ -100,29 +167,34 @@
     }
 
     .menu-dropdown {
+        flex-direction: column;
+
         @at-root body.js & {
             display: none;
         }
 
-        position: absolute;
-        top: 100%;
-        right: -8px;
-        flex-direction: column;
-        border: 1px solid $mist;
-        border-radius: 6px;
-        background: #fff;
-        box-shadow: 0px 30px 35px rgba($smoke, 0.75);
-        min-width: 200px;
+        @media (max-width: 1023px) {
 
-        @media (max-width: 499px) {
-            top: calc(100% - 20px);
-            right: 20px;
-            width: calc(100% - 40px);
+        }
+
+        @media (min-width: 1024px) {
+            position: absolute;
+            top: 100%;
+            right: -8px;
+            border: 1px solid $mist;
+            border-radius: 6px;
+            background: #fff;
+            box-shadow: 0px 30px 35px rgba($smoke, 0.75);
+            min-width: 200px;
         }
     }
 
     .menu-item.has-children.active .menu-dropdown {
         display: flex;
+
+        @media (max-width: 1023px) {
+            border-top: 1px solid $mist;
+        }
     }
 
     .menu-dropdown-item {
@@ -145,21 +217,26 @@
 
             &:hover {
                 background-color: rgba($catskill, 0.45);
+
+                .icon-external {
+                    color: $topaz;
+                }
+            }
+
+            @media (max-width: 1023px) {
+                padding: 10px 20px 10px 30px;
+            }
+
+            .icon-external {
+                margin-left: auto;
+                color: $fog;
+                flex-shrink: 0;
+                opacity: 1;
             }
         }
 
         img {
             height: 24px;
-        }
-
-        .icon-external {
-            margin-left: auto;
-            color: $fog;
-            flex-shrink: 0;
-        }
-
-        a:hover .icon-external {
-            color: $topaz;
         }
     }
 }
