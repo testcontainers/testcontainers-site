@@ -1,3 +1,9 @@
+const mobileToggle = document.getElementById("mobile-menu-toggle");
+function toggleMobileMenu() {
+    document.body.classList.toggle('mobile-menu'); 
+}
+mobileToggle.addEventListener("click", toggleMobileMenu);
+
 const allParentMenuItems = document.querySelectorAll("#site-header .menu-item.has-children");
 
 function clearActiveMenuItem() {
