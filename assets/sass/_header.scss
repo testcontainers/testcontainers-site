@@ -139,6 +139,12 @@
             &:hover {
                 color: $topaz;
             }
+
+            .icon-external {
+                margin-left: auto;
+                opacity: .3;
+                flex-shrink: 0;
+            }
         }
 
         .icon-caret {
@@ -185,7 +191,7 @@
 
     .menu-item.has-children.active .menu-dropdown {
         display: flex;
-        
+
         @media (max-width: 1023px) {
             border-top: 1px solid $mist;
         }
@@ -211,25 +217,26 @@
 
             &:hover {
                 background-color: rgba($catskill, 0.45);
+
+                .icon-external {
+                    color: $topaz;
+                }
             }
 
             @media (max-width: 1023px) {
                 padding: 10px 20px 10px 30px;
             }
+
+            .icon-external {
+                margin-left: auto;
+                color: $fog;
+                flex-shrink: 0;
+                opacity: 1;
+            }
         }
 
         img {
             height: 24px;
-        }
-
-        .icon-external {
-            margin-left: auto;
-            color: $fog;
-            flex-shrink: 0;
-        }
-
-        a:hover .icon-external {
-            color: $topaz;
         }
     }
 }
