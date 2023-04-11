@@ -1,7 +1,17 @@
 <header id="site-header">
-    <a href="/" class="logo">
-        {{ partial "img.html" (dict "image" (resources.Get "/images/testcontainers-logo.svg") "alt" "Testcontainers Logo") }}
-    </a>
+    <div class="brand">
+        <a href="/" class="logo">
+            {{ partial "img.html" (dict "image" (resources.Get "/images/testcontainers-logo.svg") "alt" "Testcontainers Logo") }}
+        </a>
+        <button id="mobile-menu-toggle">
+            Menu
+            <svg width="30" height="30" viewBox="0 0 30 30" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <rect y="22" width="30" height="4" rx="2"/>
+                <rect y="13" width="30" height="4" rx="2"/>
+                <rect y="4" width="30" height="4" rx="2"/>
+            </svg>        
+        </button>
+    </div>
     <nav>
         <ul class="menu">
             <li class="menu-item">
@@ -32,6 +42,14 @@
                         </li>
                     {{ end }}
                 </ul>
+            </li>
+            <li class="menu-item">
+                <a href="https://testcontainers.cloud/" target="_blank">
+                    <span>Cloud</span>
+                    <svg class="icon-external" width="15" height="17" viewBox="0 0 15 17">
+                        <use href="#icon-external"></use>
+                    </svg>
+                </a>
             </li>
             <li class="menu-item">
                 <a href="https://slack.testcontainers.org/" target="_blank">
