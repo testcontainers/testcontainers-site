@@ -42,7 +42,15 @@
             fill: $teal;
         }
 
-        a {
+        .tcc-mark {
+            height: 24px;
+        }
+
+        .disclaimer {
+            align-items: flex-start;
+        }
+
+        .documentation a {
             display: flex;
             align-items: center;
             gap: 10px;
