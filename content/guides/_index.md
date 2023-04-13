@@ -10,8 +10,8 @@ featuredItems:
     description: See how to use Testcontainers with Java.
     link: /guides/getting-started-with-testcontainers-for-java/
     linkLabel: Getting started with Testcontainers for Java
-  - title: Your first project
-    description: Integrate Testcontainers into a real project.
+  - title: Create a project
+    description: Use Testcontainers in a Spring Boot project.
     link: /guides/testing-spring-boot-rest-api-using-testcontainers/
     linkLabel: Getting started with Testcontainers in a Java Spring Boot Project
 ---
