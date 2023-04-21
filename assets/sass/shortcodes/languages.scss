@@ -1,48 +1,22 @@
-.guide-header {
-    padding: 0 0 40px 0;
+.shortcode-languages {
+    display: grid;
+    gap: 10px;
 
-    @media (min-width: 500px) {
-        padding: 0 0 40px 0;
+    @media (min-width: 380px) {   
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    .container {
+    @media (min-width: 600px) {   
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (min-width: 1024px) {    
+        grid-template-columns: repeat(4, 1fr);
+        padding-top: 40px;
+    }
+
+    a {
         display: flex;
-        flex-wrap: wrap;
-        gap: 30px;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    aside {
-        width: 100%;
-    }
-
-    .back-link {
-        display: flex;
-        gap: 8px;
-        align-items: center;
-        text-decoration: none;
-        font-weight: 600;
-
-        svg {
-            transform: rotate(90deg);
-        } 
-    }
-
-    .content {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-    }
-    
-    h1 {
-        max-width: 880px;
-        margin: 0;
-    }
-
-    .github-link {
-        display: flex;
-        width: max-content;
         align-items: center;
         gap: 10px;
         border: 1px solid $mist;
@@ -78,5 +52,7 @@
                 color: $topaz;
             }
         }
+
+        
     }
 }
