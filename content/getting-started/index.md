@@ -1,6 +1,5 @@
 ---
 title: Testcontainers
-type: markdown-page
 ---
 # Getting Started
 ## What is Testcontainers?
