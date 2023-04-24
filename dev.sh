@@ -4,7 +4,6 @@ echo "----------------- Downloading Community modules -----------------"
 COMMUNITY_MODULE_REPO="https://github.com/testcontainers/community-module-registry"
 echo "Cloning ${COMMUNITY_MODULE_REPO}.git"
 git clone "${COMMUNITY_MODULE_REPO}.git"
-cp -r community-module-registry/assets/* assets/images/modules/
 
 echo "---------------- Downloading Guides -----------------------------"
 GIT_ORG="https://github.com/testcontainers"
