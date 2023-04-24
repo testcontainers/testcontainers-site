@@ -38,3 +38,17 @@ paginate = 9999
 [security.http]
     methods = ['(?i)GET|POST']
     urls = ['.*']
+
+[module]
+    [[module.mounts]]
+        source = 'content'
+        target = 'content'
+    [[module.mounts]]
+        source = 'assets'
+        target = 'assets'
+    [[module.mounts]]
+        source = 'community-module-registry/modules'
+        target = 'content/modules'
+    [[module.mounts]]
+        source = 'community-module-registry/assets'
+        target = 'assets/images/modules'
