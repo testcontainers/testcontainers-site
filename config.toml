@@ -49,6 +49,3 @@ paginate = 9999
     [[module.mounts]]
         source = 'community-module-registry/modules'
         target = 'content/modules'
-    [[module.mounts]]
-        source = 'community-module-registry/assets'
-        target = 'assets/images/modules'
