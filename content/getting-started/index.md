@@ -1,13 +1,11 @@
 ---
-title: Testcontainers
+title: Getting Started
+showTitle: true
+showToc: true
 ---
-# Getting Started
-
 ## What is Testcontainers?
-Testcontainers is a library that provides easy and lightweight APIs for bootstrapping local development 
-and test dependencies with real services wrapped in Docker containers. 
-Using Testcontainers, you can write tests that depend on the same services you use in production 
-without mocks or in-memory services.
+Testcontainers is a library that provides easy and lightweight APIs for bootstrapping local development and test dependencies with real services wrapped in Docker containers. 
+Using Testcontainers, you can write tests that depend on the same services you use in production without mocks or in-memory services.
 
 ### What problems does Testcontainers solve?
 Cloud-native infrastructure and microservices have taken control away from developers and 

@@ -116,16 +116,10 @@ a {
     text-align: center
 }
 
-.longform {
-    padding: 60px 0;
-
-    *:first-child {
-        margin-top: 0;
-    }
-}
-
 @import "footer";
 @import "header";
+@import "guides/highlight";
+@import "longform";
 @import "sections/code-examples";
 @import "sections/company-logos";
 @import "sections/hero-banner";
@@ -133,3 +127,4 @@ a {
 @import "sections/sponsor-credits";
 @import "sections/supported-languages";
 @import "shortcodes/languages";
+@import "toc";
