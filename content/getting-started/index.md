@@ -68,12 +68,11 @@ created resources (containers, volumes, networks etc) and Ryuk automatically per
 resource clean up by matching those labels. 
 This works reliably even when the test process exits abnormally (e.g. sending a SIGKILL).
 
-## Differences with Docker and Docker Compose
-Docker became a must-have tool in the developer's toolbox and is widely adopted for running software systems. 
+### Differences with Docker and Docker Compose
 Docker and Docker Compose can also be used directly for spinning up dependencies that are needed for tests, 
 but this approach has downsides. Creating reliable and fully-initialized service dependencies using 
 raw Docker commands or using Docker Compose requires good knowledge of Docker internals and how to best 
-run specific technologies in a container. Especially, creating a dynamic "integration testing environment" 
+run specific technologies in a container. For example, creating a dynamic "integration testing environment" 
 by directly using Docker commands or docker-compose may result in port conflicts, containers not 
 being fully initialized or ready for interactions when the tests start, etc. 
 Testcontainers libraries leverage the full power of Docker containers under the hood and 
@@ -101,13 +100,14 @@ A typical Testcontainers-based integration test works as follows:
 
 ![Test workflow](./images/test-workflow.png)
 
-* **Before Tests:**
+* **Before Test execution:**
 Start your required services (databases, messaging systems etc.) as Docker containers using the Testcontainers API.
-Once the required containers start, configure or update your application configuration to use these containerized services.
+Once the required containers start, configure or update your application configuration to use these containerized services 
+and optionally initialize data needed for the test.
 
-* **During Tests:** Your tests run using these containerized services.
+* **During Test execution:** Your tests run using these containerized services.
 
-* **After Tests:**
+* **After Test execution:**
 Testcontainers takes care of destroying containers irrespective of whether tests are executed successfully or there were any failures.
 
 ### What technologies can I test with?
