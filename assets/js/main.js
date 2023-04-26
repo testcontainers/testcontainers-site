@@ -61,4 +61,3 @@ allTabLabels.forEach((label) => {
         });
     });
 });
-

@@ -38,3 +38,32 @@ paginate = 9999
 [security.http]
     methods = ['(?i)GET|POST']
     urls = ['.*']
+
+[module]
+[[module.mounts]]
+    source = 'content'
+    target = 'content'
+[[module.mounts]]
+    source = 'static'
+    target = 'static'
+[[module.mounts]]
+    source = 'layouts'
+    target = 'layouts'
+[[module.mounts]]
+    source = 'data'
+    target = 'data'
+[[module.mounts]]
+    source = 'assets'
+    target = 'assets'
+[[module.mounts]]
+    source = 'archetypes'
+    target = 'archetypes'
+[[module.mounts]]
+    source = 'content-community-modules/modules'
+    target = 'content/modules'
+[[module.mounts]]
+    source = 'content-community-modules/assets'
+    target = 'assets/images/modules'
+[[module.mounts]]
+    source = 'assets/images/modules'
+    target = 'assets/images/modules'

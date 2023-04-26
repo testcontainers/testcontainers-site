@@ -1,0 +1,212 @@
+#subheader {
+    position: relative;
+    width: 100%;
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    padding: 10px 20px;
+    background: $catskill;
+
+    @media (min-width: 500px) {
+        padding: 10px 40px;
+    }
+
+    @media (max-width: 1023px) {
+        flex-direction: column;
+    }
+
+    .subheader-title {
+        display: flex;
+        font-weight: 500;
+        color: $eggplant;
+        text-decoration: none;
+        font-size: rem(14px);
+        transition: color 0.2s ease;
+        white-space: nowrap;
+        margin-right: auto;
+
+        @media (max-width: 1023px) {
+            padding: 10px 20px;
+        }
+
+        @media (min-width: 1024px) {
+            font-size: rem(16px);
+        }
+
+        &:hover {
+            color: $topaz;
+        }
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    nav {
+        display: none;
+
+        @media (max-width: 1023px) {
+            body.mobile-menu & {
+                display: flex;
+            }
+
+            position: absolute;
+            top: 100%;
+            width: calc(100% - 80px);
+            flex-direction: column;
+            border: 1px solid $mist;
+            border-radius: 6px;
+            background: #fff;
+            box-shadow: 0px 30px 35px rgba($smoke, 0.75);
+            min-width: 200px;
+        }
+
+        @media (max-width: 499px) {
+            width: calc(100% - 40px);
+        }
+
+        @media (min-width: 1024px) {
+            display: block;
+        }
+    }
+
+    .subheader-menu {
+        @media (min-width: 1024px) {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .menu-item {
+            display: flex;
+    
+            @media (max-width: 1023px) {
+                flex-direction: column;
+    
+                + .menu-item {
+                    border-top: 1px solid $mist;
+                }
+            }
+    
+            @media (min-width: 1024px) {
+                align-items: center;
+                position: relative;
+            }
+    
+            button,
+            a {
+                min-height: 30px;
+                display: flex;
+                gap: 6px;
+                align-items: center;
+                border: none;
+                background: none;
+                cursor: pointer;
+                padding: 0;
+                font-weight: 500;
+                color: $eggplant;
+                text-decoration: none;
+                font-size: rem(14px);
+                transition: color 0.2s ease;
+                white-space: nowrap;
+    
+                @media (max-width: 1023px) {
+                    padding: 10px 20px;
+                }
+    
+                @media (min-width: 1024px) {
+                    min-height: 48px;
+                    gap: 8px;
+                    font-size: rem(16px);
+                }
+    
+                &:hover {
+                    color: $topaz;
+                }
+    
+                .icon-external {
+                    margin-left: auto;
+                    opacity: .3;
+                    flex-shrink: 0;
+                }
+            }
+        }
+    }
+    .subheader-buttons {
+        display: flex;
+        gap: 10px;
+
+        .menu-item {
+            display: flex;
+    
+            @media (max-width: 1023px) {
+                flex-direction: column;
+    
+                + .menu-item {
+                    border-top: 1px solid $mist;
+                }
+            }
+    
+            @media (min-width: 1024px) {
+                align-items: center;
+                position: relative;
+            }
+    
+            button,
+            a {
+                min-height: 30px;
+                display: flex;
+                gap: 6px;
+                align-items: center;
+                border: none;
+                border-radius: 3px;
+                background: $plum;
+                cursor: pointer;
+                padding: 10px 20px;
+                font-weight: 500;
+                color: $catskill;
+                text-decoration: none;
+                font-size: rem(14px);
+                transition: 
+                    color 0.2s ease,
+                    background 0.2s ease;
+                white-space: nowrap;
+    
+                @media (max-width: 1023px) {
+                    padding: 10px 20px;
+                }
+    
+                @media (min-width: 1024px) {
+                    min-height: 48px;
+                    gap: 8px;
+                    font-size: rem(16px);
+                }
+    
+                &:hover {
+                    background: $aqua;
+                    color: $catskill;
+                }
+    
+                .icon-external {
+                    margin-left: auto;
+                    opacity: .3;
+                    flex-shrink: 0;
+                }
+            }
+
+            &.alt button,
+            &.alt a {
+                background: $violet;
+
+                &:hover {
+                    background: $aqua;
+                    color: $catskill;
+                }
+            }
+        }
+    }
+}

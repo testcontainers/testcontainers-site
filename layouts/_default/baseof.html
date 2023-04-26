@@ -10,10 +10,12 @@
             document.body.classList.add('js');
         </script>
         {{- partial "header.html" . -}}
+        {{- block "subheader" . }}{{- end }}
         <div id="content">
         {{- block "main" . }}{{- end }}
         </div>
         {{- partial "footer.html" . -}}
         {{- partial "svgs/sprite.html" -}}
+        {{- block "footerScripts" . }}{{- end }}
     </body>
 </html>

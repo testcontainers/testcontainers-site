@@ -126,9 +126,10 @@
         padding: 5px;
         border: 2px solid $fog;
         border-radius: 6px;
+        color: $catskill;
 
         svg {
-            fill: $catskill;
+            
             display: block;
             opacity: 0;
         }
@@ -157,9 +158,9 @@
         display: flex;
         align-items: center;
         gap: 5px;
+        color: $violet;
 
         svg {
-            fill: $violet;
             display: block;
         }
     }
@@ -176,7 +177,7 @@
         }
     }
     .icon-award {
-        fill: $violet;
+        color: $violet;
         display: block;
     }
 
@@ -280,7 +281,7 @@
 
         .official {
             svg {
-                fill: $violet;
+                color: $violet;
                 display: block;
             }
         }

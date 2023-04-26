@@ -15,11 +15,13 @@
     <nav>
         <ul class="menu">
             <li class="menu-item">
-                <a href="https://testcontainers.cloud/" target="_blank">
-                    <span>Cloud</span>
-                    <svg class="icon-external" width="15" height="17" viewBox="0 0 15 17">
-                        <use href="#icon-external"></use>
-                    </svg>
+                <a href="/cloud">
+                    Cloud
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="/pricing">
+                    Pricing
                 </a>
             </li>
             <li class="menu-item">
@@ -68,3 +70,41 @@
         </ul>
     </nav>
 </header>
+{{ define "subheader" }}
+    {{ if eq .Params.submenu "cloud" }}
+    <div id="subheader">
+        <a class="subheader-title" href="/cloud">Testcontainers Cloud</a>
+        <nav>
+            <ul class="subheader-menu">
+                <li class="menu-item">
+                    <a href="#">
+                        Desktop
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="#">
+                        CI
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="/pricing">
+                        Pricing
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <ul class="subheader-buttons">
+            <li class="menu-item">
+                <a href="https://app.testcontainers.cloud">
+                    Log In
+                </a>
+            </li>
+            <li class="menu-item alt">
+                <a href="https://app.testcontainers.cloud/signup">
+                    Free Trial
+                </a>
+            </li>
+        </ul>
+    </div>
+    {{ end }}
+{{ end }}

@@ -1,0 +1,78 @@
+---
+title: Pricing
+submenu: cloud
+sections:
+  - partial: pricing
+    title: Pricing
+    headingLevel: 1
+    features:
+      - Test dependencies as code
+      - Languages Supported
+      - Requires Local Docker Environment
+      - Preconfigured Modules
+      - Max Users
+      - Max Service Accounts
+      - |
+        [Turbo mode](https://knowledge.testcontainers.cloud/turbo-mode)
+      - Max Concurrent Workers Per Service Account
+    plans:
+      - title: Trial
+        description: |
+          Free access to Testcontainers Cloud during public beta with some [restrictions](https://knowledge.testcontainers.cloud/how-are-trial-accounts-restricted).
+        prices:
+          - label: / Seat per Month (on Desktop)
+            value: Free
+            discountValue:
+          - label: / Worker Minute (in the CI)
+            value: Free
+            discountValue:
+        features:
+          - value: |
+              Yes
+            checkmark: true
+          - value: 4
+            checkmark: false
+          - value: No
+            checkmark: true
+          - value: 50+
+            checkmark: true
+          - value: 10
+            checkmark: false
+          - value: 1
+            checkmark: false
+          - value: Not Available
+            checkmark: false
+          - value: 1
+            checkmark: false
+      - title: Team (beta)
+        description: Unlock the full power of Testcontainers Cloud on Desktop and in your CI.
+        prices:
+          - label: / Seat per Month (on Desktop)
+            value: $35
+            discountValue: $17.50
+          - label: / Worker Minute (in the CI)
+            value: $0.02
+            discountValue: $0.01
+        discount:
+          title: Early Adopter Pricing!
+          description: |
+            Discount ends in July 2023: subscribe now to lock it in.
+        features:
+          - value: |
+              Yes
+            checkmark: true
+          - value: 4
+            checkmark: false
+          - value: No
+            checkmark: true
+          - value: 50+
+            checkmark: true
+          - value: Unlimited
+            checkmark: true
+          - value: Unlimited
+            checkmark: true
+          - value: Available
+            checkmark: true
+          - value: Unlimited
+            checkmark: true
+---
