@@ -12,7 +12,7 @@ Cloud-native infrastructure and microservices have taken control away from devel
 made it painful to work locally. Let's say you're a developer working on "My Service", 
 within the following architecture:
 
-![Cloud Native Microservices](./images/cn-architecture.png)
+![Cloud Native Microservices](./images/cn-arch.png)
 
 While you own only My Service and its datastore (in green), you have several downstream dependencies 
 (in blue) that you need for local development and integration testing. 
@@ -34,7 +34,7 @@ talking to those real services and providing a programmatic API for your test co
 In the previous example, you could freely develop and test "My Service" against real dependencies by provisioning them with Testcontainers, 
 directly from your code:
 
-![Cloud Native Microservices Testing](./images/cn-architecture-testing.png)
+![Cloud Native Microservices Testing](./images/cn-arch-tc.png)
 
 ### Benefits of using Testcontainers:
 
