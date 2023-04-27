@@ -159,22 +159,17 @@ a {
     }
 }
 
-.video-lightbox {
-    //display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba($eggplant, 0.5);
-    z-index: 200;
-}
-
 @import "footer";
+@import "glide";
 @import "header";
 @import "sections/cloud-banner";
 @import "sections/code-examples";
 @import "sections/company-logos";
 @import "sections/hero-banner";
 @import "sections/icon-columns";
+@import "sections/quotes";
 @import "sections/sponsor-credits";
+@import "sections/step-cards";
 @import "sections/supported-languages";
 @import "sections/pricing";
 @import "subheader";

@@ -1,0 +1,50 @@
+.quotes {
+    padding: 20px 0;
+    background: $catskill;
+
+    @media (min-width: 780px) {
+        padding: 30px 0;
+    }
+
+    figure {
+        display: grid;
+        grid-template-columns: 25px 1fr 200px;
+        gap: 30px;
+        margin: 0;
+    }
+
+    svg {
+        color: $aqua;
+    }
+
+    blockquote {
+        padding: 0;
+        margin: 0;
+        font-size: rem(24px);
+        color: $eggplant;
+    }
+
+    figcaption {
+        display: flex;
+        flex-direction: column;
+    }
+
+    img {
+        display: block;
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 100%;
+        border: 2px solid #fff;
+        margin-bottom: 10px;
+    }
+
+    .name {
+        color: $eggplant;
+    }
+
+    .role {
+        font-size: rem(14px);
+        color: $storm;
+    }
+}

@@ -1,5 +1,15 @@
+{{ define "pageScripts"}}
+<script src="/js/glide.js"></script>
+{{ end }}
+
 {{ define "footerScripts" }}
 <script src="/js/fslightbox.js"></script>
+<script>
+    new Glide('.glide', {
+        startAt: 0,
+        perView: 1
+    }).mount()
+</script>
 {{ end }}
 
 {{ define "main" }}
@@ -9,3 +19,4 @@
         {{ end }}
     </main>
 {{ end }}
+
