@@ -1,6 +1,7 @@
-.shortcode-languages {
+.longform-content .container>.content div.shortcode-languages {
     display: grid;
     gap: 10px;
+    margin-bottom: 1.25rem;
 
     @media (min-width: 380px) {   
         grid-template-columns: repeat(2, 1fr);
@@ -10,9 +11,8 @@
         grid-template-columns: repeat(3, 1fr);
     }
 
-    @media (min-width: 1024px) {    
+    @media (min-width: 1200px) {    
         grid-template-columns: repeat(4, 1fr);
-        padding-top: 40px;
     }
 
     a {
@@ -47,6 +47,7 @@
         &:hover {
             color: $topaz;
             background: rgba($catskill, 0.45);
+            text-decoration: none;
 
             .icon-external {
                 color: $topaz;
