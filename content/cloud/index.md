@@ -46,4 +46,28 @@ sections:
         name: Nicolai Baldin 2
         role: CEO & Founder at Synthesized
         image: /images/quotes/nicolai-baldin.jpg
+  - partial: experience-columns
+    title: Full Testcontainers Experience
+    description: Testcontainers is an open source framework for providing throwaway, lightweight instances of databases, message brokers, web browsers, or just about anything that can run in a Docker container. Testcontainers Cloud lets you have the same great experience wherever you are running your tests.
+    columns:
+      - icon: testcontainers
+        title: Unit Tests With Real Dependencies
+      - icon: languages
+        title: Supports Most Popular Languages
+      - icon: modules
+        title: Test Anything You Can Containerize
+    buttons:
+      - label: Learn More About Testcontainers
+        url: /
+        style: outline
+  - partial: alternating-image
+    title: Get Started In Minutes!
+    description: |
+      - Works with your existing tests without any code changes
+      - Install the non-privileged agent and you are good to go
+      - Plays nice with both public and private registries
+    image: /images/testcontainers-cloud-diagram.png
+    buttons:
+      - label: Start Testing
+        url: https://app.testcontainers.cloud/signup
 ---

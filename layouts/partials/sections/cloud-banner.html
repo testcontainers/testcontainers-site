@@ -9,7 +9,7 @@
                     {{ with .style }}
                         {{ $buttonClasses = $buttonClasses | append . }}
                     {{ end }}
-                    <a class='{{ delimit $buttonClasses " " }}' href="{{ .link }}" target="{{ .target }}">{{ .label }}</a>
+                    <a class='{{ delimit $buttonClasses " " }}' href="{{ .url }}" target="{{ .target }}">{{ .label }}</a>
                 {{ end }}
             </div>
         </div>
