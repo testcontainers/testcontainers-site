@@ -122,7 +122,12 @@ You can use GenericContainer to start a Docker container, get any container info
 For example, you can use **GenericContainer** from **Testcontainers for Java** as follows:
 
 ```java
-GenericContainer container = new GenericContainer("postgres:15").withExposedPorts(5432);
+GenericContainer container = new GenericContainer("postgres:15")
+        .withExposedPorts(5432)
+        .waitingFor(new LogMessageWaitStrategy()
+            .withRegEx(".*database system is ready to accept connections.*\\s")
+            .withTimes(2)
+            .withStartupTimeout(Duration.of(60, ChronoUnit.SECONDS)));
 container.start();
 var username = "test";
 var password = "test";
