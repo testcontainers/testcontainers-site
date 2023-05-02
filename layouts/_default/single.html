@@ -5,11 +5,28 @@
 {{ define "footerScripts" }}
 <script src="/js/fslightbox.js"></script>
 <script>
-    new Glide('.glide', {
+    new Glide('.quotes .glide', {
         startAt: 0,
         perView: 1
     }).mount()
+    new Glide('.tweets .glide', {
+        perView: 4,
+        perSwipe: '|',
+        bound: true,
+        breakpoints: {
+            1340: {
+                perView: 3
+            },
+            1024: {
+                perView: 2
+            },
+            720: {
+                perView: 1
+            }
+        }
+    }).mount()
 </script>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 {{ end }}
 
 {{ define "main" }}

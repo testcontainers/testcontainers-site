@@ -6,15 +6,15 @@ sections:
     title: Pricing
     headingLevel: 1
     features:
-      - Test dependencies as code
-      - Languages Supported
+      - Test Dependencies As Code
       - Requires Local Docker Environment
-      - Preconfigured Modules
-      - Max Users
-      - Max Service Accounts
+      - |
+        [Preconfigured Modules](/modules)
+      - Max Users (desktop)
+      - Max Service Accounts (CI)
       - |
         [Turbo mode](https://knowledge.testcontainers.cloud/turbo-mode)
-      - Max Concurrent Workers Per Service Account
+      - Max Concurrent Workers Per Service Account (CI)
     plans:
       - title: Trial
         description: |
@@ -30,9 +30,8 @@ sections:
           - value: |
               Yes
             checkmark: true
-          - value: 4
-            checkmark: false
-          - value: No
+          - value: |
+              No
             checkmark: true
           - value: 50+
             checkmark: true
@@ -61,9 +60,8 @@ sections:
           - value: |
               Yes
             checkmark: true
-          - value: 4
-            checkmark: false
-          - value: No
+          - value: | 
+              No
             checkmark: true
           - value: 50+
             checkmark: true
@@ -73,6 +71,6 @@ sections:
             checkmark: true
           - value: Available
             checkmark: true
-          - value: Unlimited
+          - value: 16
             checkmark: true
 ---
