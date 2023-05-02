@@ -118,9 +118,13 @@ a {
 
 @import "footer";
 @import "header";
+@import "guides/highlight";
+@import "longform";
 @import "sections/code-examples";
 @import "sections/company-logos";
 @import "sections/hero-banner";
 @import "sections/icon-columns";
 @import "sections/sponsor-credits";
 @import "sections/supported-languages";
+@import "shortcodes/languages";
+@import "toc";
