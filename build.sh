@@ -26,6 +26,7 @@ for repo_name in "${GUIDE_REPOS[@]}"; do
   rm -rf "${GUIDES_TARGET_DIR:?}/${repo_name}"
   cp -r "${GUIDE_REPOS_CLONE_DIR}/${repo_name}/guide/." "${GUIDES_TARGET_DIR}"
 done
+
 echo "------------------Guides Setup Completed ---------------------------"
 
 # output some version numbers:
