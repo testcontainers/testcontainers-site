@@ -128,6 +128,8 @@ a {
     font-weight: 500;
     color: $catskill;
     text-decoration: none;
+    text-align: center;
+    justify-content: center;
     font-size: rem(14px);
     transition: 
         color 0.2s ease,
@@ -171,6 +173,7 @@ a {
 @import "sections/icon-columns";
 @import "sections/pricing";
 @import "sections/quotes";
+@import "sections/signup-form";
 @import "sections/sponsor-credits";
 @import "sections/step-cards";
 @import "sections/supported-languages";
