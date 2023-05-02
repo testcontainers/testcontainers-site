@@ -3,8 +3,6 @@
 <link rel="stylesheet" href="{{ $style.RelPermalink }}">
 
 <script src="/js/highlight.min.js"></script>
-{{ $script := resources.Get "/js/guide.js" | js.Build | resources.Minify }}
-<script src="{{ $script.RelPermalink }}" defer></script>
 {{ end }}
 
 {{ define "main" }}
@@ -46,7 +44,7 @@
           {{ end }}
         </div>
       </header>
-      <div class="guide-content">
+      <div class="guide-content longform-content">
         <div class="container">
           <aside class="toc">
             {{ .TableOfContents }}

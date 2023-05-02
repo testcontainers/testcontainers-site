@@ -1,0 +1,32 @@
+{{ define "pageScripts" }}
+<script src="/js/highlight.min.js"></script>
+{{ end }}
+
+{{ define "main" }}
+    <main class="single">
+        {{ range $section := .Params.Sections  }}
+            {{ partial (printf "%s%s" "sections/" .partial) (dict "section" $section )}}
+        {{ end }}
+        {{ if .Params.showTitle }}
+            <div class="container">
+                <h1>
+                    {{ .Title }}
+                </h1>
+            </div>
+        {{ end }}
+        {{ if .Content }}
+            <div class="longform-content">
+                <div class="container">
+                    {{ if .Params.showToc }}
+                        <aside class="toc">
+                            {{ .TableOfContents }}
+                        </aside>
+                    {{ end }}
+                    <div class="content">    
+                        {{ .Content }}
+                    </div>
+                </div>
+            </div>
+        {{ end }}
+    </main>
+{{ end }}

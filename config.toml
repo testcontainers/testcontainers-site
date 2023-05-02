@@ -13,9 +13,6 @@ paginate = 9999
   tag = 'tags'
   category = 'categories'
 
-[markup.goldmark.renderer]
-    hardWraps = true
-
 [minify]
     minifyOutput = true
 
