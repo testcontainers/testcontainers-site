@@ -61,19 +61,14 @@
                 </label>
               </div>
               {{ range .Site.Taxonomies.languages }}
-                <div class="filter-field">
-                  <input type="radio" id="language-{{ .Page.Params.slug }}" name="language" class="filter-input sr-only"/>
-                  <label for="language-{{ .Page.Params.slug }}" class="radio-button">
-                    <!--
-                    <div class="checkbox-proxy">
-                      <svg class="icon-check" width="10" height="10" viewBox="0 0 10 10">
-                        <use href="#icon-check"></use>
-                      </svg>
-                    </div>
-                    -->
-                    <span>{{ .Page.Title }}</span>
-                  </label>
-                </div>
+                {{ if in (slice "java" "dotnet" "go" "nodejs") .Page.Params.slug }}
+                  <div class="filter-field">
+                    <input type="radio" id="language-{{ .Page.Params.slug }}" name="language" class="filter-input sr-only"/>
+                    <label for="language-{{ .Page.Params.slug }}" class="radio-button">
+                      <span>{{ .Page.Title }}</span>
+                    </label>
+                  </div>
+                {{ end }}
               {{ end }}
             </div>
             <div class="category-filter">
