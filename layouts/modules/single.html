@@ -3,8 +3,6 @@
     <link rel="stylesheet" href="{{ $style.RelPermalink }}">
 
     <script src="/js/highlight.min.js"></script>
-    {{ $script := resources.Get "/js/guide.js" | js.Build | resources.Minify }}
-    <script src="{{ $script.RelPermalink }}" defer></script>
 {{ end }}
 
 {{ define "main" }}

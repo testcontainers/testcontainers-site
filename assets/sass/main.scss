@@ -168,6 +168,8 @@ a {
 @import "sections/alternating-image";
 @import "sections/centered-text";
 @import "sections/cloud-banner";
+@import "guides/highlight";
+@import "longform";
 @import "sections/code-examples";
 @import "sections/company-logos";
 @import "sections/expereince-columns";
@@ -182,3 +184,5 @@ a {
 @import "sections/supported-languages";
 @import "sections/tweets";
 @import "subheader";
+@import "shortcodes/languages";
+@import "toc";
