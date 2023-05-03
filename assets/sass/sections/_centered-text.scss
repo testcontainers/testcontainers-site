@@ -1,0 +1,43 @@
+.centered-text {
+    padding: 40px 0;
+
+    @media (min-width: 780px) {
+        padding: 60px 0;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .content {
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 40px;
+
+        h2 {
+            @media (min-width: 860px) {
+                font-size: rem(36px);
+            }
+        }
+        
+        div {
+            max-width: 1024px;
+
+            @media (min-width: 860px) {
+                font-size: rem(18px);
+            }
+        }
+    }
+
+    .buttons {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        align-items: center;
+    }
+}

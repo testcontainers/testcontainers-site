@@ -9,10 +9,16 @@
             <h{{$headingLevel}}>{{ .section.title }}</h{{$headingLevel}}>
         </div>
         <div class="pricing-table">
-            <div class="features">
-                {{ range $features }}
-                    <div class="feature">{{ . | markdownify }}</div>
-                {{ end }}
+            <div class="info">
+                <div class="details">
+                    {{ partial "img.html" (dict "image" (resources.Get "/images/testcontainers-cloud-logo.svg") "alt" "") }}
+                </div>
+                <div class="features">
+                    
+                    {{ range $features }}
+                        <div class="feature">{{ . | markdownify }}</div>
+                    {{ end }}
+                </div>
             </div>
             <div class="plans">
                 {{ range .section.plans }}
@@ -57,6 +63,15 @@
                     </div>
                 {{ end }}
             </div>
+        </div>
+        <div class="buttons">
+            {{ range .section.buttons }}
+                {{ $buttonClasses := slice "button" }}
+                {{ with .style }}
+                    {{ $buttonClasses = $buttonClasses | append . }}
+                {{ end }}
+                <a class='{{ delimit $buttonClasses " " }}' href="{{ .url }}" target="{{ .target }}">{{ .label }}</a>
+            {{ end }}
         </div>
     </div>
 </section>

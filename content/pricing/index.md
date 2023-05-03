@@ -5,6 +5,12 @@ sections:
   - partial: pricing
     title: Pricing
     headingLevel: 1
+    buttons:
+      - label: Start For Free
+        url: https://app.testcontainers.cloud/signup
+      - label: Read About Metering & Billing
+        url: https://knowledge.testcontainers.cloud/usage-and-billing
+        style: outline
     features:
       - Test Dependencies As Code
       - Requires Local Docker Environment
@@ -18,7 +24,7 @@ sections:
     plans:
       - title: Trial
         description: |
-          Free access to Testcontainers Cloud during public beta with some [restrictions](https://knowledge.testcontainers.cloud/how-are-trial-accounts-restricted).
+          Free access to Testcontainers Cloud during public beta with [some restrictions](https://knowledge.testcontainers.cloud/how-are-trial-accounts-restricted).
         prices:
           - label: / Seat per Month (on Desktop)
             value: Free
@@ -73,4 +79,12 @@ sections:
             checkmark: true
           - value: 16
             checkmark: true
+  - partial: centered-text
+    title: Open Source Libraries
+    description: The Testcontainers libraries are open source and free to use.
+    image: "/images/testcontainers-logo.svg"
+    buttons:
+      - label: Learn More
+        url: /
+        style: outline
 ---

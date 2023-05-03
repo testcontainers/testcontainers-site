@@ -15,7 +15,7 @@
         </div>
         <div class="video">
             <a data-fslightbox href="https://www.youtube.com/watch?v={{ .section.video.id }}">
-                {{ partial "img.html" (dict "image" (resources.Get .section.video.image) "alt" .name) }}
+                {{ partial "img.html" (dict "image" (resources.Get .section.video.image) "alt" "") }}
                 <div class="play">
                     <span class="sr-only">Play Video</span>
                     <svg width="26" height="30" viewBox="0 0 26 30" fill="currentColor" xmlns="http://www.w3.org/2000/svg">

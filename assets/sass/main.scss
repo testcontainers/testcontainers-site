@@ -120,7 +120,7 @@ a {
     display: flex;
     gap: 6px;
     align-items: center;
-    border: none;
+    border: 2px solid $violet;
     border-radius: 3px;
     background: $violet;
     cursor: pointer;
@@ -145,6 +145,7 @@ a {
 
     &:hover {
         background: $aqua;
+        border-color: $aqua;
         color: $catskill;
     }
 
@@ -165,6 +166,7 @@ a {
 @import "glide";
 @import "header";
 @import "sections/alternating-image";
+@import "sections/centered-text";
 @import "sections/cloud-banner";
 @import "sections/code-examples";
 @import "sections/company-logos";
