@@ -26,4 +26,22 @@ for repo_name in "${GUIDE_REPOS[@]}"; do
   rm -rf "${GUIDES_TARGET_DIR:?}/${repo_name}"
   cp -r "${GUIDE_REPOS_CLONE_DIR}/${repo_name}/guide/." "${GUIDES_TARGET_DIR}"
 done
+
+PREVIEW_GUIDE_REPOS=(
+  'tc-guide-getting-started-with-testcontainers-for-dotnet'
+)
+PREVIEW_BRANCH='preview'
+
+for repo_name in "${PREVIEW_GUIDE_REPOS[@]}"; do
+  echo "Cloning ${GIT_ORG}/${repo_name}.git"
+  git clone -b "$PREVIEW_BRANCH" "${GIT_ORG}/${repo_name}.git" "${GUIDE_REPOS_CLONE_DIR}/${repo_name}/"
+
+  for i in "${GUIDE_REPOS_CLONE_DIR}/${repo_name}/guide"/*/index.adoc; do
+     sed -i'' -e "s/${repo_name}\/main/${repo_name}\/${PREVIEW_BRANCH}/g" "$i"
+  done
+
+  rm -rf "${GUIDES_TARGET_DIR:?}/${repo_name}"
+  cp -r "${GUIDE_REPOS_CLONE_DIR}/${repo_name}/guide/." "${GUIDES_TARGET_DIR}"
+done
+
 echo "------------------Guides Setup Completed ---------------------------"
