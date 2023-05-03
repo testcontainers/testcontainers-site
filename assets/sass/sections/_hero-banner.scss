@@ -12,6 +12,7 @@ $bottom-step: 7.5em;
     overflow: visible;
     overflow-x: clip;
     padding: -70px 0 40px 0;
+    margin-bottom: 30px;
 
     &::before {
         content: "";
@@ -39,6 +40,10 @@ $bottom-step: 7.5em;
 
     @media (min-width: 500px) {
         padding: -88px 0 0 0;
+    }
+
+    @media (min-width: 1024px) {
+        margin-bottom: 0;
     }
     
     .container {

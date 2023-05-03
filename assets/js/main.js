@@ -6,8 +6,10 @@ function toggleMobileMenu() {
 function toggleMobileSubmenu() {
     document.body.classList.toggle('mobile-submenu'); 
 }
-mobileToggle.addEventListener("click", toggleMobileMenu);
-mobileSubToggle.addEventListener("click", toggleMobileSubmenu);
+if (mobileToggle)
+    mobileToggle.addEventListener("click", toggleMobileMenu);
+if (mobileSubToggle)
+    mobileSubToggle.addEventListener("click", toggleMobileSubmenu);
 
 const allParentMenuItems = document.querySelectorAll("#site-header .menu-item.has-children");
 

@@ -9,9 +9,19 @@
             <div class="tab-labels">
                 {{ range $index, $example := .section.examples }}
                     {{ if eq $index 0 }}
-                        <button class="active" data-target="{{ $example.id }}">{{ $example.label }}</button>
+                        <button class="active" data-target="{{ $example.id }}">
+                            {{ if $example.icon }}
+                                {{ partial "img.html" (dict "image" (resources.Get $example.icon) "alt" "") }}
+                            {{ end }}
+                            {{ $example.label }}
+                        </button>
                     {{ else }}
-                        <button data-target="{{ $example.id }}">{{ $example.label }}</button>
+                        <button data-target="{{ $example.id }}">
+                            {{ if $example.icon }}
+                                {{ partial "img.html" (dict "image" (resources.Get $example.icon) "alt" "") }}
+                            {{ end }}
+                            {{ $example.label }}
+                        </button>
                     {{ end }}
                 {{ end }}
             </div>
