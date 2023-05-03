@@ -1,5 +1,5 @@
 .cloud-banner {
-    padding: 20px 0;
+    padding: 40px 0 20px 0;
 
     @media (min-width: 780px) {
         padding: 60px 0;
@@ -26,6 +26,11 @@
         @media (min-width: 860px) {
             font-size: rem(18px);
         }
+
+        @media (max-width: 859px) {
+            align-items: center;
+            text-align: center;
+        }
     }
 
     h1 {
@@ -36,6 +41,12 @@
     .buttons {
         display: flex;
         gap: 20px;
+
+        @media (max-width: 859px) {
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
     }
 
     .video {

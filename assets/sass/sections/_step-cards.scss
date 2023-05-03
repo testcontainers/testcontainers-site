@@ -1,5 +1,5 @@
 .step-cards {
-    padding: 20px 0;
+    padding: 40px 0;
 
     @media (min-width: 780px) {
         padding: 60px 0;
@@ -26,6 +26,10 @@
     .description {
         @media (min-width: 860px) {
             font-size: rem(18px);
+        }
+
+        @media (max-width: 859px) {
+            text-align: center;
         }
     }
 

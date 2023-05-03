@@ -1,8 +1,13 @@
 const mobileToggle = document.getElementById("mobile-menu-toggle");
+const mobileSubToggle = document.getElementById("mobile-submenu-toggle");
 function toggleMobileMenu() {
     document.body.classList.toggle('mobile-menu'); 
 }
+function toggleMobileSubmenu() {
+    document.body.classList.toggle('mobile-submenu'); 
+}
 mobileToggle.addEventListener("click", toggleMobileMenu);
+mobileSubToggle.addEventListener("click", toggleMobileSubmenu);
 
 const allParentMenuItems = document.querySelectorAll("#site-header .menu-item.has-children");
 

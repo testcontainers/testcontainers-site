@@ -1,5 +1,5 @@
 .signup-form {
-    padding: 60px 0;
+    padding: 40px 0;
 
     @media (min-width: 780px) {
         padding: 60px 0;
@@ -19,13 +19,14 @@
         display: flex;
         flex-direction: column;
         gap: 30px;
+
+        @media (max-width: 859px) {
+            text-align: center;
+        }
     }
 
     h2 {
-        text-align: center;
-
         @media (min-width: 860px) {
-            text-align: left;
             font-size: rem(36px);
         }
     }
