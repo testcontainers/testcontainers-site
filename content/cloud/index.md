@@ -4,7 +4,7 @@ submenu: cloud
 sections:
   - partial: cloud-banner
     title: |
-      **Test Without Limits.**
+      **Test Without Limits.**\
       Ship With Confidence.
     description: Testcontainers is an open source framework for providing throwaway, lightweight instances of databases, message brokers, web browsers, or just about anything that can run in a Docker container.
     buttons:
@@ -53,7 +53,7 @@ sections:
       - icon: testcontainers
         title: Unit Tests With Real Dependencies
       - icon: languages
-        title: Supports Most Popular Languages
+        title: Supports Popular Languages
       - icon: modules
         title: Test Anything You Can Containerize
     buttons:

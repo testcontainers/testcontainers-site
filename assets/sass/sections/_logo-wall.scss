@@ -10,6 +10,15 @@
         gap: 40px;
     }
 
+    .header {
+        text-align: center;
+    }
+
+    .small-header {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
     .logos {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -42,5 +51,6 @@
     .buttons {
         display: flex;
         gap: 20px;
+        justify-content: center;
     }
 }
