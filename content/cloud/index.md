@@ -13,6 +13,7 @@ sections:
       - label: Get A Demo
         url: https://atomicjar.typeform.com/to/MtTeGHIi
         style: outline
+    buttonCallout: Get started in 5 minutes!
     video:
       id: zy6ulq0k2ns
       image: images/tcc-video-billboard.png

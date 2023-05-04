@@ -38,6 +38,11 @@
         font-weight: 400;
     }
 
+    .buttons-wrapper {
+        display: grid;
+        gap: 10px;
+    }
+
     .buttons {
         display: flex;
         gap: 20px;
@@ -47,6 +52,34 @@
             flex-wrap: wrap;
             gap: 10px;
         }
+    }
+
+    .button-callout {
+        font-weight: 500;
+        position: relative;
+        text-align: left;
+        padding-left: 5px;
+
+        @media (max-width: 500px) {
+            display: none;
+        }
+
+        @media (min-width: 1024px) {
+            
+        }
+        
+        svg {
+            position: absolute;
+            right: 100%;
+            bottom: 100%;
+            transform: translate(-5px, 50%);
+        }
+    }
+
+    .button-callout-arrow-gradient {
+        width: 100%;
+        height: 100%;
+        background: conic-gradient(from 120deg at 50% 50%, #fff, 160deg, #6638F2, #6638F2);
     }
 
     .video {
