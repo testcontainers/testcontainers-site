@@ -43,10 +43,6 @@ sections:
         name: Nicolai Baldin
         role: CEO & Founder at Synthesized
         image: /images/quotes/nicolai-baldin.jpg
-      - quote: Adopting Testcontainers Cloud was simple. It just worked out of the box and gave our entire dev team access to a scalable backend to run their tests, with zero configuration or additional steps.
-        name: Nicolai Baldin 2
-        role: CEO & Founder at Synthesized
-        image: /images/quotes/nicolai-baldin.jpg
   - partial: experience-columns
     title: Full Testcontainers Experience
     description: Testcontainers is an open source framework for providing throwaway, lightweight instances of databases, message brokers, web browsers, or just about anything that can run in a Docker container. Testcontainers Cloud lets you have the same great experience wherever you are running your tests.
