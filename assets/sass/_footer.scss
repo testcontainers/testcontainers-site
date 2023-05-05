@@ -6,6 +6,11 @@
     .container {
         display: grid;
         gap: 60px;
+    }
+
+    .columns {
+        display: grid;
+        gap: 60px;
 
         @media (min-width: 500px) {
             grid-template-columns: repeat(2, 1fr); 
@@ -97,6 +102,23 @@
                     height: 30px;
                 }
             }
+        }
+    }
+
+    .subfooter {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 20px;
+
+        @media (min-width: 480px) {
+            flex-direction: row;
+        }
+
+        a {
+            display: flex;
+            gap: 5px;
+            align-items: center;
         }
     }
 }

@@ -16,7 +16,7 @@ sections:
         label: Java
         icon: /images/language-logos/java.svg
         code: |
-          ```
+          ```java
           GenericContainer redis = new GenericContainer("redis:5.0.3-alpine")
               .withExposedPorts(6379);
           ```
@@ -24,7 +24,7 @@ sections:
         label: Go
         icon: /images/language-logos/go.svg
         code: |
-          ```
+          ```go
           container, err := testcontainers.GenericContainer(ctx, testcontainers.GenericContainerRequest{
               ContainerRequest: testcontainers.ContainerRequest{
                   Image:        "redis:5.0.3-alpine",
@@ -38,7 +38,7 @@ sections:
         label: .NET
         icon: /images/language-logos/dotnet.svg
         code: |
-          ```
+          ```csharp
           RedisContainer redisContainer = new RedisBuilder().Build();
           await redisContainer.StartAsync();
           ```
@@ -46,7 +46,7 @@ sections:
         label: Node.js
         icon: /images/language-logos/nodejs.svg
         code: |
-          ```
+          ```javascript
           const redis = await new GenericContainer("redis:5.0.3-alpine")
               .withExposedPorts(6379)
               .withWaitStrategy(Wait.forLogMessage("Ready to accept connections"))
@@ -56,7 +56,7 @@ sections:
         label: Python
         icon: /images/language-logos/python.svg
         code: |
-          ```
+          ```python
           redis = (
               DockerContainer("redis:5.0.3-alpine")
                   .with_exposed_ports(6379)
@@ -68,7 +68,7 @@ sections:
         label: Rust
         icon: /images/language-logos/rust.svg
         code: |
-          ```
+          ```rust
           let docker = clients::Cli::default();
           let redis = docker.run(redis::Redis::default());
           ```
@@ -76,7 +76,7 @@ sections:
         label: Haskell
         icon: /images/language-logos/haskell.svg
         code: |
-          ```
+          ```haskell
           redis <-
             run $
               containerRequest (TestContainers.fromTag "redis:5.0.3-alpine")
