@@ -15,7 +15,7 @@ docs:
     url: https://golang.testcontainers.org/modules/pulsar/
     example: |
       ```go
-      container, err := pulsar.StartContainer(ctx,
+      container, err := pulsar.RunContainer(ctx,
         testcontainers.WithImage("apachepulsar/pulsar:2.10.0"),
         pulsar.WithPulsarEnv("brokerDeduplicationEnabled", "true"),
         pulsar.WithFunctionsWorker(),
