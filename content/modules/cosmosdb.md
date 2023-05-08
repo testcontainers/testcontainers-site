@@ -22,5 +22,5 @@ docs:
       await cosmosDbContainer.StartAsync();
       ```
 description: |
-  Azure Cosmo DB is a fully managed, horizontally scalable, NoSQL and relational database.
+  Azure Cosmos DB is a fully managed, horizontally scalable, NoSQL and relational database.
 ---
