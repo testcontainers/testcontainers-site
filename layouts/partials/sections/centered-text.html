@@ -1,0 +1,18 @@
+<section class="centered-text">
+    <div class="container">
+        <div class="content">
+            {{ partial "img.html" (dict "image" (resources.Get .section.image) "alt" "") }}
+            <h2>{{ .section.title }}</h2>
+            <div>{{ .section.description | markdownify }}</div>
+        </div>
+        <div class="buttons">
+            {{ range .section.buttons }}
+                {{ $buttonClasses := slice "button" }}
+                {{ with .style }}
+                    {{ $buttonClasses = $buttonClasses | append . }}
+                {{ end }}
+                <a class='{{ delimit $buttonClasses " " }}' href="{{ .url }}" target="{{ .target }}">{{ .label }}</a>
+            {{ end }}
+        </div>
+    </div>
+</section>

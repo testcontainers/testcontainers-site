@@ -1,5 +1,37 @@
-{{ define "pageScripts" }}
-<script src="/js/highlight.min.js"></script>
+{{ define "pageScripts"}}
+<script src="/js/glide.js"></script>
+{{ end }}
+
+{{ define "footerScripts" }}
+<script src="/js/fslightbox.js"></script>
+<script>
+    if (document.querySelectorAll(".quotes .glide").length > 0)
+        new Glide('.quotes .glide', {
+            startAt: 0,
+            perView: 1,
+            autoplay: 3000,
+            hoverpause: true,
+            type: "carousel"
+        }).mount()
+    if (document.querySelectorAll(".tweets .glide").length > 0)
+        new Glide('.tweets .glide', {
+            perView: 4,
+            perSwipe: '|',
+            bound: true,
+            breakpoints: {
+                1340: {
+                    perView: 3
+                },
+                1024: {
+                    perView: 2
+                },
+                720: {
+                    perView: 1
+                }
+            }
+        }).mount()
+</script>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 {{ end }}
 
 {{ define "main" }}

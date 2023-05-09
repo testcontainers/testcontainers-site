@@ -1,0 +1,95 @@
+.alternating-image {
+    padding: 40px 0;
+    background: $catskill;
+
+    @media (min-width: 780px) {
+        padding: 60px 0;
+    }
+
+    .container {
+        display: grid;
+        gap: 30px;
+    }
+
+    h2 {
+        text-align: center;
+
+        @media (min-width: 860px) {
+            font-size: rem(36px);
+        }
+    }
+
+    img {
+        width: auto;
+        height: auto;
+        box-shadow: 0px 10px 30px 0px #746C8F4D;
+        border-radius: 10px;
+    }
+
+    .wrapper {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 20px;
+        align-items: center;
+
+        @media (min-width: 500px) {
+            gap: 60px;
+        }
+
+        @media (min-width: 768px) {    
+            grid-template-columns: 3fr 2fr;
+        }
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .description {
+        color: $plum;
+    }
+
+    ul {
+        padding: 0;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    li {
+        list-style: none;
+        display: flex;
+        gap: 16px;
+        line-height: 1.25;
+        text-align: left;
+
+        &::before {
+            content: "";
+            background: $aqua;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 0.5em;
+            height: 0.5em;
+            color: #fff;
+            border-radius: 1000px;
+            flex: 0 0 auto;
+            transform: translateY(0.325em);
+            border: 0.125em solid $catskill;
+            outline: 0.125em solid $aqua;
+        }
+    }
+
+    .buttons {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+
+        @media (max-width: 767px) {
+            justify-content: center;
+        }
+    }
+}

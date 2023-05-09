@@ -14,15 +14,17 @@ sections:
     examples:
       - id: java
         label: Java
+        icon: /images/language-logos/java.svg
         code: |
-          ```
+          ```java
           GenericContainer redis = new GenericContainer("redis:5.0.3-alpine")
               .withExposedPorts(6379);
           ```
       - id: go
         label: Go
+        icon: /images/language-logos/go.svg
         code: |
-          ```
+          ```go
           container, err := testcontainers.GenericContainer(ctx, testcontainers.GenericContainerRequest{
               ContainerRequest: testcontainers.ContainerRequest{
                   Image:        "redis:5.0.3-alpine",
@@ -34,15 +36,17 @@ sections:
           ```
       - id: dotnet
         label: .NET
+        icon: /images/language-logos/dotnet.svg
         code: |
-          ```
+          ```csharp
           RedisContainer redisContainer = new RedisBuilder().Build();
           await redisContainer.StartAsync();
           ```
       - id: nodejs
         label: Node.js
+        icon: /images/language-logos/nodejs.svg
         code: |
-          ```
+          ```javascript
           const redis = await new GenericContainer("redis:5.0.3-alpine")
               .withExposedPorts(6379)
               .withWaitStrategy(Wait.forLogMessage("Ready to accept connections"))
@@ -50,8 +54,9 @@ sections:
           ```
       - id: python
         label: Python
+        icon: /images/language-logos/python.svg
         code: |
-          ```
+          ```python
           redis = (
               DockerContainer("redis:5.0.3-alpine")
                   .with_exposed_ports(6379)
@@ -61,21 +66,55 @@ sections:
           ```
       - id: rust
         label: Rust
+        icon: /images/language-logos/rust.svg
         code: |
-          ```
+          ```rust
           let docker = clients::Cli::default();
           let redis = docker.run(redis::Redis::default());
           ```
       - id: haskell
         label: Haskell
+        icon: /images/language-logos/haskell.svg
         code: |
-          ```
+          ```haskell
           redis <-
             run $
               containerRequest (TestContainers.fromTag "redis:5.0.3-alpine")
                 & setExpose ["6379/tcp"]
                 & setWaitingFor (waitUntilMappedPortReachable "6379/tcp")
           ```
+  - partial: logo-wall
+    small_title: Modules
+    title: "Test Anything You Can Containerize: Database, Message Broker, And More"
+    buttons:
+      - label: See all 50+ Modules
+        url: /modules
+        style: outline
+    logos:
+      - /images/company-logos/postgresql.svg
+      - /images/company-logos/kafka.svg
+      - /images/company-logos/mongodb.svg
+      - /images/company-logos/kubernetes.svg
+      - /images/company-logos/cassandra.svg
+      - /images/company-logos/elasticsearch.svg
+      - /images/company-logos/mysql.svg
+      - /images/company-logos/redpanda.svg
+      - /images/company-logos/rabbitmq.svg
+      - /images/company-logos/neo4j.svg
+      - /images/company-logos/couchbase.svg
+      - /images/company-logos/google-cloud.svg
+      - /images/company-logos/azure.svg
+      - /images/company-logos/localstack.svg
+      - /images/company-logos/cockroachdb.svg
+      - /images/company-logos/clickhouse.svg
+      - /images/company-logos/consul.svg
+      - /images/company-logos/hivemq.svg
+      - /images/company-logos/k3s.svg
+      - /images/company-logos/nginx.svg
+      - /images/company-logos/presto.svg
+      - /images/company-logos/pulsar.svg
+      - /images/company-logos/questdb.svg
+      - /images/company-logos/selenium.svg
   - partial: icon-columns
     small_title: Use cases
     title: How Testcontainers can help you

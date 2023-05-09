@@ -116,15 +116,73 @@ a {
     text-align: center
 }
 
+.button {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    border: 2px solid $violet;
+    border-radius: 3px;
+    background: $violet;
+    cursor: pointer;
+    padding: 10px 20px;
+    font-weight: 500;
+    color: $catskill;
+    text-decoration: none;
+    text-align: center;
+    justify-content: center;
+    font-size: rem(14px);
+    transition: 
+        color 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
+    white-space: nowrap;
+
+    @media (min-width: 1024px) {
+        padding: 16px 30px;
+        gap: 8px;
+        font-size: rem(18px);
+    }
+
+    &:hover {
+        background: $aqua;
+        border-color: $aqua;
+        color: $catskill;
+    }
+
+    &.outline {
+        background: none;
+        border: 2px solid $violet;
+        color: $violet;
+
+        &:hover {
+            background: $aqua;
+            border-color: $aqua;
+            color:  $catskill;
+        }
+    }
+}
+
 @import "footer";
+@import "glide";
 @import "header";
+@import "sections/alternating-image";
+@import "sections/centered-text";
+@import "sections/cloud-banner";
 @import "guides/highlight";
 @import "longform";
 @import "sections/code-examples";
 @import "sections/company-logos";
+@import "sections/expereince-columns";
 @import "sections/hero-banner";
 @import "sections/icon-columns";
+@import "sections/logo-wall";
+@import "sections/pricing";
+@import "sections/quotes";
+@import "sections/signup-form";
 @import "sections/sponsor-credits";
+@import "sections/step-cards";
 @import "sections/supported-languages";
+@import "sections/tweets";
+@import "subheader";
 @import "shortcodes/languages";
 @import "toc";

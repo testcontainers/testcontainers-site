@@ -1,0 +1,27 @@
+<section class="step-cards">
+    <div class="container">
+        <div class="content">
+            <h2>{{ .section.title | markdownify }}</h2>
+        </div>
+        <div class="cards-wrapper">
+            <div class="cards">
+                {{ range .section.cards }}
+                    <div class="card">
+                        <div class="header">
+                            {{ partial "img.html" (dict "image" (resources.Get .icon) "alt" "") }}
+                            <h3>{{ .title }}</h3>
+                        </div>
+                        <div class="description">{{ .description | markdownify }}</div>
+                        <ol class="steps">
+                            {{ range .steps }}
+                                <li class="step">{{ . }}</li>
+                            {{ end }}
+                        </ol>
+                    </div>
+                {{ end }}
+            </div>
+            <div class="addendum-connector"></div>
+            <div class="addendum">{{ .section.description }}</div>
+        </div>
+    </div>
+</section>

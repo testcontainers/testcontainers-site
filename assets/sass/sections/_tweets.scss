@@ -1,0 +1,62 @@
+.tweets {
+    overflow: hidden;
+    padding: 40px 0;
+
+    @media (min-width: 780px) {
+        padding: 60px 0;
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+
+        @media (min-width: 860px) {
+            font-size: rem(36px);
+        }
+    }
+
+    .glide__track {
+        overflow: visible !important;
+    }
+
+    .glide__arrows {
+        display: flex;
+        gap: 20px;
+        justify-content: space-between;
+    }
+
+    .glide__arrow {
+        background: #fff;
+        border-radius: 100%;
+        border: 1px solid $mist;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        color: $aqua;
+
+        &:hover {
+            background: $aqua;
+            color: $catskill;
+            border-color: $aqua;
+        }
+    }
+    
+    .glide__arrow--left {
+        .icon-caret {
+            transform: rotate(90deg);
+        }
+    }
+
+    .glide__arrow--right {
+        .icon-caret {
+            transform: rotate(-90deg);
+        }
+    }
+
+    blockquote.twitter-tweet {
+        border: 1px solid $mist;
+        border-radius: 10px;
+        padding: 20px;
+        margin: 0;
+    }
+}

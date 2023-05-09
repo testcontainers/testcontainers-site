@@ -1,8 +1,17 @@
 .sponsor-credits {
-    padding: 60px 0;
-
+    padding: 40px 0;
+    
     @media (min-width: 780px) {
         padding: 60px 0;
+    }
+
+    .container {
+        display: grid;
+        gap: 20px;
+    }
+
+    .small-header {
+        margin: 0;
     }
 
     .sponsors,
@@ -12,9 +21,8 @@
         gap: 40px;
         justify-items: center;
         align-items: center;
-        padding: 40px 0;
+        padding: 0 0 20px 0;
         border-bottom: 1px solid $mist;
-        margin-bottom: 40px;
 
         a {
             display: flex;
@@ -42,7 +50,6 @@
 
     .backers {
         column-gap: 40px;
-        margin-top: 40px;
 
         @media (min-width: 380px) {
             columns: 2;

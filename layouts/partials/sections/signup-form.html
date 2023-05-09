@@ -1,0 +1,15 @@
+<section class="signup-form">
+    <div class="container">
+        <div class="content">
+            <h2>{{ .section.title | markdownify }}</h2>
+            <div class="description">{{ .section.description | markdownify }}</div>
+            <form class="tcc-signup-form" action="https://app.testcontainers.cloud/signup">
+                <input required="" type="email" id="email" name="email" placeholder="{{ .section.placeholder }}">
+                <input class="button" type="submit" value="{{ .section.label }}">
+            </form>
+        </div>
+        <div class="illustration">
+            {{ partial "img.html" (dict "image" (resources.Get "/images/tcc-desk-illustration.png") "alt" .name) }}
+        </div>
+    </div>
+</section>

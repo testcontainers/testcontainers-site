@@ -1,8 +1,15 @@
 const mobileToggle = document.getElementById("mobile-menu-toggle");
+const mobileSubToggle = document.getElementById("mobile-submenu-toggle");
 function toggleMobileMenu() {
     document.body.classList.toggle('mobile-menu'); 
 }
-mobileToggle.addEventListener("click", toggleMobileMenu);
+function toggleMobileSubmenu() {
+    document.body.classList.toggle('mobile-submenu'); 
+}
+if (mobileToggle)
+    mobileToggle.addEventListener("click", toggleMobileMenu);
+if (mobileSubToggle)
+    mobileSubToggle.addEventListener("click", toggleMobileSubmenu);
 
 const allParentMenuItems = document.querySelectorAll("#site-header .menu-item.has-children");
 
@@ -62,6 +69,50 @@ allTabLabels.forEach((label) => {
     });
 });
 
+// Handle UTMs 
+const queryParams = new URLSearchParams(window.location.search);
+const utmKeys = [
+    "utm_campaign",
+    "utm_source",
+    "utm_medium",
+    "utm_term",
+    "utm_content"
+];
+const utms = [];
+if (document.referrer) {
+    utms.push({
+        key: "original_referrer",
+        value: document.referrer
+    });
+}
+utmKeys.forEach((key) => {
+    const value = queryParams.get(key) || false;
+    if (value) utms.push({
+        key: key,
+        value: value
+    });
+});
+signupLinks = document.querySelectorAll("a[href*='app.testcontainers.cloud/signup']");
+signupLinks.forEach(link => {
+    const url = new URL(link.href);
+    const query = new URLSearchParams(url.search);
+    utms.forEach(utm => {
+        query.set(utm.key, utm.value);
+    });
+    const queryString = (query.toString() != "") ? "?" + query.toString() : "";
+    link.href = url.toString() + queryString;
+});
+signupForms = document.querySelectorAll(".tcc-signup-form");
+signupForms.forEach(form => {
+    utms.forEach(utm => {
+        const field = document.createElement("input");
+        field.setAttribute("type", "hidden");
+        field.setAttribute("name", utm.key);
+        field.setAttribute("value", utm.value);
+        form.appendChild(field);
+    });
+});
+ 
 hljs.addPlugin({
     "after:highlightElement": ({el, result, text}) => {
         let button = Object.assign(document.createElement("button"), {
