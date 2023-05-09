@@ -8,7 +8,10 @@
     if (document.querySelectorAll(".quotes .glide").length > 0)
         new Glide('.quotes .glide', {
             startAt: 0,
-            perView: 1
+            perView: 1,
+            autoplay: 3000,
+            hoverpause: true,
+            type: "carousel"
         }).mount()
     if (document.querySelectorAll(".tweets .glide").length > 0)
         new Glide('.tweets .glide', {

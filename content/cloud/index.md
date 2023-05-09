@@ -43,6 +43,10 @@ sections:
         name: Nicolai Baldin
         role: CEO & Founder at Synthesized
         image: /images/quotes/nicolai-baldin.jpg
+      - quote: Testcontainers Cloud fits greatly into Netflix's continuous efforts to make developer feedback loop faster by allowing developers to run their tests locally and more frequently regardless of their development environment
+        name: Roberto Pérez Alcolea
+        role: Productivity Engineering at Netflix
+        image: /images/quotes/roberto-perez-alcolea.jpg
   - partial: experience-columns
     title: Full Testcontainers Experience
     description: Testcontainers is an open source framework for providing throwaway, lightweight instances of databases, message brokers, web browsers, or just about anything that can run in a Docker container. Testcontainers Cloud lets you have the same great experience wherever you are running your tests.
