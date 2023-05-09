@@ -14,7 +14,7 @@ docs:
     url: https://golang.testcontainers.org/modules/vault/
     example: |
       ```go
-      container, err := vault.StartContainer(ctx,
+      container, err := vault.RunContainer(ctx,
         testcontainers.WithImage("hashicorp/vault:1.13.0"),
         vault.WithToken("root-token"),
         vault.WithInitCommand("secrets enable transit", "write -f transit/keys/my-key"),
