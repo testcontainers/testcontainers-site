@@ -1,0 +1,59 @@
+.longform-content .container>.content div.shortcode-languages {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 1.25rem;
+
+    @media (min-width: 380px) {   
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 600px) {   
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (min-width: 1200px) {    
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    a {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border: 1px solid $mist;
+        border-radius: 6px;
+        padding: 10px;
+        text-decoration: none;
+        color: $eggplant;
+        font-weight: 500;
+        transition: 
+            color 0.2s ease,
+            background 0.2s ease;
+
+        @media (min-width: 650px) {  
+            padding: 20px 30px;
+        }
+
+        .icon-external {
+            height: rem(10px);
+            flex-shrink: 0;
+            color: $fog;
+            margin-left: auto;
+
+            @media (min-width: 600px) {
+                height: rem(15px);
+            }
+        } 
+
+        &:hover {
+            color: $topaz;
+            background: rgba($catskill, 0.45);
+            text-decoration: none;
+
+            .icon-external {
+                color: $topaz;
+            }
+        }
+
+        
+    }
+}

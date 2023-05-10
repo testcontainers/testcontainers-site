@@ -15,7 +15,7 @@ docs:
     url: https://golang.testcontainers.org/modules/redis/
     example: |
       ```go
-      redisContainer, err := redis.StartContainer(ctx, testcontainers.WithImage("redis:6"))
+      redisContainer, err := redis.RunContainer(ctx, testcontainers.WithImage("redis:6"))
       ```
   - id: dotnet
     url: https://www.nuget.org/packages/Testcontainers.Redis

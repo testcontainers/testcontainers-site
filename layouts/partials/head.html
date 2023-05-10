@@ -4,6 +4,7 @@
 {{ $style := resources.Get "/sass/main.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
 <link rel="stylesheet" href="{{ $style.RelPermalink }}">
 
+<script src="/js/highlight.min.js" defer></script>
 {{ $script := resources.Get "/js/main.js" | resources.Minify }}
 <script src="{{ $script.RelPermalink }}" defer></script>
 

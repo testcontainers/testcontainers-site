@@ -1,0 +1,22 @@
+<section class="logo-wall">
+    <div class="container">
+        <div class="header">
+            <div class="small-header gradient">{{ .section.small_title }}</div>
+            <h2>{{ .section.title }}</h2>
+        </div>
+        <div class="logos">
+            {{ range .section.logos }}
+                {{ partial "img.html" (dict "image" (resources.Get .) "alt" "") }}
+            {{ end }}
+        </div>
+        <div class="buttons">
+            {{ range .section.buttons }}
+                {{ $buttonClasses := slice "button" }}
+                {{ with .style }}
+                    {{ $buttonClasses = $buttonClasses | append . }}
+                {{ end }}
+                <a class='{{ delimit $buttonClasses " " }}' href="{{ .url }}" target="{{ .target }}">{{ .label }}</a>
+            {{ end }}
+        </div>
+    </div>
+</section>

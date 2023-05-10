@@ -15,7 +15,7 @@ docs:
     url: https://golang.testcontainers.org/modules/neo4j/
     example: |
       ```go
-      container, err := neo4j.StartContainer(ctx,
+      container, err := neo4j.RunContainer(ctx,
         testcontainers.WithImage("neo4j:4.4"),
         neo4j.WithAdminPassword("letmein!"),
         neo4j.WithLabsPlugin(neo4j.Apoc),

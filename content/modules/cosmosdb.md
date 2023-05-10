@@ -12,15 +12,15 @@ docs:
       );
       cosmos.start();
       ```
-  # - id: dotnet
-  #   url: https://www.nuget.org/packages/Testcontainers.CosmosDb
-  #   example: |
-  #     ```csharp
-  #     var cosmosDbContainer = new CosmosDbBuilder()
-  #       .WithImage("mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator:latest")
-  #       .Build();
-  #     await cosmosDbContainer.StartAsync();
-  #     ```
+  - id: dotnet
+    url: https://www.nuget.org/packages/Testcontainers.CosmosDb
+    example: |
+      ```csharp
+      var cosmosDbContainer = new CosmosDbBuilder()
+        .WithImage("mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator:latest")
+        .Build();
+      await cosmosDbContainer.StartAsync();
+      ```
 description: |
-  Azure Cosmo DB is a fully managed, horizontally scalable, NoSQL and relational database.
+  Azure Cosmos DB is a fully managed, horizontally scalable, NoSQL and relational database.
 ---
