@@ -23,6 +23,7 @@
         display: flex;
         gap: 20px;
         justify-content: space-between;
+        margin-bottom: 20px;
     }
 
     .glide__arrow {
@@ -53,10 +54,132 @@
         }
     }
 
-    blockquote.twitter-tweet {
+    .tweet {
+        position: relative;
         border: 1px solid $mist;
         border-radius: 10px;
+        background: #fff;
         padding: 20px;
         margin: 0;
+        display: grid;
+        gap: 20px;
+
+        &:hover {
+            background-color: #FBFBFF;
+        }
+
+        .link {
+            position: absolute;
+            inset: 0;
+        }
+
+        .header {
+            display: grid;
+            gap: 5px;
+            grid-template-columns: 50px auto auto;
+            grid-template-areas:
+                "image name logo"
+                "image handle logo";
+
+            .image {
+                grid-area: image;
+                width: 50px;
+                height: 50px;
+                border-radius: 100%;
+                align-self: center;
+                display: block;
+            }
+
+            .name {
+                grid-area: name;
+                font-weight: 700;
+                font-size: 13px;
+                line-height: 1;
+                align-self: flex-end;
+                color: #0f1419;
+            }
+
+            .handle {
+                grid-area: handle;
+                font-size: 13px;
+                line-height: 1;
+                color: #677682;
+                align-self: flex-start;
+            }
+
+            .logo {
+                grid-area: logo;
+                color: #1d9bf0;
+                justify-self: flex-end;
+                width: 20px;
+                height: 20px;
+                align-self: center;
+            }
+        }
+
+        .content {
+            position: relative;
+            word-wrap: anywhere;
+            color: #0f1419;
+
+            p:first-child {
+                margin-top: 0;
+            }
+
+            p:last-child {
+                margin-bottom: 0;
+            }
+
+            ol,
+            ul {
+                margin: 0;
+                padding: 0;
+                list-style-position: inside;
+            }
+
+            a {
+                color: #006fd6;
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    .attachment {
+        position: relative;
+        border: 1px solid $mist;
+        border-radius: 10px;
+
+        &:hover {
+            background: $catskill;
+        }
+
+        .header {
+            padding: 10px 10px 0 10px;
+            grid-template-columns: 20px auto;
+            grid-template-areas:
+                "image name"
+                "image handle";
+
+            .image {
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+        .content {
+            padding: 10px;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            overflow: hidden;
+        }
     }
 }

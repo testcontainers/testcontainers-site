@@ -1,9 +1,6 @@
-{{ define "pageScripts"}}
-<script src="/js/glide.js"></script>
-{{ end }}
-
 {{ define "footerScripts" }}
-<script src="/js/fslightbox.js"></script>
+<script src="/js/fslightbox.js" defer></script>
+<script src="/js/glide.js"></script>
 <script>
     if (document.querySelectorAll(".quotes .glide").length > 0)
         new Glide('.quotes .glide', {
@@ -31,7 +28,6 @@
             }
         }).mount()
 </script>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 {{ end }}
 
 {{ define "main" }}
