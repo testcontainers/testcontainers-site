@@ -74,40 +74,208 @@ sections:
   - partial: tweets
     title: What Our Users Are Saying
     tweets:
-      - |
-        <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Did I already say that <a href="https://twitter.com/testcontainers?ref_src=twsrc%5Etfw">@testcontainers</a> is awesome? Of course I did, but if you get the chance to (early) access <a href="https://twitter.com/AtomicJarInc?ref_src=twsrc%5Etfw">@AtomicJarInc</a>&#39;s testcontainers cloud ☁️ you should not hesitate to do so! It really &quot;just works&quot;, great piece of software! <a href="https://t.co/K0fyjL89Z1">pic.twitter.com/K0fyjL89Z1</a></p>&mdash; Frederik Hahne 🏠 💻 @atomfrede@mastodon.social (@atomfrede) <a href="https://twitter.com/atomfrede/status/1513017369840521218?ref_src=twsrc%5Etfw">April 10, 2022</a></blockquote>
-      - |
-        <blockquote class="twitter-tweet"><p lang="en" dir="ltr">I had the good fortune of being asked to beta test Testcontainers Cloud. It’s the real deal. Drop-in replacement for Docker Desktop and containers now start more quickly, both in Spring Boot’s own build and tests of various Boot-based apps that I maintain. Impressive start. <a href="https://t.co/WMwplC0lIo">https://t.co/WMwplC0lIo</a></p>&mdash; Andy Wilkinson (@ankinson) <a href="https://twitter.com/ankinson/status/1457684213935886344?ref_src=twsrc%5Etfw">November 8, 2021</a></blockquote>
-      - |
-        <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Our team was blessed to experience <a href="https://twitter.com/testcontainers?ref_src=twsrc%5Etfw">@testcontainers</a> Cloud and it&#39;s so easy to migrate. No more worries over dependency on dind.</p>&mdash; Rashidi Zin (@shidi) <a href="https://twitter.com/shidi/status/1524576940531007489?ref_src=twsrc%5Etfw">May 12, 2022</a></blockquote>
-      - |
-        <blockquote class="twitter-tweet"><p lang="en" dir="ltr">I used <a href="https://twitter.com/jetbrains?ref_src=twsrc%5Etfw">@jetbrains</a> Gateway only briefly but I can already see it&#39;s the future of development.<br><br>Most of us work on laptops but need to run multiple servers/containers just to locally develop some applications.<a href="https://twitter.com/testcontainers?ref_src=twsrc%5Etfw">@testcontainers</a> Cloud is another great example! <a href="https://t.co/2XWbh4UcgA">https://t.co/2XWbh4UcgA</a></p>&mdash; Simon Vergauwen (@vergauwen_simon) <a href="https://twitter.com/vergauwen_simon/status/1477995269157437440?ref_src=twsrc%5Etfw">January 3, 2022</a></blockquote>
-      - |
-        <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Got an exciting <a href="https://twitter.com/micronautfw?ref_src=twsrc%5Etfw">@micronautfw</a> spike working:<br>1. start a build<br>2. runs tests which require a MySQL server<br>3. let Testcontainers Cloud spawn a container<br>4. let tests run in JVM mode<br>5. build a native image of the tests<br>6. run them against the same container<a href="https://t.co/iXFN6NC79C">https://t.co/iXFN6NC79C</a></p>&mdash; Cédric Champeau ⇝ @melix@mastodon.xyz (@CedricChampeau) <a href="https://twitter.com/CedricChampeau/status/1530140276240617473?ref_src=twsrc%5Etfw">May 27, 2022</a></blockquote>
-      - |
-        <blockquote class="twitter-tweet"><p lang="en" dir="ltr"><a href="https://twitter.com/QuarkusIO?ref_src=twsrc%5Etfw">@QuarkusIO</a> Dev Services 🚀 and <a href="https://twitter.com/testcontainers?ref_src=twsrc%5Etfw">@testcontainers</a> Cloud are a great match. Assuming we have 2 apps + <a href="https://twitter.com/hashtag/kafka?src=hash&amp;ref_src=twsrc%5Etfw">#kafka</a> just:<br>🔹 Run <a href="https://twitter.com/hashtag/testcontainers?src=hash&amp;ref_src=twsrc%5Etfw">#testcontainers</a> agent (no need local Docker)<br>🔹 Run both apps in dev mode - Kafka (shared between apps) starts on testcontainers cloud</p>&mdash; Piotr Mińkowski (@piotr_minkowski) <a href="https://twitter.com/piotr_minkowski/status/1491430441341317127?ref_src=twsrc%5Etfw">February 9, 2022</a></blockquote>
-      - | 
-        <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Friends of Docker wormholes in CI, I have bad news for you: I just threw <a href="https://twitter.com/AtomicJarInc?ref_src=twsrc%5Etfw">@AtomicJarInc</a> <a href="https://twitter.com/testcontainers?ref_src=twsrc%5Etfw">@testcontainers</a> cloud support into the build config and things(tm) are just working. <a href="https://t.co/CkMGjmG5xZ">pic.twitter.com/CkMGjmG5xZ</a></p>&mdash; Gerrit Meier meistermeier@mastodon.social (@meistermeier) <a href="https://twitter.com/meistermeier/status/1458841321871978497?ref_src=twsrc%5Etfw">November 11, 2021</a></blockquote>
-      - |
-        <blockquote class="twitter-tweet" data-dnt="true"><p lang="en" dir="ltr">Today I got the opportunity to try out Testcontainers Cloud by <a href="https://twitter.com/AtomicJarInc?ref_src=twsrc%5Etfw">@AtomicJarInc</a>. It worked great with very minimal setup and I didn&#39;t have such a pleasant experience with any new tool in the recent time. <a href="https://t.co/9Esr1Ib7Br">https://t.co/9Esr1Ib7Br</a></p>&mdash; Siva (@sivalabs) <a href="https://twitter.com/sivalabs/status/1527705269920157697?ref_src=twsrc%5Etfw">May 20, 2022</a></blockquote>
-      - |
-        <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Holy amazing wowsers! The best improvement to developer productivity since docker has landed. I got hands on with Testcontainers Cloud yesterday and it blew me away. Local dev, test, and CI will never be the same. Forever better. Thank you <a href="https://twitter.com/AtomicJarInc?ref_src=twsrc%5Etfw">@AtomicJarInc</a>! <a href="https://t.co/UNIWCGq6KM">https://t.co/UNIWCGq6KM</a></p>&mdash; James Ward (@_JamesWard) <a href="https://twitter.com/_JamesWard/status/1456260335095013379?ref_src=twsrc%5Etfw">November 4, 2021</a></blockquote>
-      - |
-        <blockquote class="twitter-tweet"><p lang="en" dir="ltr"><a href="https://twitter.com/AtomicJarInc?ref_src=twsrc%5Etfw">@AtomicJarInc</a> has a Testcontainers Cloud offering that’s in limited private beta but I bet they might be able to help you… :)</p>&mdash; Josh Long (@starbuxman) <a href="https://twitter.com/starbuxman/status/1486175342502891520?ref_src=twsrc%5Etfw">January 26, 2022</a></blockquote>
-      - | 
-        <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Shout out to <a href="https://twitter.com/AtomicJarInc?ref_src=twsrc%5Etfw">@AtomicJarInc</a> ! Thanks to their Testcontainers Cloud I was able to run the full test suite of <a href="https://twitter.com/opentelemetry?ref_src=twsrc%5Etfw">@opentelemetry</a> Java Instrumentation project on Apple Silicon. That was A LOT of different containers that still does not run on latest MBPs.</p>&mdash; Nikita Salnikov-Tarnovski (@iNikem) <a href="https://twitter.com/iNikem/status/1476297110043742209?ref_src=twsrc%5Etfw">December 29, 2021</a></blockquote>
-      - |
-        <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Simply wow. I&#39;ve just got chance to test <a href="https://twitter.com/AtomicJarInc?ref_src=twsrc%5Etfw">@AtomicJarInc</a> <a href="https://twitter.com/testcontainers?ref_src=twsrc%5Etfw">@testcontainers</a> cloud and still I can&#39;t believe how simple is it to use :-) ⚛️♥️</p>&mdash; Vladimír Oraný @musketyr@mastodon.social (@musketyr) <a href="https://twitter.com/musketyr/status/1471057887086714885?ref_src=twsrc%5Etfw">December 15, 2021</a></blockquote>
-      - |
-        <blockquote class="twitter-tweet"><p lang="en" dir="ltr">I have to say, <a href="https://twitter.com/QuarkusIO?ref_src=twsrc%5Etfw">@QuarkusIO</a> dev-services combined with <a href="https://twitter.com/testcontainers?ref_src=twsrc%5Etfw">@testcontainers</a> in the cloud via <a href="https://twitter.com/AtomicJarInc?ref_src=twsrc%5Etfw">@AtomicJarInc</a> is brilliant. <br><br>No load for the containers on the local machine and config-free setup. <br><br>Expect more about it soon.</p>&mdash; Michael Simons (@rotnroll666) <a href="https://twitter.com/rotnroll666/status/1458818182177857544?ref_src=twsrc%5Etfw">November 11, 2021</a></blockquote>
-      - |
-        <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Had the opportunity to try <a href="https://twitter.com/hashtag/TestcontainersCloud?src=hash&amp;ref_src=twsrc%5Etfw">#TestcontainersCloud</a>.<br><br>Here is the manual how to execute all your existing <a href="https://twitter.com/testcontainers?ref_src=twsrc%5Etfw">@testcontainers</a> tests in the cloud:<br><br>1. Download Testcontainers Cloud Client<br>2. Start Testcontainers Cloud Client<br>3. Run tests<br><br>That&#39;s it. That&#39;s the manual.<br><br>Just amazing!</p>&mdash; Oliver Libutzki (@OliverLibutzki) <a href="https://twitter.com/OliverLibutzki/status/1502290509628325890?ref_src=twsrc%5Etfw">March 11, 2022</a></blockquote>
-      - |
-        <blockquote class="twitter-tweet"><p lang="en" dir="ltr">This should be interesting! Ever since <a href="https://twitter.com/QuarkusIO?ref_src=twsrc%5Etfw">@quarkusio</a> introduced devservices that uses <a href="https://twitter.com/testcontainers?ref_src=twsrc%5Etfw">@testcontainers</a> I’ve wondered how we could make it available for users without the machine power or even access to docker. Testcontainer cloud solves that problem. <a href="https://t.co/uzHmMfGPR6">https://t.co/uzHmMfGPR6</a></p>&mdash; Max Rydahl Andersen (@maxandersen) <a href="https://twitter.com/maxandersen/status/1456274387028492298?ref_src=twsrc%5Etfw">November 4, 2021</a></blockquote>
-      - |
-        <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Are <a href="https://twitter.com/testcontainers?ref_src=twsrc%5Etfw">@testcontainers</a> fast enough for TDD (test driven development)? I think yes, absolutely. Especially if you set them to reusable. <br><br>Having only a thin client at hand but still want to use them? Using TC cloud from <a href="https://twitter.com/AtomicJarInc?ref_src=twsrc%5Etfw">@AtomicJarInc</a> makes this possible.</p>&mdash; Michael Simons (@rotnroll666) <a href="https://twitter.com/rotnroll666/status/1488937352097681409?ref_src=twsrc%5Etfw">February 2, 2022</a></blockquote>
-      - |
-        <blockquote class="twitter-tweet"><p lang="en" dir="ltr">&quot;With <a href="https://twitter.com/testcontainers?ref_src=twsrc%5Etfw">@testcontainers</a> Cloud, we run the backing containers for our integration tests in the cloud. There&#39;s no change required for our test. [...] I am convinced that this will drive the productivity (e.g., faster builds) for testing with Testcontainers even further.&quot; 😍🤗 <a href="https://t.co/tz9fdZdrF5">https://t.co/tz9fdZdrF5</a></p>&mdash; Sergei Egorov (@bsideup) <a href="https://twitter.com/bsideup/status/1507314484767084558?ref_src=twsrc%5Etfw">March 25, 2022</a></blockquote>
+      - url: https://twitter.com/atomfrede/status/1513017369840521218
+        name: Frederik Hahne
+        handle: "@atomfrede"
+        profileImage: https://pbs.twimg.com/profile_images/1487463176719511558/BdLaiGvF_normal.jpg
+        attachment: 
+          type: image
+          image: /images/tweets/mind-blown.jpg
+        content: |
+          Did I already say that [@testcontainers](https://twitter.com/testcontainers) is awesome? Of course I did, but if you get the chance to (early) access [@AtomicJarInc](https://twitter.com/AtomicJarInc)'s testcontainers cloud ☁️ you should not hesitate to do so! It really "just works", great piece of software!
+      - url: https://twitter.com/ankinson/status/1457684213935886344
+        name: Andy Wilkinson
+        handle: "@ankinson"
+        profileImage: https://pbs.twimg.com/profile_images/792686387611009028/HnW-w0SZ_normal.jpg
+        attachment:
+          type: tweet
+          url: https://t.co/WMwplC0lIo
+          name: Atomic Jar
+          handle: "@AtomicJarInc"
+          profileImage: https://pbs.twimg.com/profile_images/1575861354057064448/7pxbQInK_mini.png
+          content: |
+            Ever wished for integration tests to be faster, easier, and more efficient? Wish no more!
+            
+            We're happy to announce Testcontainers Cloud - a lightweight, fast, and secure integration testing platform for everyone. 
+        content: |
+          I had the good fortune of being asked to beta test Testcontainers Cloud. It’s the real deal. Drop-in replacement for Docker Desktop and containers now start more quickly, both in Spring Boot’s own build and tests of various Boot-based apps that I maintain. Impressive start.
+      - url: https://twitter.com/shidi/status/1524576940531007489
+        name: Rashidi Zin
+        handle: "@shidi"
+        profileImage: https://pbs.twimg.com/profile_images/1239844849840349185/rS8XKX9i_normal.jpg
+        content: |
+          Our team was blessed to experience [@testcontainers](https://twitter.com/testcontainers) Cloud and it's so easy to migrate. No more worries over dependency on dind.
+      - url: https://twitter.com/vergauwen_simon/status/1477995269157437440
+        name: Simon Vergauwen
+        handle: "@vergauwen_simon"
+        profileImage: https://pbs.twimg.com/profile_images/1653361878037413889/4wNGE040_normal.jpg
+        attachment:
+          type: tweet
+          url: https://t.co/2XWbh4UcgA
+          name: Michael Rittmeister
+          handle: "@SchlaumeierTVDE"
+          profileImage: https://pbs.twimg.com/profile_images/1502951444101619715/LQvp4X0i_mini.jpg
+          content: |
+            So, I've been using [@jetbrains](https://twitter.com/jetbrains) gateway for about a month, no (because they didn't give me [@JetBrains_Fleet](https://twitter.com/JetBrains_Fleet)), however what Gateway can do is crazy, you notice that it is still a beta and I have been creating lots of YouTrack issues, but it's amazing
+        content: |
+          I used [@jetbrains](https://twitter.com/jetbrains) Gateway only briefly but I can already see it's the future of development. 
+          
+          Most of us work on laptops but need to run multiple servers/containers just to locally develop some applications.
+          
+          [@testcontainers](https://twitter.com/testcontainers) Cloud is another great example!
+      - url: https://twitter.com/CedricChampeau/status/1530140276240617473
+        name: Cédric Champeau
+        handle: "@CedricChampeau"
+        profileImage: https://pbs.twimg.com/profile_images/1524383537134247936/T3cZjKXM_normal.jpg
+        content: |
+          Got an exciting [@micronautfw](https://twitter.com/micronautfw) spike working:
+          1. start a build
+          2. runs tests which require a MySQL server
+          3. let Testcontainers Cloud spawn a container
+          4. let tests run in JVM mode
+          5. build a native image of the tests
+          6. run them against the same container
+          https://scans.gradle.com/s/wtup4pxg2ihec/timeline
+      - url: https://twitter.com/piotr_minkowski/status/1491430441341317127
+        name: Piotr Mińkowski
+        handle: "@piotr_minkowski"
+        profileImage: https://pbs.twimg.com/profile_images/1301647664317190150/RJD8219x_normal.jpg
+        content: |
+          [@QuarkusIO](https://twitter.com/QuarkusIO) Dev Services 🚀 and [@testcontainers](https://twitter.com/testcontainers) Cloud are a great match. Assuming we have 2 apps + [#kafka](https://twitter.com/hashtag/kafka) just:\
+          🔹 Run [#testcontainers](https://twitter.com/hashtag/testcontainers) agent (no need local Docker)\
+          🔹 Run both apps in dev mode - Kafka (shared between apps) starts on testcontainers cloud
+      - url: https://twitter.com/meistermeier/status/1458841321871978497
+        name: Gerrit Meier
+        handle: "@meistermeier"
+        profileImage: https://pbs.twimg.com/profile_images/1555221462298120192/2utnbcmA_normal.jpg
+        attachment:
+          type: image
+          url: https://t.co/CkMGjmG5xZ
+          image: /images/tweets/magic.jpg
+        content: |
+          Friends of Docker wormholes in CI, I have bad news for you: I just threw [@AtomicJarInc](https://twitter.com/AtomicJarInc) [@testcontainers](https://twitter.com/testcontainers) cloud support into the build config and things(tm) are just working. 
+      - url: https://twitter.com/sivalabs/status/1527705269920157697
+        name: Siva
+        handle: "@sivalabs"
+        profileImage: https://pbs.twimg.com/profile_images/1649952898707759105/XpU4a6xx_normal.jpg
+        attachment:
+          type: tweet
+          url: https://twitter.com/kelseyhightower/status/1527672023370985478
+          name: Kelsey Hightower
+          handle: "Kelsey Hightower"
+          profileImage: https://pbs.twimg.com/profile_images/1204077305271705606/j5XjhPAt_normal.jpg
+          content: |
+            Those that build software for a living, what are your thoughts on developer experience? Bonus points if you can provide one real-world example of a great developer experience and how you leverage it in your development loop.
+        content: |
+          Today I got the opportunity to try out Testcontainers Cloud by [@AtomicJarInc](https://twitter.com/AtomicJarInc). It worked great with very minimal setup and I didn't have such a pleasant experience with any new tool in the recent time.
+      - url: https://twitter.com/_JamesWard/status/1456260335095013379
+        name: James Ward
+        handle: "@_JamesWard"
+        profileImage: https://pbs.twimg.com/profile_images/378800000606902520/0c9b5897d0f28e53f5666639551a7512_normal.jpeg
+        attachment:
+          type: tweet
+          url: https://t.co/WMwplC0lIo
+          name: Atomic Jar
+          handle: "@AtomicJarInc"
+          profileImage: https://pbs.twimg.com/profile_images/1575861354057064448/7pxbQInK_mini.png
+          content: |
+            Ever wished for integration tests to be faster, easier, and more efficient? Wish no more!
+            
+            We're happy to announce Testcontainers Cloud - a lightweight, fast, and secure integration testing platform for everyone.
+        content: |
+          Holy amazing wowsers! The best improvement to developer productivity since docker has landed. I got hands on with Testcontainers Cloud yesterday and it blew me away. Local dev, test, and CI will never be the same. Forever better. Thank you [@AtomicJarInc](https://twitter.com/AtomicJarInc)!
+      - url: https://twitter.com/starbuxman/status/1486175342502891520
+        name: Josh Long
+        handle: "@starbuxman"
+        profileImage: https://pbs.twimg.com/profile_images/868596967139450880/ZdDK0WyW_normal.jpg
+        attachment:
+          type: tweet
+          url: https://t.co/WMwplC0lIo
+          name: Nilesh Gule
+          handle: "@nileshgule"
+          profileImage: https://pbs.twimg.com/profile_images/1592336599328919554/sJ2TByc9_normal.jpg
+          content: |
+            [@starbuxman](https://twitter.com/starbuxman) what tool did you use in the video to run containers remotely? Does it remove the dependency to have local Docker or Docker Desktop installation?
+        content: |
+          [@AtomicJarInc](https://twitter.com/AtomicJarInc) has a Testcontainers Cloud offering that’s in limited private beta but I bet they might be able to help you… :)
+      - url: https://twitter.com/iNikem/status/1476297110043742209
+        name: Nikita Salnikov-Tarnovski
+        handle: "@iNikem"
+        profileImage: https://pbs.twimg.com/profile_images/863846721956261888/vIgDVMFu_normal.jpg
+        content: |
+          Shout out to [@AtomicJarInc](https://twitter.com/AtomicJarInc) ! Thanks to their Testcontainers Cloud I was able to run the full test suite of [@opentelemetry](https://twitter.com/opentelemetry) Java Instrumentation project on Apple Silicon. That was A LOT of different containers that still does not run on latest MBPs.
+      - url: https://twitter.com/musketyr/status/1471057887086714885
+        name: Vladimír Oraný
+        handle: "@musketyr"
+        profileImage: https://pbs.twimg.com/profile_images/1353051894/musketyr-2nd-big_normal.png
+        content: |
+          Simply wow. I've just got chance to test [@AtomicJarInc]("https://twitter.com/AtomicJarInc) [@testcontainers](https://twitter.com/testcontainers) cloud and still I can't believe how simple is it to use :-) ⚛️❤️
+      - url: https://twitter.com/rotnroll666/status/1458818182177857544
+        name: Michael Simons
+        handle: "@rotnroll666"
+        profileImage: https://pbs.twimg.com/profile_images/1494705160135884805/XmkWEYRL_normal.jpg
+        content: |
+          I have to say, [@QuarkusIO](https://twitter.com/QuarkusIO) dev-services combined with [@testcontainers](https://twitter.com/testcontainers) in the cloud via [@AtomicJarInc](https://twitter.com/AtomicJarInc) is brilliant.
+          
+          No load for the containers on the local machine and config-free setup.
+          
+          Expect more about it soon.
+      - url: https://twitter.com/OliverLibutzki/status/1502290509628325890
+        name: Oliver Libutzki
+        handle: "@OliverLibutzki"
+        profileImage: https://pbs.twimg.com/profile_images/1408147656728252418/2fNlwav3_normal.jpg
+        content: |
+          Had the opportunity to try [#TestcontainersCloud](https://twitter.com/hashtag/TestcontainersCloud).
+          
+          Here is the manual how to execute all your existing [@testcontainers](https://twitter.com/testcontainers) tests in the cloud:
+          
+          1. Download Testcontainers Cloud Client
+          2. Start Testcontainers Cloud Client
+          3. Run tests
+          
+          That's it. That's the manual.
+          
+          Just amazing!
+      - url: https://twitter.com/maxandersen/status/1456274387028492298
+        name: Max Rydahl Andersen
+        handle: "@maxandersen"
+        profileImage: https://pbs.twimg.com/profile_images/1525233345055137799/U27ChMB8_normal.jpg
+        attachment:
+          type: tweet
+          url: https://t.co/WMwplC0lIo
+          name: Atomic Jar
+          handle: "@AtomicJarInc"
+          profileImage: https://pbs.twimg.com/profile_images/1575861354057064448/7pxbQInK_mini.png
+          content: |
+            Ever wished for integration tests to be faster, easier, and more efficient? Wish no more!
+            
+            We're happy to announce Testcontainers Cloud - a lightweight, fast, and secure integration testing platform for everyone.
+        content: |
+          This should be interesting! Ever since [@quarkusio](https://twitter.com/QuarkusIO) introduced devservices that uses [@testcontainers](https://twitter.com/testcontainers) I’ve wondered how we could make it available for users without the machine power or even access to docker. Testcontainer cloud solves that problem.
+      - url: https://twitter.com/rotnroll666/status/1488937352097681409
+        name: Michael Simons
+        handle: "@rotnroll666"
+        profileImage: https://pbs.twimg.com/profile_images/1494705160135884805/XmkWEYRL_normal.jpg
+        content: |
+          Are [@testcontainers](https://twitter.com/testcontainers) fast enough for TDD (test driven development)? I think yes, absolutely. Especially if you set them to reusable.
+          
+          Having only a thin client at hand but still want to use them? Using TC cloud from [@AtomicJarIncmakes](https://twitter.com/AtomicJarInc) this possible.
+      - url: https://twitter.com/bsideup/status/1507314484767084558
+        name: Sergei Egorov
+        handle: "@bsideup"
+        profileImage: https://pbs.twimg.com/profile_images/1525177434152259590/EglAbBmx_normal.jpg
+        attachment:
+          type: tweet
+          url: https://t.co/tz9fdZdrF5
+          name: Philip Riecks
+          handle: "@rieckpil"
+          profileImage: https://pbs.twimg.com/profile_images/1281867203810406400/dUib4QT9_mini.jpg
+          content: |
+            I've combined my collection of pitfalls, tips & tricks, and workarounds for developing (and testing) Java applications on an Apple M1 🍏
+
+            This includes tips for working with @testcontainers, creating images with @Docker, etc.
+        content: |
+          "With [@testcontainers](https://twitter.com/testcontainers) Cloud, we run the backing containers for our integration tests in the cloud. There's no change required for our test. [...] I am convinced that this will drive the productivity (e.g., faster builds) for testing with Testcontainers even further." 😍🤗
   - partial: signup-form
     title: Start Testing
     description: |
