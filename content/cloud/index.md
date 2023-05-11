@@ -6,7 +6,7 @@ sections:
     title: |
       **Test Without Limits.**\
       Ship With Confidence.
-    description: Testcontainers is an open source framework for providing throwaway, lightweight instances of databases, message brokers, web browsers, or just about anything that can run in a Docker container.
+    description: Testcontainers Cloud makes it easy for developers to run reliable integration tests, with real dependencies defined in code, from their laptops to their team’s CI.
     buttons:
       - label: Start Testing
         url: https://app.testcontainers.cloud/signup
