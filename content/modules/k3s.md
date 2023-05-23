@@ -10,6 +10,12 @@ docs:
       var k3s = new K3sContainer(DockerImageName.parse("rancher/k3s:v1.21.3-k3s1"));
       k3s.start();
       ```
+  - id: go
+    url: https://golang.testcontainers.org/modules/k3s/
+    example: |
+      ```go
+      k3sContainer, err := k3s.RunContainer(ctx, testcontainers.WithImage("docker.io/rancher/k3s:v1.27.1-k3s1"))
+      ```
   - id: dotnet
     url: https://www.nuget.org/packages/Testcontainers.K3s
     example: |
