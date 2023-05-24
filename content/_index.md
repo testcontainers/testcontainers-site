@@ -83,6 +83,14 @@ sections:
                 & setExpose ["6379/tcp"]
                 & setWaitingFor (waitUntilMappedPortReachable "6379/tcp")
           ```
+      - id: ruby
+        label: Ruby
+        icon: /images/language-logos/ruby.svg
+        code: |
+          ```ruby
+          redis = Testcontainers::DockerContainer.new("redis:5.0.3-alpine").with_exposed_port(6379)
+          redis.start
+          ```
   - partial: logo-wall
     small_title: Modules
     title: "Test Anything You Can Containerize: Database, Message Broker, And More"
@@ -158,6 +166,9 @@ sections:
       - logo: /images/language-logos/haskell.svg
         label: Haskell
         link: https://github.com/testcontainers/testcontainers-hs
+      - logo: /images/language-logos/ruby.svg
+        label: Ruby
+        link: https://github.com/testcontainers/testcontainers-ruby
   - partial: company-logos
     small_title: Industry standard
     title: Companies using Testcontainers
