@@ -4,7 +4,8 @@ submenu: cloud
 sections:
   - partial: page-banner
     title: |
-      **Run Testcontainers hassle-free in your CI**
+      **Run Testcontainers\
+      hassle-free in your CI**
     description: Ephemeral resources on demand means you can run your ever-growing test suite without scaling your CI
     buttons:
       - label: Try Free
