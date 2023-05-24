@@ -22,6 +22,7 @@ sections:
     description: Enhance team efficiency by getting rid of flaky tests and ensuring consistency from dev to CI
     cards:
       - title: Testcontainers Cloud for Desktop
+        url: /cloud/desktop/
         description: Test everything on your laptop without worrying about resources. No local docker daemon needed!
         icon: /images/tcc-desktop.svg
         steps: 
@@ -30,6 +31,7 @@ sections:
           - Run the client and sign in
           - Start your tests as usual; your laptop stays cold and snappy
       - title: Testcontainers Cloud for CI
+        url: /cloud/ci/
         description: Run your ever-growing test suite without scaling your CI, and speed it up by running tests in parallel. No system privileges required!
         icon: /images/tcc-ci.svg
         steps: 
