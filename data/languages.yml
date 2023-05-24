@@ -26,3 +26,7 @@
   label: Haskell
   logo: /images/language-logos/haskell.svg
   link: https://github.com/testcontainers/testcontainers-hs
+- id: ruby
+  label: Ruby
+  logo: /images/language-logos/ruby.svg
+  link: https://github.com/testcontainers/testcontainers-ruby
