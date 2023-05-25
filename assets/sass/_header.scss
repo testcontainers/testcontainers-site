@@ -246,3 +246,25 @@
         }
     }
 }
+
+.announcement-banner {
+    background: $violet;
+    position: relative;
+    z-index: 99;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 25px;
+    text-align: center;
+
+    a {
+        color: #fff;
+        text-decoration: none;
+
+        &:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+    }
+}
