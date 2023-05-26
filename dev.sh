@@ -20,6 +20,7 @@ GUIDE_REPOS=(
   'tc-guide-getting-started-with-testcontainers-for-dotnet'
   'tc-guide-testing-aws-service-integrations-using-localstack'
   'tc-guide-testcontainers-in-quarkus-applications'
+  'tc-guide-getting-started-with-testcontainers-for-go'
 )
 
 GUIDE_REPOS_CLONE_DIR="./guide-repos"
