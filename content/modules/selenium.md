@@ -20,6 +20,12 @@ docs:
         .Build();
       await WebDriverContainer.StartAsync();
       ```
+  - id: nodejs
+    url: https://node.testcontainers.org/modules/selenium/
+    example: |
+      ```javascript
+      const container = await new SeleniumContainer("selenium/standalone-chrome:112.0").start();
+      ```
 description: |
   Selenium is an umbrella project encapsulating a variety of tools and libraries enabling web browser automation. Selenium specifically provides an infrastructure for the W3C WebDriver specification — a platform and language-neutral coding interface compatible with all major web browsers.
 ---
