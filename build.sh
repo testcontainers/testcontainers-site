@@ -1,12 +1,16 @@
 #!/bin/bash
 
+GIT_ORG="https://github.com/testcontainers"
+
 echo "----------------- Downloading Community modules -----------------"
-COMMUNITY_MODULE_REPO="https://github.com/testcontainers/community-module-registry"
-echo "Cloning ${COMMUNITY_MODULE_REPO}.git"
-git clone "${COMMUNITY_MODULE_REPO}.git"
+COMMUNITY_MODULE_REPO="community-module-registry"
+
+rm -rf ${COMMUNITY_MODULE_REPO}
+
+echo "Cloning ${GIT_ORG}/${COMMUNITY_MODULE_REPO}.git"
+git clone "${GIT_ORG}/${COMMUNITY_MODULE_REPO}.git"
 
 echo "---------------- Downloading Guides -----------------------------"
-GIT_ORG="https://github.com/testcontainers"
 GUIDE_REPOS=(
   'tc-guide-introducing-testcontainers'
   'tc-guide-getting-started-with-testcontainers-for-java'
