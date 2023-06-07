@@ -26,6 +26,9 @@ paginate = 9999
             iconsdir = "/images/icons"
             icontype = "svg"
 
+[sitemap]
+    filename = 'sitemap.xml'
+
 [security]
     enableInlineShortcodes = false
 
