@@ -12,6 +12,10 @@
         display: grid;
         gap: 60px;
 
+        @media (max-width: 499px) {
+            text-align: center;
+        }
+
         @media (min-width: 500px) {
             grid-template-columns: repeat(2, 1fr); 
             gap: 30px;
@@ -36,14 +40,25 @@
         max-width: 100%;
     }
 
+    .first-col {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+
     .atomicjar-callout {
         a {
             display: block;
-            max-width: max-content;
+            width: max-content;
+            max-width: 100%;
             transition: opacity 0.2s ease;
 
             &:hover {
                 opacity: .5;
+            }
+
+            @media (max-width: 499px) {
+                margin: 0 auto;
             }
         }
 
@@ -51,6 +66,25 @@
             display: block;
             max-height: 50px;
             width: auto;
+        }
+    }
+
+    .newsletter {
+        h2 {
+            margin-top: 0;
+            margin-bottom: .5rem;
+        }
+
+        .button {
+            width: max-content;
+
+            @media (min-width: 1024px) {
+                font-size: rem(16px);
+            }
+
+            @media (max-width: 499px) {
+                margin: 0 auto;
+            }
         }
     }
 
@@ -86,6 +120,10 @@
             flex-wrap: wrap;
             gap: 30px;
             margin-top: 20px;
+
+            @media (max-width: 499px) {
+                justify-content: center;
+            }
         }
 
         a {
@@ -109,6 +147,7 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
+        align-items: center;
         gap: 20px;
 
         @media (min-width: 480px) {
