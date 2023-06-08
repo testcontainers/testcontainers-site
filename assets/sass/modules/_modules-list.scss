@@ -251,9 +251,9 @@
         .modules-list-item-content {
             display: flex;
             flex-direction: column;
-            //align-items: center;
             gap: 5px;
             flex-grow: 1;
+            overflow: hidden;
         }
 
         .title {
@@ -290,7 +290,10 @@
             text-align: left;
         }
 
-        .category {
+        .categories {
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
             font-size: rem(14px);
 
             @media (min-width: 1600px) {
