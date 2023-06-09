@@ -4,43 +4,36 @@ draft: true
 title: Name
 isOfficial: false
 categories:
-  - cloud-platform
-  - container-manager
-  - database
-  - event-streaming
-  - kv-store
+  - relational-database
+  - nosql-database
   - message-broker
-  - proxy
-  - search
-  - secret-store
-  - SSO
-  - storage
-  - web-driver
-  - web-server
+  - cloud
+  - web
+  - other
 docs:
   - id: java
-    url: https://www.testcontainers.org/modules/
+    url: https://java.testcontainers.org/modules/
     isThirdParty: false
     example: |
-      ```
+      ```java
       ```
   - id: go
     url: https://golang.testcontainers.org/modules/
     isThirdParty: false
     example: |
-      ```
+      ```go
       ```
   - id: dotnet
     url: https://dotnet.testcontainers.org/modules/
     isThirdParty: false
     example: |
-      ```
+      ```csharp
       ```
   - id: nodejs
     url: https://node.testcontainers.org/modules/
     isThirdParty: false
     example: |
-      ```
+      ```javascript
       ```
 description: |
   What is this

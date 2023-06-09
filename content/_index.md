@@ -147,7 +147,7 @@ sections:
     languages:
       - logo: /images/language-logos/java.svg
         label: Java
-        link: https://testcontainers.org
+        link: https://java.testcontainers.org/
       - logo: /images/language-logos/go.svg
         label: Go
         link: https://golang.testcontainers.org/

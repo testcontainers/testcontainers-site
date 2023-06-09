@@ -4,7 +4,7 @@ categories:
   - cloud
 docs:
   - id: dotnet
-    url: https://www.testcontainers.org/modules/azure/
+    url: https://java.testcontainers.org/modules/azure/
     example: |
       ```csharp
       var sqlEdgeContainer = new SqlEdgeBuilder()

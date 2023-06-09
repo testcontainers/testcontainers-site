@@ -4,7 +4,7 @@ categories:
   - other
 docs:
   - id: java
-    url: https://www.testcontainers.org/modules/consul/
+    url: https://java.testcontainers.org/modules/consul/
     example: |
       ```java
       var consul = new ConsulContainer(DockerImageName.parse()"hashicorp/consul:1.15"));

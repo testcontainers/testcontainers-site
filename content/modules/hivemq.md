@@ -4,7 +4,7 @@ categories:
   - message-broker
 docs:
   - id: java
-    url: https://www.testcontainers.org/modules/hivemq/
+    url: https://java.testcontainers.org/modules/hivemq/
     example: |
       ```java
       var hivemqCe = new HiveMQContainer(DockerImageName.parse("hivemq/hivemq-ce")

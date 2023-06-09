@@ -4,7 +4,7 @@ categories:
   - relational-database
 docs:
   - id: java
-    url: https://www.testcontainers.org/modules/databases/oraclexe/
+    url: https://java.testcontainers.org/modules/databases/oraclexe/
     example: |
       ```java
       var oracle = new OracleContainer(DockerImageName.parse("gvenzl/oracle-xe:21-slim-faststart"));

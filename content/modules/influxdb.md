@@ -4,7 +4,7 @@ categories:
   - relational-database
 docs:
   - id: java
-    url: https://www.testcontainers.org/modules/databases/influxdb/
+    url: https://java.testcontainers.org/modules/databases/influxdb/
     example: |
       ```java
       var influx = new InfluxDBContainer<>(DockerImageName.parse("influxdb:2.0.7");

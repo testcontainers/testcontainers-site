@@ -5,7 +5,7 @@ categories:
   - nosql-database
 docs:
   - id: java
-    url: https://www.testcontainers.org/modules/databases/neo4j/
+    url: https://java.testcontainers.org/modules/databases/neo4j/
     example: |
       ```java
       var neo4j = new Neo4jContainer<>(DockerImageName.parse("neo4j:4.4"));

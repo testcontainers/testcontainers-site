@@ -1,7 +1,7 @@
 - id: java
   label: Java
   logo: /images/language-logos/java.svg
-  link: https://testcontainers.org
+  link: https://java.testcontainers.org/
 - id: go
   label: Go
   logo: /images/language-logos/go.svg

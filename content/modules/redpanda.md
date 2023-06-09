@@ -5,7 +5,7 @@ categories:
   - message-broker
 docs:
   - id: java
-    url: https://www.testcontainers.org/modules/redpanda/
+    url: https://java.testcontainers.org/modules/redpanda/
     example: |
       ```java
       var redpanda = new RedpandaContainer(DockerImageName.parse("docker.redpanda.com/redpandadata/redpanda:v22.2.1"));
