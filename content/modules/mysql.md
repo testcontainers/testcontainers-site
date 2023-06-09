@@ -4,7 +4,7 @@ categories:
   - relational-database
 docs:
   - id: java
-    url: https://www.testcontainers.org/modules/databases/mysql/
+    url: https://java.testcontainers.org/modules/databases/mysql/
     example: |
       ```java
       var mysql = new MySQLContainer<>(DockerImageName.parse("mysql:5.7.34"));

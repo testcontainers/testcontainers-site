@@ -4,7 +4,7 @@ categories:
   - message-broker
 docs:
   - id: java
-    url: https://www.testcontainers.org/modules/kafka/
+    url: https://java.testcontainers.org/modules/kafka/
     example: |
       ```java
       var kafka = new KafkaContainer(DockerImageName.parse("confluentinc/cp-kafka:6.2.1"));

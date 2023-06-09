@@ -4,7 +4,7 @@ categories:
   - message-broker
 docs:
   - id: java
-    url: https://www.testcontainers.org/modules/solace/
+    url: https://java.testcontainers.org/modules/solace/
     isThirdParty: false
     example: |
       ```java

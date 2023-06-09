@@ -4,7 +4,7 @@ categories:
   - web
 docs:
   - id: java
-    url: https://www.testcontainers.org/modules/mockserver/
+    url: https://java.testcontainers.org/modules/mockserver/
     example: |
       ```java
       var mockServer = new MockServerContainer(DockerImageName

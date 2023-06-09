@@ -4,7 +4,7 @@ categories:
   - nosql-database
 docs:
   - id: java
-    url: https://www.testcontainers.org/modules/databases/dynalite/
+    url: https://java.testcontainers.org/modules/databases/dynalite/
     example: |
       ```java
       var dynamoDB = new DynaliteContainer(DockerImageName.parse(

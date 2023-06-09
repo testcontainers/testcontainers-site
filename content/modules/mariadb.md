@@ -4,7 +4,7 @@ categories:
   - relational-database
 docs:
   - id: java
-    url: https://www.testcontainers.org/modules/databases/mariadb/
+    url: https://java.testcontainers.org/modules/databases/mariadb/
     example: |
       ```java
       var mariaDB = new MariaDBContainer<>(DockerImageName.parse("mariadb:10.5.5"));

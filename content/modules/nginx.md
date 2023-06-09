@@ -4,7 +4,7 @@ categories:
   - web
 docs:
   - id: java
-    url: https://www.testcontainers.org/modules/nginx/
+    url: https://java.testcontainers.org/modules/nginx/
     example: |
       ```java
       var nginx = new NginxContainer<>(DockerImageName.parse("nginx:1.23.4-alpine"));

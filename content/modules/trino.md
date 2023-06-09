@@ -4,7 +4,7 @@ categories:
   - relational-database
 docs:
   - id: java
-    url: https://www.testcontainers.org/modules/databases/trino/
+    url: https://java.testcontainers.org/modules/databases/trino/
     example: |
       ```java
       var trino = new TrinoContainer(DockerImageName.parse("trinodb/trino:352"));

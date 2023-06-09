@@ -5,7 +5,7 @@ categories:
   - nosql-database
 docs:
   - id: java
-    url: https://www.testcontainers.org/modules/databases/couchbase/
+    url: https://java.testcontainers.org/modules/databases/couchbase/
     example: |
       ```java
       var couchbase = new CouchbaseContainer(DockerImageName.parse(

@@ -4,7 +4,7 @@ categories:
   - relational-database
 docs:
   - id: java
-    url: https://www.testcontainers.org/modules/databases/presto/
+    url: https://java.testcontainers.org/modules/databases/presto/
     example: |
       ```java
       var presto = new PrestoContainer(DockerImageName.parse("ghcr.io/trinodb/presto:344"));

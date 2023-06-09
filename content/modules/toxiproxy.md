@@ -4,7 +4,7 @@ categories:
   - web
 docs:
   - id: java
-    url: https://www.testcontainers.org/modules/toxiproxy/
+    url: https://java.testcontainers.org/modules/toxiproxy/
     example: |
       ```java
       var toxiproxy = new ToxiproxyContainer(DockerImageName.parse(("ghcr.io/shopify/toxiproxy:2.5.0"));

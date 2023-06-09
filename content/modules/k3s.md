@@ -4,7 +4,7 @@ categories:
   - other
 docs:
   - id: java
-    url: https://www.testcontainers.org/modules/k3s/
+    url: https://java.testcontainers.org/modules/k3s/
     example: |
       ```java
       var k3s = new K3sContainer(DockerImageName.parse("rancher/k3s:v1.21.3-k3s1"));
