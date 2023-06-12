@@ -211,7 +211,7 @@ sections:
         handle: "@musketyr"
         profileImage: https://pbs.twimg.com/profile_images/1353051894/musketyr-2nd-big_normal.png
         content: |
-          Simply wow. I've just got chance to test [@AtomicJarInc]("https://twitter.com/AtomicJarInc) [@testcontainers](https://twitter.com/testcontainers) cloud and still I can't believe how simple is it to use :-) ⚛️❤️
+          Simply wow. I've just got chance to test [@AtomicJarInc](https://twitter.com/AtomicJarInc) [@testcontainers](https://twitter.com/testcontainers) cloud and still I can't believe how simple is it to use :-) ⚛️❤️
       - url: https://twitter.com/rotnroll666/status/1458818182177857544
         name: Michael Simons
         handle: "@rotnroll666"
