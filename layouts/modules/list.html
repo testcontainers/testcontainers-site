@@ -128,9 +128,11 @@
                       {{ end }}
                     </div>
                     {{ if .GetTerms "categories" }}
-                      <div>
-                        {{ range (.GetTerms "categories") }}
-                          <div class="category">{{ .Title }}</div>
+                      <div class="categories">
+                        {{ $categoriesList := (.GetTerms "categories") }}
+                        {{ $categoriesListLength := (len $categoriesList) }}
+                        {{ range $index, $element := $categoriesList }}
+                          <span class="category">{{.Title }}{{ if lt (add $index 1) $categoriesListLength }},{{ end }}</span>
                         {{ end }}
                       </div>
                     {{ end }}
