@@ -258,6 +258,14 @@
     padding: 20px 25px;
     text-align: center;
 
+    body.js & {
+        display: none;
+    }
+
+    body.js &.not-dismissed {
+        display: block;
+    }
+
     &.dismissed {
         display: none;
     }

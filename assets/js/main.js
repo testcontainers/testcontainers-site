@@ -166,6 +166,7 @@ async function hashText(text) {
     return hashHex
 }
 function dismissAnnouncementBanner() {
+    announcementBanner.classList.remove("not-dismissed");
     announcementBanner.classList.add("dismissed");
     hashText(announcementBanner.innerHTML)
         .then((hash) => {  
@@ -178,6 +179,9 @@ announcementBannerButton.addEventListener('click', dismissAnnouncementBanner);
 hashText(announcementBanner.innerHTML)
     .then((hash) => {
         if (localStorage.getItem("dismissedAnnouncement") && localStorage.getItem("dismissedAnnouncement") === hash) {
+            announcementBanner.classList.remove("not-dismissed");
             announcementBanner.classList.add("dismissed");
+        } else {
+            announcementBanner.classList.add("not-dismissed");
         }
     })
