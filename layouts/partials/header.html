@@ -1,3 +1,12 @@
+{{ if .Site.Params.Announcement }}
+    <div id="announcement-banner" class="announcement-banner">
+        <a href="{{ index (.Site.Params.announcement).url }}" target="_blank" rel="noopener">{{ index (.Site.Params.announcement).text }}</a>
+        <button id="announcement-banner-button" type="button" class="announcement-close">
+            <span class="sr-only">Dismiss Announcement</span>
+            {{ partial "svgs/close" }}
+        </button>
+    </div>
+{{ end }}
 <header id="site-header">
     <div class="brand">
         <a href="/" class="logo">

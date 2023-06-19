@@ -1,3 +1,8 @@
+{{ $bodyClasses := slice "" }}
+{{ if .Site.Params.Announcement }}
+    {{ $bodyClasses = $bodyClasses | append "has-announcement" }}
+{{ end }}
+
 <!DOCTYPE html>
 <html lang="en-us">
     <head>
@@ -11,7 +16,7 @@
         {{- partial "head.html" . -}}
         {{- block "pageScripts" . }}{{- end }}
     </head>
-    <body>
+    <body class='{{ delimit $bodyClasses " " }}'>
         <script>
             // Allow graceful fallback when js disabled via css.
             document.body.classList.add('js');
