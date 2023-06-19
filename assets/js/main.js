@@ -155,3 +155,29 @@ const tocObserver = new IntersectionObserver(entries => {
 document.querySelectorAll('#TableOfContents a').forEach((link) => {
     tocObserver.observe(document.querySelector(link.hash));
 });
+
+async function hashText(text) {
+    const encoder = new TextEncoder().encode(text);
+    const hashBuffer = await crypto.subtle.digest("SHA-256", encoder);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    const hashHex = hashArray
+        .map((b) => b.toString(16).padStart(2, "0"))
+        .join("");
+    return hashHex
+}
+function dismissAnnouncementBanner() {
+    announcementBanner.classList.add("dismissed");
+    hashText(announcementBanner.innerHTML)
+        .then((hash) => {  
+            localStorage.setItem("dismissedAnnouncement", hash);
+        });
+}
+const announcementBanner = document.getElementById("announcement-banner");
+const announcementBannerButton = document.getElementById("announcement-banner-button");
+announcementBannerButton.addEventListener('click', dismissAnnouncementBanner);
+hashText(announcementBanner.innerHTML)
+    .then((hash) => {
+        if (localStorage.getItem("dismissedAnnouncement") && localStorage.getItem("dismissedAnnouncement") === hash) {
+            announcementBanner.classList.add("dismissed");
+        }
+    })

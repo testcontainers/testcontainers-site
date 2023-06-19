@@ -7,6 +7,9 @@ paginate = 9999
 
 [params]
     Description = 'Testcontainers is an opensource framework for providing lightweight, throwaway instances of common databases, Selenium web browsers, or anything else that can run in a Docker container.'
+    [params.announcement]
+        url = 'https://ow.ly/SI8X50ONrC7'
+        text = 'Sign up for Webinar: Local Development of Cloud-Native apps using Dapr and Testcontainers'
 
 [taxonomies]
   language = 'languages'
