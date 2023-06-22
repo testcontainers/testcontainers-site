@@ -1,5 +1,5 @@
 ---
-title: Pricing
+title: Testcontainers Cloud Pricing
 submenu: cloud
 sections:
   - partial: pricing
