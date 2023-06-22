@@ -29,3 +29,8 @@
     from = "/guides/guide/*"
     to = "/guides/:splat"
     status = 301
+
+[[redirects]]
+    from = "/pricing"
+    to = "/cloud/pricing/"
+    status = 301
