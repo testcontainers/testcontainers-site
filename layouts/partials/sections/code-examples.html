@@ -4,6 +4,29 @@
             <div class="small-header gradient">{{ .section.small_title }}</div>
             <h2>{{ .section.title }}</h2>
             <div>{{ .section.description | markdownify }}</div>
+            <div class="getting-started-links">
+                {{ range $index, $example := .section.examples }}
+                    {{ $buttonClasses := "getting-started-button" }}
+                    {{ if eq $index 0 }}
+                       {{ $buttonClasses = print $buttonClasses " active" }}
+                    {{ end }}
+                    <a class="{{ $buttonClasses }}" data-id="{{ $example.id }}" href="{{ $example.url }}" {{ if $example.external }}target="_bank"{{ end }}>
+                        {{ if $example.icon }}
+                            {{ partial "img.html" (dict "image" (resources.Get $example.icon) "alt" "") }}
+                        {{ end }}
+                        Get started with {{ $example.label }}
+                        {{ if $example.external }}
+                            <svg class="icon-external" width="15" height="17" viewBox="0 0 15 17">
+                                <use href="#icon-external"></use>
+                            </svg>
+                        {{ else }}
+                            <svg class="icon-caret" height="10" viewBox="0 0 10 10">
+                                <use href="#icon-caret"></use>
+                            </svg>
+                        {{ end }}
+                    </a>
+                {{ end }}
+            </div>
         </div>
         <div class="examples">
             <div class="tab-labels">

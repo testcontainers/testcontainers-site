@@ -66,6 +66,15 @@ allTabLabels.forEach((label) => {
                 panel.classList.remove("active");
             }
         });
+
+        const gettingStartedButtons = e.target.closest(".code-examples").querySelectorAll(".getting-started-button");
+        gettingStartedButtons.forEach((button) => {
+            if (button.dataset.id === targetId) {
+                button.classList.add("active");
+            } else {
+                button.classList.remove("active");
+            }
+        });
     });
 });
 
