@@ -11,11 +11,16 @@
         </div>
         <div class="buttons">
             {{ range .section.buttons }}
-                {{ $buttonClasses := slice "button" }}
+                {{ $buttonClasses := slice "logo-wall-button" }}
                 {{ with .style }}
                     {{ $buttonClasses = $buttonClasses | append . }}
                 {{ end }}
-                <a class='{{ delimit $buttonClasses " " }}' href="{{ .url }}" target="{{ .target }}">{{ .label }}</a>
+                <a class='{{ delimit $buttonClasses " " }}' href="{{ .url }}" target="{{ .target }}">
+                    {{ .label }}
+                    <svg class="icon-caret" height="10" viewBox="0 0 10 10">
+                        <use href="#icon-caret"></use>
+                    </svg>
+                </a>
             {{ end }}
         </div>
     </div>
