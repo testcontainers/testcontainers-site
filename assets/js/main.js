@@ -183,14 +183,16 @@ function dismissAnnouncementBanner() {
         });
 }
 const announcementBanner = document.getElementById("announcement-banner");
-const announcementBannerButton = document.getElementById("announcement-banner-button");
-announcementBannerButton.addEventListener('click', dismissAnnouncementBanner);
-hashText(announcementBanner.innerHTML)
-    .then((hash) => {
-        if (localStorage.getItem("dismissedAnnouncement") && localStorage.getItem("dismissedAnnouncement") === hash) {
-            announcementBanner.classList.remove("not-dismissed");
-            announcementBanner.classList.add("dismissed");
-        } else {
-            announcementBanner.classList.add("not-dismissed");
-        }
-    })
+if (announcementBanner) {
+    const announcementBannerButton = document.getElementById("announcement-banner-button");
+    announcementBannerButton.addEventListener('click', dismissAnnouncementBanner);
+    hashText(announcementBanner.innerHTML)
+        .then((hash) => {
+            if (localStorage.getItem("dismissedAnnouncement") && localStorage.getItem("dismissedAnnouncement") === hash) {
+                announcementBanner.classList.remove("not-dismissed");
+                announcementBanner.classList.add("dismissed");
+            } else {
+                announcementBanner.classList.add("not-dismissed");
+            }
+        })
+}
