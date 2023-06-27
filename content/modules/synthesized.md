@@ -15,7 +15,7 @@ docs:
 
       //Output JdbcDatabaseContainer: output database with generated data output
       PostgreSQLContainer<?> output = new PostgreSQLContainer<>("postgres:15-alpine")
-          .withNetwork(network)
+          .withNetwork(network);
       
       String config = """
               default_config:
@@ -24,7 +24,8 @@ docs:
               global_seed: 42
               """
 
-      new SynthesizedTDK(SynthesizedTDK.DEFAULT_IMAGE_NAME).transform(input, output, config);
+      new SynthesizedTDK(SynthesizedTDK.DEFAULT_IMAGE_NAME)
+          .transform(input, output, config);
       ```
 description: |
   Synthesized Test Data Kit (TDK) is a DevOps’ best friend for database masking and generation. Forget about
