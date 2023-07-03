@@ -9,7 +9,7 @@ paginate = 9999
     Description = 'Testcontainers is an opensource framework for providing lightweight, throwaway instances of common databases, Selenium web browsers, or anything else that can run in a Docker container.'
     [params.announcement]
         url = 'https://atomicjar.typeform.com/to/LdnwtYqF'
-        text = '📣📋 Help Testcontainers grow by contributing to our community survey!'
+        text = '👉📋 Community survey - tell us how you use Testcontainers and develop, test, and ship applications.'
 
 [taxonomies]
   language = 'languages'
