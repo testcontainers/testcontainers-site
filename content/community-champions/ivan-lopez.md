@@ -9,12 +9,15 @@ socialLinks:
     label: "@ilopmar"
     url: https://twitter.com/ilopmar
 ---
+## Bio
+Iván is a Software Engineer and Systems Administrator with 20 years of experience. He is a Staff Software Engineer at VMware and a former Micronaut core committer. He discovered Grails and Spring a long time ago and since then he develops almost exclusively using Java and Groovy. He's also the coordinator of the Madrid Groovy User Group (@madridgug), the former organizer of the [Greach Conference](http://greachconf.com) and a frequent speaker at conferences like Devoxx, Codemotion, GeeCon, Spring IO, RigaDevDays, JavaCro, SpringOne 2GX, GR8Conf, Greach,...
+
 ## Q&A
 ### What were your first experiences with Testcontainers?
-I don't remember when exactly but it was about 5 years ago. It was probably because I already knew Sergei and he was very active with it so I guess that's how I learned about it. It was "love at first sight" because I've always cared a lot about testing but setting up everything for integration tests was tricky and messy.
+It was "love at first sight" because I've always cared a lot about testing but setting up everything for integration tests was tricky and messy.
 
 ### What’s your favourite Testcontainers module?
-The one I used the most is Postgresql but I've written cool test with Mockserver and Localstack
+The one I used the most is Postgresql but I've written cool test with Mockserver and LocalStack.
 
 ### What are your favourite features for Testcontainers?
 I really like how easy is to configure it in my projects and have a real dependency running for my tests in a couple of minutes, just adding some dependency, a few annotations and that's it!

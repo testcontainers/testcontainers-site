@@ -17,13 +17,15 @@
       <div class="container">
         <div class="content">
           <div class="champions-list-items">
+            {{ $defaultImage := resources.Get "/images/community-champions/default.svg" }}
             {{ range .Paginator.Pages }}
               <a href="{{ .RelPermalink }}" class="champions-list-item">
                 <div class="image-wrapper">
-                  {{ $imagePath := printf "/images/community-champions/%s.jpg" .File.BaseFileName }}
-                  {{ $image := resources.Get $imagePath }}
+                  {{ $image := resources.Get (printf "/images/community-champions/%s.jpg" .File.BaseFileName) }}
                   {{ if $image }}
-                      {{ partial "img.html" (dict "image" $image "class" "photo" "alt" "" "lazy" true) }}
+                    {{ partial "img.html" (dict "image" $image "class" "photo" "alt" "" "lazy" true) }}
+                  {{ else }}
+                    {{ partial "img.html" (dict "image" $defaultImage "class" "photo" "alt" "" "lazy" true) }}
                   {{ end }}
                   {{ $flagPath := printf "/images/flags/%s.svg" .Params.country }}
                   {{ $flag := resources.Get $flagPath }}

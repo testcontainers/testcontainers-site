@@ -9,6 +9,9 @@ socialLinks:
     label: "@yanashin18618"
     url: https://twitter.com/yanashin18618
 ---
+## Bio
+Shinya Yanagihara's background started as a field engineer at IBM. Shinya achieved the technical skill and knowledge though, recognized the software development industry had lots of challenges and difficulty for people, process, culture and technology. Therefore Shinya wants to transform the world and people to build software efficiently.
+
 ## Q&A
 ### What were your first experiences with Testcontainers?
 Spring brought me and Testcontainers together.

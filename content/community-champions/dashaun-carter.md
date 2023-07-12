@@ -15,9 +15,12 @@ socialLinks:
     label: "@dashaun"
     url: https://youtube.com/@dashaun
 ---
+## Bio
+DaShaun Carter is a husband, father of four, volunteer, struggling athlete and Spring Developer Advocate at VMware Tanzu. Deliberately practicing to build, manage, and run, better software, faster.
+
 ## Q&A
 ### What were your first experiences with Testcontainers?
-My first, memorable experience, was introducing Testcontainers to a customer and massively improving the feedback loop.  My default “integration” environment moved away from fully deployed services, towards Testcontainers.  Testcontainers became an essential tool for me during my time at Redis.
+My first memorable experience was introducing Testcontainers to a customer and massively improving the feedback loop.  My default “integration” environment moved away from fully deployed services, towards Testcontainers.  Testcontainers became an essential tool for me during my time at Redis.
 
 ### What’s your favourite Testcontainers module?
 Redis, RabbitMQ and Yugabyte

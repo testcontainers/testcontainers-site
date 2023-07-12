@@ -22,10 +22,12 @@
         <div class="container">
           <div class="profile">
             <div class="image-wrapper">
-              {{ $imagePath := printf "/images/community-champions/%s.jpg" .File.BaseFileName }}
-              {{ $image := resources.Get $imagePath }}
+              {{ $defaultImage := resources.Get "/images/community-champions/default.svg" }}
+              {{ $image := resources.Get (printf "/images/community-champions/%s.jpg" .File.BaseFileName) }}
               {{ if $image }}
-                  {{ partial "img.html" (dict "image" $image "class" "photo" "alt" "" "lazy" true) }}
+                {{ partial "img.html" (dict "image" $image "class" "photo" "alt" "" "lazy" true) }}
+              {{ else }}
+                {{ partial "img.html" (dict "image" $defaultImage "class" "photo" "alt" "" "lazy" true) }}
               {{ end }}
             </div>
             <div class="profile-content">
@@ -64,7 +66,10 @@
                 <ul class="social-links">
                   {{ range .Params.socialLinks }}
                       <li class="social-link">
-                        {{ partial "img.html" (dict "image" (printf "/images/social/%s.svg" .id) "alt" "" "lazy" true) }}
+                        {{ $socialImage := resources.Get (printf "/images/social/%s.svg" .id) }}
+                        {{ if $socialImage }}
+                          {{ partial "img.html" (dict "image" $socialImage "alt" "" "lazy" true) }}
+                        {{ end }}
                         <a href="{{- .url -}}" target="_blank" rel="noopener">{{- .label -}}</a>
                       </li>
                   {{ end }}

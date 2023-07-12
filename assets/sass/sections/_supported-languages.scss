@@ -14,6 +14,18 @@
         }
     }
 
+    .content {
+        font-size: rem(14px);
+
+        @media (min-width: 860px) {
+            font-size: rem(18px);
+        }
+
+        h2 {
+            margin-bottom: 1em;
+        }
+    }
+
     .languages {
         display: grid;
         gap: 10px;
