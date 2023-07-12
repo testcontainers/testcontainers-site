@@ -24,6 +24,10 @@
 {{ $ogDescription := .Site.Params.Description }}
 {{ $ogImage := printf "%s/images/share-image.png" $siteBaseUrl }}
 
+{{ with .Page.Params.ogImage }}
+    {{ $ogImage = printf "%s%s" $siteBaseUrl . }}
+{{ end }}
+
 {{ if and (not .IsSection) (eq .Section "modules") }}
     {{ with .Page.Title }}
         {{ $ogTitle = printf "Testcontainers %s Module" . }}
@@ -43,6 +47,16 @@
         {{ $ogImage = $shareImage.Permalink }}
     {{ else }}
         {{ $ogImage = printf "%s/images/module-share-image.png" $siteBaseUrl }}
+    {{ end }}
+{{ else if and (not .IsSection) (eq .Section "community-champions") }}
+    {{ $ogTitle = printf "Community Champion: %s" .Page.Title }}
+    {{ $ogDescription = printf "View the Testcontainers Community Champion profile for %s" .Page.Title }}
+
+    {{ $shareImage := resources.Get (printf "/images/community-champions/%s-share.png" $fileBaseName) }}
+    {{ if $shareImage }}
+        {{ $ogImage = $shareImage.Permalink }}
+    {{ else }}
+        {{ $ogImage = printf "%s/images/community-champions-share-image.png" $siteBaseUrl }}
     {{ end }}
 {{ else }}
     {{ with .Page.Title }}
