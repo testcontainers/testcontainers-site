@@ -78,29 +78,63 @@ allTabLabels.forEach((label) => {
     });
 });
 
-// Handle UTMs 
-const queryParams = new URLSearchParams(window.location.search);
-const utmKeys = [
-    "utm_campaign",
-    "utm_source",
-    "utm_medium",
-    "utm_term",
-    "utm_content"
-];
+// Handle UTMs
 const utms = [];
-if (document.referrer) {
+
+const referrerCookie = getCookie("__gtm_referrer");
+if (referrerCookie) {
+    utms.push({
+        key: "original_referrer",
+        value: referrerCookie
+    });
+} else if (document.referrer) {
     utms.push({
         key: "original_referrer",
         value: document.referrer
     });
 }
-utmKeys.forEach((key) => {
-    const value = queryParams.get(key) || false;
-    if (value) utms.push({
-        key: key,
-        value: value
+
+const campaignCookie = getCookie("__gtm_campaign_url");
+if (campaignCookie) {
+    const url = new URL(campaignCookie);
+    const params = new URLSearchParams(url.search);
+    const cookieUtms = parseUtms(params);
+    utms.push(...cookieUtms);
+} else {
+    const queryParams = parseUtms(new URLSearchParams(window.location.search));
+    utms.push(...queryParams);
+}
+
+function parseUtms(params) {
+    const utms = [];
+    const utmKeys = [
+        "utm_campaign",
+        "utm_source",
+        "utm_medium",
+        "utm_term",
+        "utm_content"
+    ];
+    utmKeys.forEach((key) => {
+        const value = params.get(key) || false;
+        if (value) utms.push({
+            key: key,
+            value: value
+        });
     });
-});
+    return utms;
+}
+
+function getCookie(key) {
+    var cookies = document.cookie.split(";");
+    for(var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i].split("=");
+        if(key == cookie[0].trim()) {
+            return decodeURIComponent(cookie[1]);
+        }
+    }
+    return null;
+}
+
 signupLinks = document.querySelectorAll("a[href*='app.testcontainers.cloud/signup']");
 signupLinks.forEach(link => {
     const url = new URL(link.href);
