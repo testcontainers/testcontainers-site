@@ -19,11 +19,11 @@ socialLinks:
     url: https://mastodon.social/@rotnroll666
 ---
 ## Bio
-Michael Simons is a father, husband, and athlete (the latter is probably just wishful thinking).  He is the author of @springbootbuch and the founder of @euregjug. Michael is also a Java Champion, published author, and JUG leader, and currently works on Spring Data and Neo4j-OGM at Neo4j.  In this role, his main focus is providing first-class support of Neo4j in the Spring Environment, but he also enjoys contributing to Test containers, Spring Boot, and Quarkus, among other projects.  Michael writes regularly about Java and software architecture and generally lives at [https://info.michael-simons.eu](https://info.michael-simons.eu).  [You can find his work on GitHub](https://github.com/michael-simons).
+Michael Simons is a father, husband, and athlete (the latter is probably just wishful thinking).  He is the author of @springbootbuch and the founder of @euregjug. Michael is also a Java Champion, published author, and JUG leader, and currently works on Spring Data and Neo4j-OGM at Neo4j.  In this role, his main focus is providing first-class support of Neo4j in the Spring Environment, but he also enjoys contributing to Testcontainers, Spring Boot, and Quarkus, among other projects.  Michael writes regularly about Java and software architecture and generally lives at [https://info.michael-simons.eu](https://info.michael-simons.eu).  [You can find his work on GitHub](https://github.com/michael-simons).
 
 ## Q&A
 ### What were your first experiences with Testcontainers?
-I am the original create of the Neo4j module, back in 2018.
+I am the original creator of the Neo4j module, back in 2018.
 
 ### What’s your favourite Testcontainers module?
 The Neo4j module of course ;) But I do use MariaDB as well for my private projects.

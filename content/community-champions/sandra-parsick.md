@@ -15,7 +15,7 @@ socialLinks:
     label: sandra-parsick
     url: https://www.linkedin.com/in/sandra-parsick-589a6b20
   - id: mastadon
-    lable: "@sparsick@mastodon.social"
+    label: "@sparsick@mastodon.social"
     url: https://mastodon.social/@sparsick
 ---
 ## Bio
@@ -27,7 +27,7 @@ She enjoys writing articles about this and speaking at conferences. In her spare
 
 ## Q&A
 ### What were your first experiences with Testcontainers?
-Someone (I think Kevin) demonstrated Testcontainers on the unconference SoCraTes. After that, I tried it out in my project and I recognized it's made my dev life easier.
+Someone demonstrated Testcontainers on the unconference SoCraTes. After that, I tried it out in my project and I recognized it's made my dev life easier.
 
 ### What’s your favourite Testcontainers module?
 The database modules

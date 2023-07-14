@@ -10,7 +10,7 @@ socialLinks:
     url: https://twitter.com/ciberkleid
 ---
 ## Bio
-Cora Iberkleid is a Developer Advocate for Modern Applications at VMware Tanzu, helping developers and enterprises navigate modern practices and technologies, focusing on cloud native architecture, modern CI/CD, Spring, and Kubernetes.Prior to joining VMware, Cora was an Advisory Solutions Engineer at Pivotal. She also spent nearly a decade at Sun Microsystems and Oracle, helping customers design and build enterprise integration applications. Through this experience, she developed an understanding and empathy for complex organizational challenges, and she strives to incorporate this empathy into her everyday work.
+Cora Iberkleid is a Developer Advocate for Modern Applications at VMware Tanzu, helping developers and enterprises navigate modern practices and technologies, focusing on cloud native architecture, modern CI/CD, Spring, and Kubernetes. Prior to joining VMware, Cora was an Advisory Solutions Engineer at Pivotal. She also spent nearly a decade at Sun Microsystems and Oracle, helping customers design and build enterprise integration applications. Through this experience, she developed an understanding and empathy for complex organizational challenges, and she strives to incorporate this empathy into her everyday work.
 
 ## Q&A
 ### What were your first experiences with Testcontainers?
