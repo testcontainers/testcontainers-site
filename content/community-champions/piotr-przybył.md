@@ -21,7 +21,7 @@ Developer, trainer and conference speaker. In his talks, Piotr covers not only h
 
 ## Q&A
 ### What were your first experiences with Testcontainers?
-I started using TC for testing Java backends, because boy, maintaining all these mocks, stubs, spies and fakes was tedious job. And I also was suffering from a high coverage which was still not enough to have confidence and ability to deploy and migrate in prod.
+I started using TC for testing Java backends, because boy, maintaining all these mocks, stubs, spies and fakes was a tedious job. And I also was suffering from a high coverage which was still not enough to have confidence and ability to deploy and migrate in prod.
 
 ### What’s your favourite Testcontainers module?
 There's no single one. I like the DB modules whenever I have to inspect data and the GenericContainer instead of Docker compose. Also, Toxiproxy FTW!
@@ -30,4 +30,4 @@ There's no single one. I like the DB modules whenever I have to inspect data and
 As long as you have Docker available, It Just Works™. And no YAML.
 
 ### What’s the most memorable bug you managed to reproduce with a test using Testcontainers?
-Retrospectively I wish we had TC way before even the Docker was a thing. There was a nasty situation (not even a bug per se), causing slow data corruption in the DB. Caused by the fact, that the app wasn't tested for the DB version which the admins upgraded it to. If only we could have and use TC back then, to check how the system saves data to _exactly_ that version, not a dummy mock...
+Retrospectively I wish we had TC way before Docker was even a thing. There was a nasty situation (not even a bug per se), causing slow data corruption in the DB. Caused by the fact, that the app wasn't tested for the DB version which the admins upgraded it to. If only we could have and use TC back then, to check how the system saves data to _exactly_ that version, not a dummy mock...
