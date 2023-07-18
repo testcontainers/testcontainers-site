@@ -19,5 +19,5 @@ sections:
     title: Run your dependencies with Testcontainers Cloud on-demand
     description: |
       You now have the freedom to test any way that you want - locally on your desktop or in the cloud to save resources. [Testcontainers Cloud](/cloud/) on demand is now available to you with a simple switch.
-    image: /images/testcontainers-cloud-diagram.png
+    image: /images/desktop-cloud-illustration.png
 ---
