@@ -1,16 +1,8 @@
 .alternating-download-image {
     padding: 40px 0;
 
-    + .alternating-download-image {
-        padding-top: 0;
-    }
-
     @media (min-width: 780px) {
         padding: 60px 0;
-
-        + .alternating-download-image {
-            padding-top: 60px;
-        }
     }
 
     .container {
@@ -53,8 +45,6 @@
     }
 
     .image {
-        align-self: stretch;
-        min-height: 200px;
         display: flex;
         align-items: center;
         justify-content: center;
