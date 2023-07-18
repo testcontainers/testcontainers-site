@@ -1,0 +1,54 @@
+{{- $downloadLinkMac := "https://app.testcontainers.cloud/download/testcontainers-cloud-desktop_darwin_x86-64.dmg" -}}
+{{- $downloadLinkWindows := "https://app.testcontainers.cloud/download/testcontainers-cloud-desktop_windows_x86-64.msi" -}}
+{{- $downloadLinkLinuxDeb := "https://app.testcontainers.cloud/download/testcontainers-cloud-desktop_linux_x86-64.deb" -}}
+{{- $downloadLinkLinuxRpm := "https://app.testcontainers.cloud/download/testcontainers-cloud-desktop_linux_x86-64.rpm" -}}
+<section class="download-banner active-macos">
+    <div class="container">
+        <div class="content">
+            <h1>{{ .section.title | markdownify }}</h1>
+            <div class="description">{{ .section.description | markdownify }}</div>
+        </div>
+        <div class="download-sections">
+            <div class="download-section macos">
+                <pre><code class="language-shell" data-lang="shell">$ brew install --cask atomicjar/tap/testcontainers-desktop</code></pre>
+                <div class="buttons">
+                    <a class="button has-extra" href="{{- $downloadLinkMac -}}">
+                        <span>Download for Mac</span>
+                        <span class="extra">Intel</span>
+                    </a>
+                    <a class="button has-extra" href="{{- $downloadLinkMac -}}">
+                        <span>Download for Mac</span>
+                        <span class="extra">Apple Silicon</span>
+                    </a>
+                </div>
+            </div>
+            <div class="download-section windows">
+                <div class="buttons">
+                    <a class="button" href="{{- $downloadLinkWindows -}}">
+                        <span>Download for Windows</span>
+                    </a>
+                </div>
+            </div>
+            <div class="download-section linux">
+                <div class="buttons">
+                    <a class="button has-extra" href="{{- $downloadLinkLinuxDeb -}}">
+                        <span>Download for Linux</span>
+                        <span class="extra">.deb</span>
+                    </a>
+                    <a class="button has-extra" href="{{- $downloadLinkLinuxRpm -}}">
+                        <span>Download for Linux</span>
+                        <span class="extra">.rpm</span>
+                    </a>
+                </div>
+            </div>
+            <div class="other-options">
+                <div>Not your OS? Download for:</div>
+                <div class="download-links">
+                    <a href="#macos" class="macos" data-os="macos">Mac</a>
+                    <a href="#windows" class="windows" data-os="windows">Windows</a>
+                    <a href="#linux" class="linux" data-os="linux">Linux</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

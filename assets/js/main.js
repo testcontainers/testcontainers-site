@@ -230,3 +230,31 @@ if (announcementBanner) {
             }
         })
 }
+
+function setActiveDownloadBannerSection(id) {
+    const oss = [
+        "macos",
+        "windows",
+        "linux"
+    ];
+    if (!oss.includes(id)) return;
+    const downloadBanner = document.querySelector(".download-banner");
+    oss.forEach((os) => {
+        downloadBanner.classList.remove(`active-${os}`);   
+    })
+    downloadBanner.classList.add(`active-${id}`);
+}
+const downloadBannerOsButtons = document.querySelectorAll(".download-links a");
+downloadBannerOsButtons.forEach((osLink) => {
+    osLink.addEventListener("click", (e) => {
+        const target = e.target ?? e.currentTarget;
+        const id = target.dataset.os;
+        setActiveDownloadBannerSection(id);
+    })
+});
+setActiveDownloadBannerSection(document.location.hash.replace("#", ""));
+
+if (document.querySelectorAll(".download-banner").length > 0) {
+    const ua = new UAParser().setUA(navigator.userAgent);
+    setActiveDownloadBannerSection(ua.getOS().name.toLowerCase());
+}

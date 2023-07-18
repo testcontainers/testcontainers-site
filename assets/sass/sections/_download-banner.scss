@@ -1,0 +1,127 @@
+.download-banner {
+    padding: 40px 0;
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .content {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        h1 {
+            margin: 0;
+        }
+
+        .description {
+            font-size: rem(24px);
+        }
+    }
+
+    .download-sections {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .download-section {
+        flex-direction: column;
+        gap: 30px;
+        display: none;
+    }
+
+    &.active-macos .download-section.macos {
+        display: flex;
+    }
+    &.active-windows .download-section.windows {
+        display: flex;
+    }
+    &.active-linux .download-section.linux {
+        display: flex;
+    }
+
+    pre {
+        position: relative;
+        overflow: hidden;
+        width: max-content;
+        max-width: 100%;
+        margin: 0 auto
+    }
+
+    code {
+        display: block;
+        overflow-x: auto;
+        font-family: "Roboto Mono", 'Courier New', Courier, monospace;
+        background: $plum;
+        color: $catskill;
+        padding: 10px;
+        border-radius: 6px;
+        width: max-content;
+        max-width: 100%;
+
+        @media (min-width: 500px) {
+            padding: 20px;
+        }
+    }
+
+    .buttons {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .button {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        align-items: center;
+        line-height: 1;
+
+        &.has-extra {
+            padding-bottom: 10px;
+        }
+
+        .extra {
+            color: $fog;
+            font-size: small;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        &:hover {
+            .extra {
+                color: $mist;
+            }
+        }
+    }
+
+    .other-options {
+        text-align: center;
+        font-size: rem(18px);
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        .download-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+    }
+
+    &.active-mac .other-options .download-links a.macos {
+        display: none;
+    }
+    &.active-windows .other-options .download-links a.windows {
+        display: none;
+    }
+    &.active-linux .other-options .download-links a.linux {
+        display: none;
+    }
+}

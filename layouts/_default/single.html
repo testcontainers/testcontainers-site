@@ -1,6 +1,7 @@
 {{ define "footerScripts" }}
 <script src="/js/fslightbox.js" defer></script>
 <script src="/js/glide.js"></script>
+<script src="/js/ua-parser.min.js"></script>
 <script>
     if (document.querySelectorAll(".quotes .glide").length > 0)
         new Glide('.quotes .glide', {
@@ -9,7 +10,7 @@
             autoplay: 8000,
             hoverpause: true,
             type: "carousel"
-        }).mount()
+        }).mount();
     if (document.querySelectorAll(".tweets .glide").length > 0)
         new Glide('.tweets .glide', {
             perView: 4,
@@ -26,7 +27,7 @@
                     perView: 1
                 }
             }
-        }).mount()
+        }).mount();
 </script>
 {{ end }}
 
