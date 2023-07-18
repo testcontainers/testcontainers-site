@@ -2,7 +2,7 @@
     <div class="container">
         <div class="image">
             {{ with .section.image }}
-                {{ partial "img.html" (dict "image" (resources.Get .) "alt" "") }}
+                {{ partial "img.html" (dict "image" (resources.Get .) "alt" "" "lazy" "true") }}
             {{ end }}
         </div>
         <div class="content">
