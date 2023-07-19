@@ -5,7 +5,7 @@ categories:
   - message-broker
 docs:
   - id: java
-    url: https://www.testcontainers.org/modules/pulsar/
+    url: https://java.testcontainers.org/modules/pulsar/
     example: |
       ```java
       var pulsar = new PulsarContainer(DockerImageName.parse("apachepulsar/pulsar:2.10.0"));

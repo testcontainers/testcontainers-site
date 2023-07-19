@@ -4,7 +4,7 @@ categories:
   - nosql-database
 docs:
   - id: java
-    url: https://www.testcontainers.org/modules/databases/orientdb/
+    url: https://java.testcontainers.org/modules/databases/orientdb/
     example: |
       ```java
       var orient = new OrientDBContainer(DockerImageName.parse("orientdb:3.2.0-tp3"));

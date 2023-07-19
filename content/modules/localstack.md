@@ -5,7 +5,7 @@ categories:
   - cloud
 docs:
   - id: java
-    url: https://www.testcontainers.org/modules/localstack/
+    url: https://java.testcontainers.org/modules/localstack/
     example: |
       ```java
       var localstack = new LocalStackContainer(DockerImageName.parse("localstack/localstack:0.11.3"));

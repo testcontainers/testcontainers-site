@@ -4,7 +4,7 @@ categories:
   - relational-database
 docs:
   - id: java
-    url: https://www.testcontainers.org/modules/databases/tidb/
+    url: https://java.testcontainers.org/modules/databases/tidb/
     example: |
       ```java
       var tidb = new TiDBContainer(DockerImageName.parse("pingcap/tidb:v6.1.0"));

@@ -4,7 +4,7 @@ categories:
   - nosql-database
 docs:
   - id: java
-    url: https://www.testcontainers.org/modules/databases/mongodb/
+    url: https://java.testcontainers.org/modules/databases/mongodb/
     example: |
       ```java
       var mongoDBContainer = new MongoDBContainer(DockerImageName.parse("mongo:4.0.10"));

@@ -4,7 +4,7 @@ categories:
   - relational-database
 docs:
   - id: java
-    url: https://www.testcontainers.org/modules/databases/mssqlserver/
+    url: https://java.testcontainers.org/modules/databases/mssqlserver/
     example: |
       ```java
       var mssqlserver = new MSSQLServerContainer()

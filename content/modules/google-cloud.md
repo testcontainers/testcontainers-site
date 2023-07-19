@@ -4,7 +4,7 @@ categories:
   - cloud
 docs:
   - id: java
-    url: https://www.testcontainers.org/modules/gcloud/
+    url: https://java.testcontainers.org/modules/gcloud/
     example: |
       ```java
       var bigtable = new BigtableEmulatorContainer(

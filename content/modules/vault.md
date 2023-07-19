@@ -4,10 +4,10 @@ categories:
   - other
 docs:
   - id: java
-    url: https://www.testcontainers.org/modules/vault/
+    url: https://java.testcontainers.org/modules/vault/
     example: |
       ```java
-      var vault = new VaultContainer<>(DockerImageName.parse(("hashicorp/vault:1.13.0"));
+      var vault = new VaultContainer<>(DockerImageName.parse("hashicorp/vault:1.13.0"));
       vault.start();
       ```
   - id: go

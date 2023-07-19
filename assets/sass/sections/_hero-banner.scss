@@ -24,6 +24,10 @@ $bottom-step: 7.5em;
         height: 50%;
         background: linear-gradient(199deg, #fff 10%, rgba(#fff, 0) 50%);
         pointer-events: none;
+
+        body.has-announcement & {
+            top: 40px;
+        }
     }
 
     &::after {
@@ -36,7 +40,13 @@ $bottom-step: 7.5em;
         height: 100px;
         background: linear-gradient(180deg, #fff 10%, rgba(#fff, 0) 100%);
         pointer-events: none;
+
+        body.has-announcement & {
+            top: 40px;
+        }
     }
+
+    
 
     @media (min-width: 500px) {
         padding: -88px 0 0 0;

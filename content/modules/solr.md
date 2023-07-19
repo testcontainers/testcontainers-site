@@ -4,7 +4,7 @@ categories:
   - nosql-database
 docs:
   - id: java
-    url: https://www.testcontainers.org/modules/solr/
+    url: https://java.testcontainers.org/modules/solr/
     example: |
       ```java
       var solr = new SolrContainer(DockerImageName.parse("solr:8.3.0"));

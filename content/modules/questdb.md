@@ -4,7 +4,7 @@ categories:
   - relational-database
 docs:
   - id: java
-    url: https://www.testcontainers.org/modules/databases/questdb/
+    url: https://java.testcontainers.org/modules/databases/questdb/
     example: |
       ```java
       var questdb = new QuestDBContainer(DockerImageName.parse("questdb/questdb:6.5.3"));

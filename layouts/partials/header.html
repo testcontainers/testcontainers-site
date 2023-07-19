@@ -1,3 +1,12 @@
+{{ if .Site.Params.Announcement }}
+    <div id="announcement-banner" class="announcement-banner">
+        <a href="{{ index (.Site.Params.announcement).url }}" target="_blank" rel="noopener">{{ index (.Site.Params.announcement).text }}</a>
+        <button id="announcement-banner-button" type="button" class="announcement-close">
+            <span class="sr-only">Dismiss Announcement</span>
+            {{ partial "svgs/close" }}
+        </button>
+    </div>
+{{ end }}
 <header id="site-header">
     <div class="brand">
         <a href="/" class="logo">
@@ -15,22 +24,22 @@
     <nav>
         <ul class="menu">
             <li class="menu-item">
-                <a href="/cloud">
+                <a href="/cloud/">
                     Cloud
                 </a>
             </li>
             <li class="menu-item">
-                <a href="/getting-started">
+                <a href="/getting-started/">
                     Getting Started
                 </a>
             </li>
             <li class="menu-item">
-                <a href="/guides">
+                <a href="/guides/">
                     Guides
                 </a>
             </li>
             <li class="menu-item">
-                <a href="/modules">
+                <a href="/modules/">
                     Modules
                 </a>
             </li>
@@ -62,7 +71,7 @@
                 </a>
             </li>
             <li class="menu-item">
-                <a href="https://github.com/testcontainers" target="_blank">
+                <a href="https://github.com/testcontainers/" target="_blank">
                     {{ partial "svgs/github" }}
                     <span class="sr-only">GitHub</span>
                 </a>
@@ -73,7 +82,7 @@
 {{ define "subheader" }}
     {{ if eq .Params.submenu "cloud" }}
     <div id="subheader">
-        <a class="subheader-title" href="/cloud">Testcontainers Cloud</a>
+        <a class="subheader-title" href="/cloud/">Testcontainers Cloud</a>
         <button id="mobile-submenu-toggle">
             <span class="sr-only">Subheader Menu</span>
             <svg width="30" height="30" viewBox="0 0 30 30" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -85,17 +94,17 @@
         <nav>
             <ul class="subheader-menu">
                 <li class="menu-item">
-                    <a href="/cloud/desktop">
+                    <a href="/cloud/desktop/">
                         On Desktop
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="/cloud/ci">
+                    <a href="/cloud/ci/">
                         On CI
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="/pricing">
+                    <a href="/cloud/pricing/">
                         Pricing
                     </a>
                 </li>

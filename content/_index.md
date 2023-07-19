@@ -14,6 +14,8 @@ sections:
     examples:
       - id: java
         label: Java
+        url: /guides/getting-started-with-testcontainers-for-java/
+        external: false
         icon: /images/language-logos/java.svg
         code: |
           ```java
@@ -22,6 +24,8 @@ sections:
           ```
       - id: go
         label: Go
+        url: /guides/getting-started-with-testcontainers-for-go/
+        external: false
         icon: /images/language-logos/go.svg
         code: |
           ```go
@@ -36,6 +40,8 @@ sections:
           ```
       - id: dotnet
         label: .NET
+        url: /guides/getting-started-with-testcontainers-for-dotnet/
+        external: false
         icon: /images/language-logos/dotnet.svg
         code: |
           ```csharp
@@ -44,6 +50,8 @@ sections:
           ```
       - id: nodejs
         label: Node.js
+        url: /guides/getting-started-with-testcontainers-for-nodejs/
+        external: false
         icon: /images/language-logos/nodejs.svg
         code: |
           ```javascript
@@ -54,6 +62,8 @@ sections:
           ```
       - id: python
         label: Python
+        url: https://testcontainers-python.readthedocs.io/en/latest/
+        external: true
         icon: /images/language-logos/python.svg
         code: |
           ```python
@@ -66,6 +76,8 @@ sections:
           ```
       - id: rust
         label: Rust
+        url: https://docs.rs/testcontainers/latest/testcontainers/
+        external: true
         icon: /images/language-logos/rust.svg
         code: |
           ```rust
@@ -74,6 +86,8 @@ sections:
           ```
       - id: haskell
         label: Haskell
+        url: https://github.com/testcontainers/testcontainers-hs
+        external: true
         icon: /images/language-logos/haskell.svg
         code: |
           ```haskell
@@ -85,6 +99,8 @@ sections:
           ```
       - id: ruby
         label: Ruby
+        url: https://github.com/testcontainers/testcontainers-ruby
+        external: true
         icon: /images/language-logos/ruby.svg
         code: |
           ```ruby
@@ -147,7 +163,7 @@ sections:
     languages:
       - logo: /images/language-logos/java.svg
         label: Java
-        link: https://testcontainers.org
+        link: https://java.testcontainers.org/
       - logo: /images/language-logos/go.svg
         label: Go
         link: https://golang.testcontainers.org/

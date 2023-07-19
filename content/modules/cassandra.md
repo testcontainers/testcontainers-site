@@ -4,7 +4,7 @@ categories:
   - nosql-database
 docs:
   - id: java
-    url: https://www.testcontainers.org/modules/databases/cassandra/
+    url: https://java.testcontainers.org/modules/databases/cassandra/
     example: |
       ```java
       var cassandra = new CassandraContainer<>(DockerImageName.parse("cassandra:3.11.2"));

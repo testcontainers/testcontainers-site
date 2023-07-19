@@ -4,11 +4,11 @@ categories:
   - message-broker
 docs:
   - id: java
-    url: https://www.testcontainers.org/modules/solace/
+    url: https://java.testcontainers.org/modules/solace/
     isThirdParty: false
     example: |
       ```java
-      var solaceContainer = new SolaceContainer(DockerImageName.parse(("solace/solace-pubsub-standard:10.2"));
+      var solaceContainer = new SolaceContainer(DockerImageName.parse("solace/solace-pubsub-standard:10.2"));
       solace.start();
       ```
 description: |

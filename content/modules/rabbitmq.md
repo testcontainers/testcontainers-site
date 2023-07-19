@@ -4,7 +4,7 @@ categories:
   - message-broker
 docs:
   - id: java
-    url: https://www.testcontainers.org/modules/rabbitmq/
+    url: https://java.testcontainers.org/modules/rabbitmq/
     example: |
       ```java
       var rabbit = new RabbitMQContainer(DockerImageName.parse("rabbitmq:3.7.25-management-alpine"));

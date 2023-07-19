@@ -5,7 +5,7 @@ categories:
   - relational-database
 docs:
   - id: java
-    url: https://www.testcontainers.org/modules/databases/yugabytedb/
+    url: https://java.testcontainers.org/modules/databases/yugabytedb/
     isThirdParty: false
     example: |
       ```java
