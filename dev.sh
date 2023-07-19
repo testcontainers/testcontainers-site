@@ -26,6 +26,8 @@ GUIDE_REPOS=(
   'tc-guide-testcontainers-in-quarkus-applications'
   'tc-guide-getting-started-with-testcontainers-for-go'
   'tc-guide-working-with-jooq-flyway-using-testcontainers'
+  'tc-guide-getting-started-with-testcontainers-for-nodejs'
+  'tc-guide-testing-rest-api-integrations-using-wiremock'
 )
 
 GUIDE_REPOS_CLONE_DIR="./guide-repos"
