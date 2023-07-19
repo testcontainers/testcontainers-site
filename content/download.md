@@ -1,23 +1,26 @@
 ---
 Title: Download the Testcontainers desktop app
-Description: Simple local development with real dependencies powered by Testcontainers. Install the app and sign-in to get started.
+Description: Simple local development with real dependencies, with the Testcontainers companion app. Install the app and sign-in to get started.
 shareImage: download-share-image.png
 sections:
   - partial: download-banner
-    title: Simple local development with real dependencies powered by Testcontainers
-    description: Install the app and sign-in to get started
+    title: Download the Testcontainers desktop app
+    description: |
+      Simple local development with real dependencies, with the Testcontainers companion app
+    instructions: Install the app and sign-in to get started
   - partial: alternating-download-image
     title: Debug your Testcontainers-powered dependencies
     description: |
-      Testcontainers libraries map the container’s ports onto random ports on the host machine to avoid conflicts, ensuring that automated tests run reliably. With the Testcontainers desktop app, you can also [proxy each service to a fixed port](https://newsletter.testcontainers.com/announcements/set-fixed-ports-to-easily-debug-development-services). This makes it easy to connect your favorite debugging tools, such as an IDE plugin to inspect a datastore, or k9s to manage a Kubernetes cluster.
+      The app lets you proxy any service to a fixed port to easily inspect it with your favorite debugging tools. For example, inspect a datastore with your IDE plugin, or manage a Kubernetes cluster with k9s. You can even freeze a service to keep it running while you debug it.
     image: /images/desktop-port-proxy-illustration.png
   - partial: alternating-download-image
-    title: Track and inspect your dev and test sessions
-    description: Track your testing activities & inspect your test sessions with collaborative dashboards.
+    title: Track and analyze your test sessions
+    description: |
+      Need to spot-check that you’re running the correct container images, or how your tests are parallelized? The app automatically tracks your test sessions, powering dashboards that provide you and your team with insights into your development and testing patterns.
     image: /images/testcontainers-dashboard-illustration.png
   - partial: alternating-download-image
     title: Run your dependencies with Testcontainers Cloud on-demand
     description: |
-      You now have the freedom to test any way that you want - locally on your desktop or in the cloud to save resources. [Testcontainers Cloud](/cloud/) on demand is now available to you with a simple switch.
+      Want to give Podman or Rancher a try? Simply switch your local runtime for all your Testcontainers-powered dependencies. And with [Testcontainers Cloud](/cloud/), you can even run them in the cloud on demand, while saving your local resources.
     image: /images/desktop-cloud-illustration.png
 ---

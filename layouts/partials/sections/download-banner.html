@@ -9,6 +9,9 @@
             <div class="description">{{ .section.description | markdownify }}</div>
         </div>
         <div class="download-sections">
+            {{ with .section.instructions }}
+                <div class="instructions">{{ . }}</div>
+            {{ end }}
             <div class="download-section macos">
                 <pre><code class="language-shell" data-lang="shell">$ brew install --cask atomicjar/tap/testcontainers-desktop</code></pre>
                 <div class="buttons">

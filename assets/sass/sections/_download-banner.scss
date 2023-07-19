@@ -18,7 +18,11 @@
         }
 
         .description {
-            font-size: rem(24px);
+            font-size: rem(18px);
+
+            @media (min-width: 860px) {
+                font-size: rem(24px);
+            }
         }
     }
 
@@ -26,6 +30,14 @@
         display: flex;
         flex-direction: column;
         gap: 30px;
+    }
+
+    .instructions {
+        text-align: center;
+
+        @media (min-width: 860px) {
+            font-size: rem(18px);
+        }
     }
 
     .download-section {
@@ -102,20 +114,24 @@
 
     .other-options {
         text-align: center;
-        font-size: rem(18px);
         display: flex;
         flex-direction: column;
         gap: 5px;
+
+        @media (min-width: 860px) {
+            font-size: rem(18px);
+        }
 
         .download-links {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 20px;
+            font-size: rem(18px);
         }
     }
 
-    &.active-mac .other-options .download-links a.macos {
+    &.active-macos .other-options .download-links a.macos {
         display: none;
     }
     &.active-windows .other-options .download-links a.windows {
