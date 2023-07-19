@@ -244,6 +244,7 @@ function setActiveDownloadBannerSection(id) {
     })
     downloadBanner.classList.add(`active-${id}`);
 }
+
 const downloadBannerOsButtons = document.querySelectorAll(".download-links a");
 downloadBannerOsButtons.forEach((osLink) => {
     osLink.addEventListener("click", (e) => {
@@ -252,9 +253,10 @@ downloadBannerOsButtons.forEach((osLink) => {
         setActiveDownloadBannerSection(id);
     })
 });
-setActiveDownloadBannerSection(document.location.hash.replace("#", ""));
 
 if (document.querySelectorAll(".download-banner").length > 0) {
     const ua = new UAParser().setUA(navigator.userAgent);
     setActiveDownloadBannerSection(ua.getOS().name.toLowerCase());
 }
+
+setActiveDownloadBannerSection(document.location.hash.replace("#", ""));
