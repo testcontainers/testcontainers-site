@@ -1,0 +1,110 @@
+.alternating-download-image {
+    padding: 40px 0;
+
+    @media (min-width: 780px) {
+        padding: 60px 0;
+    }
+
+    .container {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 20px;
+        align-items: center;
+        
+        @media (min-width: 768px) {  
+            gap: 100px;  
+            grid-template-columns: 3fr 2fr;
+        }
+    }
+
+    @media (min-width: 768px) {   
+        &:nth-of-type(even) .container {
+            grid-template-columns: 2fr 3fr;
+
+            .image  {
+                order: 2;
+            }
+        }
+    }
+
+    h2 {
+        text-align: left;
+        line-height: 1.2;
+        font-weight: 500;
+
+        @media (min-width: 860px) {
+            font-size: rem(36px);
+        }
+    }
+
+    img {
+        width: auto;
+        height: auto;
+        display: block;
+        border-radius: 6px;
+    }
+
+    .image {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        @media (min-width: 860px) {
+            gap: 30px;
+        }
+    }
+
+    .description {
+        @media (min-width: 860px) {
+            font-size: rem(18px);
+        }
+    }
+
+    ul {
+        padding: 0;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    li {
+        list-style: none;
+        display: flex;
+        gap: 16px;
+        line-height: 1.25;
+        text-align: left;
+
+        &::before {
+            content: "";
+            background: $aqua;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 0.5em;
+            height: 0.5em;
+            color: #fff;
+            border-radius: 1000px;
+            flex: 0 0 auto;
+            transform: translateY(0.325em);
+            border: 0.125em solid $catskill;
+            outline: 0.125em solid $aqua;
+        }
+    }
+
+    .buttons {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+
+        @media (max-width: 767px) {
+            justify-content: center;
+        }
+    }
+}
