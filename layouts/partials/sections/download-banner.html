@@ -1,7 +1,8 @@
-{{- $downloadLinkMac := "https://app.testcontainers.cloud/download/testcontainers-cloud-desktop_darwin_x86-64.dmg" -}}
-{{- $downloadLinkWindows := "https://app.testcontainers.cloud/download/testcontainers-cloud-desktop_windows_x86-64.msi" -}}
-{{- $downloadLinkLinuxDeb := "https://app.testcontainers.cloud/download/testcontainers-cloud-desktop_linux_x86-64.deb" -}}
-{{- $downloadLinkLinuxRpm := "https://app.testcontainers.cloud/download/testcontainers-cloud-desktop_linux_x86-64.rpm" -}}
+{{- $downloadLinkMacIntel := "https://app.testcontainers.cloud/download/testcontainers-desktop_darwin_x86-64.dmg" -}}
+{{- $downloadLinkMacApple := "https://app.testcontainers.cloud/download/testcontainers-desktop_darwin_arm64.dmg" -}}
+{{- $downloadLinkWindows := "https://app.testcontainers.cloud/download/testcontainers-desktop_windows_x86-64.msi" -}}
+{{- $downloadLinkLinuxDeb := "https://app.testcontainers.cloud/download/testcontainers-desktop_linux_x86-64.deb" -}}
+{{- $downloadLinkLinuxRpm := "https://app.testcontainers.cloud/download/testcontainers-desktop_linux_x86-64.rpm" -}}
 <section class="download-banner active-macos">
     <div class="container">
         <div class="content">
@@ -15,11 +16,11 @@
             <div class="download-section macos">
                 <pre><code class="language-shell" data-lang="shell">$ brew install atomicjar/tap/testcontainers-cloud-desktop</code></pre>
                 <div class="buttons">
-                    <a class="button has-extra" href="{{- $downloadLinkMac -}}">
+                    <a class="button has-extra" href="{{- $downloadLinkMacIntel -}}">
                         <span>Download for Mac</span>
                         <span class="extra">Intel</span>
                     </a>
-                    <a class="button has-extra" href="{{- $downloadLinkMac -}}">
+                    <a class="button has-extra" href="{{- $downloadLinkMacApple -}}">
                         <span>Download for Mac</span>
                         <span class="extra">Apple Silicon</span>
                     </a>
