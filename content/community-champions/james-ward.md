@@ -16,7 +16,7 @@ socialLinks:
     url: https://linkedin.com/in/jamesward
 ---
 ## Bio
-James Ward is a professional software developer since 1997, with much of that time spent helping developers build software that doesn't suck. A Typed Pure Functional Programming zealot who often compromises on his ideals to just get stuff done. Currently the Kotlin Product Manager at Google.
+James Ward is a professional software developer since 1997, with much of that time spent helping developers build software that doesn't suck. A Typed Pure Functional Programming zealot who often compromises on his ideals to just get stuff done.
 
 ## Q&A
 ### What were your first experiences with Testcontainers?
