@@ -22,7 +22,7 @@ He does numerous trainings for customers about Maven, Git, Jenkins (CI/CD) etc.
 
 ## Q&A
 ### What were your first experiences with Testcontainers?
-I started using Testcontainers ca. 2018 while having the need to build End-To-End tests with a complicate application setup (Spring Boot) where Testcontainers helped to solve that in relationship with JUnit Jupiter (based on the extenions mechanism).
+I started using Testcontainers ca. 2018 while having the need to build End-To-End tests with a complicated application setup (Spring Boot) where Testcontainers helped to solve that in relationship with JUnit Jupiter (based on the extentions mechanism).
 
 ### What’s your favourite Testcontainers module?
 Image: gvenzl/oracle-xe, sonarqube, gitea
