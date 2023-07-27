@@ -64,7 +64,7 @@
           </div>
         </div>
       </header>
-      <div class="module-content">
+      <div class="module-content longform-content">
         <div class="container">
             <div class="sidebar">
               <div>
@@ -148,6 +148,11 @@
                       {{ end }}
                     </div>
                   </div>
+                </div>
+              {{ end }}
+              {{ with .Content }}
+                <div class="section content">
+                  {{ . }}
                 </div>
               {{ end }}
           </div>
