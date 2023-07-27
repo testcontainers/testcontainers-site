@@ -1,7 +1,6 @@
 ---
 Title: Download the Testcontainers desktop app
 Description: Simple local development with real dependencies, with the Testcontainers companion app. Install the app and sign-in to get started.
-sitemap_exclude: true
 shareImage: download-share-image.png
 sections:
   - partial: download-banner
