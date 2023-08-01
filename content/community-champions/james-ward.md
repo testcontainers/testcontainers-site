@@ -9,8 +9,8 @@ socialLinks:
     label: jamesward
     url: https://github.com/jamesward
   - id: twitter
-    label: "@antonarhipov"
-    url: https://twitter.com
+    label: "@_JamesWard"
+    url: https://twitter.com/_jamesward
   - id: linkedin
     label: jamesward
     url: https://linkedin.com/in/jamesward
