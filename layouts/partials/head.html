@@ -65,6 +65,9 @@
     {{ with .Page.Description }}
         {{ $ogDescription = . }}
     {{ end }}
+    {{ with .Page.Params.shareImage }}
+        {{ $ogImage = printf "%s/images/%s" $siteBaseUrl . }}
+    {{ end }}
 {{ end }}
 
 <meta property="og:title" content="{{ $ogTitle }}">

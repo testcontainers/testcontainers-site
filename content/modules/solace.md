@@ -8,7 +8,7 @@ docs:
     isThirdParty: false
     example: |
       ```java
-      var solaceContainer = new SolaceContainer(DockerImageName.parse(("solace/solace-pubsub-standard:10.2"));
+      var solaceContainer = new SolaceContainer(DockerImageName.parse("solace/solace-pubsub-standard:10.2"));
       solace.start();
       ```
 description: |

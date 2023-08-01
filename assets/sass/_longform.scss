@@ -26,9 +26,14 @@
         }
     }
 
-    .container > .content {
+    .container > .content,
+    .section.content {
         flex: 1 1 auto;
-        font-size: rem(18px);
+        font-size: rem(16px);
+
+        @media (min-width: 1024px) {
+            font-size: rem(18px);
+        }
 
         & > *:first-child {
             margin-top: 0;
