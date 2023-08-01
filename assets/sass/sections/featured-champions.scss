@@ -184,7 +184,7 @@ $top-step: 7.5em;
         position: absolute;
         width: 10em;
         height: 11.9em;
-        padding: 10px;
+        padding: 0;
         display: flex;
         align-items: stretch;
         justify-content: stretch;
@@ -200,6 +200,7 @@ $top-step: 7.5em;
             mask-image: url("/images/cube-background.svg");
             -webkit-mask-size: cover;
             mask-size: cover;
+            transform: scale(.85);
         }
 
         img {
