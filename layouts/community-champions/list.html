@@ -1,0 +1,49 @@
+{{ define "pageScripts" }}
+    {{ $style := resources.Get "/sass/champions.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
+    <link rel="stylesheet" href="{{ $style.RelPermalink }}">
+{{ end }}
+
+{{ define "main" }}
+  <main>
+    <section class="champions-banner">
+        <div class="container">
+          <div class="content">
+            <h1>{{ .Title }}</h1>
+            <div class="description">{{ .Description | markdownify }}</div>
+          </div>
+        </div>
+    </section>
+    <section class="champions-list">
+      <div class="container">
+        <div class="content">
+          <div class="champions-list-items">
+            {{ $defaultImage := resources.Get "/images/community-champions/default.svg" }}
+            {{ range .Paginator.Pages }}
+              <a href="{{ .RelPermalink }}" class="champions-list-item">
+                <div class="image-wrapper">
+                  {{ $image := resources.Get (printf "/images/community-champions/%s.jpg" .File.BaseFileName) }}
+                  {{ if $image }}
+                    {{ partial "img.html" (dict "image" $image "class" "photo" "alt" "" "lazy" true) }}
+                  {{ else }}
+                    {{ partial "img.html" (dict "image" $defaultImage "class" "photo" "alt" "" "lazy" true) }}
+                  {{ end }}
+                  {{ $flagPath := printf "/images/flags/%s.svg" .Params.country }}
+                  {{ $flag := resources.Get $flagPath }}
+                  {{ if $flag }}
+                    {{ partial "img.html" (dict "image" $flag "class" "flag" "alt" "" "lazy" true) }}
+                  {{ end }}
+                </div>
+                <div>
+                  <h2>{{ .Title }}</h2>
+                  {{ with .Params.role }}
+                    <div class="role">{{ . }}</div>
+                  {{ end }}
+                </div>
+              </a>
+            {{ end }}
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+{{ end }}

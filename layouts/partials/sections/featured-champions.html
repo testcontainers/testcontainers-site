@@ -1,0 +1,26 @@
+<section class="featured-champions">
+    <div class="container">
+        <div class="content">
+            <div class="small-header gradient">{{ .section.small_title }}</div>
+            <h2>{{ .section.title }}</h2>
+            <div>{{ .section.description | markdownify }}</div>
+            <a class="champions-button" href="/community-champions">
+                Meet our Community Champions
+                <svg class="icon-caret" height="10" viewBox="0 0 10 10">
+                    <use href="#icon-caret"></use>
+                </svg>
+            </a>
+        </div>
+        <div class="image">
+            <div class="cubes">
+                {{ range $index, $champion := first 12 (where (where site.Pages "Section" "community-champions") "File.BaseFileName" "!=" "_index") }}
+                    <div class="cube c{{$index}}">
+                        <div class="image-wrapper">
+                            {{ partial "img.html" (dict "image" (resources.Get (printf "/images/community-champions/%s.jpg" $champion.File.BaseFileName)) "alt" "" "lazy" true) }}
+                        </div>
+                    </div>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+</section>

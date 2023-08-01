@@ -1,0 +1,88 @@
+{{ define "pageScripts" }}
+    {{ $style := resources.Get "/sass/champions.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
+    <link rel="stylesheet" href="{{ $style.RelPermalink }}">
+{{ end }}
+
+{{ define "main" }}
+  <main>
+    <article>
+      <header class="champion-header">
+        <div class="container">
+          <aside>
+            <a href="/community-champions" class="back-link">
+              <svg class="icon-caret" height="10" viewBox="0 0 10 10">
+                <use href="#icon-caret"></use>
+              </svg>
+              Community Champions
+            </a>
+          </aside>
+        </div>
+      </header>
+      <div class="champion-content">
+        <div class="container">
+          <div class="profile">
+            <div class="image-wrapper">
+              {{ $defaultImage := resources.Get "/images/community-champions/default.svg" }}
+              {{ $image := resources.Get (printf "/images/community-champions/%s.jpg" .File.BaseFileName) }}
+              {{ if $image }}
+                {{ partial "img.html" (dict "image" $image "class" "photo" "alt" "" "lazy" true) }}
+              {{ else }}
+                {{ partial "img.html" (dict "image" $defaultImage "class" "photo" "alt" "" "lazy" true) }}
+              {{ end }}
+            </div>
+            <div class="profile-content">
+              <div class="details">
+                <h1>{{- .Title -}}</h1>
+                <div class="role">{{- .Params.role -}}</div>
+                <div class="country">
+                  {{ $flagPath := printf "/images/flags/%s.svg" .Params.country }}
+                  {{ $flag := resources.Get $flagPath }}
+                  {{ if $flag }}
+                    {{ partial "img.html" (dict "image" $flag "class" "flag" "alt" "" "lazy" true) }}
+                  {{ end }}
+                  {{ with (index .Site.Data.countries .Params.country) }}
+                    {{ . }}
+                  {{ end }}
+                </div>
+              </div>
+              
+              {{ if (.GetTerms "languages") }}
+                {{ $langaugesData := .Site.Data.languages }}
+                <div class="languages">
+                  <h2>Languages</h2>
+                  <ul class="languages-list">
+                    {{ range (.GetTerms "languages") }}
+                        <li class="language">
+                          {{ partial "img.html" (dict "image" (printf "/images/language-logos/%s.svg" .Params.slug) "alt" "" "lazy" true) }}
+                          {{ .Title }}
+                        </li>
+                    {{ end }}
+                  </ul>
+                </div>
+              {{ end }}
+
+              <div class="social">
+                <h2>Social</h2>
+                <ul class="social-links">
+                  {{ range .Params.socialLinks }}
+                      <li class="social-link">
+                        {{ $socialImage := resources.Get (printf "/images/social/%s.svg" .id) }}
+                        {{ if $socialImage }}
+                          {{ partial "img.html" (dict "image" $socialImage "alt" "" "lazy" true) }}
+                        {{ end }}
+                        <a href="{{- .url -}}" target="_blank" rel="noopener">{{- .label -}}</a>
+                      </li>
+                  {{ end }}
+                </ul>
+              </div>
+            </div>
+            
+          </div>
+          <div class="content longform-content">
+            {{- .Content -}}
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+{{ end }}

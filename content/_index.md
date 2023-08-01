@@ -271,4 +271,8 @@ sections:
         link: https://github.com/recrsn
       - name: Paris Apostolopoulos
         link: https://opencollective.com/paris-apostolopoulos
+  - partial: featured-champions
+    small_title: Community Champions
+    title: Inspirational members of the community
+    description: Testcontainers Community Champions actively contribute to the growth and betterment of the Testcontainers community. They are passionate about Testcontainer, and use their knowledge and skills to help others succeed.
 ---
