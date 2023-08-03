@@ -5,6 +5,12 @@ country: DE
 languages:
   - java
 socialLinks:
+  - id: twitter
+    label: "@khmarbaise"
+    url: https://twitter.com/khmarbaise
+  - id: linkedin
+    label: khmarbaise
+    url: https://www.linkedin.com/in/khmarbaise/
   - id: linktree
     label: "khmarbaise"
     url: https://linktr.ee/khmarbaise
