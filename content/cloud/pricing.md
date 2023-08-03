@@ -54,19 +54,13 @@ sections:
         prices:
           - label: / Seat per Month (on Desktop)
             value: $35
-            discountValue: $17.50
           - label: / Worker Minute (in the CI)
             value: $0.02
-            discountValue: $0.01
-        discount:
-          title: Early Adopter Pricing!
-          description: |
-            Discount ends in July 2023: subscribe now to lock it in.
         features:
           - value: |
               Yes
             checkmark: true
-          - value: | 
+          - value: |
               No
             checkmark: true
           - value: 50+
