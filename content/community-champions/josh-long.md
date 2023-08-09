@@ -1,5 +1,5 @@
 ---
-title: Joshua Boylan Long
+title: Josh Long
 role: The Spring team at VMWare
 country: US
 languages:
@@ -24,7 +24,7 @@ I was doing some unit testing with Spring Boot
 The Postgres module
 
 ### What are your favourite features for Testcontainers?
-The easy way in which theyre integrated with Spring Boot for both development and testing
+The easy way in which they're integrated with Spring Boot for both development and testing
 
 ### What’s the most memorable bug you managed to reproduce with a test using Testcontainers?
 I helped build an integration for Testcontainers with some nice friends at AtomicJar once. It didn’t go anywhere, but it was fun.
