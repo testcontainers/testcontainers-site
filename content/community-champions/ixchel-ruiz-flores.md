@@ -17,7 +17,7 @@ socialLinks:
     url: https://mastodon.social/@ixchelruiz
 ---
 ## Bio
-Ixchel Ruiz has developed software application & tools since 2000. Her research interests include Java, dynamic languages, client-side technologies and testing. Java Champion, CDF Ambassador, hackergarten enthusiast, Oracle ACE Pro, Open Source advocate, public speaker and mentor.
+Ixchel Ruiz has developed software applications & tools since 2000. Her research interests include Java, dynamic languages, client-side technologies and testing. Java Champion, CDF Ambassador, hackergarten enthusiast, Oracle ACE Pro, Open Source advocate, public speaker and mentor.
 
 ## Q&A
 ### What were your first experiences with Testcontainers?
@@ -30,4 +30,4 @@ Oracle XE, Mysql, postgresql
 Ryuk
 
 ### What’s the most memorable bug you managed to reproduce with a test using Testcontainers?
-It was not a bug, but a creative way of using Testcontainers to verify that we hadn't broken the database in every schema migration...
+It was not a bug, but a creative way of using Testcontainers to verify that we hadn't broken the database in every schema migration.
