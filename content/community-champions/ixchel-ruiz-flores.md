@@ -21,7 +21,7 @@ Ixchel Ruiz has developed software applications & tools since 2000. Her research
 
 ## Q&A
 ### What were your first experiences with Testcontainers?
-It literally saved the day in a project I was working on more than 5 years ago
+It was literally a life saver for me on a project I did more than 5 years ago.
 
 ### What’s your favourite Testcontainers module?
 Oracle XE, Mysql, postgresql
@@ -30,4 +30,4 @@ Oracle XE, Mysql, postgresql
 Ryuk
 
 ### What’s the most memorable bug you managed to reproduce with a test using Testcontainers?
-It was not a bug, but a creative way of using Testcontainers to verify that we hadn't broken the database in every schema migration.
+It wasn’t a bug. It was a creative way of using Testcontainers to verify that we hadn’t broken the database with each schema migration.
