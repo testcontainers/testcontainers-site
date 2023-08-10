@@ -10,6 +10,12 @@ docs:
       var clickHouseContainer = new ClickHouseContainer();
       clickHouseContainer.start();
       ```
+  - id: go
+    url: https://golang.testcontainers.org/modules/clickhouse/
+    example: |
+      ```go
+      clickHouseContainer, err := clickhouse.RunContainer(ctx, testcontainers.WithImage("clickhouse/clickhouse-server:23.3.8.21-alpine"))
+      ```
 description: |
   ClickHouse is an open-source database management system for analytical processing that allows users to generate reports using SQL queries in real-time.
 ---
