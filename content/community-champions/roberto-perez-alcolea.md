@@ -1,7 +1,7 @@
 ---
 title: Roberto Perez Alcolea
 role: Netflix
-country: US
+country: MX
 languages:
   - java
 socialLinks:
