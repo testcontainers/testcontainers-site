@@ -53,7 +53,7 @@ function showFilterResults(replaceState = true) {
 
     if (replaceState) {
         const url = new URL(location);
-        //updateUrlFilter(url, 's', search.value); // Causes too many history states for now.
+        updateUrlFilter(url, 's', search.value);
         updateUrlFilter(url, 'official', officialFilter);
         updateUrlFilter(url, 'language', languageFilter[0]);
         updateUrlFilter(url, 'category', categoryFilter[0]);
