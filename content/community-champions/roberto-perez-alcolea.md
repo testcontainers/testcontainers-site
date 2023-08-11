@@ -10,7 +10,7 @@ socialLinks:
     url: https://twitter.com/rpalcolea
 ---
 ## Bio
-Roberto is an experienced software engineer with a focus in JVM ecosystem and developer productivity. He’s an active maintainer of [Netflix Nebula Plugins](https://nebula-plugins.github.io/) and occasional contributor to the [Gradle Build tool](https://gradle.org/). He currently works at Netflix in the JVM ecosystem team. The JVM Ecosystem Team provides the user experience for dependency management, testing, JDK lifecycle and building/packaging/publishing JVM-based libraries and applications through providing tools, automation, and guidance to thousands of engineers at Netflix.
+Roberto is an experienced software engineer with a focus in JVM ecosystem and developer productivity. He’s an active maintainer of [Netflix Nebula Plugins](https://nebula-plugins.github.io/) and occasional contributor to the [Gradle Build tool](https://gradle.org/). He currently works at Netflix in the JVM Ecosystem Team. The JVM Ecosystem Team provides the user experience for dependency management, testing, JDK lifecycle and building/packaging/publishing JVM-based libraries and applications through providing tools, automation, and guidance to thousands of engineers at Netflix.
 
 ## Q&A
 ### What were your first experiences with Testcontainers?
