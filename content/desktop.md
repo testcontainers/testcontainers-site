@@ -8,6 +8,12 @@ sections:
     description: |
       Simple local development with real dependencies, with the Testcontainers companion app
     instructions: Install the app and sign-in to get started
+  - partial: video
+    title: The best way to develop with Testcontainers
+    description: Watch a 90 second demo of how the Testcontainers Desktop app can streamline your workflow.
+    video:
+      id: dQw4w9WgXcQ
+      image: images/tcd-video-billboard.png
   - partial: alternating-download-image
     title: Debug your Testcontainers-powered dependencies
     description: |
