@@ -28,6 +28,7 @@ GUIDE_REPOS=(
   'tc-guide-working-with-jooq-flyway-using-testcontainers'
   'tc-guide-getting-started-with-testcontainers-for-nodejs'
   'tc-guide-testing-rest-api-integrations-using-wiremock'
+  'tc-guide-simple-local-development-with-testcontainers-desktop'
 )
 
 GUIDE_REPOS_CLONE_DIR="./guide-repos"
