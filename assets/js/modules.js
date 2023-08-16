@@ -4,6 +4,7 @@ const filterEmpty = document.querySelector('.modules-filter-empty');
 const clearFilter = document.getElementById('clear-filter');
 const inputs = document.querySelectorAll(`.filter-input`);
 const search = document.getElementById('modules-search');
+const official = document.querySelector(`.filter-input#status-official`);
 const filterToggle = document.getElementById('filter-toggle');
 
 const modules = [];
@@ -19,12 +20,46 @@ function getFilterValues(filterPrefix) {
     return filters;
 }
 
-function showFilterResults() {
+function setFilterValues(filterPrefix, value) {
+    if (!value) value = 'all';
+    inputs.forEach((input) => {
+        const id = `${filterPrefix}-${value}`;
+        if (id == input.id) input.checked = true;
+    });
+}
+
+function getUrlFilter() {
+    const searchParams = new URLSearchParams(window.location.search);
+    search.value = searchParams.get('s') ?? '';
+    official.checked = searchParams.get('official') === "true";
+    setFilterValues('language', searchParams.get('language'));
+    setFilterValues('category', searchParams.get('category'));
+    showFilterResults(false);
+}
+
+function updateUrlFilter(url, label, value) {
+    if (value) {
+        url.searchParams.set(label, value);
+    } else {
+        url.searchParams.delete(label);
+    }
+}
+
+function showFilterResults(replaceState = true) {
     const searchTerm = search.value.trim().toLowerCase().replaceAll(' ', '');
     const officialFilter = document.querySelector(`.filter-input#status-official`).checked;
     const languageFilter = getFilterValues('language');
     const categoryFilter = getFilterValues('category');
 
+    if (replaceState) {
+        const url = new URL(location);
+        updateUrlFilter(url, 's', search.value);
+        updateUrlFilter(url, 'official', officialFilter);
+        updateUrlFilter(url, 'language', languageFilter[0]);
+        updateUrlFilter(url, 'category', categoryFilter[0]);
+        history.replaceState({}, "", url);
+    }
+    
     if (!(officialFilter || languageFilter.length > 0 || categoryFilter.length > 0 || searchTerm.length > 0)) {
         filterEmpty.classList.remove('show');
         clearFilter.disabled = true;
@@ -77,4 +112,6 @@ inputs.forEach((input) => {
 })
 search.addEventListener('keyup', showFilterResults);
 clearFilter.addEventListener('click', clearTheFilter);
-filterToggle.addEventListener('click', handleFilterToggle)
+filterToggle.addEventListener('click', handleFilterToggle);
+window.addEventListener("popstate", getUrlFilter);
+getUrlFilter();

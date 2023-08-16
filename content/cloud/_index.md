@@ -27,8 +27,8 @@ sections:
         icon: /images/tcc-desktop.svg
         steps: 
           - Sign up for free
-          - Download the desktop client
-          - Run the client and sign in
+          - Download the Testcontainers Desktop app
+          - Run the app and sign in
           - Start your tests as usual; your laptop stays cold and snappy
       - title: Testcontainers Cloud for CI
         url: /cloud/ci/

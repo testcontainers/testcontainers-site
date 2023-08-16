@@ -1,0 +1,42 @@
+---
+title: Example Champion
+role: An example
+country: EX
+languages:
+  - java
+  - go
+  - dotnet
+  - nodejs
+  - kotlin
+socialLinks:
+  - id: github
+    label: example-champion
+    url: https://github.com/example-champion
+  - id: twitter
+    label: "@example"
+    url: https://twitter.com/example
+  - id: linkedin
+    label: example-champion
+    url: https://www.linkedin.com/in/example-champion-123456789/
+  - id: linktree
+    label: example
+    url: https://linktr.ee/example
+  - id: mastadon
+    label: "@example"
+    url: https://mastodon.social/@example
+---
+## Bio
+Example bio
+
+## Q&A
+### What were your first experiences with Testcontainers?
+Example answer
+
+### What’s your favourite Testcontainers module?
+Example answer
+
+### What are your favourite features for Testcontainers?
+Example answer
+
+### What’s the most memorable bug you managed to reproduce with a test using Testcontainers?
+Example answer

@@ -54,10 +54,8 @@ sections:
         prices:
           - label: / Seat per Month (on Desktop)
             value: $35
-            discountValue: $17.50
           - label: / Worker Minute (in the CI)
             value: $0.02
-            discountValue: $0.01
         features:
           - value: |
               Yes

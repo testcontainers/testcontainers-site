@@ -10,6 +10,12 @@ docs:
       var mongoDBContainer = new MongoDBContainer(DockerImageName.parse("mongo:4.0.10"));
       mongoDBContainer.start();
       ```
+  - id: go
+    url: https://golang.testcontainers.org/modules/mongodb/
+    example: |
+      ```go
+      mongoDBContainer, err := mongodb.RunContainer(ctx, testcontainers.WithImage("mongo:6"))
+      ```
   - id: dotnet
     url: https://www.nuget.org/packages/Testcontainers.MongoDb
     example: |
