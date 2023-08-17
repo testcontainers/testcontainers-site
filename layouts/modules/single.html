@@ -67,7 +67,7 @@
       <div class="module-content longform-content">
         <div class="container">
             <div class="sidebar">
-              <div>
+              <div class="documentation">
                 <h2>Documentation</h2>
                 {{ $thirdParyDocs := false }}
                 {{ range .Params.Docs }}
@@ -109,6 +109,14 @@
                   <div>These modules are maintained by the community, outside of the Testcontainers project.</div>
                 </div>
               {{ end }}
+              <div class="disclaimer">  
+                <h2>
+                  {{ partial "img.html" (dict "image" (resources.Get "/images/testcontainers-cloud-mark.svg") "alt" "" "class" "tcc-mark") }}
+                  Testcontainers Cloud 
+                </h2>
+                <div>Works great on Desktop and in the CI with Testcontainers Cloud.</div>
+                <a href="https://www.testcontainers.cloud" target="_blank">Learn more about Cloud</a>
+              </div>
             </div>
             <div class="description">
               {{ if .Description }}
