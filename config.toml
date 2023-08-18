@@ -9,7 +9,7 @@ paginate = 9999
     Description = 'Testcontainers is an opensource framework for providing lightweight, throwaway instances of common databases, Selenium web browsers, or anything else that can run in a Docker container.'
     [params.announcement]
         url = 'https://testcontainers.com/guides/simple-local-development-with-testcontainers-desktop/'
-        text = 'Introducing free ✨Testcontainers Desktop✨ app - to simplify working with Testcontainers.'
+        text = 'Supercharge your local development workflow with the free ✨Testcontainers Desktop✨ app!'
 
 [taxonomies]
   language = 'languages'
