@@ -10,9 +10,9 @@ sections:
     instructions: Install the app and sign-in to get started
   - partial: video
     title: The best way to develop with Testcontainers
-    description: Watch a 90 second demo of how the Testcontainers Desktop app can streamline your workflow.
+    description: Watch a 100 second video of how the Testcontainers Desktop app can streamline your workflows.
     video:
-      id: dQw4w9WgXcQ
+      id: uRWKTNbOX-8
       image: images/tcd-video-billboard.png
   - partial: alternating-download-image
     title: Debug your Testcontainers-powered dependencies
