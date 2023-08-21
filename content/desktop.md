@@ -4,13 +4,10 @@ Description: Simple local development and testing with real dependencies
 shareImage: download-share-image.png
 sections:
   - partial: download-banner
-    title: Download the free Testcontainers Desktop app
+    title: Download the Free Testcontainers Desktop app
     description: |
       Simple local development and testing with real dependencies
     instructions: Install the app and sign-in to get started
-  - partial: video
-    title: The best way to develop with Testcontainers
-    description: Watch a 100 second video of how the Testcontainers Desktop app can streamline your workflows.
     video:
       id: uRWKTNbOX-8
       image: images/tcd-video-billboard.png
