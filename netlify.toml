@@ -34,3 +34,8 @@
     from = "/pricing"
     to = "/cloud/pricing/"
     status = 301
+
+[[redirects]]
+    from = "/community-champions/joshua-boylan-long/"
+    to = "/community-champions/josh-long/"
+    status = 301
