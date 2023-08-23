@@ -107,6 +107,17 @@ sections:
           redis = Testcontainers::DockerContainer.new("redis:5.0.3-alpine").with_exposed_port(6379)
           redis.start
           ```
+      - id: clojure
+        label: Clojure
+        url: https://cljdoc.org/d/clj-test-containers/
+        external: true
+        icon: /images/language-logos/clojure.svg
+        code: |
+          ```clojure
+          (def container (-> (tc/create {:image-name "redis:5.0.3-alpine")
+                                         :exposed-ports [5432]})
+                             (tc/start!)))
+          ```
   - partial: logo-wall
     small_title: Modules
     title: "Test Anything You Can Containerize: Database, Message Broker, And More"
@@ -185,6 +196,9 @@ sections:
       - logo: /images/language-logos/ruby.svg
         label: Ruby
         link: https://github.com/testcontainers/testcontainers-ruby
+      - logo: /images/language-logos/clojure.svg
+        label: Clojure
+        link: https://cljdoc.org/d/clj-test-containers/clj-test-containers/
   - partial: company-logos
     small_title: Industry standard
     title: Companies using Testcontainers
