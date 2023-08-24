@@ -115,7 +115,7 @@ sections:
         code: |
           ```clojure
           (def container (-> (tc/create {:image-name "redis:5.0.3-alpine")
-                                         :exposed-ports [5432]})
+                                         :exposed-ports [6379]})
                              (tc/start!)))
           ```
   - partial: logo-wall
