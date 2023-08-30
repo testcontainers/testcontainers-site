@@ -10,6 +10,12 @@ docs:
       var mariaDB = new MariaDBContainer<>(DockerImageName.parse("mariadb:10.5.5"));
       mariaDB.start();
       ```
+  - id: go
+    url: https://golang.testcontainers.org/modules/mariadb
+    example: |
+      ```go
+      container, err := mariadb.RunContainer(ctx, testcontainers.WithImage("mariadb:11.0.3"))
+      ```
   - id: dotnet
     url: https://www.nuget.org/packages/Testcontainers.MariaDb
     example: |
