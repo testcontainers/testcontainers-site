@@ -11,7 +11,7 @@ docs:
       elastic.start();
       ```
   - id: go
-    url: https://golang.testcontainers.org/modules/localstack/
+    url: https://golang.testcontainers.org/modules/elasticsearch/
     example: |
       ```go
       elasticsearchContainer, err := elasticsearch.RunContainer(ctx, testcontainers.WithImage("docker.elastic.co/elasticsearch/elasticsearch:8.9.0"))
