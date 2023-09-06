@@ -10,6 +10,12 @@ docs:
       var elastic = new ElasticsearchContainer(DockerImageName.parse("docker.elastic.co/elasticsearch/elasticsearch:7.9.2"));
       elastic.start();
       ```
+  - id: go
+    url: https://golang.testcontainers.org/modules/elasticsearch/
+    example: |
+      ```go
+      elasticsearchContainer, err := elasticsearch.RunContainer(ctx, testcontainers.WithImage("docker.elastic.co/elasticsearch/elasticsearch:8.9.0"))
+      ```
   - id: dotnet
     url: https://www.nuget.org/packages/Testcontainers.Elasticsearch
     example: |
