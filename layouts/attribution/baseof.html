@@ -16,22 +16,31 @@
         <script>
             const searchParams = new URLSearchParams(window.location.search);
             if(searchParams.has('id')){ 
-                const utms = [];
+                const utms = {};
 
                 const referrerCookie = getCookie("__gtm_referrer");
                 if (referrerCookie) {
-                    utms.push({
-                        key: "original_referrer",
-                        value: referrerCookie
-                    });
+                    utms.original_referrer = referrerCookie;
                 }
 
                 const campaignCookie = getCookie("__gtm_campaign_url");
                 if (campaignCookie) {
                     const url = new URL(campaignCookie);
+                    utms.utm_landing_page = `${url.hostname}${url.pathname}`;
                     const params = new URLSearchParams(url.search);
-                    const cookieUtms = parseUtms(params);
-                    utms.push(...cookieUtms);
+                    const keys = [
+                        "utm_campaign",
+                        "utm_source",
+                        "utm_medium",
+                        "utm_term",
+                        "utm_content"
+                    ]
+                    keys.forEach(key => {
+                        const value = params.get(key) || false;
+                        if (value) {
+                            utms[key] = value;
+                        }
+                    });
                 }
 
                 function getCookie(key) {
@@ -45,33 +54,15 @@
                     return null;
                 }
 
-                function parseUtms(params) {
-                    const utms = [];
-                    const utmKeys = [
-                        "utm_campaign",
-                        "utm_source",
-                        "utm_medium",
-                        "utm_term",
-                        "utm_content"
-                    ];
-                    utmKeys.forEach((key) => {
-                        const value = params.get(key) || false;
-                        if (value) utms.push({
-                            key: key,
-                            value: value
-                        });
-                    });
-                    return utms;
-                }
-
                 mixpanel.init("{{- $mixpanelToken -}}", {
                     track_pageview: false,
                     api_host: "https://telemetry.services.testcontainers.cloud",
                     disable_persistence: true
                 });
-                mixpanel.track('attribution', {
-                    'installation_id':searchParams.get('id'),
-                    'attribution': utms
+                mixpanel.track("attribution", {
+                    installation_id: searchParams.get("id"),
+                    raw_utms: utms,
+                    ...utms
                 });
             }
         </script>
