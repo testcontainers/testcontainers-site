@@ -27,10 +27,10 @@ Samantha is also part of a family of gophers, where she enjoys attending GopherC
 
 ## Q&A
 ### What were your first experiences with Testcontainers?
-Using test containers to spin up test infrastructure at Fathom5, the first startup I worked at. I helped build out the test framework there using Testcontainers.
+Using Testcontainers to spin up test infrastructure at Fathom5, the first startup I worked at. I helped build out the test framework there using Testcontainers.
 
 ### What’s your favourite Testcontainers module?
-wait pkg or docker compose pkg ?
+Wait pkg or docker compose pkg.
 
 ### What are your favourite features for Testcontainers?
 The ability to set wait strategies for services. Also, I love that Testcontainers supports many different languages and has a thriving community.
