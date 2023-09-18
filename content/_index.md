@@ -247,7 +247,7 @@ sections:
         link: https://vivy.com
       - name: JOOQ
         logo: /images/sponsor-logos/jooq.svg
-        link: https://jooq.com
+        link: https://jooq.org
       - name: Backbase
         logo: /images/sponsor-logos/backbase.svg
         link: https://backbase.com
