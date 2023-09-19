@@ -10,6 +10,12 @@ docs:
       var kafka = new KafkaContainer(DockerImageName.parse("confluentinc/cp-kafka:6.2.1"));
       kafka.start();
       ```
+  - id: go
+    url: https://golang.testcontainers.org/modules/kafka/
+    example: |
+      ```go
+      kafkaContainer, err := kafka.RunContainer(ctx, testcontainers.WithImage("confluentinc/confluent-local:7.5.0"))
+      ```
   - id: dotnet
     url: https://www.nuget.org/packages/Testcontainers.Kafka
     example: |
