@@ -1,8 +1,13 @@
-<section class="logo-wall">
+{{- $sectionClass := cond (eq .section.display "flex") " display-flex" " display-grid" -}}
+<section class="logo-wall {{- $sectionClass -}}">
     <div class="container">
         <div class="header">
-            <div class="small-header gradient">{{ .section.small_title }}</div>
-            <h2>{{ .section.title }}</h2>
+            {{ with .section.small_title }}
+                <div class="small-header gradient">{{ . }}</div>
+            {{ end }}
+            {{ with .section.title }}
+                <h2>{{ . }}</h2>
+            {{ end }}
         </div>
         <div class="logos">
             {{ range .section.logos }}
