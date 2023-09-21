@@ -10,6 +10,12 @@ docs:
       var rabbit = new RabbitMQContainer(DockerImageName.parse("rabbitmq:3.7.25-management-alpine"));
       rabbit.start();
       ```
+  - id: go
+    url: https://golang.testcontainers.org/modules/rabbitmq/
+    example: |
+      ```go
+      rabbitmqContainer, err := rabbitmq.RunContainer(ctx, testcontainers.WithImage("rabbitmq:3.7.25-management-alpine"),
+      ```
   - id: dotnet
     url: https://www.nuget.org/packages/Testcontainers.RabbitMq
     example: |
