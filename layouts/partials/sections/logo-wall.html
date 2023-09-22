@@ -14,19 +14,21 @@
                 {{ partial "img.html" (dict "image" (resources.Get .) "alt" "") }}
             {{ end }}
         </div>
-        <div class="buttons">
-            {{ range .section.buttons }}
-                {{ $buttonClasses := slice "logo-wall-button" }}
-                {{ with .style }}
-                    {{ $buttonClasses = $buttonClasses | append . }}
+        {{ with .section.buttons }}
+            <div class="buttons">
+                {{ range . }}
+                    {{ $buttonClasses := slice "logo-wall-button" }}
+                    {{ with .style }}
+                        {{ $buttonClasses = $buttonClasses | append . }}
+                    {{ end }}
+                    <a class='{{ delimit $buttonClasses " " }}' href="{{ .url }}" target="{{ .target }}">
+                        {{ .label }}
+                        <svg class="icon-caret" height="10" viewBox="0 0 10 10">
+                            <use href="#icon-caret"></use>
+                        </svg>
+                    </a>
                 {{ end }}
-                <a class='{{ delimit $buttonClasses " " }}' href="{{ .url }}" target="{{ .target }}">
-                    {{ .label }}
-                    <svg class="icon-caret" height="10" viewBox="0 0 10 10">
-                        <use href="#icon-caret"></use>
-                    </svg>
-                </a>
-            {{ end }}
-        </div>
+            </div>
+        {{ end }}
     </div>
 </section>

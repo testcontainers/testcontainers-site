@@ -5,6 +5,18 @@
         padding: 60px 0;
     }
 
+    &.display-flex {
+        padding: 0;
+
+        @media (min-width: 780px) {
+            padding: 0;
+        }
+
+        .container {
+            gap: 20px;
+        }
+    }
+
     .container {
         display: grid;
         gap: 40px;
@@ -62,6 +74,9 @@
         gap: 20px;
         justify-content: center;
         align-items: center;
+        background: $ghost;
+        border-radius: 8px;
+        padding: 32px;
         
         @media (min-width: 980px) {
             gap: 40px;
@@ -72,15 +87,36 @@
             max-height: 20px;
             max-width: 200px;
 
-            @media (min-width: 500px) {
+            &[src*="vmware"] {
+                max-height: 16px;
+            }
+
+            &[src*="synthesized"] {
+                max-height: 28px;
             }
     
             @media (min-width: 768px) {
                 max-height: 28px;
+
+                &[src*="vmware"] {
+                    max-height: 24px;
+                }
+
+                &[src*="synthesized"] {
+                    max-height: 32px;
+                }
             }
 
             @media (min-width: 980px) {
                 max-height: 32px;
+
+                &[src*="vmware"] {
+                    max-height: 24px;
+                }
+
+                &[src*="synthesized"] {
+                    max-height: 40px;
+                }
             }
         }
     }
