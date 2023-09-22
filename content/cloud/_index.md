@@ -17,6 +17,15 @@ sections:
     video:
       id: zy6ulq0k2ns
       image: images/tcc-video-billboard.png
+  - partial: logo-wall
+    display: flex
+    small_title: "Powering tests at"
+    logos:
+      - /images/company-logos/vmware.svg
+      - /images/company-logos/fundrise.svg
+      - /images/company-logos/camunda.svg
+      - /images/company-logos/synthesized.svg
+      - /images/company-logos/scholastic.svg
   - partial: step-cards
     title: Run Tests, Not Containers
     description: Enhance team efficiency by getting rid of flaky tests and ensuring consistency from dev to CI

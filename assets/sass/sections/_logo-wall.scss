@@ -5,6 +5,18 @@
         padding: 60px 0;
     }
 
+    &.display-flex {
+        padding: 0;
+
+        @media (min-width: 780px) {
+            padding: 0;
+        }
+
+        .container {
+            gap: 20px;
+        }
+    }
+
     .container {
         display: grid;
         gap: 40px;
@@ -12,14 +24,22 @@
 
     .header {
         text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+
+        @media (min-width: 780px) {
+            gap: 20px;
+        }
     }
 
     .small-header {
-        margin-left: auto;
-        margin-right: auto;
+        margin: 0;
     }
 
-    .logos {
+    &.display-grid .logos {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 20px;
@@ -45,6 +65,59 @@
         @media (min-width: 980px) {
             grid-auto-rows: 60px;
             gap: 40px;
+        }
+    }
+
+    &.display-flex .logos {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+        align-items: center;
+        background: $ghost;
+        border-radius: 8px;
+        padding: 32px;
+        
+        @media (min-width: 980px) {
+            gap: 40px;
+        }
+
+        img {
+            height: auto;
+            max-height: 20px;
+            max-width: 200px;
+
+            &[src*="vmware"] {
+                max-height: 16px;
+            }
+
+            &[src*="synthesized"] {
+                max-height: 28px;
+            }
+    
+            @media (min-width: 768px) {
+                max-height: 28px;
+
+                &[src*="vmware"] {
+                    max-height: 24px;
+                }
+
+                &[src*="synthesized"] {
+                    max-height: 32px;
+                }
+            }
+
+            @media (min-width: 980px) {
+                max-height: 32px;
+
+                &[src*="vmware"] {
+                    max-height: 24px;
+                }
+
+                &[src*="synthesized"] {
+                    max-height: 40px;
+                }
+            }
         }
     }
 

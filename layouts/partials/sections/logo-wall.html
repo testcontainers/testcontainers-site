@@ -1,27 +1,34 @@
-<section class="logo-wall">
+{{- $sectionClass := cond (eq .section.display "flex") " display-flex" " display-grid" -}}
+<section class="logo-wall {{- $sectionClass -}}">
     <div class="container">
         <div class="header">
-            <div class="small-header gradient">{{ .section.small_title }}</div>
-            <h2>{{ .section.title }}</h2>
+            {{ with .section.small_title }}
+                <div class="small-header gradient">{{ . }}</div>
+            {{ end }}
+            {{ with .section.title }}
+                <h2>{{ . }}</h2>
+            {{ end }}
         </div>
         <div class="logos">
             {{ range .section.logos }}
                 {{ partial "img.html" (dict "image" (resources.Get .) "alt" "") }}
             {{ end }}
         </div>
-        <div class="buttons">
-            {{ range .section.buttons }}
-                {{ $buttonClasses := slice "logo-wall-button" }}
-                {{ with .style }}
-                    {{ $buttonClasses = $buttonClasses | append . }}
+        {{ with .section.buttons }}
+            <div class="buttons">
+                {{ range . }}
+                    {{ $buttonClasses := slice "logo-wall-button" }}
+                    {{ with .style }}
+                        {{ $buttonClasses = $buttonClasses | append . }}
+                    {{ end }}
+                    <a class='{{ delimit $buttonClasses " " }}' href="{{ .url }}" target="{{ .target }}">
+                        {{ .label }}
+                        <svg class="icon-caret" height="10" viewBox="0 0 10 10">
+                            <use href="#icon-caret"></use>
+                        </svg>
+                    </a>
                 {{ end }}
-                <a class='{{ delimit $buttonClasses " " }}' href="{{ .url }}" target="{{ .target }}">
-                    {{ .label }}
-                    <svg class="icon-caret" height="10" viewBox="0 0 10 10">
-                        <use href="#icon-caret"></use>
-                    </svg>
-                </a>
-            {{ end }}
-        </div>
+            </div>
+        {{ end }}
     </div>
 </section>
