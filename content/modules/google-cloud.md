@@ -12,6 +12,16 @@ docs:
       );
       bigtable.start();
       ```
+  - id: go
+    url: https://golang.testcontainers.org/modules/gcloud/
+    example: |
+      ```go
+      bigTableContainer, err := gcloud.RunBigTableContainer(
+        ctx,
+        testcontainers.WithImage("gcr.io/google.com/cloudsdktool/cloud-sdk:380.0.0-emulators"),
+        gcloud.WithProjectID("bigtable-project"),
+      )
+      ```
 description: |
   Google's Cloud SDK provides a platform to work with the services provided through their Cloud Platform.
   Currently, this module supports Bigtable, Datastore, Firestore, Spanner, and Pub/Sub emulators.
