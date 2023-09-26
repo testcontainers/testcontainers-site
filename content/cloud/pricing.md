@@ -14,6 +14,7 @@ sections:
     features:
       - Test Dependencies As Code
       - Requires Local Docker Environment
+      - Cloud Runtime
       - |
         [Preconfigured Modules](/modules)
       - Max Users (desktop)
@@ -22,15 +23,12 @@ sections:
         [Turbo mode](https://knowledge.testcontainers.cloud/turbo-mode)
       - Max Concurrent Workers Per Service Account (CI)
     plans:
-      - title: Trial
+      - title: Free
         description: |
-          Free access to Testcontainers Cloud during public beta with [some restrictions](https://knowledge.testcontainers.cloud/how-are-trial-accounts-restricted).
+          Free access to Testcontainers Desktop for individual developers, with 300 minutes per month of cloud runtime included.
         prices:
-          - label: / Seat per Month (on Desktop)
-            value: Free
-            discountValue:
-          - label: / Worker Minute (in the CI)
-            value: Free
+          - label: 
+            value: $0
             discountValue:
         features:
           - value: |
@@ -39,9 +37,10 @@ sections:
           - value: |
               No
             checkmark: true
+          - value: 300 minutes / month
           - value: 50+
             checkmark: true
-          - value: 10
+          - value: 1
             checkmark: false
           - value: 1
             checkmark: false
@@ -50,7 +49,7 @@ sections:
           - value: 1
             checkmark: false
       - title: Team (beta)
-        description: Unlock the full power of Testcontainers Cloud on Desktop and in your CI.
+        description: The full power of Testcontainers Cloud for teams, on Desktop and in your CI.
         prices:
           - label: / Seat per Month (on Desktop)
             value: $35
@@ -62,6 +61,8 @@ sections:
             checkmark: true
           - value: |
               No
+            checkmark: true
+          - value: Unlimited
             checkmark: true
           - value: 50+
             checkmark: true
