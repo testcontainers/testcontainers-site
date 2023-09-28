@@ -29,6 +29,7 @@ GUIDE_REPOS=(
   'tc-guide-getting-started-with-testcontainers-for-nodejs'
   'tc-guide-testing-rest-api-integrations-using-wiremock'
   'tc-guide-simple-local-development-with-testcontainers-desktop'
+  'tc-guide-testing-rest-api-integrations-in-micronaut-apps-using-wiremock'
 )
 
 GUIDE_REPOS_CLONE_DIR="./guide-repos"
