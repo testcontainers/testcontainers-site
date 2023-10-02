@@ -48,7 +48,7 @@ sections:
             checkmark: false
           - value: 1
             checkmark: false
-      - title: Team (beta)
+      - title: Team
         description: The full power of Testcontainers Cloud for teams, on Desktop and in your CI.
         prices:
           - label: / Seat per Month (on Desktop)
