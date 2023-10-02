@@ -8,8 +8,8 @@ paginate = 9999
 [params]
     Description = 'Testcontainers is an opensource framework for providing lightweight, throwaway instances of common databases, Selenium web browsers, or anything else that can run in a Docker container.'
     [params.announcement]
-        url = 'https://www.atomicjar.com/2023/08/announcing-testcontainers-desktop-free-application/'
-        text = 'Supercharge your local development workflow with the free ✨Testcontainers Desktop✨ app!'
+        url = 'https://www.atomicjar.com/2023/09/state-of-local-development-and-testing-2023/'
+        text = '🚀 Our inaugural State of Local Development and Testing report is live! Explore insights & best practices now'
 
 [taxonomies]
   language = 'languages'
