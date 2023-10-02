@@ -52,10 +52,15 @@
                   <h2>Languages</h2>
                   <ul class="languages-list">
                     {{ range (.GetTerms "languages") }}
+                       {{ if .Params.slug }}
                         <li class="language">
-                          {{ partial "img.html" (dict "image" (printf "/images/language-logos/%s.svg" .Params.slug) "alt" "" "lazy" true) }}
+                          {{ $languageImage := resources.Get (printf "/images/language-logos/%s.svg" .Params.slug) }}
+                          {{ if  $languageImage }}
+                            {{ partial "img.html" (dict "image" $languageImage "alt" "" "lazy" true) }}
+                          {{ end }}
                           {{ .Title }}
                         </li>
+                      {{ end }}
                     {{ end }}
                   </ul>
                 </div>
