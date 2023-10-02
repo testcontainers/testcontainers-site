@@ -6,7 +6,7 @@ languages:
   - dotnet
   - go
   - java
-  - python
+  - kotlin
   - rust
   - c
 socialLinks:
