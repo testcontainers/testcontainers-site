@@ -30,6 +30,7 @@ GUIDE_REPOS=(
   'tc-guide-testing-rest-api-integrations-using-wiremock'
   'tc-guide-simple-local-development-with-testcontainers-desktop'
   'tc-guide-testing-rest-api-integrations-in-micronaut-apps-using-wiremock'
+  'tc-guide-testing-micronaut-kafka-listener'
 )
 
 GUIDE_REPOS_CLONE_DIR="./guide-repos"
