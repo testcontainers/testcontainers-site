@@ -2,6 +2,7 @@
 Title: Download the free Testcontainers Desktop app
 Description: Simple local development and testing with real dependencies
 shareImage: download-share-image.png
+submenu: desktop
 sections:
   - partial: download-banner
     title: Download the Free Testcontainers Desktop app

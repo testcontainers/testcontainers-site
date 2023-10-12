@@ -138,4 +138,26 @@
         </ul>
     </div>
     {{ end }}
+    {{ if eq .Params.submenu "desktop" }}
+    <div id="subheader">
+        <a class="subheader-title" href="/desktop/">Testcontainers Desktop</a>
+        <button id="mobile-submenu-toggle">
+            <span class="sr-only">Subheader Menu</span>
+            <svg width="30" height="30" viewBox="0 0 30 30" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <rect y="22" width="30" height="4" rx="2"/>
+                <rect y="13" width="30" height="4" rx="2"/>
+                <rect y="4" width="30" height="4" rx="2"/>
+            </svg>        
+        </button>
+        <nav>
+            <ul class="subheader-menu">
+                <li class="menu-item">
+                    <a href="https://knowledge.testcontainers.cloud/testcontainers-cloud-for-desktop">
+                        Desktop Documentation
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    {{ end }}
 {{ end }}
