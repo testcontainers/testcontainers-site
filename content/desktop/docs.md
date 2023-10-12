@@ -46,13 +46,13 @@ alternative container runtime environments.
 
 #### Switch between local runtimes
 
-![Testcontainers Desktop local runtime selection](./images/tcd_local_runtime.png)
+![Testcontainers Desktop local runtime selection](/images/desktop/tcd_local_runtime.png)
 
 Testcontainers Desktop lets you switch between local container runtimes. This is particularly useful if you're trying to adopt an OSS runtime such as podman or colima, or are looking to locate and clean up old runtimes that are interfering with your tests.
 
 #### Enable Testcontainers Desktop's embedded runtime (beta)
 
-![Testcontainers Desktop embedded runtime](./images/tcd_local_runtime.png)
+![Testcontainers Desktop embedded runtime](/images/desktop/tcd_local_runtime.png)
 
 Testcontainers Desktop aims to deliver a batteries-included developer experience for local development and testing. As of version `1.4.18` Testcontainers Desktop embeds a lightweight and fast runtime, optimized for Testcontainers usage. The embedded runtime is currently in beta, and only available on macOS 13.3 or later to benefit from Apple's native Virtualization Framework. It is available as the top option for local runtimes. 
 
@@ -60,21 +60,29 @@ The runtime takes a few seconds to initialize the first time you run a command, 
 
 #### Run with Testcontainers Cloud
 
+![Testcontainers Desktop cloud runtime](/images/desktop/tcd_cloud_runtime.png)
+
 Testcontainers Desktop provides seamless access to Testcontainers Cloud to run containers in the cloud on demand, without consuming local resources or requiring a local docker daemon. Besides sparing CPU and RAM, running containers in the cloud provides a consistent Linux x86 architecture, just like in production, regardless of what operating system developers use for local development (e.g. macOS with ARM CPU, Windows with WSL, etc.).
 
 The [free plan](https://testcontainers.com/cloud/pricing/) for individual developers includes a free monthly quota of 300 minutes of cloud runtime. Paid plans are available to users who need to lift this restriction. See [this knowledge article](https://knowledge.testcontainers.cloud/usage-and-billing) for details on usage metering and billing.
+
+To switch to the cloud runtime, select "Run with Testcontainers Cloud" in the menu. Once selected, the menu displays "Testcontainers Cloud" as confirmation. When Testcontainers libraries run containers, a cloud worker is allocated dynamically and the icon changes to display the "play" icon. Testcontainers Desktop supports parallelizing test execution across multiple workers via [Turbo mode](https://knowledge.testcontainers.cloud/turbo-mode), which requires a paid account. 
+
+The "Connected" sub-menu containers useful troubleshooting information, including the worker-id and associated latency, and also confirmation of whether the self-check was successful, potentially identifying any connectivity issues. See the [knowledge base](https://knowledge.testcontainers.cloud/testcontainers-cloud-for-desktop) for further troubleshooting information.
+
+![Testcontainers Desktop cloud diagnosis menu](/images/desktop/tcd_cloud_connected menu.png)
 
 #### Use the app's docker context
 
 Testcontainers Desktop detects local runtimes based on existing [docker contexts](https://docs.docker.com/engine/context/working-with-contexts/). Testcontainers Desktop does not automatically switch docker context for you; instead the app creates a context called `tcc` or `tcd` that links dynamically to the selected runtime. For example, the following commands run `docker ps` through Testcontainers Desktop, ensuring that it works regardless of the selected local or cloud runtime.
 
-```
+```bash
 docker context list
 docker context use tcc
 docker ps
 ```
 
-![Testcontainers Desktop docker contexts](./images/tcd_docker_contexts.png)
+![Testcontainers Desktop docker contexts](/images/desktop/tcd_docker_contexts.png)
 
 ### 2. Debug Testcontainers-based services
 
