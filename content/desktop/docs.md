@@ -1,5 +1,5 @@
 ---
-title: Testcontainers Desktop Features
+title: Docs for Testcontainers Desktop
 showTitle: true
 showToc: true
 submenu: desktop
