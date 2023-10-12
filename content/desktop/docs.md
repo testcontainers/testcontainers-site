@@ -70,7 +70,7 @@ To switch to the cloud runtime, select "Run with Testcontainers Cloud" in the me
 
 The "Connected" sub-menu containers useful troubleshooting information, including the worker-id and associated latency, and also confirmation of whether the self-check was successful, potentially identifying any connectivity issues. See the [knowledge base](https://knowledge.testcontainers.cloud/testcontainers-cloud-for-desktop) for further troubleshooting information.
 
-![Testcontainers Desktop cloud diagnosis menu](/images/desktop/tcd_cloud_connected menu.png)
+![Testcontainers Desktop cloud diagnosis menu](/images/desktop/tcd_cloud_connected_menu.png)
 
 #### Use the app's docker context
 
