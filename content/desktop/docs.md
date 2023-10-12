@@ -19,7 +19,17 @@ Open source Testcontainers libraries must remain self-sufficient to write and ru
 
 ## Installation and sign-in
 
-@TODO
+### Install Testcontainers Desktop
+
+Go to the [download page](/desktop/), select your OS-specific distribution, and install it.
+
+Alternatively, if you use macOS, you can install the app via [Homebrew](https://brew.sh/): 
+
+`brew install atomicjar/tap/testcontainers-desktop`
+
+### Create a free account or sign in
+
+The first time Testcontainers Desktop starts it asks you to create a free account at [app.testcontainers.cloud](https://app.testcontainers.cloud/). If you already have an account, you should sign in instead. If you'd like to join a colleague's organization, you can ask them to invite you from the [members page](https://app.testcontainers.cloud/dashboard/members). Unauthenticated usage is not supported at this time. 
 
 ## User guide
 
