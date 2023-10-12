@@ -89,7 +89,7 @@ installing Docker locally. The following container runtime environments are offi
 
 * [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 * [Docker Engine on Linux](https://docs.docker.com/engine/install/)
-* [Testcontainers Cloud](https://www.testcontainers.cloud/?utm_medium=direct&utm_source=testcontainers.com&utm_content=docs&utm_term=on-failure)
+* [Testcontainers Cloud](https://www.testcontainers.cloud/)
 
 For more extensive information on supported container runtime environments, as well as known limitations of 
 alternative container runtime environments, please refer to [this page](https://java.testcontainers.org/supported_docker_environment/).
