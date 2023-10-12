@@ -7,7 +7,7 @@ submenu: desktop
 ## Overview
 [Testcontainers Desktop](/desktop/) is a companion app for the [open source Testcontainers libraries](/) that makes local development and testing with real dependencies simple. It's a closed-source app available on macOS, Windows, and Linux, that includes a [free plan](/cloud/pricing/) for individual developers. It's lightweight and runs in your system tray, so you can remain in your IDE while developing.
 
-![Testcontainers Desktop overview](./images/tcd_overview.png)
+![Testcontainers Desktop overview](/images/desktop/tcd_overview.png)
 
 @FIXME: why is this image not loading locally? Why is no image loading?
 
