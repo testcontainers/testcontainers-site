@@ -189,7 +189,25 @@ This feature is currently in beta, with the following known limitations:
 
 ### Track and analyze test sessions
 
-TODO: https://newsletter.testcontainers.com/announcements/inspect-local-test-sessions-in-collaborative-dashboards
+![Testcontainers Desktop open dashboard](../images/tcd_open_dashboard.png)
+
+Testcontainers Desktop tracks and analyzes your testing sessions to provide insights into your development and testing patterns. You can access your dashboard by clicking _"Open dashboard..."_ or directly at https://app.testcontainers.cloud/dashboard.
+
+Dashboards are collaborative: they aggregate test data across desktop and CI, as well as across all users in the same organization. Testcontainers Desktop tracks test data for both local and cloud runtimes, though additional insights are available when running containers in the cloud. 
+
+![Testcontainers Desktop dashboard widgets](../images/tcd_dashboard_widgets.png)
+
+Dashboards contain widgets for your testing sessions that let you answer questions such as:
+
+* How consistently do we test on desktop before pushing to the CI?
+* Has a recent release impacted our team's testing velocity?
+* What are the most popular container images we test with?
+* Are there outdated dependencies used in test suites?
+* Etc.
+
+![Testcontainers Desktop dashboard session](../images/tcd_dashboard_session.png)
+
+Dashboards contain a detailed timeline of each testing session, which can help identify bottlenecks in test suites, or opportunities to run tests in parallel. When using [Turbo mode](https://knowledge.testcontainers.cloud/turbo-mode), each test session also helps validate load balancing of test suites across multiple cloud workers.
 
 ## Account management and preferences
 
