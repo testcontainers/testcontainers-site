@@ -26,4 +26,8 @@ sections:
     description: |
       Want to give Podman or Rancher a try? Simply switch your local runtime for all your Testcontainers-powered dependencies. And with [Testcontainers Cloud](/cloud/), you can even run them in the cloud on demand, while saving your local resources.
     image: /images/desktop-cloud-illustration.png
+  - partial: guide-callout
+    title: Ready to get started?
+    description: This guide will walk you through the features of Testcontainers Desktop.
+    guide: guides/simple-local-development-with-testcontainers-desktop
 ---
