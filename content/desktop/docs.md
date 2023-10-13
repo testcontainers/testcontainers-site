@@ -88,9 +88,9 @@ docker ps
 
 #### Set fixed ports to easily debug development services
 
-Testcontainers libraries dynamically map the container’s ports onto random ports on the host machine to avoid conflicts, ensuring that automated tests run reliably. However, during development it can be cumbersome to check which random port is assigned on the host to connect local debugging tools such as an IDE plugin to inspect a datastore, or k9s to manage a Kubernetes cluster. Testcontainers Desktop simplifies debugging by letting you define services and exposing them on fixed ports for debugging purposes.
-
 ![Testcontainers Desktop docker contexts](../images/tcd_services.png)
+
+Testcontainers libraries dynamically map the container’s ports onto random ports on the host machine to avoid conflicts, ensuring that automated tests run reliably. However, during development it can be cumbersome to check which random port is assigned on the host to connect local debugging tools such as an IDE plugin to inspect a datastore, or k9s to manage a Kubernetes cluster. Testcontainers Desktop simplifies debugging by letting you define services and exposing them on fixed ports for debugging purposes.
 
 A "service" is a collection of running containers and associated mechanisms to interract with them. To configure services, click on _Services → Open config location_. The app ships with 15+ preconfigured configuration files for popular technologies, including postgres, kafka, and many others. Simply rename a file from `.example` to a `.toml` extension to get started with the corresponding technology. 
 
@@ -100,13 +100,14 @@ A minimal configuration file called `postgres-datastore.toml` might look as foll
 ports = [
     {local-port = 5432, container-port = 5432},
 ]
+
 selector.image-names = ["postgres"]
 ```
 
 This configuration file:
 
 1. Defines a service called `postgres-datastore` (base on the filename).
-2. Selects all running containers that contain the string "postgres" in the image name (e.g. "postgres:15.2-alpine").
+2. Selects all running containers that contain the string "postgres" in the image name (e.g. `"postgres:15.2-alpine"`).
 3. Maps the PostgreSQL container’s port `5432` onto the host’s port `5432`.
 
 With this service defined, Testcontainers Desktop automatically reloads the configuration and lets you connect to a running container with your IDE plugin for relational databases, or the following command:
@@ -119,11 +120,35 @@ When running automated tests it's possible for multiple containers belonging to 
 
 The example files also contain instructions to go beyond the default configuration. For example, you might be running 2 separate services based on the same image, or you might want to target the leader and replicas separately. If so, follow the instructions to fine-tune how the service selects containers based on labels, which open source Testcontainers libraries let you add easily from your code. 
 
+The following service configuration selects all running containers that contain the string "postgres" in the image name AND the specified docker label:
+
+```TOML
+ports = [
+    {local-port = 5432, container-port = 5432},
+]
+
+selector.image-names = ["postgres"]
+
+[selector.label]
+"com.testcontainers.desktop.service" = "postgres-datastore"
+```
+
 Configured services are listed under the "Services" menu alongside their exposed port(s). If a service is misconfigured, such as containing a typo in a core attribute, it is indicated as having "no ports configured".
 
-#### Freeze containers to prevent their shutdown while you debug
+#### Freeze containers to prevent their shutdown while you debug (beta)
 
-TODO: https://newsletter.testcontainers.com/announcements/freeze-containers-to-prevent-their-shutdown-while-you-debug
+![Testcontainers Desktop docker contexts](../images/tcd_freeze_containers_shutdown.png)
+
+While running your tests, you may want to inspect data before the test terminates and the container is automatically cleaned up. You can use the "Freeze containers shutdown" to halt containers termination. 
+
+Turning on this feature is conceptually similar to setting a dynamic breakpoint before any container termination. When enabled, Testcontainers Desktop prevents your application from shuting down containers, effectively keeping the tests running indefinitely. Once you're done with your investigation, uncheck the "Freeze containers shutdown" button to resume normal test execution, including clean-up. Alternatively, see the next section on how to "Terminate containers".
+
+Freezing containers shutdown lets you inspect development services via a fixed port (see previous section). 
+
+This feature is currently in beta, with the following known limitations:
+
+* Some test frameworks have a built-in timeout configured and will terminate a test and associated containers if frozen for too long.
+* Freeze only supports containers with a managed lifecycle. For example, in Testcontainers Java, it's common practice to manage the lifecycle of containers via the `@Container` annotation or inside a "try-with-resources" block. Such containers will be properly frozen when the code attempts to `close()` them. It is not currently possible to freeze long-lived, unmanaged containers such as those defined by a [singleton pattern](https://java.testcontainers.org/test_framework_integration/manual_lifecycle_control/#singleton-containers) and [reusable containers](https://java.testcontainers.org/features/reuse/).
 
 #### Terminate containers
 
