@@ -1,4 +1,4 @@
-.module-header {
+.module-top-header {
     padding: 0 0 20px 0;
 
     @media (min-width: 680px) {
@@ -27,6 +27,12 @@
         svg {
             transform: rotate(90deg);
         } 
+    }
+}
+
+.module-header {
+    @media (min-width: 1024px) {
+        grid-area: header;
     }
 
     .content {
