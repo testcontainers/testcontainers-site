@@ -209,18 +209,18 @@ Dashboards contain widgets for your testing sessions that let you answer questio
 
 Dashboards contain a detailed timeline of each testing session, which can help identify bottlenecks in test suites, or opportunities to run tests in parallel. When using [Turbo mode](https://knowledge.testcontainers.cloud/turbo-mode), each test session also helps validate load balancing of test suites across multiple cloud workers.
 
-## Account management and preferences
+## Troubleshooting
 
-### Manage your account
+If you experience unexpected behavior with Testcontainers Desktop, there are a few common issues you can investigate and resolve independently. A common first step is to review the logs for the app, possibly after enabling [verbose logging](https://knowledge.testcontainers.cloud/how-to-enable-debug-logging).
 
-* Switch accounts
-* etc.
+![Testcontainers Desktop show logs](../images/tcd_show_logs.png)
 
-### Troubleshoot any issues
+It's also possible to reset the app to its default settings, which will require signing back in.
 
-* Read logs
-* Reset to factory defaults
+![Testcontainers Desktop reset](../images/tcd_reset.png)
 
-### Get help
+If you continue to have trouble, click _"Get help..."_ to open the knowledge base or report an issue.
 
-If you experience unexpected behavior with Testcontainers Desktop, there are a few common issues you can investigate and this guide may help resolve issues quickly. If you continue to have trouble, reach out to AtomicJar support for further assistance.
+![Testcontainers Desktop get help](../images/tcd_get_help.png)
+
+Finally, consider joining open-source maintainers, AtomicJar engineers, and fellow users in the [#testcontainers-desktop](https://testcontainers.slack.com/archives/C05JGR9CSQY) channel of the [public slack](https://slack.testcontainers.org/).
