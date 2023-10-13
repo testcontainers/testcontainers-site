@@ -33,7 +33,7 @@ The first time Testcontainers Desktop starts it asks you to create a free accoun
 
 ## User guide
 
-### 1. Select a container runtime
+### Select a container runtime
 Open source Testcontainers libraries rely on a container runtime compatible with the Docker API. The following container runtime environments are officially supported:
 
 * [Docker Desktop](https://www.docker.com/products/docker-desktop/)
@@ -84,15 +84,42 @@ docker ps
 
 ![Testcontainers Desktop docker contexts](../images/tcd_docker_contexts.png)
 
-### 2. Debug Testcontainers-based services
+### Debug Testcontainers-based services
 
 #### Set fixed ports to easily debug development services
 
-TODO: https://newsletter.testcontainers.com/announcements/set-fixed-ports-to-easily-debug-development-services
+Testcontainers libraries dynamically map the container’s ports onto random ports on the host machine to avoid conflicts, ensuring that automated tests run reliably. However, during development it can be cumbersome to check which random port is assigned on the host to connect local debugging tools such as an IDE plugin to inspect a datastore, or k9s to manage a Kubernetes cluster. Testcontainers Desktop simplifies debugging by letting you define services and exposing them on fixed ports for debugging purposes.
 
-TODO: https://newsletter.testcontainers.com/announcements/verify-running-services-and-spot-configuration-issues
+![Testcontainers Desktop docker contexts](../images/tcd_services.png)
 
-TODO: https://newsletter.testcontainers.com/announcements/get-started-with-popular-technologies-thanks-to-preconfigured-services
+A "service" is a collection of running containers and associated mechanisms to interract with them. To configure services, click on _Services → Open config location_. The app ships with 15+ preconfigured configuration files for popular technologies, including postgres, kafka, and many others. Simply rename a file from `.example` to a `.toml` extension to get started with the corresponding technology. 
+
+A minimal configuration file called `postgres-datastore.toml` might look as follows:
+
+```TOML
+ports = [
+    {local-port = 5432, container-port = 5432},
+]
+selector.image-names = ["postgres"]
+```
+
+This configuration file:
+
+1. Defines a service called `postgres-datastore` (base on the filename).
+2. Selects all running containers that contain the string "postgres" in the image name (e.g. "postgres:15.2-alpine").
+3. Maps the PostgreSQL container’s port `5432` onto the host’s port `5432`.
+
+With this service defined, Testcontainers Desktop automatically reloads the configuration and lets you connect to a running container with your IDE plugin for relational databases, or the following command:
+
+```bash
+psql -h localhost -p 5432 -U test -d test
+```
+
+When running automated tests it's possible for multiple containers belonging to the same service to run concurrently. In order to provide a stable experience, Testcontainers Desktop maps the fixed port to the oldest running container, and only switches over if it terminates.
+
+The example files also contain instructions to go beyond the default configuration. For example, you might be running 2 separate services based on the same image, or you might want to target the leader and replicas separately. If so, follow the instructions to fine-tune how the service selects containers based on labels, which open source Testcontainers libraries let you add easily from your code. 
+
+Configured services are listed under the "Services" menu alongside their exposed port(s). If a service is misconfigured, such as containing a typo in a core attribute, it is indicated as having "no ports configured".
 
 #### Freeze containers to prevent their shutdown while you debug
 
@@ -106,21 +133,22 @@ TODO: https://newsletter.testcontainers.com/announcements/clean-up-containers-wi
 
 TODO: https://newsletter.testcontainers.com/announcements/enable-reusable-containers-with-a-single-click
 
-### 3. Track and analyze test sessions
+### Track and analyze test sessions
 
 TODO: https://newsletter.testcontainers.com/announcements/inspect-local-test-sessions-in-collaborative-dashboards
 
 ## Account management and preferences
 
+### Manage your account
 
+* Switch accounts
+* etc.
 
-## Troubleshooting
+### Troubleshoot any issues
+
+* Read logs
+* Reset to factory defaults
+
+### Get help
 
 If you experience unexpected behavior with Testcontainers Desktop, there are a few common issues you can investigate and this guide may help resolve issues quickly. If you continue to have trouble, reach out to AtomicJar support for further assistance.
-
-TODO:
-
-* Prerequisites
-* Reading logs
-* Contacting support
-* Joining slack
