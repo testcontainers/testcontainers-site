@@ -9,11 +9,12 @@ submenu: desktop
 
 ![Testcontainers Desktop overview](../images/tcd_overview.png)
 
-Open source Testcontainers libraries must remain self-sufficient to write and run tests, from desktop to CI. Testcontainers Desktop, as an optional desktop-only app, focuses on improving the developer experience. The features of Testcontainers Desktop are broken down into three main categories:
+Open source Testcontainers libraries must remain self-sufficient to write and run tests, from desktop to CI. Testcontainers Desktop, as an optional desktop-only app, focuses on improving the developer experience. The features of Testcontainers Desktop are broken down into four main categories:
 
 1. Select a container runtime
 2. Debug Testcontainers-based services
-3. Track and analyze test sessions
+3. Manage the lifecycle of containers
+4. Track and analyze test sessions
 
 ## Installation and sign-in
 
@@ -88,7 +89,7 @@ docker ps
 
 #### Set fixed ports to easily debug development services
 
-![Testcontainers Desktop docker contexts](../images/tcd_services.png)
+![Testcontainers Desktop services](../images/tcd_services.png)
 
 Testcontainers libraries dynamically map the container’s ports onto random ports on the host machine to avoid conflicts, ensuring that automated tests run reliably. However, during development it can be cumbersome to check which random port is assigned on the host to connect local debugging tools such as an IDE plugin to inspect a datastore, or k9s to manage a Kubernetes cluster. Testcontainers Desktop simplifies debugging by letting you define services and exposing them on fixed ports for debugging purposes.
 
@@ -116,6 +117,10 @@ With this service defined, Testcontainers Desktop automatically reloads the conf
 psql -h localhost -p 5432 -U test -d test
 ```
 
+Configured services are listed under the "Services" menu alongside their exposed port(s). If a service is misconfigured, such as containing a typo in a core attribute, it is indicated as having "no ports configured".
+
+#### Define services based on docker labels
+
 When running automated tests it's possible for multiple containers belonging to the same service to run concurrently. In order to provide a stable experience, Testcontainers Desktop maps the fixed port to the oldest running container, and only switches over if it terminates.
 
 The example files also contain instructions to go beyond the default configuration. For example, you might be running 2 separate services based on the same image, or you might want to target the leader and replicas separately. If so, follow the instructions to fine-tune how the service selects containers based on labels, which open source Testcontainers libraries let you add easily from your code. 
@@ -133,17 +138,19 @@ selector.image-names = ["postgres"]
 "com.testcontainers.desktop.service" = "postgres-datastore"
 ```
 
-Configured services are listed under the "Services" menu alongside their exposed port(s). If a service is misconfigured, such as containing a typo in a core attribute, it is indicated as having "no ports configured".
+### Manage the lifecycle of containers
 
-#### Freeze containers to prevent their shutdown while you debug (beta)
+#### Freeze containers to halt their shutdown (beta)
 
-![Testcontainers Desktop docker contexts](../images/tcd_freeze_containers_shutdown.png)
+![Testcontainers Desktop freeze containers shutdown](../images/tcd_freeze_containers_shutdown.png)
 
 While running your tests, you may want to inspect data before the test terminates and the container is automatically cleaned up. You can use the "Freeze containers shutdown" to halt containers termination. 
 
 Turning on this feature is conceptually similar to setting a dynamic breakpoint before any container termination. When enabled, Testcontainers Desktop prevents your application from shuting down containers, effectively keeping the tests running indefinitely. Once you're done with your investigation, uncheck the "Freeze containers shutdown" button to resume normal test execution, including clean-up. Alternatively, see the next section on how to "Terminate containers".
 
-Freezing containers shutdown lets you inspect development services via a fixed port (see previous section). 
+Freezing containers shutdown lets you inspect development services via a fixed port (see previous section). A notification lets you know when a container becomes frozen:
+
+![Testcontainers Desktop freeze notification](../images/tcd_freeze_notification.png)
 
 This feature is currently in beta, with the following known limitations:
 
@@ -152,11 +159,33 @@ This feature is currently in beta, with the following known limitations:
 
 #### Terminate containers
 
-TODO: https://newsletter.testcontainers.com/announcements/clean-up-containers-without-manual-docker-commands
+![Testcontainers Desktop terminate containers](../images/tcd_terminate_containers.png)
+
+By default, Testcontainers libraries spin up ephemeral containers that are automatically cleaned up when your tests complete. You can use the "Terminate containers" command to clean up all running Testcontainers-powered containers, while sparing other vanilla containers. 
+
+This command is useful when working with long-lived containers, such as when you:
+
+* Rely on reusable containers to speed up your tests and local development. 
+* Disable "Ryuk" (i.e. the resource reaper).
+* Enable "Freeze containers shutdown".
+
+A notification confirms how many containers are terminated:
+
+![Testcontainers Desktop terminate notification](../images/tcd_terminate_notification.png)
 
 #### Enable reusable containers
 
-TODO: https://newsletter.testcontainers.com/announcements/enable-reusable-containers-with-a-single-click
+![Testcontainers Desktop enable reussable containers](../images/tcd_enable_reuse.png)
+
+[Reusable containers](https://java.testcontainers.org/features/reuse/) are an experimental capability that delivers a useful performance optimization: by keeping containers running and allowing multiple tests to reuse the same container, it's possible to shave off container start times. However, reusable containers are not suited for CI usage, and therefore activating the capability on desktop requires setting the `testcontainers.reuse.enable=true` property in the local `~/.testcontainers.properties file`. Testcontainers Desktop sets this property by default. It's possible to disable it under _Preferences → Enable reusable containers_.
+
+This feature is currently in beta, with the following known limitations:
+
+* Some Testcontainers languages do not yet implement `reuse`.
+* `reuse` in Testcontainers Java does not currently support networks, in the sense that they can change the container's configuration and prevent reuse. In turn, this can impact methods such as `exposeHostPorts`.
+* Testcontainers Go matches the container on `req.Name` alone, instead of its full configuration, and within a single package. This can lead to accidental reuse if separate containers share the same name.
+* Testcontainers Node does not rely on the `testcontainers.reuse.enable=true` property, and therefore this feature cannot deactivate reuse as expected.
+* While `reuse` prevents Ryuk from cleaning-up containers, they are stopped by regular lifecycle commands (e.g. `close()` or similar). In practice, this means they're best defined via the singleton pattern.
 
 ### Track and analyze test sessions
 
