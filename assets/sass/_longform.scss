@@ -41,6 +41,42 @@
 
         @import "guides/asciidoctor.scss";
 
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            .heading-link {
+                width: 0px;
+                height: 1em;
+                display: inline-block;
+                vertical-align: middle;
+                position: relative;
+
+                a {
+                    position: absolute;
+                    color: $fog;
+                    display: block;
+                    line-height: 1.2;
+                    margin-left: 8px;
+                    top: 50%;
+                    transform: translate(0, -50%);
+
+                    &:hover,
+                    &:focus {
+                        color: $teal;
+                    }
+                }
+
+                svg {
+                    display: block;
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+        }
+
         img {
             max-width: 100%;
             height: auto;
@@ -78,6 +114,34 @@
                     text-transform: uppercase;
                     color: #c3c7e6;
                 }
+            }
+        }
+
+        .screenshot {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: $ghost;
+            border-radius: 6px;
+            padding: 1rem;
+            margin: 1em 0;
+
+            &.fixedheight {
+                aspect-ratio: 16 / 9;
+            }
+
+            &.nowrapper {
+                padding: 0;
+                background-color: transparent;
+
+                img {
+                    border-radius: 6px;
+                }
+            }
+
+            img {
+                max-height: 100%;
+                border-radius: 4px;
             }
         }
     }
