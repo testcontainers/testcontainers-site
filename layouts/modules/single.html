@@ -9,7 +9,7 @@
   {{ $langaugesData := .Site.Data.languages }}
   <main>
     <article>
-      <header class="module-header">
+      <div class="module-top-header">
         <div class="container">
           <aside>
             <a href="/modules" class="back-link">
@@ -19,7 +19,11 @@
               Modules
             </a>
           </aside>
-          <div class="content">
+        </div>
+      </div>
+      <div class="module">
+        <div class="container">
+          <header class="module-header">
             <div class="banner-wrapper">
               {{ $logoPath := printf "/images/modules/%s-mark.svg" .File.BaseFileName }}
               {{ $logoImage := resources.Get $logoPath }}
@@ -61,100 +65,96 @@
                 {{ end }}
               </div>
             </div>
-          </div>
-        </div>
-      </header>
-      <div class="module-content longform-content">
-        <div class="container">
-            <div class="sidebar">
-              <div>
-                <h2>Documentation</h2>
-                {{ $thirdParyDocs := false }}
-                {{ range .Params.Docs }}
-                  {{ $language := where $langaugesData "id" .id }}
-                  {{ $lang := index $language 0 }}
-                  <a href="{{ .url }}" target="_blank">
-                    {{ with $lang.logo }}
-                      {{ partial "img.html" (dict "image" (resources.Get $lang.logo) "alt" "") }}
-                    {{ end }}
-                    {{ $lang.label }}
-                    {{ if .isThirdParty }}
-                      {{ $thirdParyDocs = true }}
-                      <svg class="icon-community" height="16" viewBox="0 0 40 32">
-                        <use href="#icon-community"></use>
-                      </svg>
-                    {{ end }}
-                    <svg class="icon-external" width="15" height="17" viewBox="0 0 15 17">
-                        <use href="#icon-external"></use>
-                    </svg>
-                  </a>
-                {{end}} 
-              </div>
-              {{ if .Params.isOfficial }}
-                <div class="disclaimer">  
-                  <h2>
-                    <svg class="icon-award" width="24" height="24" viewBox="0 0 30 30">
-                      <use href="#icon-award"></use>
-                    </svg> Official Modules</h2>
-                  <div>AtomicJar partners with software vendors to maintain and certify official modules.</div>
-                </div>
-              {{ end }}
-
-              {{ if $thirdParyDocs }}
-                <div class="disclaimer">  
-                  <h2>
-                    <svg class="icon-community" height="24" viewBox="0 0 40 32">
+          </header>
+          <div class="module-sidebar longform-content">
+            <div>
+              <h2>Documentation</h2>
+              {{ $thirdParyDocs := false }}
+              {{ range .Params.Docs }}
+                {{ $language := where $langaugesData "id" .id }}
+                {{ $lang := index $language 0 }}
+                <a href="{{ .url }}" target="_blank">
+                  {{ with $lang.logo }}
+                    {{ partial "img.html" (dict "image" (resources.Get $lang.logo) "alt" "") }}
+                  {{ end }}
+                  {{ $lang.label }}
+                  {{ if .isThirdParty }}
+                    {{ $thirdParyDocs = true }}
+                    <svg class="icon-community" height="16" viewBox="0 0 40 32">
                       <use href="#icon-community"></use>
-                    </svg> Community Modules</h2>
-                  <div>These modules are maintained by the community, outside of the Testcontainers project.</div>
-                </div>
-              {{ end }}
+                    </svg>
+                  {{ end }}
+                  <svg class="icon-external" width="15" height="17" viewBox="0 0 15 17">
+                      <use href="#icon-external"></use>
+                  </svg>
+                </a>
+              {{end}} 
             </div>
-            <div class="description">
-              {{ if .Description }}
-                <div class="section">
-                  <h2>Description</h2>
-                  {{ .Description | markdownify }}
-                </div>
-              {{ end }}
-              {{ if .Params.Docs }}
-                <div class="section">
-                  <h2>Examples</h2>
-                  <div class="code-examples examples">
-                    <div class="tab-labels">
-                      {{ range $index, $doc := .Params.Docs }}
-                        {{ $language := where $langaugesData "id" $doc.id }}
-                        {{ $lang := index $language 0 }}
-                        {{ if eq $index 0 }}
-                          <button class="active" data-target="{{ $doc.id }}">{{ $lang.label }}</button>
-                        {{ else }}
-                          <button data-target="{{ $doc.id }}">{{ $lang.label }}</button>
-                        {{ end }}
+            {{ if .Params.isOfficial }}
+              <div class="disclaimer">  
+                <h2>
+                  <svg class="icon-award" width="24" height="24" viewBox="0 0 30 30">
+                    <use href="#icon-award"></use>
+                  </svg> Official Modules</h2>
+                <div>AtomicJar partners with software vendors to maintain and certify official modules.</div>
+              </div>
+            {{ end }}
+
+            {{ if $thirdParyDocs }}
+              <div class="disclaimer">  
+                <h2>
+                  <svg class="icon-community" height="24" viewBox="0 0 40 32">
+                    <use href="#icon-community"></use>
+                  </svg> Community Modules</h2>
+                <div>These modules are maintained by the community, outside of the Testcontainers project.</div>
+              </div>
+            {{ end }}
+          </div>
+          <div class="module-content longform-content">
+            {{ if .Description }}
+              <div class="section">
+                <h2>Description</h2>
+                {{ .Description | markdownify }}
+              </div>
+            {{ end }}
+            {{ if .Params.Docs }}
+              <div class="section">
+                <h2>Examples</h2>
+                <div class="code-examples examples">
+                  <div class="tab-labels">
+                    {{ range $index, $doc := .Params.Docs }}
+                      {{ $language := where $langaugesData "id" $doc.id }}
+                      {{ $lang := index $language 0 }}
+                      {{ if eq $index 0 }}
+                        <button class="active" data-target="{{ $doc.id }}">{{ $lang.label }}</button>
+                      {{ else }}
+                        <button data-target="{{ $doc.id }}">{{ $lang.label }}</button>
                       {{ end }}
-                    </div>
-                    <div class="tab-panels">
-                      {{ range $index, $doc := .Params.Docs }}
-                        {{ $language := where $langaugesData "id" $doc.id }}
-                        {{ $lang := index $language 0 }}
-                        {{ if eq $index 0 }}
-                          <div class="tab-panel active" data-id="{{ $doc.id }}">
-                            {{ $doc.example | markdownify }}
-                          </div>
-                        {{ else }}
-                          <div class="tab-panel" data-id="{{ $doc.id }}">
-                            {{ $doc.example | markdownify }}
-                          </div>
-                        {{ end }}
+                    {{ end }}
+                  </div>
+                  <div class="tab-panels">
+                    {{ range $index, $doc := .Params.Docs }}
+                      {{ $language := where $langaugesData "id" $doc.id }}
+                      {{ $lang := index $language 0 }}
+                      {{ if eq $index 0 }}
+                        <div class="tab-panel active" data-id="{{ $doc.id }}">
+                          {{ $doc.example | markdownify }}
+                        </div>
+                      {{ else }}
+                        <div class="tab-panel" data-id="{{ $doc.id }}">
+                          {{ $doc.example | markdownify }}
+                        </div>
                       {{ end }}
-                    </div>
+                    {{ end }}
                   </div>
                 </div>
-              {{ end }}
-              {{ with .Content }}
-                <div class="section content">
-                  {{ . }}
-                </div>
-              {{ end }}
+              </div>
+            {{ end }}
+            {{ with .Content }}
+              <div class="section content">
+                {{ . }}
+              </div>
+            {{ end }}
           </div>
         </div>
       </div>
