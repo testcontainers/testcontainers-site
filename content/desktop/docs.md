@@ -7,7 +7,7 @@ submenu: desktop
 ## Overview
 [Testcontainers Desktop](/desktop/) is a companion app for the [open source Testcontainers libraries](/) that makes local development and testing with real dependencies simple. It's a closed-source app available on macOS, Windows, and Linux, that includes a [free plan](/cloud/pricing/) for individual developers. It's lightweight and runs in your system tray, so you can remain in your IDE while developing.
 
-![Testcontainers Desktop overview](../images/tcd_overview.png)
+{{<screenshot fixedheight>}}![Testcontainers Desktop overview](../images/tcd_overview.png){{</screenshot>}}
 
 Open source Testcontainers libraries must remain self-sufficient to write and run tests, from desktop to CI. Testcontainers Desktop, as an optional desktop-only app, focuses on improving the developer experience. The features of Testcontainers Desktop are broken down into four main categories:
 
@@ -47,13 +47,13 @@ alternative container runtime environments.
 
 #### Switch between local runtimes
 
-![Testcontainers Desktop local runtime selection](../images/tcd_local_runtime.png)
+{{<screenshot>}}![Testcontainers Desktop local runtime selection](../images/tcd_local_runtime.png){{</screenshot>}}
 
 Testcontainers Desktop lets you switch between local container runtimes. This is particularly useful if you're trying to adopt an OSS runtime such as podman or colima, or are looking to locate and clean up old runtimes that are interfering with your tests.
 
 #### Enable Testcontainers Desktop's embedded runtime (beta)
 
-![Testcontainers Desktop embedded runtime](../images/tcd_local_runtime.png)
+{{<screenshot>}}![Testcontainers Desktop embedded runtime](../images/tcd_local_runtime.png){{</screenshot>}}
 
 Testcontainers Desktop aims to deliver a batteries-included developer experience for local development and testing. As of version `1.4.18` Testcontainers Desktop embeds a lightweight and fast runtime, optimized for Testcontainers usage. The embedded runtime is currently in beta, and only available on macOS 13.3 or later to benefit from Apple's native Virtualization Framework. It is available as the top option for local runtimes. 
 
@@ -61,7 +61,7 @@ The runtime takes a few seconds to initialize the first time you run a command, 
 
 #### Run with Testcontainers Cloud
 
-![Testcontainers Desktop cloud runtime](../images/tcd_cloud_runtime.png)
+{{<screenshot fixedheight>}}![Testcontainers Desktop cloud runtime](../images/tcd_cloud_runtime.png){{</screenshot>}}
 
 Testcontainers Desktop provides seamless access to Testcontainers Cloud to run containers in the cloud on demand, without consuming local resources or requiring a local docker daemon. Besides sparing CPU and RAM, running containers in the cloud provides a consistent Linux x86 architecture, just like in production, regardless of what operating system developers use for local development (e.g. macOS with ARM CPU, Windows with WSL, etc.).
 
@@ -71,7 +71,7 @@ To switch to the cloud runtime, select "Run with Testcontainers Cloud" in the me
 
 The "Connected" sub-menu containers useful troubleshooting information, including the worker-id and associated latency, and also confirmation of whether the self-check was successful, potentially identifying any connectivity issues. See the [knowledge base](https://knowledge.testcontainers.cloud/testcontainers-cloud-for-desktop) for further troubleshooting information.
 
-![Testcontainers Desktop cloud diagnosis menu](../images/tcd_cloud_connected_menu.png)
+{{<screenshot>}}![Testcontainers Desktop cloud diagnosis menu](../images/tcd_cloud_connected_menu.png){{</screenshot>}}
 
 #### Use the app's docker context
 
@@ -83,13 +83,13 @@ docker context use tcc
 docker ps
 ```
 
-![Testcontainers Desktop docker contexts](../images/tcd_docker_contexts.png)
+{{<screenshot nowrapper>}}![Testcontainers Desktop docker contexts](../images/tcd_docker_contexts.png){{</screenshot>}}
 
 ### Debug Testcontainers-based services
 
 #### Set fixed ports to easily debug development services
 
-![Testcontainers Desktop services](../images/tcd_services.png)
+{{<screenshot fixedheight>}}![Testcontainers Desktop services](../images/tcd_services.png){{</screenshot>}}
 
 Testcontainers libraries dynamically map the container’s ports onto random ports on the host machine to avoid conflicts, ensuring that automated tests run reliably. However, during development it can be cumbersome to check which random port is assigned on the host to connect local debugging tools such as an IDE plugin to inspect a datastore, or k9s to manage a Kubernetes cluster. Testcontainers Desktop simplifies debugging by letting you define services and exposing them on fixed ports for debugging purposes.
 
@@ -142,7 +142,7 @@ selector.image-names = ["postgres"]
 
 #### Freeze containers to halt their shutdown (beta)
 
-![Testcontainers Desktop freeze containers shutdown](../images/tcd_freeze_containers_shutdown.png)
+{{<screenshot fixedheight>}}![Testcontainers Desktop freeze containers shutdown](../images/tcd_freeze_containers_shutdown.png){{</screenshot>}}
 
 While running your tests, you may want to inspect data before the test terminates and the container is automatically cleaned up. You can use the "Freeze containers shutdown" to halt containers termination. 
 
@@ -150,7 +150,7 @@ Turning on this feature is conceptually similar to setting a dynamic breakpoint 
 
 Freezing containers shutdown lets you inspect development services via a fixed port (see previous section). A notification lets you know when a container becomes frozen:
 
-![Testcontainers Desktop freeze notification](../images/tcd_freeze_notification.png)
+{{<screenshot>}}![Testcontainers Desktop freeze notification](../images/tcd_freeze_notification.png){{</screenshot>}}
 
 This feature is currently in beta, with the following known limitations:
 
@@ -159,7 +159,7 @@ This feature is currently in beta, with the following known limitations:
 
 #### Terminate containers
 
-![Testcontainers Desktop terminate containers](../images/tcd_terminate_containers.png)
+{{<screenshot fixedheight>}}![Testcontainers Desktop terminate containers](../images/tcd_terminate_containers.png){{</screenshot>}}
 
 By default, Testcontainers libraries spin up ephemeral containers that are automatically cleaned up when your tests complete. You can use the "Terminate containers" command to clean up all running Testcontainers-powered containers, while sparing other vanilla containers. 
 
@@ -171,11 +171,11 @@ This command is useful when working with long-lived containers, such as when you
 
 A notification confirms how many containers are terminated:
 
-![Testcontainers Desktop terminate notification](../images/tcd_terminate_notification.png)
+{{<screenshot>}}![Testcontainers Desktop terminate notification](../images/tcd_terminate_notification.png){{</screenshot>}}
 
 #### Enable reusable containers
 
-![Testcontainers Desktop enable reussable containers](../images/tcd_enable_reuse.png)
+{{<screenshot fixedheight>}}![Testcontainers Desktop enable reussable containers](../images/tcd_enable_reuse.png){{</screenshot>}}
 
 [Reusable containers](https://java.testcontainers.org/features/reuse/) are an experimental capability that delivers a useful performance optimization: by keeping containers running and allowing multiple tests to reuse the same container, it's possible to shave off container start times. However, reusable containers are not suited for CI usage, and therefore activating the capability on desktop requires setting the `testcontainers.reuse.enable=true` property in the local `~/.testcontainers.properties file`. Testcontainers Desktop sets this property by default. It's possible to disable it under _Preferences → Enable reusable containers_.
 
@@ -189,13 +189,13 @@ This feature is currently in beta, with the following known limitations:
 
 ### Track and analyze test sessions
 
-![Testcontainers Desktop open dashboard](../images/tcd_open_dashboard.png)
+{{<screenshot fixedheight>}}![Testcontainers Desktop open dashboard](../images/tcd_open_dashboard.png){{</screenshot>}}
 
 Testcontainers Desktop tracks and analyzes your testing sessions to provide insights into your development and testing patterns. You can access your dashboard by clicking _"Open dashboard..."_ or directly at https://app.testcontainers.cloud/dashboard.
 
 Dashboards are collaborative: they aggregate test data across desktop and CI, as well as across all users in the same organization. Testcontainers Desktop tracks test data for both local and cloud runtimes, though additional insights are available when running containers in the cloud. 
 
-![Testcontainers Desktop dashboard widgets](../images/tcd_dashboard_widgets.png)
+{{<screenshot>}}![Testcontainers Desktop dashboard widgets](../images/tcd_dashboard_widgets.png){{</screenshot>}}
 
 Dashboards contain widgets for your testing sessions that let you answer questions such as:
 
@@ -205,7 +205,7 @@ Dashboards contain widgets for your testing sessions that let you answer questio
 * Are there outdated dependencies used in test suites?
 * Etc.
 
-![Testcontainers Desktop dashboard session](../images/tcd_dashboard_session.png)
+{{<screenshot>}}![Testcontainers Desktop dashboard session](../images/tcd_dashboard_session.png){{</screenshot>}}
 
 Dashboards contain a detailed timeline of each testing session, which can help identify bottlenecks in test suites, or opportunities to run tests in parallel. When using [Turbo mode](https://knowledge.testcontainers.cloud/turbo-mode), each test session also helps validate load balancing of test suites across multiple cloud workers.
 
@@ -213,14 +213,14 @@ Dashboards contain a detailed timeline of each testing session, which can help i
 
 If you experience unexpected behavior with Testcontainers Desktop, there are a few common issues you can investigate and resolve independently. A common first step is to review the logs for the app, possibly after enabling [verbose logging](https://knowledge.testcontainers.cloud/how-to-enable-debug-logging).
 
-![Testcontainers Desktop show logs](../images/tcd_show_logs.png)
+{{<screenshot fixedheight>}}![Testcontainers Desktop show logs](../images/tcd_show_logs.png){{</screenshot>}}
 
 It's also possible to reset the app to its default settings, which will require signing back in.
 
-![Testcontainers Desktop reset](../images/tcd_reset.png)
+{{<screenshot fixedheight>}}![Testcontainers Desktop reset](../images/tcd_reset.png){{</screenshot>}}
 
 If you continue to have trouble, click _"Get help..."_ to open the knowledge base or report an issue.
 
-![Testcontainers Desktop get help](../images/tcd_get_help.png)
+{{<screenshot fixedheight>}}![Testcontainers Desktop get help](../images/tcd_get_help.png){{</screenshot>}}
 
 Finally, consider joining open-source maintainers, AtomicJar engineers, and fellow users in the [#testcontainers-desktop](https://testcontainers.slack.com/archives/C05JGR9CSQY) channel of the [public slack](https://slack.testcontainers.org/).

@@ -1,0 +1,7 @@
+{{ $classes := slice "screenshot" }}
+{{ with .Get 0 }}
+    {{ $classes = $classes | append . }}
+{{ end }}
+<div class='{{ delimit $classes " " }}'>
+{{ .Inner | markdownify }}
+</div>

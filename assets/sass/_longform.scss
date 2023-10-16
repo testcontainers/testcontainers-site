@@ -80,5 +80,33 @@
                 }
             }
         }
+
+        .screenshot {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: $ghost;
+            border-radius: 6px;
+            padding: 1rem;
+            margin: 1em 0;
+
+            &.fixedheight {
+                aspect-ratio: 16 / 9;
+            }
+
+            &.nowrapper {
+                padding: 0;
+                background-color: transparent;
+
+                img {
+                    border-radius: 6px;
+                }
+            }
+
+            img {
+                max-height: 100%;
+                border-radius: 4px;
+            }
+        }
     }
 }
