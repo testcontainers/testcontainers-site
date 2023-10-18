@@ -65,7 +65,10 @@
                         installation_id: searchParams.get("id"),
                         raw_utms: utms,
                         ...utms
-                    }, 
+                    },
+                    {
+                        send_immediately: true
+                    },
                     function() {
                         window.location.assign("https://app.testcontainers.cloud/");
                     }
