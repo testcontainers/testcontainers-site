@@ -3,6 +3,13 @@ title: MinIO
 categories:
   - other
 docs:
+  - id: java
+    url: https://java.testcontainers.org/modules/minio/
+    example: |
+      ```java
+      var minio = new MinIOContainer("minio/minio:RELEASE.2023-09-04T19-57-37Z");
+      minio.start();
+      ```
   - id: dotnet
     url: https://www.nuget.org/packages/Testcontainers.Minio
     example: |
