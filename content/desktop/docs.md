@@ -211,15 +211,19 @@ Dashboards contain a detailed timeline of each testing session, which can help i
 
 ## Account management
 
-You can view and manage your team on the https://app.testcontainers.cloud.
-Just click on the [Account tab](https://app.testcontainers.cloud/dashboard/members).  
+### Invite and remove users
 
-You'll be navigated to a new page displaying the list of users within your organization. If you have Admin rights, you can manage access for specific team members.
+View and manage your team by visiting the [Account tab](https://app.testcontainers.cloud/dashboard/members).  
+
+The "Users" tab lists all users within your organization, and their associated roles. If you have Admin rights, you can manage access for existing team members.
+
 {{<screenshot>}}![Testcontainers Desktop Account tab](../images/tcd_account_members.png){{</screenshot>}}
 
 You also have the option to delete a specific user from the team or grant them admin rights.
 
-One more important feature is the ability to invite new team members. To do this, click on the "Invite Users" button and share the generated link. When a user logs in via the shared invitation link, their information will appear in the list of your organization's members.
+To invite new users, open the "Invite Users" menu, copy the secret invite link, and share it with them. When a user signs up with the invite link, they join your organization instead of creating their own, and their name gets added to the list of active members.
+
+### Join a different organization
 
 If you wish to leave your current organization and join another one, follow these steps:
 
