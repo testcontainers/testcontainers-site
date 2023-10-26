@@ -55,7 +55,7 @@ Testcontainers Desktop lets you switch between local container runtimes. This is
 
 {{<screenshot>}}![Testcontainers Desktop embedded runtime](../images/tcd_local_runtime.png){{</screenshot>}}
 
-Testcontainers Desktop aims to deliver a batteries-included developer experience for local development and testing. As of version `1.4.18` Testcontainers Desktop embeds a lightweight and fast runtime, optimized for Testcontainers usage. The embedded runtime is currently in beta, and only available on macOS 13.3 or later to benefit from Apple's native Virtualization Framework. It is available as the top option for local runtimes. 
+Testcontainers Desktop aims to deliver a batteries-included developer experience for local development and testing. As of version `1.4.18` Testcontainers Desktop embeds a lightweight and fast runtime, optimized for Testcontainers usage. The embedded runtime is currently in beta, and only available on macOS 11 or later to benefit from Apple's native Virtualization Framework. It is available as the top option for local runtimes. 
 
 The runtime takes a few seconds to initialize the first time you run a command, displaying "Embedded Runtime (Starting...)" in the menu. The menu changes to "Embedded Runtime (Started)" and the icon displays a "play" icon when ready. If you run into any issues, join us in the [#testcontainers-desktop](https://testcontainers.slack.com/archives/C05JGR9CSQY) channel of the [public slack](https://slack.testcontainers.org/) to troubleshoot.
 
@@ -208,6 +208,40 @@ Dashboards contain widgets for your testing sessions that let you answer questio
 {{<screenshot>}}![Testcontainers Desktop dashboard session](../images/tcd_dashboard_session.png){{</screenshot>}}
 
 Dashboards contain a detailed timeline of each testing session, which can help identify bottlenecks in test suites, or opportunities to run tests in parallel. When using [Turbo mode](https://knowledge.testcontainers.cloud/turbo-mode), each test session also helps validate load balancing of test suites across multiple cloud workers.
+
+## Account management
+
+### Invite and remove users
+
+View and manage your team by visiting the [Account page](https://app.testcontainers.cloud/dashboard/members).  
+
+The "Users" tab lists all users within your organization, and their associated roles. If you have Admin rights, you can manage access for existing team members.
+
+{{<screenshot>}}![Testcontainers Desktop Account tab](../images/tcd_account_members.png){{</screenshot>}}
+
+You also have the option to delete a specific user from the team or grant them admin rights.
+
+To invite new users, open the "Invite Users" menu, copy the secret invitation link, and share it with them. When a user signs up with the invitation link, they join your organization instead of creating their own, and their name gets added to the list of active members.
+
+### Join a different organization
+
+A user belongs to a single organization at a time. If you wish to leave your current organization and join another one, follow these steps:
+
+1. Navigate to your [Account page](https://app.testcontainers.cloud/dashboard/members)
+2. Click on the three dots next to your user row and select the "Leave" option. {{<screenshot>}}![Testcontainers Desktop Account tab](../images/tcd_leave_account.png){{</screenshot>}}
+3. Once you're redirected to the authentication page, click on "Log Out" under your profile menu, and then close the tab.
+4. To log off from Testcontainers Desktop, open the application and select "Reset" under the Preferences tab. 
+{{<screenshot>}}![Testcontainers Desktop Reset](../images/tcd_reset.png){{</screenshot>}}
+5. In the new web page called "Sign up for Testcontainers Desktop", you can either sign up and create a new organization, or follow the invitation link provided by your colleague to join their organization.
+{{<screenshot>}}![Testcontainers Desktop Sign Up](../images/tcd_sign_up_page.png){{</screenshot>}}
+
+If you need to switch between multiple organizations, you need a separate user account for each. You can achieve this by signing up with a different email address or provider (e.g. github, gmail). To switch the Testcontainers Desktop application from one organization to another, follow these steps:
+
+1. Log out from https://app.testcontainers.cloud. 
+2. Click on "Reset" under the Testcontainers Desktop application preferences.
+3. Once you're redirected to the "Sign up for Testcontainers Desktop" page, click on "Log In" and authenticate with the credentials associated with the organization you wish to join.
+
+To verify which account is associated with the Testcontainers Desktop application, expand the tray icon and check the username and authentication provider listed below the title and version. 
 
 ## Troubleshooting
 
