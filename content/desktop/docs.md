@@ -55,7 +55,7 @@ Testcontainers Desktop lets you switch between local container runtimes. This is
 
 {{<screenshot>}}![Testcontainers Desktop embedded runtime](../images/tcd_local_runtime.png){{</screenshot>}}
 
-Testcontainers Desktop aims to deliver a batteries-included developer experience for local development and testing. As of version `1.4.18` Testcontainers Desktop embeds a lightweight and fast runtime, optimized for Testcontainers usage. The embedded runtime is currently in beta, and only available on macOS 13.3 or later to benefit from Apple's native Virtualization Framework. It is available as the top option for local runtimes. 
+Testcontainers Desktop aims to deliver a batteries-included developer experience for local development and testing. As of version `1.4.18` Testcontainers Desktop embeds a lightweight and fast runtime, optimized for Testcontainers usage. The embedded runtime is currently in beta, and only available on macOS 11 or later to benefit from Apple's native Virtualization Framework. It is available as the top option for local runtimes. 
 
 The runtime takes a few seconds to initialize the first time you run a command, displaying "Embedded Runtime (Starting...)" in the menu. The menu changes to "Embedded Runtime (Started)" and the icon displays a "play" icon when ready. If you run into any issues, join us in the [#testcontainers-desktop](https://testcontainers.slack.com/archives/C05JGR9CSQY) channel of the [public slack](https://slack.testcontainers.org/) to troubleshoot.
 
