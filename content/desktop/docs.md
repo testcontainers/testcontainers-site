@@ -209,6 +209,35 @@ Dashboards contain widgets for your testing sessions that let you answer questio
 
 Dashboards contain a detailed timeline of each testing session, which can help identify bottlenecks in test suites, or opportunities to run tests in parallel. When using [Turbo mode](https://knowledge.testcontainers.cloud/turbo-mode), each test session also helps validate load balancing of test suites across multiple cloud workers.
 
+## Account management
+
+You can view and manage your team on the https://app.testcontainers.cloud.
+Just click on the [Account tab](https://app.testcontainers.cloud/dashboard/members).  
+
+You'll be navigated to a new page displaying the list of users within your organization. If you have Admin rights, you can manage access for specific team members.
+{{<screenshot>}}![Testcontainers Desktop Account tab](../images/tcd_account_members.png){{</screenshot>}}
+
+You also have the option to delete a specific user from the team or grant them admin rights.
+
+One more important feature is the ability to invite new team members. To do this, click on the "Invite Users" button and share the generated link. When a user logs in via the shared invitation link, their information will appear in the list of your organization's members.
+
+If you wish to leave your current organization and join another one, follow these steps:
+
+* Navigate to your [Account](https://app.testcontainers.cloud/dashboard/members)
+* Click on the three dots next to your user row to access a dropdown menu, and select the "Leave" option. {{<screenshot>}}![Testcontainers Desktop Account tab](../images/tcd_leave_account.png){{</screenshot>}}
+* You'll be navigated to the "Create Organization" page. However, before proceeding, you need to reset your token. Click on "Log Out" under your profile menu, and then close the tab.
+* Now, open your Testcontainers Desktop application and select "Reset" under the Preferences tab. 
+{{<screenshot>}}![Testcontainers Desktop Account tab](../images/tcd_reset.png){{</screenshot>}}
+* A new web page, "Sign up for Testcontainers Desktop," will open. You can either sign up and create a new organization, or simply follow the invitation link provided by your colleague to join their organization.
+{{<screenshot>}}![Testcontainers Desktop Account tab](../images/tcd_sign_up_page.png){{</screenshot>}}
+
+If you have multiple accounts with Testcontainers Desktop, you can reset your Testcontainers Desktop token to log in with another account. To do so, follow these steps:
+
+* Log out from https://app.testcontainers.cloud and use the "Reset" submenu in the Testcontainers Desktop app. Simply click on "Reset" under the Testcontainers Desktop application preferences.
+* You will be redirected to the "Sign up for Testcontainers Desktop" page. Click on "Log In" and re-login with your desired credentials.
+* To verify the account you are using with the Testcontainers Desktop application, you can expand the tray icon and check the account name below the version. 
+
+
 ## Troubleshooting
 
 If you experience unexpected behavior with Testcontainers Desktop, there are a few common issues you can investigate and resolve independently. A common first step is to review the logs for the app, possibly after enabling [verbose logging](https://knowledge.testcontainers.cloud/how-to-enable-debug-logging).
