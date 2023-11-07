@@ -85,14 +85,6 @@ docker ps
 
 {{<screenshot nowrapper>}}![Testcontainers Desktop docker contexts](../images/tcd_docker_contexts.png){{</screenshot>}}
 
-### Open a terminal to your container runtime
-
-{{<screenshot nowrapper>}}![Testcontainers Desktop Open Terminal](../images/tcd_open_terminal.webp){{</screenshot>}}
-
-Testcontainers Desktop now makes it easy to "open a terminal" to your container runtime. If you rely on Testcontainers Cloud, you'll connect to the cloud worker, and if you run containers locally (including with the new [embedded runtime!](https://newsletter.testcontainers.com/announcements/adopt-testcontainers-desktop-as-your-container-runtime-early-access)), you'll connect to the VM on your machine. Either way, the [docker context](https://testcontainers.com/desktop/docs/#use-the-apps-docker-context) is set automatically so that commands such as `docker ps` and `docker stats` work out of the box. The terminal opens in a web browser for portability reasons, with access limited to localhost and secured by a unique hash.
-
-Note: if you'd like to connect to someone else's cloud worker instead, for example to troubleshoot automated tests in your CI, you can do so by using the [connect command](https://knowledge.testcontainers.cloud/how-to-connect-to-a-cloud-worker-for-troubleshooting).
-
 ### Debug Testcontainers-based services
 
 #### Set fixed ports to easily debug development services
@@ -145,12 +137,6 @@ selector.image-names = ["postgres"]
 [selector.label]
 "com.testcontainers.desktop.service" = "postgres-datastore"
 ```
-
-#### Tail logs and connect to a Testcontainers-based service
-
-{{<screenshot nowrapper>}}![Testcontainers Desktop Tail Logs](../images/tcd_tail_logs.webp){{</screenshot>}}
-
-Testcontainers Desktop simplifies debugging by letting you [define services](https://testcontainers.com/desktop/docs/#set-fixed-ports-to-easily-debug-development-services) and exposing them on fixed ports. Besides connecting a local debug tool or IDE plugin via a fixed port, the [two most common debug actions](https://www.atomicjar.com/2023/09/state-of-local-development-and-testing-2023/#desktop) are: reviewing container logs and opening a shell. Both are now only a click away in the "services" menu! You'll want to ensure a container is running for the corresponding service, so consider [freezing their shutdown](https://testcontainers.com/desktop/docs/#freeze-containers-to-halt-their-shutdown-beta) while you investigate.
 
 ### Manage the lifecycle of containers
 
