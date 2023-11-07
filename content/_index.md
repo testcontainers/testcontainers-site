@@ -118,6 +118,17 @@ sections:
                                          :exposed-ports [6379]})
                              (tc/start!)))
           ```
+      - id: elixir
+        label: Elixir
+        url: https://github.com/testcontainers/testcontainers-elixir
+        external: true
+        icon: /images/language-logos/elixir.png
+        code: |
+          ```elixir
+          {:ok, _} = Testcontainers.start_link()
+          config = %Testcontainers.Container{image: "redis:latest"}
+          {:ok, container} = Testcontainers.start_container(config)
+          ```
   - partial: logo-wall
     small_title: Modules
     title: "Test Anything You Can Containerize: Database, Message Broker, And More"
@@ -199,6 +210,9 @@ sections:
       - logo: /images/language-logos/clojure.svg
         label: Clojure
         link: https://cljdoc.org/d/clj-test-containers/clj-test-containers/
+      - logo: /images/language-logos/elixir.png
+        label: Elixir
+        link: https://github.com/testcontainers/testcontainers-elixir
   - partial: company-logos
     small_title: Industry standard
     title: Companies using Testcontainers
