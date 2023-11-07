@@ -36,5 +36,5 @@
   link: https://cljdoc.org/d/clj-test-containers/clj-test-containers/
 - id: elixir
   label: Elixir
-  logo: /images/language-logos/elixir.png
+  logo: /images/language-logos/elixir.svg
   link: https://github.com/testcontainers/testcontainers-elixir

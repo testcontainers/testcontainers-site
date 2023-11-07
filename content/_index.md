@@ -122,7 +122,7 @@ sections:
         label: Elixir
         url: https://github.com/testcontainers/testcontainers-elixir
         external: true
-        icon: /images/language-logos/elixir.png
+        icon: /images/language-logos/elixir.svg
         code: |
           ```elixir
           {:ok, _} = Testcontainers.start_link()
@@ -210,7 +210,7 @@ sections:
       - logo: /images/language-logos/clojure.svg
         label: Clojure
         link: https://cljdoc.org/d/clj-test-containers/clj-test-containers/
-      - logo: /images/language-logos/elixir.png
+      - logo: /images/language-logos/elixir.svg
         label: Elixir
         link: https://github.com/testcontainers/testcontainers-elixir
   - partial: company-logos
