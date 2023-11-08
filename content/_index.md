@@ -126,7 +126,7 @@ sections:
         code: |
           ```elixir
           {:ok, _} = Testcontainers.start_link()
-          config = %Testcontainers.Container{image: "redis:latest"}
+          config = %Testcontainers.Container{image: "redis:5.0.3-alpine"}
           {:ok, container} = Testcontainers.start_container(config)
           ```
   - partial: logo-wall
