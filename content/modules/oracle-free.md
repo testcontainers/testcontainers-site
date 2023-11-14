@@ -7,7 +7,7 @@ docs:
     url: https://java.testcontainers.org/modules/databases/oraclefree/
     example: |
       ```java
-      var oracle = new OracleContainer(DockerImageName.parse("gvenzl/oracle-free:23.3-slim-faststart"));
+      var oracle = new OracleContainer("gvenzl/oracle-free:23.3-slim-faststart");
       oracle.start();
       ```
 description: |
