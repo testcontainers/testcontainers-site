@@ -43,6 +43,8 @@
                     });
                 }
 
+                const firstTouch = getCookie("__gtm_first_touch");
+
                 function getCookie(key) {
                     var cookies = document.cookie.split(";");
                     for(var i = 0; i < cookies.length; i++) {
@@ -63,6 +65,7 @@
                     "attribution", 
                     {
                         installation_id: searchParams.get("id"),
+                        first_touch: firstTouch,
                         raw_utms: utms,
                         ...utms
                     },
