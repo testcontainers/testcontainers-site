@@ -24,6 +24,9 @@ socialLinks:
   - id: mastadon
     label: "@example"
     url: https://mastodon.social/@example
+  - id: sessionize
+    label: example
+    url: https://sessionize.com/example/
 ---
 ## Bio
 Example bio
