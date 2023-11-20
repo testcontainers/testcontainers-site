@@ -13,6 +13,9 @@ socialLinks:
   - id: twitter
     label: "@oleg_nenashev"
     url: https://twitter.com/oleg_nenashev
+  - id: sessionize
+    label: onenashev
+    url: https://sessionize.com/onenashev/
 ---
 ## Bio
 Oleg is a community builder and DevRel consultant working on the WireMock ecosystem and developer tools. He's passionate about developer experience, open source software and open hardware. Oleg is a Jenkins maintainer, GSoC mentor and  the creator of Testcontainers for C/C++. He is a CNCF/CDF ambassador. Oleg has a PhD degree in electronics design and volunteers in organizations helping Ukrainian military and refugees.
