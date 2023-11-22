@@ -11,7 +11,7 @@ socialLinks:
     url: https://twitter.com/salaboy
 ---
 ## Bio
-Mauricio Salatino ([@salaboy](https://twitter.com/salaboy)) is an Open Source Software Engineer at [Diagrid](https://www.diagrid.io/), contributing to and driving initiatives for the Dapr OSS project. He also serves as a Steering Committee member for the Knative Project, and is co-Leading the Knative Functions initiative.
+Mauricio Salatino ([@salaboy](https://twitter.com/salaboy)) is an Open Source Software Engineer at [Diagrid](https://www.diagrid.io/), contributing to and driving initiatives for the Dapr OSS project. He also serves as a Steering Committee member for the Knative Project, and is co-leading the Knative Functions initiative.
 
 Mauricio wrote book titled [Platform Engineering on Kubernetes](https://www.salaboy.com/book/) for Manning. He previously worked at VMware and Red Hat, building tools to help developers be more productive.
 
