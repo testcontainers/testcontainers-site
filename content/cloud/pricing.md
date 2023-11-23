@@ -18,7 +18,7 @@ sections:
       - |
         [Preconfigured Modules](/modules)
       - Max Users (desktop)
-      - Max Service Accounts (CI)
+      - Service Accounts (CI)
       - |
         [Turbo mode](https://knowledge.testcontainers.cloud/turbo-mode)
       - Max Concurrent Workers Per Service Account (CI)
@@ -42,7 +42,7 @@ sections:
             checkmark: true
           - value: 1
             checkmark: false
-          - value: 1
+          - value: 30-day free trial
             checkmark: false
           - value: Not Available
             checkmark: false
