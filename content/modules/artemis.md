@@ -9,7 +9,15 @@ docs:
       ```go
       artemisContainer, err := artemis.RunContainer(ctx, testcontainers.WithImage("docker.io/apache/activemq-artemis:2.30.0-alpine"))
       ```
-
+  - id: dotnet
+    url: https://www.nuget.org/packages/Testcontainers.ActiveMQ
+    example: |
+      ```csharp
+      var artemisContainer = new ArtemisBuilder()
+        .WithImage("apache/activemq-artemis:2.31.2")
+        .Build();
+        await artemisContainer.StartAsync();
+      ```
 description: |
   Apache ActiveMQ Artemis is an open source project to build a multi-protocol, embeddable, very high performance, clustered, asynchronous messaging system.
 ---
