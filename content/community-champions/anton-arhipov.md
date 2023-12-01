@@ -11,6 +11,9 @@ socialLinks:
   - id: linkedin
     label: antonarhipov
     url: https://www.linkedin.com/in/antonarhipov/
+  - id: sessionize
+    label: Sessionize
+    url: https://sessionize.com/antonarhipov/
 ---
 ## Bio
 Anton Arhipov is a Developer Advocate in the Kotlin team at JetBrains. His professional interests include programming languages and developer tooling. Java Champion since 2014. He has around 20 years of Java development experience.

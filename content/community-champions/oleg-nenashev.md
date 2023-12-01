@@ -14,7 +14,7 @@ socialLinks:
     label: "@oleg_nenashev"
     url: https://twitter.com/oleg_nenashev
   - id: sessionize
-    label: onenashev
+    label: Sessionize
     url: https://sessionize.com/onenashev/
 ---
 ## Bio
