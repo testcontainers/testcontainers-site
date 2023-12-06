@@ -7,7 +7,7 @@ docs:
     url: https://golang.testcontainers.org/modules/nats/
     example: |
       ```go
-      container, err := nats.RunContainer(ctx, testcontainers.WithImage("nats:2.9"))
+      natsContainer, err := nats.RunContainer(ctx, testcontainers.WithImage("nats:2.9"))
       ``````
   - id: nodejs
     url: https://node.testcontainers.org/modules/nats/

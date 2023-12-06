@@ -15,7 +15,7 @@ docs:
     url: https://golang.testcontainers.org/modules/localstack/
     example: |
       ```go
-      container, err := localstack.RunContainer(ctx, testcontainers.WithImage("localstack/localstack:1.4.0"))
+      localstackContainer, err := localstack.RunContainer(ctx, testcontainers.WithImage("localstack/localstack:1.4.0"))
       ```
   - id: dotnet
     url: https://www.nuget.org/packages/Testcontainers.LocalStack

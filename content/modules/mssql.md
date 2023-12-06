@@ -11,6 +11,15 @@ docs:
         .acceptLicense();
       mssqlserver.start();
       ```
+  - id: go
+    url: https://golang.testcontainers.org/modules/mssql/
+    example: |
+      ```go
+      mssqlContainer, err := mssql.RunContainer(ctx,
+        testcontainers.WithImage("mcr.microsoft.com/mssql/server:2022-CU10-ubuntu-22.04"),
+        mssql.WithAcceptEULA(),
+      )
+      ```
   - id: dotnet
     url: https://www.nuget.org/packages/Testcontainers.MsSql
     example: |

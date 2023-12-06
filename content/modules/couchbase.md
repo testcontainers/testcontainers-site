@@ -17,7 +17,7 @@ docs:
     url: https://golang.testcontainers.org/modules/couchbase/
     example: |
       ```go
-      container, err := couchbase.RunContainer(ctx,
+      couchbaseContainer, err := couchbase.RunContainer(ctx,
         testcontainers.WithImage("couchbase/server:community-7.0.2"),
         couchbase.WithBucket(couchbase.NewBucket("bucketName")),
       )
