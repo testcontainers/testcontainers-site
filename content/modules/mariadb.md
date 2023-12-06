@@ -14,7 +14,7 @@ docs:
     url: https://golang.testcontainers.org/modules/mariadb
     example: |
       ```go
-      container, err := mariadb.RunContainer(ctx, testcontainers.WithImage("mariadb:11.0.3"))
+      mariaDBContainer, err := mariadb.RunContainer(ctx, testcontainers.WithImage("mariadb:11.0.3"))
       ```
   - id: dotnet
     url: https://www.nuget.org/packages/Testcontainers.MariaDb

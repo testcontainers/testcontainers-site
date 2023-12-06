@@ -14,7 +14,7 @@ docs:
     url: https://golang.testcontainers.org/modules/postgres/
     example: |
       ```go
-      container, err := postgres.RunContainer(ctx,
+      postgresContainer, err := postgres.RunContainer(ctx,
         testcontainers.WithImage("postgres:9.6"),
         postgres.WithDatabase("test"),
         postgres.WithUsername("user"),
