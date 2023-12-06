@@ -11,6 +11,15 @@ docs:
       var arango = new ArangoContainer();
       arango.start();
       ```
+  - id: dotnet
+    url: https://www.nuget.org/packages/Testcontainers.ArangoDb
+    example: |
+      ```csharp
+      var arangodb = new ArangoDbBuilder()
+        .WithImage("arangodb:3.11.5")
+        .Build();
+      arangodb.StartAsync();
+      ```
   - id: nodejs
     url: https://node.testcontainers.org/modules/arangodb/
     example: |
