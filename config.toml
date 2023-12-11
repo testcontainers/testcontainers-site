@@ -9,7 +9,7 @@ paginate = 9999
     Description = 'Testcontainers is an opensource framework for providing lightweight, throwaway instances of common databases, Selenium web browsers, or anything else that can run in a Docker container.'
     [params.announcement]
         url = 'https://www.atomicjar.com/2023/12/atomicjar-is-now-part-of-docker/'
-        text = '🚨 AtomicJar is now part of Docker 🐋! Read the blog!'
+        text = '🚨 AtomicJar is now part of Docker 🐋! Read the blog'
 
 [taxonomies]
   language = 'languages'
