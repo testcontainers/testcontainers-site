@@ -268,6 +268,9 @@ sections:
       - name: Elastic
         logo: /images/sponsor-logos/elastic.svg
         link: https://elastic.co
+      - name: Gradle Devlocity
+        logo: /images/sponsor-logos/develocity.svg
+        link: https://gradle.com/develocity/
     donors:
       - name: RedHat
         logo: /images/sponsor-logos/redhat.svg
