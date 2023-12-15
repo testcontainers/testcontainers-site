@@ -247,6 +247,39 @@ sections:
       - name: Playtika
         logo: /images/company-logos/playtika.svg
         link: https://playtika.com
+  - partial: article-links
+    small_title: Articles About Testcontainers
+    articles:
+      - name: Announcing the Recipients of the 2023 Spotify FOSS Fund
+        favicon: /images/link-favicons/spotify-engineering.png
+        link: https://engineering.atspotify.com/2023/10/announcing-the-recipients-of-the-2023-spotify-foss-fund/
+        domain: engineering.atspotify.com
+        description: Testcontainers was also part of last year’s fund, receiving 13,000 EUR. And there’s a good reason why it’s back in 2023
+      - name: Trying out MongoDB with EF Core using Testcontainers
+        favicon: /images/link-favicons/microsoft-devblogs.png
+        link: https://devblogs.microsoft.com/dotnet/efcore-mongodb/
+        domain: devblogs.microsoft.com
+        description: An introduction to the MongoDB database provider for EF Core, including use of Testcontainers
+      - name: Handling Flaky Unit Tests in Java
+        favicon: /images/link-favicons/uber.png
+        link: https://www.uber.com/en-MX/blog/handling-flaky-tests-java/
+        domain: uber.com
+        description: Building a stable and reliable testing system is often a key requirement for software development organizations
+      - name: How to Boost Code Coverage with Functional Testing
+        favicon: /images/link-favicons/doordash-engineering.png
+        link: https://doordash.engineering/2022/11/01/how-to-boost-code-coverage-with-functional-testing/
+        domain: doordash.engineering
+        description: Introducing a non manual functional testing approach that can be run like unit tests locally or in a Continuous Integration (CI) pipeline.
+      - name: Testcontainers & LocalStack for Spring Boot functional tests
+        favicon: /images/link-favicons/capital-one.png
+        link: https://www.capitalone.com/tech/software-engineering/testcontainers-and-localstack-functional-testing/
+        domain: capitalone.com
+        description: A guide from Capital One to using Docker and Testcontainers to make functional tests more portable & economical without sacrificing testing quality.
+      - name: Develop and Test Spring Boot Applications Consistently
+        favicon: /images/link-favicons/google-cloud.png
+        link: https://cloud.google.com/blog/products/application-development/develop-and-test-spring-boot-applications-consistently
+        domain: cloud.google.com
+        description: Learn how to consistently build and test with environment parity from development to production with Emulators and open-source Testcontainers.
   - partial: sponsor-credits
     small_title: A huge thankyou to our sponsors
     bronze_sponsors_title: Bronze Sponsors
