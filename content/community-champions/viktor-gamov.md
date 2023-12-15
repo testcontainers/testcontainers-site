@@ -14,7 +14,7 @@ socialLinks:
     url: https://youtube.com/@ViktorGamov
 ---
 ## Bio
-Viktor Gamov is a Principal Developer Advocate at Kong, a cloud API connectivity company. Viktor has comprehensive expertise in building distributed systems and cloud-native architectures using open source technologies. He enjoys helping architects and developers design and develop low latency, scalable, and highly available systems. He is a Java Champion and professional conference speaker on distributed systems, streaming data, JVM, and DevOps topics. He’s a regular at events including JavaOne, Devoxx, SpringOne, QCon, and others. Furthermore, he co-authored books O’Reilly’s "Enterprise Web Development" and Manning’s "Apache Kafka® in Action." He blogs at http://gamov.io
+Viktor Gamov is a Principal Developer Advocate at Kong, a cloud API connectivity company. Viktor has comprehensive expertise in building distributed systems and cloud-native architectures using open source technologies. He enjoys helping architects and developers design and develop low latency, scalable, and highly available systems. He is a Java Champion and professional conference speaker on distributed systems, streaming data, JVM, and DevOps topics. He’s a regular at events including JavaOne, Devoxx, SpringOne, QCon, and others. Furthermore, he co-authored two books: O’Reilly’s "Enterprise Web Development" and Manning’s "Apache Kafka® in Action." He blogs at http://gamov.io
 
 ## Q&A
 ### What were your first experiences with Testcontainers?
