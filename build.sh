@@ -32,6 +32,7 @@ GUIDE_REPOS=(
   'tc-guide-testing-rest-api-integrations-in-micronaut-apps-using-wiremock'
   'tc-guide-testing-micronaut-kafka-listener'
   'tc-guide-getting-started-with-testcontainers-for-python'
+  'tc-guide-securing-spring-boot-microservice-using-keycloak-and-testcontainers'
 )
 
 GUIDE_REPOS_CLONE_DIR="./guide-repos"
