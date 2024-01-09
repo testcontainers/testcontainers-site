@@ -11,13 +11,20 @@ socialLinks:
   - id: linkedin
     label: piotrprzybyl
     url: https://www.linkedin.com/in/piotrprzybyl/
+  - id: sessionize
+    label: Sessionize
+    url: https://sessionize.com/piotr-przybyl/
 ---
 ## Bio
-Notorious engineer at work and after hours, tracing meanders of the art of software engineering. Remote Software Gardener, mostly working in web-oriented Java gardens. 
+Notorious engineer at work and after hours, tracing meanders of the art of software engineering. 
 
-Programming usually in Java (since 1.3) and Scala, but in other languages too. Fan of agility, seen mostly as choosing the right tools and approaches after asking the right questions. 
+Remote Software Gardener, mostly working in web-oriented Java gardens. Java Champion. Testcontainers Champion. Oracle ACE. 
 
-Developer, trainer and conference speaker. In his talks, Piotr covers not only hardcore Java but also software architecture, computer security, and soft-skills.
+Programming usually in Java (since 1.3), Scala and Go, but in other languages too. Fan of agility, seen mostly as choosing the right tools and approaches after asking the right questions. 
+
+Developer, trainer and conference speaker. 
+
+In his talks, Piotr covers not only hardcore Java but also software architecture, computer security, and soft-skills.
 
 ## Q&A
 ### What were your first experiences with Testcontainers?
