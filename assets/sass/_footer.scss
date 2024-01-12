@@ -46,32 +46,8 @@
         gap: 40px;
     }
 
-    .atomicjar-callout {
-        a {
-            display: block;
-            width: max-content;
-            max-width: 100%;
-            transition: opacity 0.2s ease;
-
-            &:hover {
-                opacity: .5;
-            }
-
-            @media (max-width: 499px) {
-                margin: 0 auto;
-            }
-        }
-
-        img {
-            display: block;
-            max-height: 50px;
-            width: auto;
-        }
-    }
-
     .newsletter {
         h2 {
-            margin-top: 0;
             margin-bottom: .5rem;
         }
 
