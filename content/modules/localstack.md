@@ -26,6 +26,12 @@ docs:
         .Build();
       await localStackContainer.StartAsync();
       ```
+  - id: nodejs
+    url: https://node.testcontainers.org/modules/localstack/
+    example: |
+      ```javascript
+      const container = await new LocalstackContainer().start();
+      ```
 description: |
   LocalStack is a fully functional local AWS cloud stack. This module allows you to develop your cloud and serverless apps without actually using the cloud.
 ---
