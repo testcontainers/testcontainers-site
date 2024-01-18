@@ -3,6 +3,8 @@
     <link rel="stylesheet" href="{{ $style.RelPermalink }}">
 
     <script src="/js/highlight.min.js"></script>
+
+    <meta data-pagefind-filter="type[content]" content="Module">
 {{ end }}
 
 {{ define "main" }}
@@ -21,7 +23,7 @@
           </aside>
         </div>
       </div>
-      <div class="module">
+      <div class="module" data-pagefind-body>
         <div class="container">
           <header class="module-header">
             <div class="banner-wrapper">
@@ -101,7 +103,7 @@
               {{end}} 
             </div>
             {{ if or .Params.officialPartner .Params.isOfficial }}
-              <div class="disclaimer">  
+              <div class="disclaimer" data-pagefind-ignore>  
                 <h2>
                   <svg class="icon-award" width="24" height="24" viewBox="0 0 30 30">
                     <use href="#icon-award"></use>
@@ -119,7 +121,7 @@
             {{ end }}
 
             {{ if $communityDocs }}
-              <div class="disclaimer">  
+              <div class="disclaimer" data-pagefind-ignore>  
                 <h2>
                   <svg class="icon-community" height="24" viewBox="0 0 40 32">
                     <use href="#icon-community"></use>

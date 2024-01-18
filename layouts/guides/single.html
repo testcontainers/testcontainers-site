@@ -3,11 +3,13 @@
 <link rel="stylesheet" href="{{ $style.RelPermalink }}">
 
 <script src="/js/highlight.min.js"></script>
+
+<meta data-pagefind-filter="type[content]" content="Guide">
 {{ end }}
 
 {{ define "main" }}
   <main>
-    <article>
+    <article data-pagefind-body>
       <header class="guide-header">
         <div class="container">
           <aside>
@@ -46,7 +48,7 @@
       </header>
       <div class="guide-content longform-content">
         <div class="container">
-          <aside class="toc">
+          <aside class="toc" data-pagefind-ignore>
             {{ .TableOfContents }}
           </aside>
           <div class="content">
