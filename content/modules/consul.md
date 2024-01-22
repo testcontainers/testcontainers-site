@@ -7,7 +7,7 @@ docs:
     url: https://java.testcontainers.org/modules/consul/
     example: |
       ```java
-      var consul = new ConsulContainer(DockerImageName.parse()"hashicorp/consul:1.15"));
+      var consul = new ConsulContainer(DockerImageName.parse("hashicorp/consul:1.15"));
       consul.start();
       ```
 description: |
