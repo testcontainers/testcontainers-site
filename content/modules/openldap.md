@@ -1,5 +1,5 @@
 ---
-title: Inbucket
+title: OpenLDAP
 categories:
   - other
 docs:
