@@ -10,6 +10,12 @@ docs:
       var minio = new MinIOContainer("minio/minio:RELEASE.2023-09-04T19-57-37Z");
       minio.start();
       ```
+  - id: go
+    url: https://golang.testcontainers.org/modules/minio/
+    example: |
+      ```go
+      minioContainer, err := minio.RunContainer(ctx, testcontainers.WithImage("minio/minio:RELEASE.2024-01-16T16-07-38Z"))
+      ```
   - id: dotnet
     url: https://www.nuget.org/packages/Testcontainers.Minio
     example: |
