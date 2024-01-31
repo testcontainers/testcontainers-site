@@ -65,7 +65,7 @@ If you are launching the client from a shell which has any of the following envi
 `no_proxy` or `NO_PROXY`
 ```
 
-#### 2. Using the Testcontainers Cloud properties file2. Using the Testcontainers Cloud properties file
+#### 2. Using the Testcontainers Cloud properties file
 
 If you do not have the option of setting shell environment variables, you can also provide the proxy settings by adding any or all of the following optional lines:
 
