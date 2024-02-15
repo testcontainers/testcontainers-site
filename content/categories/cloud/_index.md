@@ -1,5 +1,5 @@
 ---
 title: Cloud
 slug: cloud
-weight: 4
+weight: 6
 ---
