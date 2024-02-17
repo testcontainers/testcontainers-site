@@ -3,6 +3,13 @@ title: Artemis
 categories:
   - message-broker
 docs:
+  - id: java
+    url: https://java.testcontainers.org/modules/activemq/
+    example: |
+      ```java
+      var artemis = new ArtemisContainer("apache/activemq-artemis:2.30.0-alpine");
+      artemis.start();
+      ```
   - id: go
     url: https://golang.testcontainers.org/modules/artemis/
     example: |
