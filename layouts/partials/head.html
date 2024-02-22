@@ -18,8 +18,10 @@
 {{ $langaugesData := .Site.Data.languages }}
 {{ $pageDocs := .Page.Params.Docs }}
 {{ $siteBaseUrl := .Site.BaseURL }}
-{{ $fileBaseName := .File.BaseFileName }}
-
+{{ $fileBaseName := "default" }}
+{{ with .File }}
+    {{ $fileBaseName = .BaseFileName }}
+{{ end }}
 {{ $ogTitle := .Site.Title }}
 {{ $ogDescription := .Site.Params.Description }}
 {{ $ogImage := printf "%s/images/share-image.png" $siteBaseUrl }}
