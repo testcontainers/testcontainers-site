@@ -7,7 +7,9 @@ docs:
     url: https://java.testcontainers.org/modules/databases/postgres/
     example: |
       ```java
-      var pgVector = new PostgreSQLContainer<>(DockerImageName.parse("pgvector/pgvector:pg16"));
+      var image = DockerImageName.parse("pgvector/pgvector:pg16")
+          .asCompatibleSubstituteFor("postgres");
+      var pgVector = new PostgreSQLContainer<>(image);
       pgVector.start();
       ```
   - id: go
