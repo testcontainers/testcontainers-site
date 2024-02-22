@@ -7,7 +7,9 @@ docs:
     url: https://java.testcontainers.org/modules/databases/postgres/
     example: |
       ```java
-      var postgis = new PostgreSQLContainer<>(DockerImageName.parse("postgis/postgis:12-3.0"));
+      var image = DockerImageName.parse("postgis/postgis:12-3.0")
+          .asCompatibleSubstituteFor("postgres");
+      var postgis = new PostgreSQLContainer<>(image);
       postgis.start();
       ```
   - id: go

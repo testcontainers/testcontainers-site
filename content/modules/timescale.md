@@ -7,7 +7,9 @@ docs:
     url: https://java.testcontainers.org/modules/databases/postgres/
     example: |
       ```java
-      var timescale = new PostgreSQLContainer<>(DockerImageName.parse("timescale/timescaledb:2.1.0-pg11"));
+      var image = DockerImageName.parse("timescale/timescaledb:2.1.0-pg11")
+          .asCompatibleSubstituteFor("postgres");
+      var timescale = new PostgreSQLContainer<>(image);
       timescale.start();
       ```
   - id: go
