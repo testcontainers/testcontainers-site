@@ -6,6 +6,7 @@ isOfficial: false
 categories:
   - relational-database
   - nosql-database
+  - vector-database
   - message-broker
   - cloud
   - web
