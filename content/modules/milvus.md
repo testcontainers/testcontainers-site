@@ -3,6 +3,12 @@ title: Milvus
 categories:
   - vector-database
 docs:
+  - id: java
+    url: https://java.testcontainers.org/modules/milvus/
+    example: |
+      ```java
+      var milvus = new MilvusContainer("milvusdb/milvus:v2.3.9");
+      ```
   - id: go
     url: https://golang.testcontainers.org/modules/milvus/
     example: |

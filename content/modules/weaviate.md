@@ -3,6 +3,12 @@ title: Weaviate
 categories:
   - vector-database
 docs:
+  - id: java
+    url: https://java.testcontainers.org/modules/weaviate/
+    example: |
+      ```java
+      var weaviate = new WeaviateContainer("semitechnologies/weaviate:1.23.9");
+      ```
   - id: go
     url: https://golang.testcontainers.org/modules/weaviate/
     example: |
