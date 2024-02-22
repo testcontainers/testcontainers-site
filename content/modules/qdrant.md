@@ -3,6 +3,12 @@ title: Qdrant
 categories:
   - vector-database
 docs:
+  - id: java
+    url: https://java.testcontainers.org/modules/qdrant/
+    example: |
+      ```java
+      var qdrant = new QdrantContainer("qdrant/qdrant:v1.7.4");
+      ```
   - id: go
     url: https://golang.testcontainers.org/modules/qdrant/
     example: |
