@@ -1,0 +1,14 @@
+---
+title: Qdrant
+categories:
+  - vector-database
+docs:
+  - id: go
+    url: https://golang.testcontainers.org/modules/qdrant/
+    example: |
+      ```go
+      qdrantContainer, err := qdrant.RunContainer(ctx, testcontainers.WithImage("qdrant/qdrant:v1.7.4"))
+      ```
+description: |
+  Qdrant is a vector database & vector similarity search engine. It deploys as an API service providing search for the nearest high-dimensional vectors.
+---
