@@ -1,6 +1,7 @@
 ---
 title: OpenSearch
 categories:
+  - nosql-database
   - vector-database
 docs:
   - id: go
