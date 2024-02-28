@@ -53,7 +53,7 @@ echo "------------------ Guides Setup Completed ---------------------------"
 echo "---------------- Converting SVGs ----------------"
 for svg in $(ls content/modules/**/*.svg); do
     dir=$(basename $(dirname $svg))
-    magick -background none -size 230x230 $svg assets/images/modules/share-logos/$dir.png
+    convert -background none -size 230x230 $svg assets/images/modules/share-logos/$dir.png
 done
 echo "Finished converting SVGs"
 
