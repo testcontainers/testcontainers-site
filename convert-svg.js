@@ -12,7 +12,7 @@ files.forEach((image) => {
     im.backgroundColor(new Magick.Color(0,0,0,0));
     im.read("230x230", image);
     im.magick("PNG");
-    const writePath = `/assets/images/modules/share-logos/${dirName}.png`
+    const writePath = `assets/images/modules/share-logos/${dirName}.png`
     console.log(`Writing: ${writePath}`)
     im.write(writePath);
     console.log(`Finished: ${dirName}`)
