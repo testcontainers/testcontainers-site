@@ -1,11 +1,10 @@
 import { Magick } from "node-magickwand";
-import { globby } from "globby";
+import { glob } from "glob";
 import * as path from "path";
 
-const listAllFilesAndDirs = () => globby("content/modules/**/*.svg");
 (async () => {
-    const result = await listAllFilesAndDirs(process.cwd());
-    result.forEach(async (image) => {
+    const files = await glob("content/modules/**/*.svg");
+    files.forEach(async (image) => {
         let im = new Magick.Image;
         await im.backgroundColorAsync(new Magick.Color(0,0,0,0));
         await im.readAsync("230x230", image);
