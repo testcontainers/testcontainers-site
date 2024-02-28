@@ -18,7 +18,10 @@
 {{ $langaugesData := .Site.Data.languages }}
 {{ $pageDocs := .Page.Params.Docs }}
 {{ $siteBaseUrl := .Site.BaseURL }}
-{{ $fileBaseName := .File.BaseFileName }}
+{{ $fileBaseName := "" }}
+{{ with .File }}
+    {{ $fileBaseName = .ContentBaseName }}
+{{ end }}
 
 {{ $ogTitle := .Site.Title }}
 {{ $ogDescription := .Site.Params.Description }}
@@ -41,12 +44,16 @@
 
         {{ $ogDescription = printf "Start testing with real dependencies using the %s Module for Testcontainers for %s" . (delimit $languages ", " ", and ") }}
     {{ end }}
-    {{ $shareImagePath := printf "/images/modules/%s-share.png" $fileBaseName }}
-    {{ $shareImage := resources.Get $shareImagePath }}
-    {{ if $shareImage }}
-        {{ $ogImage = $shareImage.Permalink }}
-    {{ else }}
-        {{ $ogImage = printf "%s/images/module-share-image.png" $siteBaseUrl }}
+    {{ $ogImage = printf "%s/images/module-share-image.png" $siteBaseUrl }}
+    {{ $shareLogoImage := resources.Get (printf "/images/modules/share-logos/%s.png" $fileBaseName) }}
+    {{- with resources.Get $shareLogoImage }}
+		{{- $logoImg := . -}}
+		{{- $finalFilter := (images.Overlay $logoImg 814 173 ) -}}
+        {{- $shareImage := resources.Get "/images/modules/module-share-image.png" }}
+        {{ if $shareImage }}
+		    {{- $shareImage = $shareImage | images.Filter $finalFilter -}}
+            {{ $ogImage = $shareImage.Permalink }}
+        {{- end }}
     {{ end }}
 {{ else if and (not .IsSection) (eq .Section "community-champions") }}
     {{ $ogTitle = printf "Community Champion: %s" .Page.Title }}

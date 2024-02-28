@@ -2,13 +2,13 @@
 
 GIT_ORG="https://github.com/testcontainers"
 
-echo "----------------- Downloading Community modules -----------------"
-COMMUNITY_MODULE_REPO="community-module-registry"
+#echo "----------------- Downloading Community modules -----------------"
+#COMMUNITY_MODULE_REPO="community-module-registry"
 
-rm -rf ${COMMUNITY_MODULE_REPO}
+#rm -rf ${COMMUNITY_MODULE_REPO}
 
-echo "Cloning ${GIT_ORG}/${COMMUNITY_MODULE_REPO}.git"
-git clone "${GIT_ORG}/${COMMUNITY_MODULE_REPO}.git"
+#echo "Cloning ${GIT_ORG}/${COMMUNITY_MODULE_REPO}.git"
+#git clone "${GIT_ORG}/${COMMUNITY_MODULE_REPO}.git"
 
 echo "---------------- Downloading Guides -----------------------------"
 GUIDE_REPOS=(
@@ -47,7 +47,15 @@ for repo_name in "${GUIDE_REPOS[@]}"; do
   rm -rf "${GUIDES_TARGET_DIR:?}/${repo_name}"
   cp -r "${GUIDE_REPOS_CLONE_DIR}/${repo_name}/guide/." "${GUIDES_TARGET_DIR}"
 done
-echo "------------------Guides Setup Completed ---------------------------"
+echo "------------------ Guides Setup Completed ---------------------------"
+
+# Convert SVG module logos to png for share image generation
+echo "---------------- Converting SVGs ----------------"
+for svg in $(ls content/modules/**/*.svg); do
+    dir=$(basename $(dirname $svg))
+    magick -background none -size 230x230 $svg assets/images/modules/share-logos/$dir.png
+done
+echo "Finished converting SVGs"
 
 # output some version numbers:
 cat /etc/issue

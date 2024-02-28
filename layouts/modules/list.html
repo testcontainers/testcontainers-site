@@ -94,24 +94,37 @@
               <h2>
                 <svg class="icon-award" width="24" height="24" viewBox="0 0 30 30">
                   <use href="#icon-award"></use>
-                </svg> About Official Modules</h2>
+                </svg> Official Modules</h2>
               <div>We partner with software vendors to maintain and certify official modules.</div>
+            </div>
+            <div class="disclaimer">  
+              <h2>
+                <svg class="icon-community" height="24" viewBox="0 0 40 32">
+                  <use href="#icon-community"></use>
+                </svg> Comunity Modules</h2>
+              <div>These modules are maintained by the community, outside of the core Testcontainers project.</div>
+              <div>Want to contribute? Visit the <a href="https://github.com/testcontainers/community-module-registry" target="_blank">Community module regisrty</a></div>
+              
             </div>
         </div>
         <div class="content">
           <div class="modules-list-items">
             {{ range .Paginator.Pages }}
+              {{ $communityDocs := false }}
               {{ $languages := slice }}
               {{ range .Params.Docs }}
+                {{ if eq .maintainer "community" }}
+                  {{ $communityDocs = true }}
+                {{ end }}
                 {{ if .id }}
                   {{ $languages = $languages | append .id }}
                 {{ end }}
               {{ end }}
-              <a href="{{ .RelPermalink }}" class="modules-list-item" data-filter='{{ dict "title" .Title "description" .Description "languages" $languages "categories" .Params.Categories "official" .Params.isOfficial | jsonify }}'>
-                {{ $logoPath := printf "/images/modules/%s-mark.svg" .File.BaseFileName }}
-                {{ $logoImage := resources.Get $logoPath }}
+              <a href="{{ .RelPermalink }}" class="modules-list-item" data-filter='{{ dict "title" .Title "description" .Description "languages" $languages "categories" .Params.Categories "official" .Params.officialPartner | jsonify }}'>
+                {{ $logoImage := .Resources.GetMatch "logo.svg" }}
                 {{ if $logoImage }}
-                  {{ partial "img.html" (dict "image" $logoImage "alt" "") }}
+                  {{- $relImage := printf "%s/%s" .RelPermalink $logoImage -}}
+                  <img src="{{ $relImage }}" width="30" height="30" alt=""/>
                 {{ else }}
                   {{ partial "img.html" (dict "image" (resources.Get "/images/modules/none.svg") "alt" "") }}
                 {{ end }}
@@ -119,8 +132,15 @@
                 <div class="modules-list-item-content">
                     <div class="title">
                       <h2>{{ .Title }}</h2>
-                      {{ if .Params.isOfficial }}
-                        <div class="official">
+                      {{ if $communityDocs }}
+                        <div class="community" title="Community Module">
+                          <svg class="icon-community" height="16" viewBox="0 0 40 32">
+                            <use href="#icon-community"></use>
+                          </svg>
+                        </div>
+                      {{ end }}
+                      {{ if .Params.officialPartner }}
+                        <div class="official" title="Official Module">
                           <svg width="20" height="20" viewBox="0 0 30 30">
                             <use href="#icon-award"></use>
                           </svg>

@@ -176,6 +176,12 @@
             align-items: center;
         }
     }
+
+    .icon-community {
+        color: $teal;
+        display: block;
+    }
+
     .icon-award {
         color: $violet;
         display: block;
@@ -276,6 +282,13 @@
 
             @media (min-width: 1600px) {
                 font-size: rem(20px);
+            }
+        }
+
+        .community {
+            svg {
+                color: $teal;
+                display: block;
             }
         }
 
