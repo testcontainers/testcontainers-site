@@ -61,6 +61,3 @@ paginate = 9999
 [[module.mounts]]
     source = 'archetypes'
     target = 'archetypes'
-[[module.mounts]]
-    source = 'community-module-registry/modules'
-    target = 'content/modules'
