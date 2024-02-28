@@ -1,15 +1,15 @@
 #!/bin/bash
 
 GIT_ORG="https://github.com/testcontainers"
+: '
+echo "----------------- Downloading Community modules -----------------"
+COMMUNITY_MODULE_REPO="community-module-registry"
 
-#echo "----------------- Downloading Community modules -----------------"
-#COMMUNITY_MODULE_REPO="community-module-registry"
+rm -rf ${COMMUNITY_MODULE_REPO}
 
-#rm -rf ${COMMUNITY_MODULE_REPO}
-
-#echo "Cloning ${GIT_ORG}/${COMMUNITY_MODULE_REPO}.git"
-#git clone "${GIT_ORG}/${COMMUNITY_MODULE_REPO}.git"
-
+echo "Cloning ${GIT_ORG}/${COMMUNITY_MODULE_REPO}.git"
+git clone "${GIT_ORG}/${COMMUNITY_MODULE_REPO}.git"
+'
 echo "---------------- Downloading Guides -----------------------------"
 GUIDE_REPOS=(
   'tc-guide-introducing-testcontainers'
@@ -51,10 +51,10 @@ echo "------------------ Guides Setup Completed ---------------------------"
 
 # Convert SVG module logos to png for share image generation
 echo "---------------- Converting SVGs ----------------"
-for svg in $(ls content/modules/**/*.svg); do
-    dir=$(basename $(dirname $svg))
-    convert -background none -size 230x230 $svg assets/images/modules/share-logos/$dir.png
-done
+echo "Installing dependencies"
+npm install
+echo "Running script"
+node convert-svg.js
 echo "Finished converting SVGs"
 
 # output some version numbers:

@@ -1,5 +1,5 @@
 #!/bin/bash
-
+: '
 GIT_ORG="https://github.com/testcontainers"
 
 echo "----------------- Downloading Community modules -----------------"
@@ -65,11 +65,11 @@ for repo_name in "${PREVIEW_GUIDE_REPOS[@]}"; do
 done
 
 echo "------------------Guides Setup Completed ---------------------------"
-
+'
 # Convert SVG module logos to png for share image generation
 echo "---------------- Converting SVGs ----------------"
-for svg in $(ls content/modules/**/*.svg); do
-    dir=$(basename $(dirname $svg))
-    magick -background none -size 230x230 $svg assets/images/modules/share-logos/$dir.png
-done
+echo "Installing dependencies"
+npm install
+echo "Running script"
+node convert-svg.js
 echo "Finished converting SVGs"

@@ -1,0 +1,7 @@
+{
+  "type": "module",
+  "devDependencies": {
+    "globby": "^14.0.1",
+    "node-magickwand": "^0.9.7"
+  }
+}
