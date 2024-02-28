@@ -6,4 +6,5 @@
 /guide-repos/
 /community-module-registry/
 /assets/images/modules/share-logos/*
+!/assets/images/modules/share-logos/.gitkeep
 /node_modules/
