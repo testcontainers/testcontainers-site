@@ -1,10 +1,6 @@
 import { Magick } from "node-magickwand";
 import { globSync } from "glob";
 import * as path from "path";
-import { fileURLToPath } from 'url'
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
-console.log(`__dirname: ${__dirname}`);
 
 const files = globSync("content/modules/**/*.svg");
 console.log("Files:");
@@ -16,7 +12,7 @@ files.forEach((image) => {
     im.backgroundColor(new Magick.Color(0,0,0,0));
     im.read("230x230", image);
     im.magick("PNG");
-    const writePath = `${__dirname}/assets/images/modules/share-logos/${dirName}.png`
+    const writePath = `/assets/images/modules/share-logos/${dirName}.png`
     console.log(`Writing: ${writePath}`)
     im.write(writePath);
     console.log(`Finished: ${dirName}`)
