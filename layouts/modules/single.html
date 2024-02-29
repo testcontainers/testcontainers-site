@@ -40,7 +40,7 @@
                   <h1>
                     {{ .Title }}
                   </h1>
-                  {{ if or .Params.ofiicialPartner .Params.isOfficial }}
+                  {{ if or .Params.officialPartner .Params.isOfficial }}
                     <div class="official">
                       <svg width="30" height="30" viewBox="0 0 30 30">
                         <use href="#icon-award"></use>
@@ -98,7 +98,7 @@
                 </a>
               {{end}} 
             </div>
-            {{ if or .Params.ofiicialPartner .Params.isOfficial }}
+            {{ if or .Params.officialPartner .Params.isOfficial }}
               <div class="disclaimer">  
                 <h2>
                   <svg class="icon-award" width="24" height="24" viewBox="0 0 30 30">
