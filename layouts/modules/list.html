@@ -104,7 +104,6 @@
                 </svg> Comunity Modules</h2>
               <div>These modules are maintained by the community, outside of the core Testcontainers project.</div>
               <div>Want to contribute? Visit the <a href="https://github.com/testcontainers/community-module-registry" target="_blank">Community module regisrty</a></div>
-              
             </div>
         </div>
         <div class="content">
@@ -113,7 +112,7 @@
               {{ $communityDocs := false }}
               {{ $languages := slice }}
               {{ range .Params.Docs }}
-                {{ if eq .maintainer "community" }}
+                {{ if or (eq .maintainer "community") .isThirdParty }}
                   {{ $communityDocs = true }}
                 {{ end }}
                 {{ if .id }}
@@ -122,9 +121,12 @@
               {{ end }}
               <a href="{{ .RelPermalink }}" class="modules-list-item" data-filter='{{ dict "title" .Title "description" .Description "languages" $languages "categories" .Params.Categories "official" .Params.officialPartner | jsonify }}'>
                 {{ $logoImage := .Resources.GetMatch "logo.svg" }}
+                {{ $markImage := resources.Get (printf "/images/modules/%s-mark.svg" .File.BaseFileName) }}
                 {{ if $logoImage }}
                   {{- $relImage := printf "%s/%s" .RelPermalink $logoImage -}}
                   <img src="{{ $relImage }}" width="30" height="30" alt=""/>
+                {{ else if $markImage }}
+                  {{ partial "img.html" (dict "image" $markImage "alt" "") }}
                 {{ else }}
                   {{ partial "img.html" (dict "image" (resources.Get "/images/modules/none.svg") "alt" "") }}
                 {{ end }}
@@ -132,14 +134,7 @@
                 <div class="modules-list-item-content">
                     <div class="title">
                       <h2>{{ .Title }}</h2>
-                      {{ if $communityDocs }}
-                        <div class="community" title="Community Module">
-                          <svg class="icon-community" height="16" viewBox="0 0 40 32">
-                            <use href="#icon-community"></use>
-                          </svg>
-                        </div>
-                      {{ end }}
-                      {{ if .Params.officialPartner }}
+                      {{ if or .Params.officialPartner .Params.isOfficial }}
                         <div class="official" title="Official Module">
                           <svg width="20" height="20" viewBox="0 0 30 30">
                             <use href="#icon-award"></use>

@@ -1,7 +1,6 @@
 #!/bin/bash
 
 GIT_ORG="https://github.com/testcontainers"
-: '
 echo "----------------- Downloading Community modules -----------------"
 COMMUNITY_MODULE_REPO="community-module-registry"
 
@@ -9,7 +8,7 @@ rm -rf ${COMMUNITY_MODULE_REPO}
 
 echo "Cloning ${GIT_ORG}/${COMMUNITY_MODULE_REPO}.git"
 git clone "${GIT_ORG}/${COMMUNITY_MODULE_REPO}.git"
-'
+
 echo "---------------- Downloading Guides -----------------------------"
 GUIDE_REPOS=(
   'tc-guide-introducing-testcontainers'

@@ -264,7 +264,6 @@
 
         .title {
             display: flex;
-            justify-content: space-between;
             align-items: center;
             gap: 10px;
             overflow: hidden;
@@ -279,6 +278,7 @@
             overflow: hidden;
             text-overflow: ellipsis;
             flex-shrink: 1;
+            margin-right: auto;
 
             @media (min-width: 1600px) {
                 font-size: rem(20px);

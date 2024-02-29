@@ -55,6 +55,10 @@
             {{ $ogImage = $shareImage.Permalink }}
         {{- end }}
     {{ end }}
+    {{ $shareImage := resources.Get (printf "/images/modules/%s-share.png" $fileBaseName) }}
+    {{ with $shareImage }}
+        {{ $ogImage = .Permalink }}
+    {{ end }}
 {{ else if and (not .IsSection) (eq .Section "community-champions") }}
     {{ $ogTitle = printf "Community Champion: %s" .Page.Title }}
     {{ $ogDescription = printf "View the Testcontainers Community Champion profile for %s" .Page.Title }}
