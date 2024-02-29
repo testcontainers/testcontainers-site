@@ -51,9 +51,6 @@ echo "------------------ Guides Setup Completed ---------------------------"
 
 # Convert SVG module logos to png for share image generation
 echo "---------------- Converting SVGs ----------------"
-echo $(ls -ld assets/images/modules/share-logos)
-chmod 0777 -R assets/images/modules/share-logos/
-echo $(ls -ld assets/images/modules/share-logos)
 echo "Installing dependencies"
 npm install
 echo "Running script"
