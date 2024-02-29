@@ -2,6 +2,6 @@
   "type": "module",
   "devDependencies": {
     "glob": "^10.3.10",
-    "node-magickwand": "^0.9.7"
+    "sharp": "^0.33.2"
   }
 }
