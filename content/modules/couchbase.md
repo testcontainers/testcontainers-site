@@ -31,6 +31,12 @@ docs:
         .Build();
       await couchbaseContainer.StartAsync();
       ```
+  - id: nodejs
+    url: https://node.testcontainers.org/modules/couchbase/
+    example: |
+      ```javascript
+      const container = await new CouchbaseContainer().start();
+      ```
 description: |
   Couchbase is an open-source, distributed, multi-model, document oriented, NoSQL database.
 ---
