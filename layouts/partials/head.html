@@ -45,8 +45,8 @@
         {{ $ogDescription = printf "Start testing with real dependencies using the %s Module for Testcontainers for %s" . (delimit $languages ", " ", and ") }}
     {{ end }}
     {{ $ogImage = printf "%s/images/module-share-image.png" $siteBaseUrl }}
-    {{ $shareLogoImage := resources.Get (printf "/images/modules/share-logos/%s.png" $fileBaseName) }}
-    {{- with resources.Get $shareLogoImage }}
+    {{/* generated share image */}}
+    {{- with resources.Get (printf "/images/modules/share-logos/%s.png" $fileBaseName) }}
 		{{- $logoImg := . -}}
 		{{- $finalFilter := (images.Overlay $logoImg 814 173 ) -}}
         {{- $shareImage := resources.Get "/images/modules/module-share-image.png" }}
@@ -55,8 +55,12 @@
             {{ $ogImage = $shareImage.Permalink }}
         {{- end }}
     {{ end }}
-    {{ $shareImage := resources.Get (printf "/images/modules/%s-share.png" $fileBaseName) }}
-    {{ with $shareImage }}
+    {{/* local path share image */}}
+    {{ with .Resources.Get "share.png" }}
+        {{ $ogImage = .Permalink }}
+    {{ end }}
+    {{/* assets share image */}}
+    {{ with resources.Get (printf "/images/modules/%s-share.png" $fileBaseName) }}
         {{ $ogImage = .Permalink }}
     {{ end }}
 {{ else if and (not .IsSection) (eq .Section "community-champions") }}
