@@ -30,7 +30,7 @@ docs:
       await elasticsearchContainer.StartAsync();
       ```
   - id: nodejs
-    url: https://node.testcontainers.org/modules/elastic-search/
+    url: https://node.testcontainers.org/modules/elasticsearch/
     maintainer: core
     example: |
       ```javascript

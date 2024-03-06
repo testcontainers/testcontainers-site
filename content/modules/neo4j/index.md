@@ -2,6 +2,7 @@
 title: Neo4j
 categories:
   - nosql-database
+  - vector-database
 officialPartner:
   name: neo4j
   url: https://neo4j.com
