@@ -5,6 +5,7 @@ categories:
 docs:
   - id: java
     url: https://java.testcontainers.org/modules/k6/
+    maintainer: core
     example: |
       ```java
       var k6 = new K6Container("grafana/k6:0.49.0");

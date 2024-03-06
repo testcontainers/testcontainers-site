@@ -5,12 +5,14 @@ categories:
 docs:
   - id: java
     url: https://java.testcontainers.org/modules/qdrant/
+    maintainer: core
     example: |
       ```java
       var qdrant = new QdrantContainer("qdrant/qdrant:v1.7.4");
       ```
   - id: go
     url: https://golang.testcontainers.org/modules/qdrant/
+    maintainer: core
     example: |
       ```go
       qdrantContainer, err := qdrant.RunContainer(ctx, testcontainers.WithImage("qdrant/qdrant:v1.7.4"))

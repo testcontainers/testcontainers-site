@@ -35,6 +35,7 @@ docs:
       ```
   - id: nodejs
     url: https://node.testcontainers.org/modules/couchbase/
+    maintainer: core
     example: |
       ```javascript
       const container = await new CouchbaseContainer().start();
