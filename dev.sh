@@ -1,5 +1,4 @@
 #!/bin/bash
-
 GIT_ORG="https://github.com/testcontainers"
 
 echo "----------------- Downloading Community modules -----------------"
@@ -65,3 +64,11 @@ for repo_name in "${PREVIEW_GUIDE_REPOS[@]}"; do
 done
 
 echo "------------------Guides Setup Completed ---------------------------"
+
+# Convert SVG module logos to png for share image generation
+echo "---------------- Converting SVGs ----------------"
+echo "Installing dependencies"
+npm install
+echo "Running script"
+node convert-svg.js
+echo "Finished converting SVGs"

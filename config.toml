@@ -62,11 +62,14 @@ paginate = 9999
     source = 'archetypes'
     target = 'archetypes'
 [[module.mounts]]
+    source = 'content/modules'
+    target = 'content/modules'
+[[module.mounts]]
     source = 'community-module-registry/modules'
     target = 'content/modules'
 [[module.mounts]]
-    source = 'community-module-registry/assets'
+    source = 'assets/images/modules'
     target = 'assets/images/modules'
 [[module.mounts]]
-    source = 'assets/images/modules'
+    source = 'community-module-registry/assets'
     target = 'assets/images/modules'

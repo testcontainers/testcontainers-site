@@ -1,7 +1,6 @@
 #!/bin/bash
 
 GIT_ORG="https://github.com/testcontainers"
-
 echo "----------------- Downloading Community modules -----------------"
 COMMUNITY_MODULE_REPO="community-module-registry"
 
@@ -47,7 +46,15 @@ for repo_name in "${GUIDE_REPOS[@]}"; do
   rm -rf "${GUIDES_TARGET_DIR:?}/${repo_name}"
   cp -r "${GUIDE_REPOS_CLONE_DIR}/${repo_name}/guide/." "${GUIDES_TARGET_DIR}"
 done
-echo "------------------Guides Setup Completed ---------------------------"
+echo "------------------ Guides Setup Completed ---------------------------"
+
+# Convert SVG module logos to png for share image generation
+echo "---------------- Converting SVGs ----------------"
+echo "Installing dependencies"
+npm install
+echo "Running script"
+node convert-svg.js
+echo "Finished converting SVGs"
 
 # output some version numbers:
 cat /etc/issue

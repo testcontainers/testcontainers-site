@@ -25,10 +25,13 @@
         <div class="container">
           <header class="module-header">
             <div class="banner-wrapper">
-              {{ $logoPath := printf "/images/modules/%s-mark.svg" .File.BaseFileName }}
-              {{ $logoImage := resources.Get $logoPath }}
+              {{ $logoImage := .Resources.GetMatch "logo.svg" }}
+              {{ $markImage := resources.Get (printf "/images/modules/%s-mark.svg" .File.BaseFileName) }}
               {{ if $logoImage }}
-                {{ partial "img.html" (dict "image" $logoImage "alt" "") }}
+                {{- $relImage := printf "%s/%s" .RelPermalink $logoImage -}}
+                <img src="{{ $relImage }}" width="100" height="100" alt=""/>
+              {{ else if $markImage }}
+                {{ partial "img.html" (dict "image" $markImage "alt" "") }}
               {{ else }}
                 {{ partial "img.html" (dict "image" (resources.Get "/images/modules/none.svg") "alt" "") }}
               {{ end }}
@@ -37,7 +40,7 @@
                   <h1>
                     {{ .Title }}
                   </h1>
-                  {{ if .Params.isOfficial }}
+                  {{ if or .Params.officialPartner .Params.isOfficial }}
                     <div class="official">
                       <svg width="30" height="30" viewBox="0 0 30 30">
                         <use href="#icon-award"></use>
@@ -69,7 +72,7 @@
           <div class="module-sidebar longform-content">
             <div>
               <h2>Documentation</h2>
-              {{ $thirdParyDocs := false }}
+              {{ $communityDocs := false }}
               {{ range .Params.Docs }}
                 {{ $language := where $langaugesData "id" .id }}
                 {{ $lang := index $language 0 }}
@@ -78,34 +81,49 @@
                     {{ partial "img.html" (dict "image" (resources.Get $lang.logo) "alt" "") }}
                   {{ end }}
                   {{ $lang.label }}
-                  {{ if .isThirdParty }}
-                    {{ $thirdParyDocs = true }}
+                  {{ if or (eq .maintainer "community") .isThirdParty }}
+                    {{ $communityDocs = true }}
                     <svg class="icon-community" height="16" viewBox="0 0 40 32">
                       <use href="#icon-community"></use>
                     </svg>
                   {{ end }}
+                  {{/*
+                  {{ if eq .maintainer "official" }}
+                    <svg class="icon-award" width="16" height="16" viewBox="0 0 30 30">
+                      <use href="#icon-award"></use>
+                    </svg>
+                  {{ end }}
+                  */}}
                   <svg class="icon-external" width="15" height="17" viewBox="0 0 15 17">
                       <use href="#icon-external"></use>
                   </svg>
                 </a>
               {{end}} 
             </div>
-            {{ if .Params.isOfficial }}
+            {{ if or .Params.officialPartner .Params.isOfficial }}
               <div class="disclaimer">  
                 <h2>
                   <svg class="icon-award" width="24" height="24" viewBox="0 0 30 30">
                     <use href="#icon-award"></use>
-                  </svg> Official Modules</h2>
+                  </svg> Official Module</h2>
+                {{ with .Params.officialPartner }}
+                  <a href="{{ .url }}" target="_blank">
+                    {{ .name }}
+                    <svg class="icon-external" width="15" height="17" viewBox="0 0 15 17">
+                      <use href="#icon-external"></use>
+                    </svg>
+                  </a>
+                {{ end }}
                 <div>We partner with software vendors to maintain and certify official modules.</div>
               </div>
             {{ end }}
 
-            {{ if $thirdParyDocs }}
+            {{ if $communityDocs }}
               <div class="disclaimer">  
                 <h2>
                   <svg class="icon-community" height="24" viewBox="0 0 40 32">
                     <use href="#icon-community"></use>
-                  </svg> Community Modules</h2>
+                  </svg> Community Module</h2>
                 <div>These modules are maintained by the community, outside of the Testcontainers project.</div>
               </div>
             {{ end }}

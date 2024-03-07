@@ -18,10 +18,11 @@
 {{ $langaugesData := .Site.Data.languages }}
 {{ $pageDocs := .Page.Params.Docs }}
 {{ $siteBaseUrl := .Site.BaseURL }}
-{{ $fileBaseName := "default" }}
+{{ $fileBaseName := "" }}
 {{ with .File }}
-    {{ $fileBaseName = .BaseFileName }}
+    {{ $fileBaseName = .ContentBaseName }}
 {{ end }}
+
 {{ $ogTitle := .Site.Title }}
 {{ $ogDescription := .Site.Params.Description }}
 {{ $ogImage := printf "%s/images/share-image.png" $siteBaseUrl }}
@@ -43,12 +44,24 @@
 
         {{ $ogDescription = printf "Start testing with real dependencies using the %s Module for Testcontainers for %s" . (delimit $languages ", " ", and ") }}
     {{ end }}
-    {{ $shareImagePath := printf "/images/modules/%s-share.png" $fileBaseName }}
-    {{ $shareImage := resources.Get $shareImagePath }}
-    {{ if $shareImage }}
-        {{ $ogImage = $shareImage.Permalink }}
-    {{ else }}
-        {{ $ogImage = printf "%s/images/module-share-image.png" $siteBaseUrl }}
+    {{ $ogImage = printf "%s/images/module-share-image.png" $siteBaseUrl }}
+    {{/* generated share image */}}
+    {{- with resources.Get (printf "/images/modules/share-logos/%s.png" $fileBaseName) }}
+		{{- $logoImg := . -}}
+		{{- $finalFilter := (images.Overlay $logoImg 814 173 ) -}}
+        {{- $shareImage := resources.Get "/images/modules/module-share-image.png" }}
+        {{ if $shareImage }}
+		    {{- $shareImage = $shareImage | images.Filter $finalFilter -}}
+            {{ $ogImage = $shareImage.Permalink }}
+        {{- end }}
+    {{ end }}
+    {{/* local path share image */}}
+    {{ with .Resources.Get "share.png" }}
+        {{ $ogImage = .Permalink }}
+    {{ end }}
+    {{/* assets share image */}}
+    {{ with resources.Get (printf "/images/modules/%s-share.png" $fileBaseName) }}
+        {{ $ogImage = .Permalink }}
     {{ end }}
 {{ else if and (not .IsSection) (eq .Section "community-champions") }}
     {{ $ogTitle = printf "Community Champion: %s" .Page.Title }}
