@@ -16,7 +16,7 @@ docs:
       ```
   - id: go
     url: https://golang.testcontainers.org/modules/pulsar/
-    maintainer: core
+    maintainer: official
     example: |
       ```go
       pulsarContainer, err := pulsar.RunContainer(ctx,
