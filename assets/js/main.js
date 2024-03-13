@@ -143,7 +143,8 @@ signupLinks.forEach(link => {
         query.set(utm.key, utm.value);
     });
     const queryString = (query.toString() != "") ? "?" + query.toString() : "";
-    link.href = url.toString() + queryString;
+    url.search = queryString;
+    link.href = url.toString();
 });
 signupForms = document.querySelectorAll(".tcc-signup-form");
 signupForms.forEach(form => {
