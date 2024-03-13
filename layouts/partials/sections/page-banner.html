@@ -1,22 +1,30 @@
 <section class="page-banner">
     <div class="container">
         <div class="content">
-            <h1>{{ .section.title | markdownify }}</h1>
-            <div>{{ .section.description | markdownify }}</div>
-            <div class="buttons-wrapper">
-                <div class="buttons">
-                    {{ range .section.buttons }}
-                        {{ $buttonClasses := slice "button" }}
-                        {{ with .style }}
-                            {{ $buttonClasses = $buttonClasses | append . }}
+            {{ with .section.title }}
+                <h1>{{ . | markdownify }}</h1>
+            {{ end }}
+            {{ with .section.description }}
+                <div class="description">{{ . | markdownify }}</div>
+            {{ end }}
+            {{ with .section.buttons }}
+                <div class="buttons-wrapper">
+                    <div class="buttons">
+                        {{ range . }}
+                            {{ $buttonClasses := slice "button" }}
+                            {{ with .style }}
+                                {{ $buttonClasses = $buttonClasses | append . }}
+                            {{ end }}
+                            <a class='{{ delimit $buttonClasses " " }}' href="{{ .url }}" target="{{ .target }}">{{ .label }}</a>
                         {{ end }}
-                        <a class='{{ delimit $buttonClasses " " }}' href="{{ .url }}" target="{{ .target }}">{{ .label }}</a>
-                    {{ end }}
+                    </div>
                 </div>
+            {{ end }}
+        </div>
+        {{ with .section.image }}
+            <div class="image">
+                {{ partial "img.html" (dict "image" (resources.Get .) "alt" "") }}
             </div>
-        </div>
-        <div class="image">
-            {{ partial "img.html" (dict "image" (resources.Get .section.image) "alt" "") }}
-        </div>
+        {{ end }}
     </div>
 </section>

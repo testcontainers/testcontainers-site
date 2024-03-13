@@ -1,0 +1,44 @@
+{{ $title := .section.title }}
+{{ $description := .section.description }}
+{{ $links := .section.links }}
+<section class="resource-links">
+    <div class="container">
+        {{ if or $title $description }}
+            <div class="content">
+                {{ with $title }}
+                    <h2>{{ . | markdownify }}</h2>
+                {{ end }}
+                {{ with $description }}
+                    <div class="description">{{ . | markdownify }}</div>
+                {{ end }}
+            </div>
+        {{ end }}
+        {{ with $links }}
+            <div class="links">   
+                {{ range . }}
+                    <a href="{{ .url }}" class="link-list-item">
+                        {{ with .image }}
+                            <div class="image">
+                                <img width="100" height="100" src="{{ . }}" alt=""/>
+                            </div>
+                        {{ end }}
+                        {{ with .title }}
+                            <div class="title">{{ . | markdownify }}</div>
+                        {{ end }}
+                        {{ with .description }}
+                            <div class="description">{{ . | markdownify }}</div>
+                        {{ end }}
+                        {{ with .cta }}
+                            <div class="cta">
+                                {{ . }}
+                                <svg class="icon-caret" height="10" viewBox="0 0 10 10">
+                                    <use href="#icon-caret"></use>
+                                </svg>
+                            </div>
+                        {{ end }}
+                    </a>
+                {{ end }}
+            </div>
+        {{ end }}
+    </div>
+</section>
