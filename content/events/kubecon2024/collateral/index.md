@@ -17,7 +17,9 @@ sections:
         cta: Read More
         image: images/resource-tc.svg
       - url: https://app.testcontainers.cloud/signup?utm_medium=event&utm_source=2024-kubecon-eu-mar&utm_content=collateral&test
-        title: Sign up for Testcontainer Cloud
+        title: |
+          Sign up for\
+          Testcontainers Cloud
         cta: Sign Up
         image: images/resource-tcc.svg
       - url: https://slack.testcontainers.com/
