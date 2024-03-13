@@ -2,10 +2,15 @@
 Title: Testcontainers at Kubecon EU Collateral Library
 Description: In an effort to reduce carbon emissions and to improve the environmental friendliness of our booth, we've decided to offer digital versions of our collateral.
 sections:
-  - partial: page-banner
+  - partial: event-banner
+    label: Conference
     title: |
-      **Testcontainers at Kubecon EU Collateral Library**
+      **Testcontainers\
+      Collateral Library**
+    location: KubeCon Europe
+    date: 19 - 22 March 2024 
     description: In an effort to reduce carbon emissions and to improve the environmental friendliness of our booth, we've decided to offer digital versions of our collateral.
+    image: images/kubecon.svg
   - partial: resource-links
     links:
       - url: docker_cheatsheet.pdf
