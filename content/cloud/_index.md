@@ -60,7 +60,7 @@ sections:
         image: /images/quotes/roberto-perez-alcolea.jpg
   - partial: experience-columns
     title: Full Testcontainers Experience
-    description: Testcontainers is an open source framework for providing throwaway, lightweight instances of databases, message brokers, web browsers, or just about anything that can run in a Docker container. Testcontainers Cloud lets you have the same great experience wherever you are running your tests.
+    description: Testcontainers is an open source library for providing throwaway, lightweight instances of databases, message brokers, web browsers, or just about anything that can run in a Docker container. Testcontainers Cloud lets you have the same great experience wherever you are running your tests.
     columns:
       - icon: testcontainers
         title: Unit Tests With Real Dependencies
