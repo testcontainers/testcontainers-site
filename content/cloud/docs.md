@@ -524,3 +524,366 @@ If everything is correct, you will see in the log a similar line very early in t
 ```none
 2022-11-07T18:47:56.964Z --- DBG Verbose output enabled
 ```
+
+### No Docker activity detected
+
+#### Common Causes
+
+You may sometimes encounter a warning message stating *"this worker was requested by the Testcontainers Cloud agent but seemingly didn’t run any containers."* This warning indicates that the worker did not perform any expected work. This can happen when:
+
+1. **Running Docker commands directly in the terminal.** Typically, Testcontainers Cloud users rely on the Testcontainers open-source libraries to control the lifecycle of their containers. Executing raw Docker commands directly against the TCC Docker context is unsupported. For example, if you run Docker commands (e.g. `docker ps`) directly on your machine while the Testcontainers Cloud agent is active but no worker is currently connected, you might accidentally start a new worker.
+
+2. **Starting the Testcontainers Cloud agent in CI pipelines without Testcontainers-based tests.** When starting the Testcontainers Cloud agent in your CI/CD pipelines, it is important to ensure that your pipeline jobs actually include Testcontainers-based tests. If you start the agent in pipelines that don't run any Testcontainers-based tests, the worker will start and wait, without performing any useful activity.
+
+#### Troubleshooting Steps
+
+If you encounter the "no activity detected" warning, consider the following troubleshooting steps:
+
+1. Review CI pipeline configuration: inspect your CI/CD pipeline configuration and verify that the appropriate stages are set up to execute Testcontainers-based tests. Ensure that the pipeline triggers the execution of these tests.
+
+2. Avoid Docker command interference: ensure that you are not running any Docker commands directly on your desktop machine while the Testcontainers Cloud agent is active. These external commands can interfere with the agent's ability to control and manage containers.
+
+3. Validate Testcontainers integration: double-check the integration of Testcontainers within your test codebase. Ensure that the necessary dependencies and configurations are in place. Confirm that the tests correctly invoke Testcontainers APIs to create and manage containers.
+
+#### Conclusion
+
+The "No activity detected" warning in Testcontainers Cloud indicates that a worker did not run any containers as expected. By avoiding external Docker commands on the desktop and ensuring that CI pipelines execute Testcontainers-based tests, you can minimize "empty" workers and leverage the full capabilities of Testcontainers Cloud.
+
+If the issue persists, consult the Testcontainers Cloud documentation or contact us to help further troubleshoot and resolve the problem.
+
+<!-- TODO: Update to new dashboard instructions and include the "Connect" terminal in the dashboard -->
+### How to connect to a cloud worker for troubleshooting
+
+For advanced troubleshooting use cases, it can be useful to connect to a Testcontainers Cloud worker from your machine.
+
+#### 1. Obtain the "Worker ID"
+
+By navigating to [dashboard](https://app.testcontainers.cloud/dashboard), it's possible to see "live sessions" for which cloud workers are available. By hovering over the card and clicking on the "kebab menu" (the 3 dots) it's possible to copy the "Worker ID" to the clipboard.
+
+{{<screenshot>}}![Testcontainers Cloud copy Worker ID](../images/tcc_connect_worker_id.webp){{</screenshot>}}
+
+#### 2. Download the CI agent and make it executable
+
+The connect feature is part of the Testcontainers Cloud binary. If you don't already have the agent, you can download it from the [install page](https://app.testcontainers.cloud/dashboard/install?target=linux-ci) or directly at https://get.testcontainers.cloud/bash.
+
+```shell
+curl -o tcc-agent -L https://app.testcontainers.cloud/download/testcontainers-cloud-agent_next_darwin_arm64
+chmod +x tcc-agent
+```
+
+#### 3. Connect to the cloud worker
+
+In a terminal window, use the agen'ts `connect` method with the Worker ID as parameter:
+
+```shell
+./tcc-agent connect <worker-id>
+```
+
+Assuming that you run Testcontainers Desktop and are signed-in, the Testcontainers Cloud agent should automatically reuse the authentication token and no further step is required. If that's not the case, see the next section.
+
+#### 4. (optional) Provide a Testcontainers Cloud authentication token
+
+If you'd like to pass the token manually, you can either set the `TC_CLOUD_TOKEN` environment variable or provide it as a command line argument:
+
+```shell
+./tcc-agent --token <token> connect <worker-id>
+```
+
+### Slower tests
+
+Generally, with fast internet, tests should be on par or faster than with the local Docker Desktop. If you notice the test speed downgrade - check the Connection submenu of the Testcontainers Cloud Desktop app, it will show the last captured latency. Ideally the connection latency should be below 20ms.
+
+Also, with TCC, you can run tests in parallel, and, with the [Turbo Mode](#fine-tune-turbo-mode) enabled, you can have each test fork connected to its own VM, so you can literally run tests 3-4 times faster.
+
+## TCC for CI
+
+<!-- TODO: Update? Link to the CI install page in the app? -->
+### Starting the agent in a CI job
+
+To use Testcontainers Cloud in your CI environment please add a step to your CI job that starts the Testcontainers Cloud agent before you run your tests. Do not forget to set your Testcontainers Cloud token as well.
+
+It is also recommended that you make use of the built-in `wait` command to block until a successful connection to Testcontainers Cloud has been established, so you can be confident that your tests will interact with Testcontainers Cloud in a ready state:
+
+```shell
+# get the agent binary and execute it immediately 
+sh -c "$(curl -fsSL https://get.testcontainers.cloud/bash)"
+
+# run your Testcontainers powered tests as usual
+mvn verify
+```
+
+You also need to set your **Testcontainers Cloud token**. For many environments, the most convenient way is using an environment variable, `TC_CLOUD_TOKEN`. However, please keep the token as secret as possible.
+
+### Using TCC with Github Actions
+
+To use Testcontainers Cloud with your GitHub Actions you just need to make sure `TC_CLOUD_TOKEN` is set to your corresponding token value, then download the agent and start it. You can use the following script to add necessary steps to your workflow :
+
+```yaml
+build:
+  env:
+    TC_CLOUD_TOKEN: $
+  steps:
+    - name: Prepare Testcontainers Cloud agent
+      if: env.TC_CLOUD_TOKEN != ''
+      uses: atomicjar/testcontainers-cloud-setup-action@main
+    # ... existing steps go here (checkout, run tests, etc.)
+```
+
+{{<note>}}
+If you are seeing jobs triggered by Dependabot fail make sure you have also set `TC_CLOUD_TOKEN` in Dependabot secrets.
+{{</note>}}
+
+### Using TCC with Kubernetes
+
+You can also use Testcontainers Cloud in Kubernetes based CI environments (such as Tekton or Jenkins X). Just download the agent, start it and make sure `TC_CLOUD_TOKEN` is set to your corresponding token value:
+
+```yaml
+command:
+    - sh -c "$(curl -fsSL https://get.testcontainers.cloud/bash)"
+    - mvn verify
+envs:
+    - name: TC_CLOUD_TOKEN
+      valueFromSecretRef: tccToken
+```
+
+### Using TCC with CircleCI
+
+To use Testcontainers Cloud with CircleCI you need to set `TC_CLOUD_TOKEN` to your corresponding service account token. You can generate the token in the [Testcontainers Cloud dashboard](http://app.testcontainers.cloud/dashboard/install?target=circleci). Then add the token to your CircleCI [workflow by setting the environment variable in your CircleCI Project Settings](https://circleci.com/docs/set-environment-variable/#set-an-environment-variable-in-a-project).
+ 
+Next you need to configure your CircleCI workflow to install and use Testcontainers Cloud. You can add the [testcontainers-cloud-orb](https://circleci.com/developer/orbs/orb/atomicjar/testcontainers-cloud-orb) setup as a pre-step to your CircleCI Job. And configure it to start the Testcontainers Cloud agent before running the tests.
+
+You can use the following script to add the steps to your workflow, note the "tcc:" orb, and the "tcc/setup" config in the "pre-steps":
+
+```yaml
+version: "2.1"
+orbs:
+  tcc: atomicjar/testcontainers-cloud-orb@0.1.0
+workflows:
+  workflow_name:
+    jobs:
+      - job_name:
+          # ... existing steps go here (run tests, etc.)
+          pre-steps:
+            - tcc/setup
+```
+
+### Using TCC with Cloud Build
+
+To use Testcontainers Cloud with Google Cloud Build you need to set `TC_CLOUD_TOKEN` to your corresponding service account token. You can generate the token in the [Testcontainers Cloud dashboard](https://app.testcontainers.cloud/dashboard/install?target=cloudbuild). You can store your service account token securely in [Google Cloud Secrets Manager](https://cloud.google.com/build/docs/securing-builds/use-secrets). Once the secret is created, grant access to the principal `YOUR_PROJECT_ID@cloudbuild.gserviceaccount.com`, and assign the `Secret Manager Secret Accessor` role to it.
+
+Next you need to install and start Testcontainers Cloud agent by setting `TC_CLOUD_TOKEN` environment variable by looking up the value from `Google Cloud Secrets Manager`. 
+
+You can use the following script for your `cloudbuild.yaml` configuration:
+
+```yaml
+steps:
+    - name: "docker-image:tag" # ex: maven:3-eclipse-temurin-19
+      args:
+          - "-c"
+          - |
+              curl -fsSL https://app.testcontainers.cloud/bash | bash
+              cp ~/.testcontainers.properties /root/.testcontainers.properties
+              # Your test command like "mvn test" or "npm test"
+      dir: "${_APP_NAME}"
+      entrypoint: bash
+      secretEnv:
+          - TC_CLOUD_TOKEN
+availableSecrets:
+    secretManager:
+        - versionName: projects/<PROJECT_ID>/secrets/TC_CLOUD_TOKEN/versions/latest
+          env: TC_CLOUD_TOKEN
+```
+
+### Using TCC with GitLab CI/CD
+
+To use Testcontainers Cloud with GitLab you need to set `TC_CLOUD_TOKEN` to your corresponding service account token. You can generate the token in the [Testcontainers Cloud dashboard](https://app.testcontainers.cloud/dashboard/install?target=gitlab). Then add the token to your GitLab job by [setting environment variable in your GitLab Project Settings](https://docs.gitlab.com/ee/ci/variables/#add-a-cicd-variable-to-a-project).
+
+Next you need to configure your GitLab pipeline job to install and use Testcontainers Cloud. You can use the Testcontainers Cloud agent installation script and start it before running your tests.
+
+You can use the following configuration for your `.gitlab-ci.yml`:
+
+```yaml
+image: "docker-image:tag" # ex: maven:3-eclipse-temurin-19
+
+job_name:
+    stage: test
+    script:
+        - curl -fsSL https://app.testcontainers.cloud/bash | bash
+        -  # ... existing steps go here (run tests, etc.)
+```
+
+### Using TCC with Azure Pipelines
+
+To use Testcontainers Cloud with Azure Pipelines you need to set TC_CLOUD_TOKEN to your corresponding service account token. You can generate the token in the [Testcontainers Cloud dashboard](https://app.testcontainers.cloud/dashboard/install?target=azure-pipeline). Then add the token to your pipeline by [setting an variable in your pipeline settings](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch) and using it as an environment variable in for the task. 
+
+Next you need to configure your Azure Pipelines pipeline job to install and use Testcontainers Cloud. You can use the Testcontainers Cloud agent installation script and start it before running your tests.
+
+You can use the following configuration step for your `azure-pipelines.yml` before the pipeline executes the build tool command to run the tests.
+
+```yaml
+steps:
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: 'sh -c "$(curl -fsSL https://get.testcontainers.cloud/bash)"'
+  env:
+    TC_CLOUD_TOKEN: $(TC_CLOUD_TOKEN)
+```
+
+### Using TCC with Jenkins
+
+To use Testcontainers Cloud with Jenkins first you need generate the token in the [Testcontainers Cloud dashboard](https://app.testcontainers.cloud/dashboard/install?target=jenkins-pipeline). Then you can store the token as a Secret as follows:
+
+- From **Dashboard** go to **Manage Jenkins -> Manage Credentials**
+- Under **Stores scoped to Jenkins** click on **(globals)** domain and **Add Credentials**
+- Provide the following values and click on **Create**
+  - **Kind:** Secret text
+  - **Secret:** `YOUR_TOKEN_VALUE`
+  - **ID:** `tc-cloud-token-secret-id`
+
+Next, you should configure your Jenkins Pipeline to look up the credentials and set the `TC_CLOUD_TOKEN` environment variable. You can use the Testcontainers Cloud agent installation script and start it before running your tests.
+
+You can use the following configuration step for your `Jenkinsfile` before the pipeline executes the build tool command to run the tests. 
+
+```groovy
+pipeline {
+    agent any
+
+    environment {
+        TC_CLOUD_TOKEN = credentials('tc-cloud-token-secret-id')
+    }
+
+    stages {
+        stage('TCC SetUp') {
+            steps {
+                sh "curl -fsSL https://get.testcontainers.cloud/bash | sh "
+            }
+        }
+        stage('Test') {
+            steps {
+                // run your test command
+            }
+        }
+    }
+}
+```
+
+### Using TCC with Tekton
+
+To use Testcontainers Cloud with Tekton you need to set `TC_CLOUD_TOKEN` to your corresponding service account token. You can generate the token in the [Testcontainers Cloud dashboard](https://app.testcontainers.cloud/dashboard/install?target=tekton). Then add the token to your pipeline by creating a secret and using it as a  variable in your pipeline task. 
+
+For example, you can define a secret in a separate secret.yaml file like in the following example:
+
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: tcc-token
+stringData:
+  token: YOUR_TOKEN_VALUE_GOES_HERE
+```
+
+Next you need to configure your Tekton pipeline to install and use Testcontainers Cloud agent prior running the tests. For that you can use the Testcontainers Cloud agent installation script.
+
+Here's a sample configuration for a Tekton task task.build.yaml which bind the above secret to the `TC_CLOUD_TOKEN` environment variable, and runs the script that installs and starts Testcontainers Cloud agent, and then calls to the Maven test command.
+
+```yaml
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: build-java-maven
+spec:
+  workspaces:
+    - name: source
+  steps:
+    - name: maven-build
+      image: amazoncorretto:17.0.5-al2
+      env:
+        - name: TC_CLOUD_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: tcc-token
+              key: token
+      script: |
+        set -e
+        cd "$(workspaces.source.path)"
+        sh -c "$(curl -fsSL https://get.testcontainers.cloud/bash)"
+        ./mvnw test
+```
+
+This is a flexible approach you can use to run Testcontainers Cloud in Tekton with the tests in other languages by swapping the `mvn` command for the corresponding build tool call.
+
+## Billing
+
+### How usage is measured and billed
+
+#### Overview
+
+Usage for Testcontainers Cloud is triggered by the Testcontainers Cloud Agent. In order to trigger usage, the Agent needs to be authenticated with the credentials of an authorized user within the customer's account. An authorized user can be either a Member (typically a person) or a Service Account (typically used by an automated system).
+
+Usage is metered differently for Members and Service Accounts:
+
+- For Service Accounts, see Testcontainers Cloud for CI below.
+- For Members, see Testcontainers Cloud for Desktop below.
+
+#### Testcontainers Cloud for CI
+
+Usage is metered in `Worker Minute`.
+
+When the Testcontainers Cloud Agent is deployed in a Continuous Integration (CI) environment, it is authenticated with the credentials for a Service Account. When the CI executes its workflow (sometimes called a "build" or "pipeline"), the Agent allocates one or several Worker(s) in order to deliver the Testcontainers Cloud service. For each Worker, usage is metered while the Worker is allocated. Allocation starts when the Worker is requested on-demand via the Agent by Service Account activity, and ends when the Worker is terminated after a period of inactivity.
+
+The customer controls whether the Agent obtains one or several Workers from the Testcontainers Cloud Service by setting the `max-concurrency` flag. Setting this flag above 1 allows the customer to parallelize tests across multiple Workers thanks to [Turbo mode](#parallelize-your-tests-with-turbo-mode).
+
+##### Example 1
+
+The Testcontainers Cloud Agent is deployed in the CI where it runs twice a day from Monday to Friday. Each execution requires a single Testcontainers Cloud Worker for 17 minutes.
+
+Each "build" generates 17 minutes of usage on average. Over the course of 4 weeks, the CI is triggered 40 times, for a total usage of of 680 Worker Minutes.
+
+##### Example 2
+
+The Testcontainers Cloud Agent is deployed in the CI where it runs 10 times a day from Monday to Sunday. Each execution requires 4 Testcontainers Cloud Workers running in parallel. 3 of the Workers complete in 4 minutes while one completes in 8 minutes.
+
+In total, each build generates 20 minutes of usage. Over the course of 30 days, the CI is triggered 300 times, for a total usage of 6,000 Worker Minutes.
+
+#### Testcontainers Cloud for Desktop
+
+Usage is metered in `Seats`.
+
+Usage of the Testcontainers Cloud Agent by a Member of the Organization counts as a single Seat regardless of the number of Worker Minutes generated during a month (within the limits set by the Fair Use policy). This includes cases where the Member parallelizes tests across multiple Workers thanks to [Turbo mode](#parallelize-your-tests-with-turbo-mode).
+
+##### Example 3
+
+An Organization includes 2 Members:
+
+1. Alice is the Admin for the organization. She doesn't actively use the product and so Alice doesn't generate a Seat.
+2. Barbara is a developer who uses the product several times every work day, with Turbo mode activated. Overall, Barbara triggers 2,500 Worker Minutes per month, but counts as a single Seat.
+
+This organization has 2 Members generating a single Seat of usage for the month.
+
+#### Frequently Asked Questions
+
+##### When does the billing cycle start?
+
+The billing cycle begins the first of the month UTC, regardless of when you sign up.
+
+For the very first month of usage, Testcontainers Cloud for CI is billed based on actual Worker Minutes used after the upgrade date, and Testcontainers Cloud for Desktop is prorated based on the Organization upgrade date.
+
+For the following months of usage, Testcontainers Cloud for CI is billed based on actual Worker Minutes used, and Testcontainers Cloud for Desktop is billed only for Members that joined the organization prior to the start of the month. This means that if a Member generates usage during the month they join, their Seat is waived as a courtesy until the start of the following month.
+
+##### What is the Fair Use policy?
+
+While a Seat grants "unlimited" usage of Testcontainers Cloud for Desktop, some practical limits exist to deter potential abuse of the service (e.g. crypto-mining). Under the Fair Use policy, a Seat grants a quota of 3,000 Worker Minutes per month. This quota is above the upper range that we observe in practice for the vast majority of users. Moreover, because quotas are summed for all the Seats used, even a few "power users" within an Organization typically don't exhaust the entire quota for their team.
+
+### What is a free plan?
+
+With Testcontainers Desktop being free for solo developers, access to Testcontainers Cloud has some restrictions. Simply reach out to us to lift the restrictions and try all of Testcontainers Cloud!
+
+#### What features are restricted in a free plan?
+
+To make it easy to burst your tests to the cloud, we are offering a monthly quota of free for solo developers Testcontainers Cloud usage with the following restrictions:
+
+- You can use Testcontainers Cloud on the desktop with a monthly limit of 300 minutes of cloud runtime.
+- You can use Testcontainers Cloud on the desktop, but [Turbo mode](#parallelize-your-tests-with-turbo-mode) is disabled, which means that all tests execute on a single worker.
+- You can use Testcontainers Cloud on the desktop, but only in solo.
+- You can try Testcontainers Cloud with your CI but with a single Service Account running a single session at a time (i.e., no concurrent builds and no turbo mode).
