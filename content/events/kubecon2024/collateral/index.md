@@ -13,7 +13,7 @@ sections:
     image: images/kubecon.svg
   - partial: resource-links
     links:
-      - url: docker_cheatsheet.pdf
+      - url: kubecon-2024-tc-oss-one-pager.pdf
         title: Testcontainers OSS
         cta: Download PDF
         image: images/resource-pdf.svg
