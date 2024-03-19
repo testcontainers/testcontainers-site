@@ -84,6 +84,6 @@ then
 fi
 
 # Build search index
-npx pagefind --site="public" --output-path="static/_pagefind"
+npx pagefind --site="public" --output-subdir="_pagefind"
 
 exit $hugoReturnCode
