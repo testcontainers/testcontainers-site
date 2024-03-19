@@ -310,3 +310,31 @@
         }
     }
 }
+
+#header-search-toggle {
+    border: 1px solid $fog;
+    border-radius: 4px;
+    background: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 8px;
+    font-size: 14px;
+    line-height: 1;
+    color: $smoke;
+    cursor: text;
+    width: 100%;
+    max-width: 200px;
+
+    .shortcut {
+        font-size: 12px;
+        font-weight: 500;
+        margin-left: auto;
+    }
+
+    svg {
+        width: 16px;
+        height: 16px;
+        color: $eggplant;
+    }
+}
