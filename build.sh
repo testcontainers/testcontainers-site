@@ -83,4 +83,7 @@ then
    echo "Hugo failed with return code ${hugoReturnCode}"
 fi
 
+# Build search index
+npx pagefind --site="public" --output-subdir="static/_pagefind"
+
 exit $hugoReturnCode
