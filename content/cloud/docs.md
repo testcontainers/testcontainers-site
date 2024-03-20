@@ -20,7 +20,7 @@ Testcontainers Cloud removes the need for local Docker installation. When you tr
 1. Download and install [Testcontainers Desktop](/desktop/docs/)
 2. Select the `Testcontainers Cloud` runtime
 
-{{<screenshot fixedheight>}}![Testcontainers Desktop cloud runtime](../images/tcd_cloud_runtime.png){{</screenshot>}}
+{{<screenshot fixedheight>}}![Testcontainers Desktop cloud runtime](../images/tcd-cloud-runtime.png){{</screenshot>}}
 
 You can now run your Testcontainers based tests with containers running in the Testcontainers Cloud.
 
@@ -115,7 +115,7 @@ Note that Turbo mode is currently restricted for Trial accounts, please consult 
 
 In the Testcontainers Cloud Desktop application you can select the checkbox Turbo mode to enable the mode locally.
 
-{{<screenshot fixedheight>}}![Testcontainers Desktop turbo mode](../images/tcd_turbo_mode.png){{</screenshot>}}
+{{<screenshot fixedheight>}}![Testcontainers Desktop turbo mode](../images/tcd-turbo-mode.png){{</screenshot>}}
 
 #### Turn on Turbo mode in CI:
 
@@ -165,7 +165,7 @@ If you would like to try Turbo mode on a Java project, consider using the sample
 
 When you enabled Turbo mode for Testcontainers Cloud and parallel tests in your build tool, you should see multiple lease allocations in the connection tab of the Testcontainers Cloud application once you run your tests.
 
-{{<screenshot>}}![Testcontainers Desktop check turbo mode is enabled](../images/tcd_turbo_enabled.png){{</screenshot>}}
+{{<screenshot>}}![Testcontainers Desktop check turbo mode is enabled](../images/tcd-turbo-mode-connected.png){{</screenshot>}}
 
 #### How does Testcontainers Cloud decide which containers to run in the same cloud environment?
 
@@ -215,11 +215,11 @@ If you installed the Testcontainers Cloud application on your local machine you 
 <!-- TODO: Update screenshots -->
 #### Running State
 
-{{<screenshot>}}![Testcontainers Desktop cloud connection status - running](../images/tcd_cloud_connection_running.png){{</screenshot>}}
+{{<screenshot>}}![Testcontainers Desktop cloud connection status - active](../images/tcd-cloud-connection-active.png){{</screenshot>}}
 
 #### Passive State
 
-{{<screenshot>}}![Testcontainers Desktop cloud connection status - passive](../images/tcd_cloud_connection_passive.png){{</screenshot>}}
+{{<screenshot>}}![Testcontainers Desktop cloud connection status - passive](../images/tcd-cloud-connection-passive.png){{</screenshot>}}
 
 <!-- TODO: Move autostart section desktop docs? -->
 ### Automatically start the client on system restart
@@ -227,7 +227,7 @@ If you installed the Testcontainers Cloud application on your local machine you 
 To bring more convenience into user experience we added an Autostart checkbox in the menu of our desktop application. If you want to start Testcontainers Cloud automatically after you turn on or restart your computer, just enable this checkbox. It works the same for all supported operating systems. 
 
 <!-- TODO: Update screenshot -->
-{{<screenshot fixedheight>}}![Testcontainers Desktop autostart](../images/tcd_autostart.webp){{</screenshot>}}
+{{<screenshot fixedheight>}}![Testcontainers Desktop autostart](../images/tcd-autostart.png){{</screenshot>}}
 
 ## Optimizing usage
 
@@ -556,13 +556,27 @@ If the issue persists, consult the Testcontainers Cloud documentation or contact
 
 For advanced troubleshooting use cases, it can be useful to connect to a Testcontainers Cloud worker from your machine.
 
-#### 1. Obtain the "Worker ID"
+#### Connect with the web terminal
 
-By navigating to [dashboard](https://app.testcontainers.cloud/dashboard), it's possible to see "live sessions" for which cloud workers are available. By hovering over the card and clicking on the "kebab menu" (the 3 dots) it's possible to copy the "Worker ID" to the clipboard.
+By navigating to [dashboard](https://app.testcontainers.cloud/dashboard), it's possible to see "live" activities for which cloud workers are available. By clicking a row and expanding the detail drawer and then clicking on the "Connect" button it is possible to open the web terminal.
 
-{{<screenshot>}}![Testcontainers Cloud copy Worker ID](../images/tcc_connect_worker_id.webp){{</screenshot>}}
+{{<screenshot>}}![Testcontainers Cloud connect to worker](../images/tcc-connect.png){{</screenshot>}}
 
-#### 2. Download the CI agent and make it executable
+One the web terminal is open clicking "Connect Terminal" will initiate a secure connection to the selected worker. 
+
+{{<screenshot>}}![Testcontainers Cloud connect to worker terminal](../images/tcc-connect-terminal.png){{</screenshot>}}
+
+{{<screenshot>}}![Testcontainers Cloud connected to worker terminal](../images/tcc-connect-terminal-connected.png){{</screenshot>}}
+
+#### Connect with a local terminal
+
+##### 1. Obtain the "Worker ID"
+
+By navigating to [dashboard](https://app.testcontainers.cloud/dashboard), it's possible to see "live" activities for which cloud workers are available. By clicking a row and expanding the detail drawer and then clicking on the "kebab menu" (the 3 dots) on the right side of the desired worker it's possible to copy the "Worker ID" to the clipboard.
+
+{{<screenshot>}}![Testcontainers Cloud copy Worker ID](../images/tcc-connect-worker-id.png){{</screenshot>}}
+
+##### 2. Download the CI agent and make it executable
 
 The connect feature is part of the Testcontainers Cloud binary. If you don't already have the agent, you can download it from the [install page](https://app.testcontainers.cloud/dashboard/install?target=linux-ci) or directly at https://get.testcontainers.cloud/bash.
 
@@ -571,7 +585,7 @@ curl -o tcc-agent -L https://app.testcontainers.cloud/download/testcontainers-cl
 chmod +x tcc-agent
 ```
 
-#### 3. Connect to the cloud worker
+##### 3. Connect to the cloud worker
 
 In a terminal window, use the agen'ts `connect` method with the Worker ID as parameter:
 
@@ -581,7 +595,7 @@ In a terminal window, use the agen'ts `connect` method with the Worker ID as par
 
 Assuming that you run Testcontainers Desktop and are signed-in, the Testcontainers Cloud agent should automatically reuse the authentication token and no further step is required. If that's not the case, see the next section.
 
-#### 4. (optional) Provide a Testcontainers Cloud authentication token
+##### 4. (optional) Provide a Testcontainers Cloud authentication token
 
 If you'd like to pass the token manually, you can either set the `TC_CLOUD_TOKEN` environment variable or provide it as a command line argument:
 
