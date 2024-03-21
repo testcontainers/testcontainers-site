@@ -267,24 +267,23 @@ However, note that Testcontainers Cloud is not a generic â€œDocker-as-a-Serviceâ
 
 Mounting of files from the local filesystem into containers is not implemented. Consider using the copyFileToContainer and copyFileFromContainer methods instead.
 
-For example, if you have created and started a container:
+For example, if you can copy files to the container when definining it:
 
 ```java
-GenericContainer myContainer = new GenericContainer(ALPINE_IMAGE).withCommand("top");
-myContainer.start();
+GenericContainer myContainer = new GenericContainer(ALPINE_IMAGE)
+    .withCopyFileToContainer(
+        MountableFile.forClasspathResource("/mappable-resource/"),
+        directoryInContainer
+    )
 ```
 
-You can copy files in both directions like this:
+You can also copy files from the container like this:
 
 ```java
-MountableFile mountableFile = MountableFile.forClasspathResource("filename");
-myContainer.copyFileToContainer(mountableFile, "/path/in/Docker");
-
-File fromContainer = ...; // create File object
-myContainer.copyFileFromContainer("/path/in/Docker", fromContainer.getPath());
+myContainer.copyFileFromContainer(directoryInContainer + fileName, destinationOnHost);
 ```
 
-You can find more examples of the copyFileToContainer in the FileOperationTests on GitHub.
+You can find more examples of working with files [in the library documentation](https://java.testcontainers.org/features/files/).
 
 ## Network Configuration
 
