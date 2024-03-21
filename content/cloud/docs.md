@@ -196,10 +196,6 @@ Currently, it's not possible to extend or limit memory usage for a single Testco
 
 Explore the Connection section in the Testcontainers Cloud Desktop application.
 
-{{<note>}}
-Since Testcontainers Cloud v1.3.1 you'll see the cloud on the tray icon when connection is established and lease is 'Active'
-{{</note>}}
-
 If you installed the Testcontainers Cloud application on your local machine you should see the icon in the tray menu. To check that your tests are running with the Testcontainers Cloud application just click on the Testcontainers Cloud application icon, you'll see the connection state: Running or Passive. If you click on the Connection sub-menu you'll see the detailed connection information. 
 
 **Connected to:** zone/region you are connected to (connection latency in ms)
@@ -240,10 +236,6 @@ As your team increases its adoption of Testcontainers Cloud, there might be a po
 ### Terminate workers eagerly when your tests finish
 
 By default, workers remain active for a certain period of inactivity before they shutdown to provide a smooth user experience, particularly on desktop. In CI pipelines it's often possible to know that a specific pipeline or job will no longer need access to its Testcontainers Cloud worker(s) once it completes. In such cases, it's possible to optimize usage by eagerly terminating worker(s) on agent shutdown. To do so, simply pass the `--terminate` flag as an argument when starting the agent. Alternatively, you could call the `terminate` command while the agent is still running.
-
-{{<note>}}
-Note: available in version **1.3.32** and beyond.
-{{</note>}}
 
 ## Compatibility with Docker
 
@@ -299,8 +291,6 @@ You can find more examples of the copyFileToContainer in the FileOperationTests 
 ### Using internal Docker registries
 
 For users who need to pull images from a ‘private’ registry that is not accessible from the public internet. Docker Hub, Amazon ECR, GCR, etc users *do not* need to use this feature, as these registries are exposed to the public internet.
-
-This feature requires version v1.4.1+ of the Testcontainers Cloud Desktop/agent application. 
 
 #### Testcontainers Cloud Desktop usage:
 
