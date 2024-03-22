@@ -208,7 +208,6 @@ If you installed the Testcontainers Cloud application on your local machine you 
 
 **Data:** R: reading kB, W: writing kB
 
-<!-- TODO: Update screenshots -->
 #### Running State
 
 {{<screenshot>}}![Testcontainers Desktop cloud connection status - active](../images/tcd-cloud-connection-active.png){{</screenshot>}}
@@ -222,7 +221,6 @@ If you installed the Testcontainers Cloud application on your local machine you 
 
 To bring more convenience into user experience we added an Autostart checkbox in the menu of our desktop application. If you want to start Testcontainers Cloud automatically after you turn on or restart your computer, just enable this checkbox. It works the same for all supported operating systems. 
 
-<!-- TODO: Update screenshot -->
 {{<screenshot fixedheight>}}![Testcontainers Desktop autostart](../images/tcd-autostart.png){{</screenshot>}}
 
 ## Optimizing usage
@@ -540,7 +538,6 @@ The "No activity detected" warning in Testcontainers Cloud indicates that a work
 
 If the issue persists, consult the Testcontainers Cloud documentation or contact us to help further troubleshoot and resolve the problem.
 
-<!-- TODO: Update to new dashboard instructions and include the "Connect" terminal in the dashboard -->
 ### How to connect to a cloud worker for troubleshooting
 
 For advanced troubleshooting use cases, it can be useful to connect to a Testcontainers Cloud worker from your machine.
