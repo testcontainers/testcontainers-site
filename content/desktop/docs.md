@@ -65,11 +65,11 @@ The runtime takes a few seconds to initialize the first time you run a command, 
 
 Testcontainers Desktop provides seamless access to Testcontainers Cloud to run containers in the cloud on demand, without consuming local resources or requiring a local docker daemon. Besides sparing CPU and RAM, running containers in the cloud provides a consistent Linux x86 architecture, just like in production, regardless of what operating system developers use for local development (e.g. macOS with ARM CPU, Windows with WSL, etc.).
 
-The [free plan](https://testcontainers.com/cloud/pricing/) for individual developers includes a free monthly quota of 300 minutes of cloud runtime. Paid plans are available to users who need to lift this restriction. See [this knowledge article](https://knowledge.testcontainers.cloud/usage-and-billing) for details on usage metering and billing.
+The [free plan](https://testcontainers.com/cloud/pricing/) for individual developers includes a free monthly quota of 300 minutes of cloud runtime. Paid plans are available to users who need to lift this restriction. See [this knowledge article](/cloud/docs/#how-usage-is-measured-and-billed) for details on usage metering and billing.
 
-To switch to the cloud runtime, select "Run with Testcontainers Cloud" in the menu. Once selected, the menu displays "Testcontainers Cloud" as confirmation. When Testcontainers libraries run containers, a cloud worker is allocated dynamically and the icon changes to display the "play" icon. Testcontainers Desktop supports parallelizing test execution across multiple workers via [Turbo mode](https://knowledge.testcontainers.cloud/turbo-mode), which requires a paid account. 
+To switch to the cloud runtime, select "Run with Testcontainers Cloud" in the menu. Once selected, the menu displays "Testcontainers Cloud" as confirmation. When Testcontainers libraries run containers, a cloud worker is allocated dynamically and the icon changes to display the "play" icon. Testcontainers Desktop supports parallelizing test execution across multiple workers via [Turbo mode](/cloud/docs/#parallelize-your-tests-with-turbo-modee), which requires a paid account. 
 
-The "Connected" sub-menu containers useful troubleshooting information, including the worker-id and associated latency, and also confirmation of whether the self-check was successful, potentially identifying any connectivity issues. See the [knowledge base](https://knowledge.testcontainers.cloud/testcontainers-cloud-for-desktop) for further troubleshooting information.
+The "Connected" sub-menu containers useful troubleshooting information, including the worker-id and associated latency, and also confirmation of whether the self-check was successful, potentially identifying any connectivity issues. See the [knowledge base](/cloud/docs/#troubleshooting) for further troubleshooting information.
 
 {{<screenshot>}}![Testcontainers Desktop cloud diagnosis menu](../images/tcd_cloud_connected_menu.png){{</screenshot>}}
 
@@ -91,7 +91,7 @@ docker ps
 
 Testcontainers Desktop now makes it easy to "open a terminal" to your container runtime. If you rely on Testcontainers Cloud, you'll connect to the cloud worker, and if you run containers locally (including with the new [embedded runtime!](https://newsletter.testcontainers.com/announcements/adopt-testcontainers-desktop-as-your-container-runtime-early-access)), you'll connect to the VM on your machine. Either way, the [docker context](https://testcontainers.com/desktop/docs/#use-the-apps-docker-context) is set automatically so that commands such as `docker ps` and `docker stats` work out of the box. The terminal opens in a web browser for portability reasons, with access limited to localhost and secured by a unique hash.
 
-Note: if you'd like to connect to someone else's cloud worker instead, for example to troubleshoot automated tests in your CI, you can do so by using the [connect command](https://knowledge.testcontainers.cloud/how-to-connect-to-a-cloud-worker-for-troubleshooting).
+Note: if you'd like to connect to someone else's cloud worker instead, for example to troubleshoot automated tests in your CI, you can do so by using the [connect command](/cloud/docs/#how-to-connect-to-a-cloud-worker-for-troubleshooting).
 
 ### Debug Testcontainers-based services
 
@@ -221,7 +221,7 @@ Dashboards contain widgets for your testing sessions that let you answer questio
 
 {{<screenshot>}}![Testcontainers Desktop dashboard session](../images/tcd_dashboard_session.png){{</screenshot>}}
 
-Dashboards contain a detailed timeline of each testing session, which can help identify bottlenecks in test suites, or opportunities to run tests in parallel. When using [Turbo mode](https://knowledge.testcontainers.cloud/turbo-mode), each test session also helps validate load balancing of test suites across multiple cloud workers.
+Dashboards contain a detailed timeline of each testing session, which can help identify bottlenecks in test suites, or opportunities to run tests in parallel. When using [Turbo mode](/cloud/docs/#parallelize-your-tests-with-turbo-mode), each test session also helps validate load balancing of test suites across multiple cloud workers.
 
 ## Account management
 
@@ -259,7 +259,7 @@ To verify which account is associated with the Testcontainers Desktop applicatio
 
 ## Troubleshooting
 
-If you experience unexpected behavior with Testcontainers Desktop, there are a few common issues you can investigate and resolve independently. A common first step is to review the logs for the app, possibly after enabling [verbose logging](https://knowledge.testcontainers.cloud/how-to-enable-debug-logging).
+If you experience unexpected behavior with Testcontainers Desktop, there are a few common issues you can investigate and resolve independently. A common first step is to review the logs for the app, possibly after enabling [verbose logging](/cloud/docs/#enable-verbose-logging).
 
 {{<screenshot fixedheight>}}![Testcontainers Desktop show logs](../images/tcd_show_logs.png){{</screenshot>}}
 

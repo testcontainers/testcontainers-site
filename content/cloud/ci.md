@@ -21,7 +21,7 @@ sections:
           Remove the configuration problems and security concerns of running Docker-in-Docker or a privileged daemon. Testcontainers Cloud works with any CI Platform, including those without nested virtualization such as GitLab, CircleCI or JenkinsX. In persistent CI runners, Testcontainers Cloud also automatically performs fail-safe cleanups to avoid leftover containers.
       - title: Team Efficiency
         description: |
-          Execute faster CI runs. With [Turbo Mode](https://knowledge.testcontainers.cloud/turbo-mode), you get multiple on-demand cloud workers to execute your test suites in parallel, without needing the ops team to scale the CI runner. 
+          Execute faster CI runs. With [Turbo Mode](/cloud/docs/#parallelize-your-tests-with-turbo-mode), you get multiple on-demand cloud workers to execute your test suites in parallel, without needing the ops team to scale the CI runner. 
       - title: Reliable Test Suites
         description: |
           Run [Testcontainers Cloud on your desktop](/cloud/desktop/) to ensure consistent outcomes. By shifting tests left you increase your iteration speed and reduce the risk of introducing flaky tests. Reproduce CI failures on your desktop in seconds with exactly the same back-end.

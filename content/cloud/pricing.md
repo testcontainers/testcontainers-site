@@ -9,7 +9,7 @@ sections:
       - label: Start For Free
         url: https://app.testcontainers.cloud/signup
       - label: Read About Metering & Billing
-        url: https://knowledge.testcontainers.cloud/usage-and-billing
+        url: /cloud/docs/#how-usage-is-measured-and-billed
         style: outline
     features:
       - Test Dependencies As Code
@@ -20,7 +20,7 @@ sections:
       - Max Users (desktop)
       - Service Accounts (CI)
       - |
-        [Turbo mode](https://knowledge.testcontainers.cloud/turbo-mode)
+        [Turbo mode](/cloud/docs/#parallelize-your-tests-with-turbo-mode)
       - Max Concurrent Workers Per Service Account (CI)
     plans:
       - title: Free

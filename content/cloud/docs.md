@@ -108,7 +108,7 @@ This means that increasing the number of processes simultaneously running tests 
 Turbo mode will benefit users who struggle with massive test suites which run longer than is acceptable. Here's how you can enable Testcontainers Cloud Turbo mode and configure your tests to run in parallel. 
 
 {{<note>}}
-Note that Turbo mode is currently restricted for Trial accounts, please consult the following page to learn more: https://knowledge.testcontainers.cloud/how-are-trial-accounts-restricted
+Note that Turbo mode is currently restricted for [free accounts](/cloud/docs/#what-is-a-free-plan).
 {{</note>}}
 
 #### Start using Turbo Mode with Testcontainers Cloud on Desktop
