@@ -22,7 +22,7 @@ Testcontainers Cloud removes the need for running containers locally. When you t
 
 {{<screenshot fixedheight>}}![Testcontainers Desktop cloud runtime](../images/tcd-cloud-runtime.png){{</screenshot>}}
 
-You can now run your Testcontainers based tests with containers running in the Testcontainers Cloud.
+You can now run your Testcontainers based tests with containers running on Testcontainers Cloud.
 
 If you don't have existing tests that use Testcontainers, you can use one of the examples projects that contains a few tests that verify that Testcontainers Cloud is configured correctly on your machine.
 
