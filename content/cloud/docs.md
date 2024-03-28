@@ -10,7 +10,7 @@ Running your Testcontainers tests with Testcontainers Cloud works out of the box
 ## How does Testcontainers Cloud work?
 The Testcontainers Cloud agent opens an SSH tunnel and connects to the Docker daemon in the cloud environment
 
-Testcontainers Cloud removes the need for running containers locally. When you trigger your tests in a local environment Testcontainers Cloud agent opens an SSH tunnel and connects to the Docker daemon in the cloud environment. It will pull a Docker image and start the container defined in your Testcontainers-based test. Connection to the cloud environment will be active while your tests are running. When your test suite completes, Testcontainers Cloud will wait for a short period of time and then close the connection and remove allocated resources automatically. 
+Testcontainers Cloud removes the need for running containers locally. When you trigger your tests in a local environment Testcontainers Cloud agent opens an SSH tunnel and connects to the Docker daemon in the cloud environment. It will pull a Docker image and start the container defined in your Testcontainers-based test, both in the connected cloud environment. Connection to the cloud environment will be active while your tests are running. When your test suite completes, Testcontainers Cloud will wait for a short period of time and then close the connection and remove allocated resources automatically. 
 {{<screenshot>}}![Testcontainers Desktop cloud connection diagram](../images/tcd_cloud_diagram.png){{</screenshot>}}
 
 ## Getting Started
