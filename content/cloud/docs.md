@@ -83,7 +83,7 @@ You can also configure individual projects not to consider the configuration in 
 
 When started Testcontainers Cloud configures the local environment to use it for Testcontainers tests by default. Sometimes you might want to opt-out from using it in a specific project, for example because it uses older Testcontainers libraries not yet compatible with Testcontainers Cloud or code patterns that are not ideal for a cloud-based container execution. 
 
-You can configure a particular project not to use the global Testcontainers Cloud configuration by updating the dockerconfig.source property in the `testcontainers.properties` configuration file within the project. 
+You can configure a particular project not to use the global Testcontainers Cloud configuration by updating the dockerconfig.source property in the `testcontainers.properties` configuration file within the project (on your classpath). 
 
 This option is available for some Testcontainers libraries, for example, testcontainers-java since version 1.16.1. 
 
