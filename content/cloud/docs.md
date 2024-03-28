@@ -18,7 +18,7 @@ Testcontainers Cloud removes the need for running containers locally. When you t
 ### Installing the client
 
 1. Download and install [Testcontainers Desktop](/desktop/docs/)
-2. Select the `Testcontainers Cloud` runtime
+2. Select `Run with Testcontainers Cloud`
 
 {{<screenshot fixedheight>}}![Testcontainers Desktop cloud runtime](../images/tcd-cloud-runtime.png){{</screenshot>}}
 
