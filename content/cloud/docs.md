@@ -66,7 +66,6 @@ Testcontainers Cloud also works when you run your tests from your IDE, so often 
 
 If you want to switch back to local Docker just stop Testcontainers Cloud Client app and your Testcontainers based integration tests will run using local Docker.
 
-<!-- TODO: is this still correct? Consider rewriting to combine with disable section below? -->
 ### How the correct container runtime is chosen
 
 Sometimes a system has access to both a Docker daemon and Testcontainers Cloud. To resolve which Docker environment to use Testcontainers libraries do the following in order:
