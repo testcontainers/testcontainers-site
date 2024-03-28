@@ -75,7 +75,7 @@ Sometimes a system has access to both a Docker daemon and Testcontainers Cloud. 
 2. Obtain Docker daemon location from the environment variable `DOCKER_HOST`
 3. Fall back to trying the default Docker locations for the current operating system 
 
-Testcontainers Cloud Agent, both Desktop and CI, configures its own location in the `~/.testcontainers.properties` file, which makes the tests automatically prefer it, unless the user explicitly defined a `DOCKER_HOST` environment variable. 
+Testcontainers Cloud Agent, both Desktop and CI, configures its own location in the `~/.testcontainers.properties` file, which makes the tests automatically prefer it. 
 
 You can also configure individual projects not to consider the configuration in the `~/.testcontainers.properties` file. 
 
