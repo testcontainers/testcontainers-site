@@ -70,9 +70,9 @@ If you want to switch back to local Docker just stop Testcontainers Cloud Client
 
 Sometimes a system has access to both a Docker daemon and Testcontainers Cloud. To resolve which Docker environment to use Testcontainers libraries do the following in order:
 
-1. Obtain Docker location from the environment variable `DOCKER_HOST`
-2. Read the `~/.testcontainers.properties` file (if it exists):
-    - Find the Docker location is from its docker.host property
+1. Read the `~/.testcontainers.properties` file (if it exists):
+    - Find the Docker daemon location from its `tc.host` property
+2. Obtain Docker daemon location from the environment variable `DOCKER_HOST`
 3. Fall back to trying the default Docker locations for the current operating system 
 
 Testcontainers Cloud Agent, both Desktop and CI, configures its own location in the `~/.testcontainers.properties` file, which makes the tests automatically prefer it, unless the user explicitly defined a `DOCKER_HOST` environment variable. 
