@@ -144,5 +144,17 @@
                 border-radius: 4px;
             }
         }
+
+        .note {
+            display: block;
+            background-color: $ghost;
+            border-radius: 6px;
+            padding: 1rem;
+            margin: 1em 0;
+
+            > *:last-child {
+                margin-bottom: 0;
+            }
+        }
     }
 }
