@@ -1,6 +1,6 @@
 ---
 title: Oleg Nenashev
-role: WireMock Inc
+role: Gradle
 country: CH
 languages:
   - dotnet
@@ -18,7 +18,7 @@ socialLinks:
     url: https://sessionize.com/onenashev/
 ---
 ## Bio
-Oleg is a community builder and DevRel consultant working on the WireMock ecosystem and developer tools. He's passionate about developer experience, open source software and open hardware. Oleg is a Jenkins maintainer, GSoC mentor and  the creator of Testcontainers for C/C++. He is a CNCF/CDF ambassador. Oleg has a PhD degree in electronics design and volunteers in organizations helping Ukrainian military and refugees.
+Oleg is a community builder and DevRel consultant working on the Gradle Build Tool. He's passionate about developer experience, open source software and open hardware. Oleg is a Jenkins maintainer, GSoC mentor and  the creator of Testcontainers for C/C++. He is a CNCF/CDF ambassador. Oleg has a PhD degree in electronics design and volunteers in organizations helping Ukrainian military and refugees.
 
 ## Q&A
 ### What were your first experiences with Testcontainers?
