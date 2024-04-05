@@ -28,7 +28,7 @@ sections:
         title: Getting started with Testcontainers
         cta: Read More
         image: images/resource-tc.svg
-      - url: https://app.testcontainers.cloud/signup?utm_medium=event&utm_source=2024-kubecon-eu-mar&utm_content=collateral&test
+      - url: https://app.testcontainers.cloud/signup?utm_medium=event&utm_source=2024-devnexus-apr&utm_content=collateral
         title: |
           Sign up for\
           Testcontainers Cloud
