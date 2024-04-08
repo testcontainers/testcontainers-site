@@ -1,0 +1,31 @@
+{{ $title := .section.title }}
+{{ $description := .section.description }}
+{{ $buttons := .section.buttons }}
+{{ $classes := .section.classes }}
+{{ $sectionClasses := slice "callout" }}
+{{ with $classes }}
+    {{ $sectionClasses = $sectionClasses | append . }}
+{{ end }}
+<section class='{{ delimit $sectionClasses " " }}'>
+    <div class="container">
+        <div class="content">
+            {{ with $title }}
+                <h2>{{ . | markdownify }}</h2>
+            {{ end }}
+            {{ with $description }}
+                <div class="description">{{ . | markdownify }}</div>
+            {{ end }}
+            {{ with .section.buttons }}
+                <div class="buttons">
+                    {{ range . }}
+                        {{ $buttonClasses := slice "button" }}
+                        {{ with .style }}
+                            {{ $buttonClasses = $buttonClasses | append . }}
+                        {{ end }}
+                        <a class='{{ delimit $buttonClasses " " }}' href="{{ .url }}" target="{{ .target }}">{{ .label }}</a>
+                    {{ end }}
+                </div>
+            {{ end }}
+        </div>
+    </div>
+</section>

@@ -1,0 +1,52 @@
+.callout {
+    padding: 40px 20px;
+
+    @media (min-width: 780px) {
+        padding: 60px 20px;
+    }
+
+    &.pt-0 {
+        padding-top: 0;
+    }
+
+    .container {
+        background-color: $ghost;
+        border-radius: 20px;
+        padding: 20px;
+
+        @media (min-width: 860px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        padding: 0 20px;
+        text-align: center;
+
+        h2 {
+            @media (min-width: 860px) {
+                font-size: rem(36px);
+            }
+        }
+        
+        .description {
+            font-size: rem(14px);
+
+            @media (min-width: 860px) {
+                font-size: rem(18px);
+            }
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            
+            @media (max-width: 859px) {
+                justify-content: center;
+            }
+        }
+    }
+}
