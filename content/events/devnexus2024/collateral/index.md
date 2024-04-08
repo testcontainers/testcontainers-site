@@ -20,7 +20,7 @@ sections:
         url: https://forms.gle/19aNnGVqNWbcfTQCA
   - partial: resource-links
     links:
-      - url: kubecon-2024-tc-oss-one-pager.pdf
+      - url: devnexus-2024-tc-oss-one-pager.pdf
         title: Testcontainers OSS
         cta: Download PDF
         image: images/resource-pdf.svg
