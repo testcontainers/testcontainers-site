@@ -7,7 +7,7 @@ paginate: 9999
 
 markup:
   highlight:
-    codeFences: true
+    codeFences: false
   asciidocExt:
     attributes:
       allow-uri-read: ""
