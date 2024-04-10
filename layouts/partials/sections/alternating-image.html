@@ -1,20 +1,30 @@
+{{/*
+- partial: alternating-image
+  title: Lorem ipsum
+  description: |
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+  image: /images/testcontainers-cloud-diagram.png
+  buttons:
+    - label: Lorem ipsum
+      url: https://app.testcontainers.cloud/signup
+*/}}
 <section class="alternating-image">
-    <div class="container">
-        <h2>{{ .section.title | markdownify }}</h2>
-        <div class="wrapper">
-            {{ partial "img.html" (dict "image" (resources.Get .section.image) "alt" "") }}
-            <div class="content">
-                <div class="description">{{ .section.description | markdownify }}</div>
-                <div class="buttons">
-                    {{ range .section.buttons }}
-                        {{ $buttonClasses := slice "button" }}
-                        {{ with .style }}
-                            {{ $buttonClasses = $buttonClasses | append . }}
-                        {{ end }}
-                        <a class='{{ delimit $buttonClasses " " }}' href="{{ .url }}" target="{{ .target }}">{{ .label }}</a>
-                    {{ end }}
-                </div>
-            </div>
+  <div class="container">
+    <h2>{{ .section.title | markdownify }}</h2>
+    <div class="wrapper">
+      {{ partial "img.html" (dict "image" (resources.Get .section.image) "alt" "") }}
+      <div class="content">
+        <div class="description">{{ .section.description | markdownify }}</div>
+        <div class="buttons">
+          {{ range .section.buttons }}
+            {{ $buttonClasses := slice "button" }}
+            {{ with .style }}
+              {{ $buttonClasses = $buttonClasses | append . }}
+            {{ end }}
+            <a class='{{ delimit $buttonClasses " " }}' href="{{ .url }}" target="{{ .target }}">{{ .label }}</a>
+          {{ end }}
         </div>
+      </div>
     </div>
+  </div>
 </section>

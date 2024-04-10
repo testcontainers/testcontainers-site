@@ -1,6 +1,6 @@
 {{ define "pageScripts" }}
-    {{ $style := resources.Get "/sass/champions.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
-    <link rel="stylesheet" href="{{ $style.RelPermalink }}">
+  {{ $style := resources.Get "/sass/champions.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
+  <link rel="stylesheet" href="{{ $style.RelPermalink }}">
 {{ end }}
 
 {{ define "main" }}
@@ -80,7 +80,6 @@
                 </ul>
               </div>
             </div>
-            
           </div>
           <div class="content longform-content">
             {{- .Content -}}

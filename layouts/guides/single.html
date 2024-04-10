@@ -1,8 +1,8 @@
 {{ define "pageScripts" }}
-{{ $style := resources.Get "/sass/guides.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
-<link rel="stylesheet" href="{{ $style.RelPermalink }}">
+  {{ $style := resources.Get "/sass/guides.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
+  <link rel="stylesheet" href="{{ $style.RelPermalink }}">
 
-<script src="/js/highlight.min.js"></script>
+  <script src="/js/highlight.min.js"></script>
 {{ end }}
 
 {{ define "main" }}

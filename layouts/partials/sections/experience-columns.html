@@ -1,48 +1,64 @@
+{{/*
+- partial: experience-columns
+  title: Lorem ipsum
+  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+  columns:
+    - icon: testcontainers
+      title: Lorem ipsum
+    - icon: languages
+      title: Lorem ipsum
+    - icon: modules
+      title: Lorem ipsum
+  buttons:
+    - label: Lorem ipsum
+      url: /
+      style: outline  
+*/}}
 <section class="experience-columns">
-    <div class="container">
-        <div class="content">
-            <h2>{{ .section.title }}</h2>
-            <div>{{ .section.description | markdownify }}</div>
-        </div>
-        <div class="columns">
-            {{ range .section.columns }}
-                <div class="column">
-                    {{ if eq .icon "testcontainers" }}
-                        <div class="icon testcontainers">
-                            {{ partial "img.html" (dict "image" (resources.Get "/images/testcontainers-mark.svg") "alt" "") }}
-                        </div>
-                    {{ else if eq .icon "languages" }}
-                        <div class="icon languages">
-                            {{ partial "img.html" (dict "image" (resources.Get "/images/language-logos/java.svg") "alt" "") }}
-                            {{ partial "img.html" (dict "image" (resources.Get "/images/language-logos/go.svg") "alt" "") }}
-                            {{ partial "img.html" (dict "image" (resources.Get "/images/language-logos/dotnet.svg") "alt" "") }}
-                            {{ partial "img.html" (dict "image" (resources.Get "/images/language-logos/nodejs.svg") "alt" "") }}
-                        </div>
-                    {{ else if eq .icon "modules" }}
-                        <div class="icon modules">
-                            <div class="cube">
-                                {{ partial "img.html" (dict "image" (resources.Get "/images/hero-illustration/postgresql.svg") "alt" "") }}
-                            </div>
-                            <div class="cube">
-                                {{ partial "img.html" (dict "image" (resources.Get "/images/hero-illustration/kafka.svg") "alt" "") }}
-                            </div>
-                            <div class="cube">
-                                {{ partial "img.html" (dict "image" (resources.Get "/images/hero-illustration/mongo.svg") "alt" "") }}
-                            </div>
-                        </div>
-                    {{ end }}
-                    <h3>{{ .title }}</h3>
-                </div>
-            {{ end }}
-        </div>
-        <div class="buttons">
-            {{ range .section.buttons }}
-                {{ $buttonClasses := slice "button" }}
-                {{ with .style }}
-                    {{ $buttonClasses = $buttonClasses | append . }}
-                {{ end }}
-                <a class='{{ delimit $buttonClasses " " }}' href="{{ .url }}" target="{{ .target }}">{{ .label }}</a>
-            {{ end }}
-        </div>
+  <div class="container">
+    <div class="content">
+      <h2>{{ .section.title }}</h2>
+      <div>{{ .section.description | markdownify }}</div>
     </div>
+    <div class="columns">
+      {{ range .section.columns }}
+        <div class="column">
+          {{ if eq .icon "testcontainers" }}
+            <div class="icon testcontainers">
+              {{ partial "img.html" (dict "image" (resources.Get "/images/testcontainers-mark.svg") "alt" "") }}
+            </div>
+          {{ else if eq .icon "languages" }}
+            <div class="icon languages">
+              {{ partial "img.html" (dict "image" (resources.Get "/images/language-logos/java.svg") "alt" "") }}
+              {{ partial "img.html" (dict "image" (resources.Get "/images/language-logos/go.svg") "alt" "") }}
+              {{ partial "img.html" (dict "image" (resources.Get "/images/language-logos/dotnet.svg") "alt" "") }}
+              {{ partial "img.html" (dict "image" (resources.Get "/images/language-logos/nodejs.svg") "alt" "") }}
+            </div>
+          {{ else if eq .icon "modules" }}
+            <div class="icon modules">
+              <div class="cube">
+                {{ partial "img.html" (dict "image" (resources.Get "/images/hero-illustration/postgresql.svg") "alt" "") }}
+              </div>
+              <div class="cube">
+                {{ partial "img.html" (dict "image" (resources.Get "/images/hero-illustration/kafka.svg") "alt" "") }}
+              </div>
+              <div class="cube">
+                {{ partial "img.html" (dict "image" (resources.Get "/images/hero-illustration/mongo.svg") "alt" "") }}
+              </div>
+            </div>
+          {{ end }}
+          <h3>{{ .title }}</h3>
+        </div>
+      {{ end }}
+    </div>
+    <div class="buttons">
+      {{ range .section.buttons }}
+        {{ $buttonClasses := slice "button" }}
+        {{ with .style }}
+          {{ $buttonClasses = $buttonClasses | append . }}
+        {{ end }}
+        <a class='{{ delimit $buttonClasses " " }}' href="{{ .url }}" target="{{ .target }}">{{ .label }}</a>
+      {{ end }}
+    </div>
+  </div>
 </section>

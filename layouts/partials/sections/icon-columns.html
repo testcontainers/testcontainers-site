@@ -1,21 +1,31 @@
+{{/*
+- partial: icon-columns
+  small_title: Lorem ipsum
+  title: Lorem ipsum
+  columns:
+    - icon: /images/icons/database.svg
+      title: Lorem ipsum
+      description: |
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+*/}}
 <section class="icon-columns">
-    <div class="container">
-        <div class="content">
-            <div class="small-header gradient">{{ .section.small_title }}</div>
-            <h2>{{ .section.title }}</h2>
-        </div>
-        <div class="columns">
-            {{ range .section.columns }}
-                <div class="column">
-                    <div class="icon">
-                        {{ partial "img.html" (dict "image" (resources.Get .icon) "alt" "") }}
-                    </div>
-                    <div>
-                        <h3>{{ .title }}</h3>
-                        <div>{{ .description | markdownify }}</div>
-                    </div>
-                </div>
-            {{ end }}
-        </div>
+  <div class="container">
+    <div class="content">
+      <div class="small-header gradient">{{ .section.small_title }}</div>
+      <h2>{{ .section.title }}</h2>
     </div>
+    <div class="columns">
+      {{ range .section.columns }}
+        <div class="column">
+          <div class="icon">
+            {{ partial "img.html" (dict "image" (resources.Get .icon) "alt" "") }}
+          </div>
+          <div>
+            <h3>{{ .title }}</h3>
+            <div>{{ .description | markdownify }}</div>
+          </div>
+        </div>
+      {{ end }}
+    </div>
+  </div>
 </section>

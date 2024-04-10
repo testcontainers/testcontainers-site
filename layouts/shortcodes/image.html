@@ -2,14 +2,14 @@
 {{ $alt := "" }}
 
 {{ if .IsNamedParams }}
-    {{ $imagePath = .Get "src" }}
-    {{ $alt = .Get "alt" }}
+  {{ $imagePath = .Get "src" }}
+  {{ $alt = .Get "alt" }}
 {{ else }}
-    {{ $imagePath = .Get 0 }}
-    {{ $alt = .Get 1 }}
+  {{ $imagePath = .Get 0 }}
+  {{ $alt = .Get 1 }}
 {{ end }}
 
 {{ $image := resources.Get $imagePath }}
 {{ if $image }}
-    {{ partial "img.html" (dict "image" $image "alt" $alt) }}
+  {{ partial "img.html" (dict "image" $image "alt" $alt) }}
 {{ end }}
