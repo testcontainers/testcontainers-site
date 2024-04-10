@@ -1,0 +1,55 @@
+{{ $siteBaseUrl := .Site.BaseURL }}
+{{ $fileBaseName := "" }}
+{{ with .File }}
+    {{ $fileBaseName = .ContentBaseName }}
+{{ end }}
+
+{{/* Set default share image */}}
+{{ $image := printf "%s/images/share-image.png" $siteBaseUrl }}
+
+{{ if and (not .IsSection) (eq .Section "modules") }}
+    {{/* Override default share image for single modules pages */}}
+    {{ $image = printf "%s/images/module-share-image.png" $siteBaseUrl }}
+
+    {{/* Generated a custom share image using the module logo */}}
+    {{- with resources.Get (printf "/images/modules/share-logos/%s.png" $fileBaseName) }}
+		{{- $logoImg := . -}}
+		{{- $finalFilter := (images.Overlay $logoImg 814 173 ) -}}
+        {{- $shareImage := resources.Get "/images/modules/module-share-image.png" }}
+        {{ if $shareImage }}
+		    {{- $shareImage = $shareImage | images.Filter $finalFilter -}}
+            {{ $image = $shareImage.Permalink }}
+        {{- end }}
+    {{ end }}
+
+    {{/* Overide the image if there is a share image in the module folder */}}
+    {{ with .Resources.Get "share.png" }}
+        {{ $image = .Permalink }}
+    {{ end }}
+
+    {{/* Override the image if there is a share image in the assets folder */}}
+    {{ with resources.Get (printf "/images/modules/%s-share.png" $fileBaseName) }}
+        {{ $image = .Permalink }}
+    {{ end }}
+
+{{ else if and (not .IsSection) (eq .Section "community-champions") }}
+    {{/* Override default share image for single community champions pages */}}
+    {{ $image = printf "%s/images/module-share-image.png" $siteBaseUrl }}
+
+    {{/* Override image if a champion share image exists in assets */}}
+    {{ with resources.Get (printf "/images/community-champions/%s-share.png" $fileBaseName) }}
+        {{ $image = .Permalink }}
+    {{ end }}
+{{ end }}
+
+{{ with .Page.Params.shareImage }}
+    {{/* Override share image if one is specified */}}
+    {{ $image = printf "%s/images/%s" $siteBaseUrl . }}
+{{ end }}
+
+{{ with .Page.Params.ogImage }}
+    {{/* Override share image if one is specified */}}
+    {{ $image = printf "%s%s" $siteBaseUrl . }}
+{{ end }}
+
+{{ return $image }}

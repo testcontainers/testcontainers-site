@@ -22,13 +22,14 @@
             <h1>
               {{ .Title }}
             </h1>
-            {{ if or (.GetTerms "languages") (.GetTerms "tags") }}
+            {{ $guideLanguages := partial "utils/guide-languages" . }}
+            {{ if or $guideLanguages (.GetTerms "tags") }}
               <ul class="tag-list">
-                {{ range (.GetTerms "languages") }}
-                    <li class="tag language">{{ .Title }}</li>
+                {{ range sort $guideLanguages "order" }}
+                  <li class="tag language">{{ .title }}</li>
                 {{ end }}
                 {{ range (.GetTerms "tags") }}
-                    <li class="tag">{{ .Title }}</li>
+                  <li class="tag">{{ .Title }}</li>
                 {{ end }}
               </ul>
             {{ end }}

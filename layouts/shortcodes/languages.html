@@ -1,11 +1,13 @@
 <div class="shortcode-languages">
-    {{ range .Site.Data.languages }}
-        <a href="{{ .link }}" target="_blank">
-            {{ partial "img.html" (dict "image" (resources.Get .logo) "alt" "") }}
-            {{ .label }}
-            <svg class="icon-external" width="15" height="17" viewBox="0 0 15 17">
-                <use href="#icon-external"></use>
-            </svg>
-        </a>
+    {{ range sort $.Site.Data.languages "order" }}
+        {{ if and .link .logo }}
+            <a href="{{ .link }}" target="_blank">
+                {{ partial "img.html" (dict "image" (resources.Get .logo) "alt" "") }}
+                {{ .title }}
+                <svg class="icon-external" width="15" height="17" viewBox="0 0 15 17">
+                    <use href="#icon-external"></use>
+                </svg>
+            </a>
+        {{ end }}
     {{ end }}
 </div>

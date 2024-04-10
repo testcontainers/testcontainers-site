@@ -57,16 +57,18 @@
                     </svg>
                 </button>
                 <ul class="menu-dropdown">
-                    {{ range .Site.Data.languages }}
-                        <li class="menu-dropdown-item">
-                            <a href="{{ .link }}" target="_blank" target="_blank">
-                                {{ partial "img.html" (dict "image" (resources.Get .logo) "alt" "") }}
-                                <span>{{ .label }}</span>
-                                <svg class="icon-external" width="15" height="17" viewBox="0 0 15 17">
-                                    <use href="#icon-external"></use>
-                                </svg>
-                            </a>
-                        </li>
+                    {{ range sort $.Site.Data.languages "order" }}
+                        {{ if and .link .logo }}
+                            <li class="menu-dropdown-item">
+                                <a href="{{ .link }}" target="_blank" target="_blank">
+                                    {{ partial "img.html" (dict "image" (resources.Get .logo) "alt" "") }}
+                                    <span>{{ .title }}</span>
+                                    <svg class="icon-external" width="15" height="17" viewBox="0 0 15 17">
+                                        <use href="#icon-external"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                        {{ end }}
                     {{ end }}
                 </ul>
             </li>

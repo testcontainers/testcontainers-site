@@ -62,6 +62,5 @@ sitemap:
   filename: sitemap.xml
 
 taxonomies:
-  language: languages
   tag: tags
   category: categories

@@ -13,12 +13,14 @@
                     <li>
                         <a href="/community-champions/">Community Champions</a>
                     </li>
-                    {{ range .Site.Data.languages }}
-                        <li>
-                            <a href="{{ .link }}" target="_blank">
-                                Testcontainers for {{ .label }}
-                            </a>
-                        </li>
+                    {{ range sort $.Site.Data.languages "order" }}
+                        {{ if .link }}
+                            <li>
+                                <a href="{{ .link }}" target="_blank">
+                                    Testcontainers for {{ .title }}
+                                </a>
+                            </li>
+                        {{ end }}
                     {{ end }}
                 </ul>
             </div>

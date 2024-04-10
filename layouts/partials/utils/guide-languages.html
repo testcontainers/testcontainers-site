@@ -1,0 +1,14 @@
+{{/* Loops through the `languages` param in `/content/guides/` files and returns an array of matching languages */}}
+
+{{ $languages := $.Site.Data.languages }}
+{{ $guideLanguages := slice }}
+
+{{ with .Page.Params.languages }}
+    {{ range . }}
+        {{ with index $languages (. | lower) }}
+            {{ $guideLanguages = $guideLanguages | append . }}
+        {{ end }}
+    {{ end }}
+{{ end }}
+
+{{ return $guideLanguages }}

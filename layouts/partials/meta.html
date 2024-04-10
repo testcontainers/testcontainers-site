@@ -1,0 +1,15 @@
+{{ $title := partial "utils/title" . }}
+{{ $description := partial "utils/description" . }}
+{{ $image := partial "utils/share-image" . }}
+
+<title>{{ $title }}</title>
+<meta name="description" content="{{ $description }}">
+
+<meta property="og:title" content="{{ $title }}">
+<meta property="og:site_name" content="{{ .Site.Title }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:description" content="{{ $description }}">
+<meta property="og:type" content=website>
+<meta property="og:image" content="{{ $image }}">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","headline":{{ $title | jsonify }},"description":{{ $description | jsonify }},"url":"{{ .Permalink }}"}</script>

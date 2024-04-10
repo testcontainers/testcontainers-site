@@ -1,0 +1,21 @@
+{{ $title := .Site.Title }}
+
+{{/* Set page title */}}
+{{ with .Page.Title }}
+    {{ $title = . }}
+{{ end }}
+
+{{ if and (not .IsSection) (eq .Section "modules") }}
+    {{/* Override title for single modules pages */}}
+    {{ with .Page.Title }}
+        {{ $title = printf "Testcontainers %s Module" . }}
+    {{ end }}
+
+{{ else if and (not .IsSection) (eq .Section "community-champions") }}
+    {{/* Override title for single community champions pages */}}
+    {{ with .Page.Title }}
+        {{ $title = printf "Community Champion: %s" . }}
+    {{ end }}
+{{ end }}
+
+{{ return $title }}
