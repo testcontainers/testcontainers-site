@@ -13,20 +13,16 @@ sections:
       With support for many languages and testing frameworks, all you need is Docker.
     examples:
       - id: java
-        label: Java
         url: /guides/getting-started-with-testcontainers-for-java/
         external: false
-        icon: /images/language-logos/java.svg
         code: |
           ```java
           GenericContainer redis = new GenericContainer("redis:5.0.3-alpine")
               .withExposedPorts(6379);
           ```
       - id: go
-        label: Go
         url: /guides/getting-started-with-testcontainers-for-go/
         external: false
-        icon: /images/language-logos/go.svg
         code: |
           ```go
           container, err := testcontainers.GenericContainer(ctx, testcontainers.GenericContainerRequest{
@@ -39,20 +35,16 @@ sections:
           })
           ```
       - id: dotnet
-        label: .NET
         url: /guides/getting-started-with-testcontainers-for-dotnet/
         external: false
-        icon: /images/language-logos/dotnet.svg
         code: |
           ```csharp
           RedisContainer redisContainer = new RedisBuilder().Build();
           await redisContainer.StartAsync();
           ```
       - id: nodejs
-        label: Node.js
         url: /guides/getting-started-with-testcontainers-for-nodejs/
         external: false
-        icon: /images/language-logos/nodejs.svg
         code: |
           ```javascript
           const redis = await new GenericContainer("redis:5.0.3-alpine")
@@ -61,10 +53,8 @@ sections:
               .start();
           ```
       - id: python
-        label: Python
         url: https://testcontainers-python.readthedocs.io/en/latest/
         external: true
-        icon: /images/language-logos/python.svg
         code: |
           ```python
           redis = (
@@ -75,20 +65,16 @@ sections:
           wait_for_logs(redis, "Ready to accept connections")
           ```
       - id: rust
-        label: Rust
         url: https://docs.rs/testcontainers/latest/testcontainers/
         external: true
-        icon: /images/language-logos/rust.svg
         code: |
           ```rust
           let docker = clients::Cli::default();
           let redis = docker.run(redis::Redis::default());
           ```
       - id: haskell
-        label: Haskell
         url: https://github.com/testcontainers/testcontainers-hs
         external: true
-        icon: /images/language-logos/haskell.svg
         code: |
           ```haskell
           redis <-
@@ -98,20 +84,16 @@ sections:
                 & setWaitingFor (waitUntilMappedPortReachable "6379/tcp")
           ```
       - id: ruby
-        label: Ruby
         url: https://github.com/testcontainers/testcontainers-ruby
         external: true
-        icon: /images/language-logos/ruby.svg
         code: |
           ```ruby
           redis = Testcontainers::DockerContainer.new("redis:5.0.3-alpine").with_exposed_port(6379)
           redis.start
           ```
       - id: clojure
-        label: Clojure
         url: https://cljdoc.org/d/clj-test-containers/
         external: true
-        icon: /images/language-logos/clojure.svg
         code: |
           ```clojure
           (def container (-> (tc/create {:image-name "redis:5.0.3-alpine")
@@ -119,10 +101,8 @@ sections:
                              (tc/start!)))
           ```
       - id: elixir
-        label: Elixir
         url: https://github.com/testcontainers/testcontainers-elixir
         external: true
-        icon: /images/language-logos/elixir.svg
         code: |
           ```elixir
           {:ok, _} = Testcontainers.start_link()
@@ -182,37 +162,6 @@ sections:
     title: Supported Languages
     description: |
       There are implementations of Testcontainers in all of your favorite languages. Click through to read their specific documentation.
-    languages:
-      - logo: /images/language-logos/java.svg
-        label: Java
-        link: https://java.testcontainers.org/
-      - logo: /images/language-logos/go.svg
-        label: Go
-        link: https://golang.testcontainers.org/
-      - logo: /images/language-logos/dotnet.svg
-        label: .NET
-        link: https://dotnet.testcontainers.org/
-      - logo: /images/language-logos/nodejs.svg
-        label: Node.js
-        link: https://node.testcontainers.org/
-      - logo: /images/language-logos/python.svg
-        label: Python
-        link: https://testcontainers-python.readthedocs.io/en/latest/
-      - logo: /images/language-logos/rust.svg
-        label: Rust
-        link: https://docs.rs/testcontainers/latest/testcontainers/
-      - logo: /images/language-logos/haskell.svg
-        label: Haskell
-        link: https://github.com/testcontainers/testcontainers-hs
-      - logo: /images/language-logos/ruby.svg
-        label: Ruby
-        link: https://github.com/testcontainers/testcontainers-ruby
-      - logo: /images/language-logos/clojure.svg
-        label: Clojure
-        link: https://cljdoc.org/d/clj-test-containers/clj-test-containers/
-      - logo: /images/language-logos/elixir.svg
-        label: Elixir
-        link: https://github.com/testcontainers/testcontainers-elixir
   - partial: company-logos
     small_title: Industry standard
     title: Companies using Testcontainers
