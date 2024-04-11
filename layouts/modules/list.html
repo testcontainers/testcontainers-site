@@ -10,6 +10,7 @@
 {{ end }}
 
 {{ define "main" }}
+  {{- $filterLanguages := slice "java" "dotnet" "go" "nodejs" -}}
   <main>
     <section class="modules-banner">
         <div class="container">
@@ -60,7 +61,7 @@
                 </label>
               </div>
               {{ range site.Data.languages }}
-                {{ if in (slice "java" "dotnet" "go" "nodejs") .slug }}
+                {{ if in $filterLanguages .slug }}
                   <div class="filter-field">
                     <input type="radio" id="language-{{ .slug }}" name="language" class="filter-input sr-only"/>
                     <label for="language-{{ .slug }}" class="radio-button">
