@@ -1,170 +1,170 @@
 @import "variables";
 
 @function rem($px) {
-    @return ($px / 16px) * 1rem;
+  @return ($px / 16px) * 1rem;
 }
 
 @import "modern-normalize";
 @import "fonts";
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-    color: $storm;
-    font-family: 'Rubik', Arial, Helvetica, sans-serif;
-    font-size: rem(12px);
-    line-height: 1.5;
+  color: $storm;
+  font-family: 'Rubik', Arial, Helvetica, sans-serif;
+  font-size: rem(12px);
+  line-height: 1.5;
 
-    @media (min-width: 500px) {
-        font-size: rem(16px);
-    }
+  @media (min-width: 500px) {
+    font-size: rem(16px);
+  }
 }
 
 .container {
-    max-width: 1320px;
-    padding: 0 20px;
-    margin: 0 auto;
+  max-width: 1320px;
+  padding: 0 20px;
+  margin: 0 auto;
 
-    @media (min-width: 500px) {
-        padding: 0 40px;
-    }
+  @media (min-width: 500px) {
+    padding: 0 40px;
+  }
 }
 
 h1 {
-    color: $eggplant;
-    font-size: rem(24px);
-    font-weight: 700;
-    line-height: 1.1;
+  color: $eggplant;
+  font-size: rem(24px);
+  font-weight: 700;
+  line-height: 1.1;
 
-    @media (min-width: 780px) {
-        font-size: rem(48px);
-    }
+  @media (min-width: 780px) {
+    font-size: rem(48px);
+  }
 }
 
 h2 {
-    color: $eggplant;
-    font-size: rem(20px);
-    font-weight: 500;
-    margin: 0;
+  color: $eggplant;
+  font-size: rem(20px);
+  font-weight: 500;
+  margin: 0;
 
-    @media (min-width: 780px) {
-        font-size: rem(24px);
-    }
+  @media (min-width: 780px) {
+    font-size: rem(24px);
+  }
 }
 
 h3 {
-    color: $eggplant;
-    font-size: rem(18px);
-    font-weight: 500;
-    margin: 0;
+  color: $eggplant;
+  font-size: rem(18px);
+  font-weight: 500;
+  margin: 0;
 
-    @media (min-width: 780px) {
-        font-size: rem(20px);
-    }
+  @media (min-width: 780px) {
+    font-size: rem(20px);
+  }
 }
 
 h4 {
-    color: $eggplant;
-    font-weight: 400;
+  color: $eggplant;
+  font-weight: 400;
 }
 
 .small-header {
-    max-width: max-content;
-    text-transform: uppercase;
-    margin-bottom: 10px;
+  max-width: max-content;
+  text-transform: uppercase;
+  margin-bottom: 10px;
 
-    &.gradient {
-        background: linear-gradient(90deg, $topaz 0%, $violet 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
+  &.gradient {
+    background: linear-gradient(90deg, $topaz 0%, $violet 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 
-    @media (min-width: 780px) {
-        margin-bottom: 20px;
-    }
+  @media (min-width: 780px) {
+    margin-bottom: 20px;
+  }
 }
 
 ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 img {
-    width: auto;
-    max-width: 100%;
+  width: auto;
+  max-width: 100%;
 }
 
 a {
-    color: $teal;
-    transition: color 0.2s ease;
+  color: $teal;
+  transition: color 0.2s ease;
 
-    &:hover {
-        color: $aqua;
-    }
+  &:hover {
+    color: $aqua;
+  }
 }
 
 .sr-only {
-    clip: rect(0 0 0 0);
-    clip-path: inset(50%);
-    height: 1px;
-    overflow: hidden;
-    position: absolute;
-    white-space: nowrap;
-    width: 1px;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
 
 .error-404 {
-    padding: 100px 0;
-    text-align: center
+  padding: 100px 0;
+  text-align: center
 }
 
 .button {
-    display: flex;
-    gap: 6px;
-    align-items: center;
-    border: 2px solid $violet;
-    border-radius: 3px;
-    background: $violet;
-    cursor: pointer;
-    padding: 10px 20px;
-    font-weight: 500;
-    color: $catskill;
-    text-decoration: none;
-    text-align: center;
-    justify-content: center;
-    font-size: rem(14px);
-    transition:
-        color 0.2s ease,
-        border-color 0.2s ease,
-        background 0.2s ease;
-    white-space: nowrap;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  border: 2px solid $violet;
+  border-radius: 3px;
+  background: $violet;
+  cursor: pointer;
+  padding: 10px 20px;
+  font-weight: 500;
+  color: $catskill;
+  text-decoration: none;
+  text-align: center;
+  justify-content: center;
+  font-size: rem(14px);
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+  white-space: nowrap;
 
-    @media (min-width: 1024px) {
-        padding: 16px 30px;
-        gap: 8px;
-        font-size: rem(18px);
-    }
+  @media (min-width: 1024px) {
+    padding: 16px 30px;
+    gap: 8px;
+    font-size: rem(18px);
+  }
+
+  &:hover {
+    background: $aqua;
+    border-color: $aqua;
+    color: $catskill;
+  }
+
+  &.outline {
+    background: none;
+    border: 2px solid $violet;
+    color: $violet;
 
     &:hover {
-        background: $aqua;
-        border-color: $aqua;
-        color: $catskill;
+      background: $aqua;
+      border-color: $aqua;
+      color: $catskill;
     }
-
-    &.outline {
-        background: none;
-        border: 2px solid $violet;
-        color: $violet;
-
-        &:hover {
-            background: $aqua;
-            border-color: $aqua;
-            color:  $catskill;
-        }
-    }
+  }
 }
 
 @import "footer";

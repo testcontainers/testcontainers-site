@@ -1,22 +1,22 @@
 .tag-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
 
-    .tag {
-        padding: 5px 10px;
-        font-size: rem(10px);
-        border-radius: 1000px;
-        transition: background-color 0.2s ease;
-        color: $eggplant;
-        background: $catskill;
+  .tag {
+    padding: 5px 10px;
+    font-size: rem(10px);
+    border-radius: 1000px;
+    transition: background-color 0.2s ease;
+    color: $eggplant;
+    background: $catskill;
 
-        @media (min-width: 1600px) {
-            font-size: rem(12px);
-        }
+    @media (min-width: 1600px) {
+      font-size: rem(12px);
     }
+  }
 }
 
 .guides-list-item:hover .tag {
-    background: $mist;
+  background: $mist;
 }

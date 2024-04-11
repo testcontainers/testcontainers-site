@@ -1,86 +1,86 @@
 .supported-languages {
-    padding: 40px 0;
+  padding: 40px 0;
 
-    @media (min-width: 780px) {
-        padding: 60px 0;
+  @media (min-width: 780px) {
+    padding: 60px 0;
+  }
+
+  .container {
+    display: grid;
+    gap: 40px;
+
+    @media (min-width: 1024px) {
+      grid-template-columns: 1fr 2fr;
+    }
+  }
+
+  .content {
+    font-size: rem(14px);
+
+    @media (min-width: 860px) {
+      font-size: rem(18px);
     }
 
-    .container {
-        display: grid;
-        gap: 40px;
+    h2 {
+      margin-bottom: 1em;
+    }
+  }
 
-        @media (min-width: 1024px) {    
-            grid-template-columns: 1fr 2fr;
-        }
+  .languages {
+    display: grid;
+    gap: 10px;
+
+    @media (min-width: 380px) {
+      grid-template-columns: repeat(2, 1fr);
     }
 
-    .content {
-        font-size: rem(14px);
-
-        @media (min-width: 860px) {
-            font-size: rem(18px);
-        }
-
-        h2 {
-            margin-bottom: 1em;
-        }
+    @media (min-width: 600px) {
+      grid-template-columns: repeat(3, 1fr);
     }
 
-    .languages {
-        display: grid;
-        gap: 10px;
-
-        @media (min-width: 380px) {   
-            grid-template-columns: repeat(2, 1fr);
-        }
-
-        @media (min-width: 600px) {   
-            grid-template-columns: repeat(3, 1fr);
-        }
-
-        @media (min-width: 1024px) {    
-            padding-top: 40px;
-        }
-
-        a {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            border: 1px solid $mist;
-            border-radius: 6px;
-            padding: 10px;
-            text-decoration: none;
-            color: $eggplant;
-            font-weight: 500;
-            transition: 
-                color 0.2s ease,
-                background 0.2s ease;
-
-            @media (min-width: 650px) {  
-                padding: 20px 30px;
-            }
-
-            .icon-external {
-                height: rem(10px);
-                flex-shrink: 0;
-                color: $fog;
-                margin-left: auto;
-
-                @media (min-width: 600px) {
-                    height: rem(15px);
-                }
-            } 
-
-            &:hover {
-                color: $topaz;
-                background: rgba($catskill, 0.45);
-
-                .icon-external {
-                    color: $topaz;
-                }
-            }
-
-            
-        }
+    @media (min-width: 1024px) {
+      padding-top: 40px;
     }
+
+    a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid $mist;
+      border-radius: 6px;
+      padding: 10px;
+      text-decoration: none;
+      color: $eggplant;
+      font-weight: 500;
+      transition:
+        color 0.2s ease,
+        background 0.2s ease;
+
+      @media (min-width: 650px) {
+        padding: 20px 30px;
+      }
+
+      .icon-external {
+        height: rem(10px);
+        flex-shrink: 0;
+        color: $fog;
+        margin-left: auto;
+
+        @media (min-width: 600px) {
+          height: rem(15px);
+        }
+      }
+
+      &:hover {
+        color: $topaz;
+        background: rgba($catskill, 0.45);
+
+        .icon-external {
+          color: $topaz;
+        }
+      }
+
+
+    }
+  }
 }

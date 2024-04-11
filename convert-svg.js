@@ -13,10 +13,10 @@ files.forEach((image) => {
     .resize(230, 230)
     .png()
     .toFile(writePath)
-    .then(function(info) {
+    .then(() => {
       console.log(`Converted: ${dirName}`)
     })
-    .catch(function(err) {
+    .catch(err => {
       console.log(err)
     })
 });

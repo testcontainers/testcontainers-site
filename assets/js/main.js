@@ -1,81 +1,81 @@
 const mobileToggle = document.getElementById("mobile-menu-toggle");
 const mobileSubToggle = document.getElementById("mobile-submenu-toggle");
 function toggleMobileMenu() {
-    document.body.classList.toggle('mobile-menu'); 
+  document.body.classList.toggle('mobile-menu');
 }
 function toggleMobileSubmenu() {
-    document.body.classList.toggle('mobile-submenu'); 
+  document.body.classList.toggle('mobile-submenu');
 }
 if (mobileToggle)
-    mobileToggle.addEventListener("click", toggleMobileMenu);
+  mobileToggle.addEventListener("click", toggleMobileMenu);
 if (mobileSubToggle)
-    mobileSubToggle.addEventListener("click", toggleMobileSubmenu);
+  mobileSubToggle.addEventListener("click", toggleMobileSubmenu);
 
 const allParentMenuItems = document.querySelectorAll("#site-header .menu-item.has-children");
 
 function clearActiveMenuItem() {
-    allParentMenuItems.forEach((item) => {
-        item.classList.remove("active");
-    });
+  allParentMenuItems.forEach((item) => {
+    item.classList.remove("active");
+  });
 }
 
 function setActiveMenuItem(e) {
-    clearActiveMenuItem();
-    e.currentTarget.closest(".menu-item").classList.add("active");
+  clearActiveMenuItem();
+  e.currentTarget.closest(".menu-item").classList.add("active");
 }
 
 allParentMenuItems.forEach((item) => {
-    const trigger = item.querySelector(":scope > a, :scope > button");
+  const trigger = item.querySelector(":scope > a, :scope > button");
 
-    trigger.addEventListener("click", (e) => {
-        if (e.currentTarget.closest(".menu-item").classList.contains("active")) {
-            clearActiveMenuItem();
-        }  else {
-            setActiveMenuItem(e);
-        }
-    });
+  trigger.addEventListener("click", (e) => {
+    if (e.currentTarget.closest(".menu-item").classList.contains("active")) {
+      clearActiveMenuItem();
+    } else {
+      setActiveMenuItem(e);
+    }
+  });
 
-    trigger.addEventListener("mouseenter", (e) => {
-        setActiveMenuItem(e);
-    });
+  trigger.addEventListener("mouseenter", (e) => {
+    setActiveMenuItem(e);
+  });
 
-    item.addEventListener("mouseleave", (e) => {
-        clearActiveMenuItem();
-    });
+  item.addEventListener("mouseleave", (e) => {
+    clearActiveMenuItem();
+  });
 });
 
 const allTabLabels = document.querySelectorAll(".code-examples .tab-labels button");
 allTabLabels.forEach((label) => {
-    label.addEventListener("click", (e) => {
-        const targetId = e.currentTarget.dataset.target;
-        
-        const tabLabels = e.currentTarget.closest(".examples").querySelectorAll(".tab-labels button");
-        tabLabels.forEach((label) => {
-            if (label.dataset.target === targetId) {
-                label.classList.add("active");
-            } else {
-                label.classList.remove("active");
-            }
-        });
+  label.addEventListener("click", (e) => {
+    const targetId = e.currentTarget.dataset.target;
 
-        const tabPanels = e.target.closest(".examples").querySelectorAll(".tab-panels .tab-panel");
-        tabPanels.forEach((panel) => {
-            if (panel.dataset.id === targetId) {
-                panel.classList.add("active");
-            } else {
-                panel.classList.remove("active");
-            }
-        });
-
-        const gettingStartedButtons = e.target.closest(".code-examples").querySelectorAll(".getting-started-button");
-        gettingStartedButtons.forEach((button) => {
-            if (button.dataset.id === targetId) {
-                button.classList.add("active");
-            } else {
-                button.classList.remove("active");
-            }
-        });
+    const tabLabels = e.currentTarget.closest(".examples").querySelectorAll(".tab-labels button");
+    tabLabels.forEach((label) => {
+      if (label.dataset.target === targetId) {
+        label.classList.add("active");
+      } else {
+        label.classList.remove("active");
+      }
     });
+
+    const tabPanels = e.target.closest(".examples").querySelectorAll(".tab-panels .tab-panel");
+    tabPanels.forEach((panel) => {
+      if (panel.dataset.id === targetId) {
+        panel.classList.add("active");
+      } else {
+        panel.classList.remove("active");
+      }
+    });
+
+    const gettingStartedButtons = e.target.closest(".code-examples").querySelectorAll(".getting-started-button");
+    gettingStartedButtons.forEach((button) => {
+      if (button.dataset.id === targetId) {
+        button.classList.add("active");
+      } else {
+        button.classList.remove("active");
+      }
+    });
+  });
 });
 
 // Handle UTMs
@@ -83,181 +83,181 @@ const utms = [];
 
 const referrerCookie = getCookie("__gtm_referrer");
 if (referrerCookie) {
-    utms.push({
-        key: "original_referrer",
-        value: referrerCookie
-    });
+  utms.push({
+    key: "original_referrer",
+    value: referrerCookie
+  });
 } else if (document.referrer) {
-    utms.push({
-        key: "original_referrer",
-        value: document.referrer
-    });
+  utms.push({
+    key: "original_referrer",
+    value: document.referrer
+  });
 }
 
 const campaignCookie = getCookie("__gtm_campaign_url");
 if (campaignCookie) {
-    const url = new URL(campaignCookie);
-    const params = new URLSearchParams(url.search);
-    const cookieUtms = parseUtms(params);
-    utms.push(...cookieUtms);
+  const url = new URL(campaignCookie);
+  const params = new URLSearchParams(url.search);
+  const cookieUtms = parseUtms(params);
+  utms.push(...cookieUtms);
 } else {
-    const queryParams = parseUtms(new URLSearchParams(window.location.search));
-    utms.push(...queryParams);
+  const queryParams = parseUtms(new URLSearchParams(window.location.search));
+  utms.push(...queryParams);
 }
 
 function parseUtms(params) {
-    const utms = [];
-    const utmKeys = [
-        "utm_campaign",
-        "utm_source",
-        "utm_medium",
-        "utm_term",
-        "utm_content"
-    ];
-    utmKeys.forEach((key) => {
-        const value = params.get(key) || false;
-        if (value) utms.push({
-            key: key,
-            value: value
-        });
+  const utms = [];
+  const utmKeys = [
+    "utm_campaign",
+    "utm_source",
+    "utm_medium",
+    "utm_term",
+    "utm_content"
+  ];
+  utmKeys.forEach((key) => {
+    const value = params.get(key) || false;
+    if (value) utms.push({
+      key: key,
+      value: value
     });
-    return utms;
+  });
+  return utms;
 }
 
 function getCookie(key) {
-    var cookies = document.cookie.split(";");
-    for(var i = 0; i < cookies.length; i++) {
-        var cookie = cookies[i].split("=");
-        if(key == cookie[0].trim()) {
-            return decodeURIComponent(cookie[1]);
-        }
+  var cookies = document.cookie.split(";");
+  for (var i = 0; i < cookies.length; i++) {
+    var cookie = cookies[i].split("=");
+    if (key == cookie[0].trim()) {
+      return decodeURIComponent(cookie[1]);
     }
-    return null;
+  }
+  return null;
 }
 
 signupLinks = document.querySelectorAll("a[href*='app.testcontainers.cloud/signup']");
 signupLinks.forEach(link => {
-    const url = new URL(link.href);
-    const query = new URLSearchParams(url.search);
-    utms.forEach(utm => {
-        query.set(utm.key, utm.value);
-    });
-    const queryString = (query.toString() != "") ? "?" + query.toString() : "";
-    url.search = queryString;
-    link.href = url.toString();
+  const url = new URL(link.href);
+  const query = new URLSearchParams(url.search);
+  utms.forEach(utm => {
+    query.set(utm.key, utm.value);
+  });
+  const queryString = (query.toString() != "") ? "?" + query.toString() : "";
+  url.search = queryString;
+  link.href = url.toString();
 });
 signupForms = document.querySelectorAll(".tcc-signup-form");
 signupForms.forEach(form => {
-    utms.forEach(utm => {
-        const field = document.createElement("input");
-        field.setAttribute("type", "hidden");
-        field.setAttribute("name", utm.key);
-        field.setAttribute("value", utm.value);
-        form.appendChild(field);
-    });
+  utms.forEach(utm => {
+    const field = document.createElement("input");
+    field.setAttribute("type", "hidden");
+    field.setAttribute("name", utm.key);
+    field.setAttribute("value", utm.value);
+    form.appendChild(field);
+  });
 });
- 
+
 hljs.addPlugin({
-    "after:highlightElement": ({el, result, text}) => {
-        let button = Object.assign(document.createElement("button"), {
-            innerHTML: "Copy",
-            type: "button",
-            classList: "copy-btn"
-        });
-        el.parentElement.appendChild(button);
-        button.onclick = () => {
-            navigator.clipboard
-                .writeText(text)
-                .then(() => {
-                    button.innerHTML = "Copied";
-                    button.classList.add('copied');
-                    setTimeout(() => {
-                        button.innerHTML = "Copy";
-                        button.classList.remove('copied');
-                    }, 2000);
-                })
-        }
-        el.dataset.lang = result.language;
-    },
+  "after:highlightElement": ({ el, result, text }) => {
+    let button = Object.assign(document.createElement("button"), {
+      innerHTML: "Copy",
+      type: "button",
+      classList: "copy-btn"
+    });
+    el.parentElement.appendChild(button);
+    button.onclick = () => {
+      navigator.clipboard
+        .writeText(text)
+        .then(() => {
+          button.innerHTML = "Copied";
+          button.classList.add('copied');
+          setTimeout(() => {
+            button.innerHTML = "Copy";
+            button.classList.remove('copied');
+          }, 2000);
+        })
+    }
+    el.dataset.lang = result.language;
+  },
 });
 hljs.highlightAll();
 
 const tocObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            document.querySelectorAll('#TableOfContents a').forEach((link) => {
-                link.classList.remove('current');
-            });
-            const id = entry.target.getAttribute("id");
-            const link = document.querySelector(`#TableOfContents a[href="#${id}"]`);
-            link.classList.add('current');
-        }
-    })
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      document.querySelectorAll('#TableOfContents a').forEach((link) => {
+        link.classList.remove('current');
+      });
+      const id = entry.target.getAttribute("id");
+      const link = document.querySelector(`#TableOfContents a[href="#${id}"]`);
+      link.classList.add('current');
+    }
+  })
 }, {
-    rootMargin: '0px 0px -50% 0px'
+  rootMargin: '0px 0px -50% 0px'
 });
 document.querySelectorAll('#TableOfContents a').forEach((link) => {
-    tocObserver.observe(document.querySelector(link.hash));
+  tocObserver.observe(document.querySelector(link.hash));
 });
 
 async function hashText(text) {
-    const encoder = new TextEncoder().encode(text);
-    const hashBuffer = await crypto.subtle.digest("SHA-256", encoder);
-    const hashArray = Array.from(new Uint8Array(hashBuffer));
-    const hashHex = hashArray
-        .map((b) => b.toString(16).padStart(2, "0"))
-        .join("");
-    return hashHex
+  const encoder = new TextEncoder().encode(text);
+  const hashBuffer = await crypto.subtle.digest("SHA-256", encoder);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  const hashHex = hashArray
+    .map((b) => b.toString(16).padStart(2, "0"))
+    .join("");
+  return hashHex
 }
 function dismissAnnouncementBanner() {
-    announcementBanner.classList.remove("not-dismissed");
-    announcementBanner.classList.add("dismissed");
-    hashText(announcementBanner.innerHTML)
-        .then((hash) => {  
-            localStorage.setItem("dismissedAnnouncement", hash);
-        });
+  announcementBanner.classList.remove("not-dismissed");
+  announcementBanner.classList.add("dismissed");
+  hashText(announcementBanner.innerHTML)
+    .then((hash) => {
+      localStorage.setItem("dismissedAnnouncement", hash);
+    });
 }
 const announcementBanner = document.getElementById("announcement-banner");
 if (announcementBanner) {
-    const announcementBannerButton = document.getElementById("announcement-banner-button");
-    announcementBannerButton.addEventListener('click', dismissAnnouncementBanner);
-    hashText(announcementBanner.innerHTML)
-        .then((hash) => {
-            if (localStorage.getItem("dismissedAnnouncement") && localStorage.getItem("dismissedAnnouncement") === hash) {
-                announcementBanner.classList.remove("not-dismissed");
-                announcementBanner.classList.add("dismissed");
-            } else {
-                announcementBanner.classList.add("not-dismissed");
-            }
-        })
+  const announcementBannerButton = document.getElementById("announcement-banner-button");
+  announcementBannerButton.addEventListener('click', dismissAnnouncementBanner);
+  hashText(announcementBanner.innerHTML)
+    .then((hash) => {
+      if (localStorage.getItem("dismissedAnnouncement") && localStorage.getItem("dismissedAnnouncement") === hash) {
+        announcementBanner.classList.remove("not-dismissed");
+        announcementBanner.classList.add("dismissed");
+      } else {
+        announcementBanner.classList.add("not-dismissed");
+      }
+    })
 }
 
 function setActiveDownloadBannerSection(id) {
-    const oss = [
-        "macos",
-        "windows",
-        "linux"
-    ];
-    if (!oss.includes(id)) return;
-    const downloadBanner = document.querySelector(".download-banner");
-    oss.forEach((os) => {
-        downloadBanner.classList.remove(`active-${os}`);   
-    })
-    downloadBanner.classList.add(`active-${id}`);
+  const oss = [
+    "macos",
+    "windows",
+    "linux"
+  ];
+  if (!oss.includes(id)) return;
+  const downloadBanner = document.querySelector(".download-banner");
+  oss.forEach((os) => {
+    downloadBanner.classList.remove(`active-${os}`);
+  })
+  downloadBanner.classList.add(`active-${id}`);
 }
 
 const downloadBannerOsButtons = document.querySelectorAll(".download-links a");
 downloadBannerOsButtons.forEach((osLink) => {
-    osLink.addEventListener("click", (e) => {
-        const target = e.target ?? e.currentTarget;
-        const id = target.dataset.os;
-        setActiveDownloadBannerSection(id);
-    })
+  osLink.addEventListener("click", (e) => {
+    const target = e.target ?? e.currentTarget;
+    const id = target.dataset.os;
+    setActiveDownloadBannerSection(id);
+  })
 });
 
 if (document.querySelectorAll(".download-banner").length > 0) {
-    const ua = new UAParser().setUA(navigator.userAgent);
-    setActiveDownloadBannerSection(ua.getOS().name.toLowerCase());
+  const ua = new UAParser().setUA(navigator.userAgent);
+  setActiveDownloadBannerSection(ua.getOS().name.toLowerCase());
 }
 
 setActiveDownloadBannerSection(document.location.hash.replace("#", ""));

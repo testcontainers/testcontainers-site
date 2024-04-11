@@ -1,198 +1,202 @@
 .download-banner {
-    padding: 40px 0;
+  padding: 40px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  .container {
+    display: grid;
+    gap: 40px;
+    align-items: center;
+
+    @media (min-width: 860px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .content {
+    text-align: center;
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 10px;
 
-    .container {
-        display: grid;
-        gap: 40px;
-        align-items: center;
-
-        @media (min-width: 860px) {
-            grid-template-columns: repeat(2, 1fr);
-        }
+    h1 {
+      margin: 0;
     }
 
-    .content {
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
+    .description {
+      font-size: rem(18px);
 
-        h1 {
-            margin: 0;
-        }
+      @media (min-width: 860px) {
+        font-size: rem(24px);
+      }
+    }
+  }
 
-        .description {
-            font-size: rem(18px);
+  .download-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
 
-            @media (min-width: 860px) {
-                font-size: rem(24px);
-            }
-        }
+  .instructions {
+    text-align: center;
+
+    @media (min-width: 860px) {
+      font-size: rem(18px);
+    }
+  }
+
+  .download-section {
+    flex-direction: column;
+    gap: 30px;
+    display: none;
+  }
+
+  &.active-macos .download-section.macos {
+    display: flex;
+  }
+
+  &.active-windows .download-section.windows {
+    display: flex;
+  }
+
+  &.active-linux .download-section.linux {
+    display: flex;
+  }
+
+  pre {
+    position: relative;
+    overflow: hidden;
+    width: max-content;
+    max-width: 100%;
+    margin: 0 auto
+  }
+
+  code {
+    display: block;
+    overflow-x: auto;
+    font-family: "Roboto Mono", 'Courier New', Courier, monospace;
+    background: $plum;
+    color: $catskill;
+    padding: 10px;
+    border-radius: 6px;
+    width: max-content;
+    max-width: 100%;
+
+    @media (min-width: 500px) {
+      padding: 20px;
+    }
+  }
+
+  .buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .button {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+    line-height: 1;
+
+    &.has-extra {
+      padding-bottom: 10px;
     }
 
-    .download-sections {
-        display: flex;
-        flex-direction: column;
-        gap: 30px;
+    .extra {
+      color: $fog;
+      font-size: small;
+      font-weight: 400;
+      transition: color 0.3s ease;
     }
 
-    .instructions {
-        text-align: center;
+    &:hover {
+      .extra {
+        color: $mist;
+      }
+    }
+  }
 
-        @media (min-width: 860px) {
-            font-size: rem(18px);
-        }
+  .other-options {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    @media (min-width: 860px) {
+      font-size: rem(18px);
     }
 
-    .download-section {
-        flex-direction: column;
-        gap: 30px;
-        display: none;
+    .download-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      font-size: rem(18px);
+    }
+  }
+
+  &.active-macos .other-options .download-links a.macos {
+    display: none;
+  }
+
+  &.active-windows .other-options .download-links a.windows {
+    display: none;
+  }
+
+  &.active-linux .other-options .download-links a.linux {
+    display: none;
+  }
+
+  .video {
+    a {
+      display: block;
+      position: relative;
     }
 
-    &.active-macos .download-section.macos {
-        display: flex;
-    }
-    &.active-windows .download-section.windows {
-        display: flex;
-    }
-    &.active-linux .download-section.linux {
-        display: flex;
+    img {
+      width: 100%;
+      height: auto;
     }
 
-    pre {
-        position: relative;
-        overflow: hidden;
-        width: max-content;
-        max-width: 100%;
-        margin: 0 auto
+    .play {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 70px;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $catskill;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, .25);
+
+      &::before {
+        position: absolute;
+        border-radius: 100%;
+        content: '';
+        width: 100%;
+        height: 100%;
+        background: $aqua;
+        opacity: 0.9;
+        z-index: -1;
+        transition: transform 0.2s ease;
+      }
+
+      svg {
+        transform: translateX(3px);
+        height: 18px;
+        width: auto;
+      }
     }
 
-    code {
-        display: block;
-        overflow-x: auto;
-        font-family: "Roboto Mono", 'Courier New', Courier, monospace;
-        background: $plum;
-        color: $catskill;
-        padding: 10px;
-        border-radius: 6px;
-        width: max-content;
-        max-width: 100%;
-
-        @media (min-width: 500px) {
-            padding: 20px;
-        }
+    a:hover .play::before {
+      transform: scale(1.25);
     }
-
-    .buttons {
-        display: flex;
-        gap: 20px;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
-    .button {
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-        align-items: center;
-        line-height: 1;
-
-        &.has-extra {
-            padding-bottom: 10px;
-        }
-
-        .extra {
-            color: $fog;
-            font-size: small;
-            font-weight: 400;
-            transition: color 0.3s ease;
-        }
-
-        &:hover {
-            .extra {
-                color: $mist;
-            }
-        }
-    }
-
-    .other-options {
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-
-        @media (min-width: 860px) {
-            font-size: rem(18px);
-        }
-
-        .download-links {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            font-size: rem(18px);
-        }
-    }
-
-    &.active-macos .other-options .download-links a.macos {
-        display: none;
-    }
-    &.active-windows .other-options .download-links a.windows {
-        display: none;
-    }
-    &.active-linux .other-options .download-links a.linux {
-        display: none;
-    }
-
-    .video {
-        a {
-            display: block;
-            position: relative;
-        }
-
-        img {
-            width: 100%;
-            height: auto;
-        }
-
-        .play {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            width: 70px;
-            height: 70px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: $catskill;
-            box-shadow: 0 20px 45px rgba(0,0,0,.25);
-
-            &::before {
-                position: absolute;
-                border-radius: 100%;
-                content: '';
-                width: 100%;
-                height: 100%;
-                background: $aqua;
-                opacity: 0.9;
-                z-index: -1;
-                transition: transform 0.2s ease;
-            }
-
-            svg {
-                transform: translateX(3px);
-                height: 18px;
-                width: auto;
-            }
-        }
-
-        a:hover .play::before {
-            transform: scale(1.25);
-        }
-    }
+  }
 }

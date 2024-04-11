@@ -1,80 +1,80 @@
 .modules-banner {
-    padding: 0 0 40px 0;
+  padding: 0 0 40px 0;
+
+  @media (min-width: 500px) {
+    padding: 0;
+  }
+
+  h1 {
+    max-width: 1024px;
+  }
+
+  .description {
+    max-width: 900px;
+    font-size: rem(16px);
+
+    @media (min-width: 780px) {
+      font-size: rem(24px);
+    }
+  }
+
+  .search {
+    margin-top: 40px;
+    display: flex;
+    gap: 10px;
+
+    @media (min-width: 780px) {
+      gap: 20px;
+    }
+
+    input {
+      padding: 15px 20px;
+      border: 1px solid $fog;
+      border-radius: 3px;
+      width: 100%;
+      max-width: 610px;
+    }
+  }
+
+  #clear-filter {
+    border: 2px solid $plum;
+    background: none;
+    color: $plum;
+    padding: 12px 20px;
+    border-radius: 3px;
+    flex-shrink: 0;
+    cursor: pointer;
+    font-weight: 500;
+
+    &:hover {
+      background: $plum;
+      color: #fff;
+    }
+
+    &:disabled {
+      border-color: $mist;
+      background: none;
+      color: $fog;
+      cursor: not-allowed;
+    }
+  }
+
+  #filter-toggle {
+    border: 2px solid $topaz;
+    background: none;
+    color: $topaz;
+    padding: 12px;
+    border-radius: 3px;
+    flex-shrink: 0;
+    cursor: pointer;
 
     @media (min-width: 500px) {
-        padding: 0;
+      display: none;
     }
 
-    h1 {
-        max-width: 1024px;
+    .filter-toggled & {
+      background: $topaz;
+      color: #fff;
     }
-
-    .description {
-        max-width: 900px;
-        font-size: rem(16px);
-
-        @media (min-width: 780px) {
-            font-size: rem(24px);
-        }
-    }
-
-    .search {
-        margin-top: 40px;
-        display: flex;
-        gap: 10px;
-
-        @media (min-width: 780px) {
-            gap: 20px;
-        }
-
-        input {
-            padding: 15px 20px;
-            border: 1px solid $fog;
-            border-radius: 3px;
-            width: 100%;
-            max-width: 610px;
-        }
-    }
-
-    #clear-filter {
-        border: 2px solid $plum;
-        background: none;
-        color: $plum;
-        padding: 12px 20px;
-        border-radius: 3px;
-        flex-shrink: 0;
-        cursor: pointer;
-        font-weight: 500;
-
-        &:hover {
-            background: $plum;
-            color: #fff;
-        }
-
-        &:disabled {
-            border-color: $mist;
-            background: none;
-            color: $fog;
-            cursor: not-allowed;
-        }
-    }
-
-    #filter-toggle {
-        border: 2px solid $topaz;
-        background: none;
-        color: $topaz;
-        padding: 12px;
-        border-radius: 3px;
-        flex-shrink: 0;
-        cursor: pointer;
-
-        @media (min-width: 500px) {
-            display: none;
-        }
-
-        .filter-toggled & {
-            background: $topaz;
-            color: #fff;
-        }
-    }
+  }
 }

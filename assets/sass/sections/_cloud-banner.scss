@@ -1,132 +1,130 @@
 .cloud-banner {
-    padding: 40px 0 20px 0;
+  padding: 40px 0 20px 0;
 
-    @media (min-width: 780px) {
-        padding: 60px 0;
+  @media (min-width: 780px) {
+    padding: 60px 0;
+  }
+
+  .container {
+    display: grid;
+    gap: 40px;
+    align-items: center;
+
+    @media (min-width: 860px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    position: relative;
+    z-index: 3;
+    font-size: rem(14px);
+
+    @media (min-width: 860px) {
+      font-size: rem(18px);
     }
 
-    .container {
-        display: grid;
-        gap: 40px;
-        align-items: center;
+    @media (max-width: 859px) {
+      align-items: center;
+      text-align: center;
+    }
+  }
 
-        @media (min-width: 860px) {
-            grid-template-columns: repeat(2, 1fr);
-        }
+  h1 {
+    margin: 0;
+    font-weight: 400;
+  }
+
+  .buttons-wrapper {
+    display: grid;
+    gap: 10px;
+  }
+
+  .buttons {
+    display: flex;
+    gap: 20px;
+
+    @media (max-width: 859px) {
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+  }
+
+  .button-callout {
+    font-weight: 500;
+    position: relative;
+    text-align: left;
+    padding-left: 5px;
+
+    @media (max-width: 500px) {
+      display: none;
     }
 
-    .content {
-        display: flex;
-        flex-direction: column;
-        gap: 40px;
-        position: relative;
-        z-index: 3;
-        font-size: rem(14px);
+    @media (min-width: 1024px) {}
 
-        @media (min-width: 860px) {
-            font-size: rem(18px);
-        }
+    svg {
+      position: absolute;
+      right: 100%;
+      bottom: 100%;
+      transform: translate(-5px, 50%);
+    }
+  }
 
-        @media (max-width: 859px) {
-            align-items: center;
-            text-align: center;
-        }
+  .button-callout-arrow-gradient {
+    width: 100%;
+    height: 100%;
+    background: conic-gradient(from 120deg at 50% 50%, #fff, 160deg, #6638F2, #6638F2);
+  }
+
+  .video {
+    a {
+      display: block;
+      position: relative;
     }
 
-    h1 {
-        margin: 0;
-        font-weight: 400;
+    img {
+      width: 100%;
+      height: auto;
     }
 
-    .buttons-wrapper {
-        display: grid;
-        gap: 10px;
-    }
+    .play {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 70px;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $catskill;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, .25);
 
-    .buttons {
-        display: flex;
-        gap: 20px;
-
-        @media (max-width: 859px) {
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-    }
-
-    .button-callout {
-        font-weight: 500;
-        position: relative;
-        text-align: left;
-        padding-left: 5px;
-
-        @media (max-width: 500px) {
-            display: none;
-        }
-
-        @media (min-width: 1024px) {
-            
-        }
-        
-        svg {
-            position: absolute;
-            right: 100%;
-            bottom: 100%;
-            transform: translate(-5px, 50%);
-        }
-    }
-
-    .button-callout-arrow-gradient {
+      &::before {
+        position: absolute;
+        border-radius: 100%;
+        content: '';
         width: 100%;
         height: 100%;
-        background: conic-gradient(from 120deg at 50% 50%, #fff, 160deg, #6638F2, #6638F2);
+        background: $aqua;
+        opacity: 0.9;
+        z-index: -1;
+        transition: transform 0.2s ease;
+      }
+
+      svg {
+        transform: translateX(3px);
+        height: 18px;
+        width: auto;
+      }
     }
 
-    .video {
-        a {
-            display: block;
-            position: relative;
-        }
-
-        img {
-            width: 100%;
-            height: auto;
-        }
-
-        .play {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            width: 70px;
-            height: 70px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: $catskill;
-            box-shadow: 0 20px 45px rgba(0,0,0,.25);
-            
-            &::before {
-                position: absolute;
-                border-radius: 100%;
-                content: '';
-                width: 100%;
-                height: 100%;
-                background: $aqua;
-                opacity: 0.9;
-                z-index: -1;
-                transition: transform 0.2s ease;
-            }
-
-            svg {
-                transform: translateX(3px);
-                height: 18px;
-                width: auto;
-            }
-        }
-
-        a:hover .play::before {
-            transform: scale(1.25);
-        }
+    a:hover .play::before {
+      transform: scale(1.25);
     }
+  }
 }

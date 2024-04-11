@@ -1,66 +1,69 @@
 .guide-content {
-    padding: 10px 0 60px 0;
+  padding: 10px 0 60px 0;
 
-    @media (min-width: 500px) {
-        padding: 10px 0 100px 0;  
-    }
+  @media (min-width: 500px) {
+    padding: 10px 0 100px 0;
+  }
 
-    .container > .content {
-        .admonitionblock {
-            > table {
-                border-radius: 6px;
-                overflow: hidden;
+  .container>.content {
+    .admonitionblock {
+      >table {
+        border-radius: 6px;
+        overflow: hidden;
 
-                td.content {
-                    border-width: 4px;
-                    background: #F7F9FD;
-                    padding: 1em 1.25em;
-                    word-wrap: anywhere;
-                    overflow: hidden;
-                }
-
-                td.icon {
-                    padding: 1em;
-                    
-                    @media (max-width: 780px) {
-                        width: 50px;
-
-                        img {
-                            width: 20px;
-                            height: 20px;
-                        }
-                    }
-                }
-            }
-
-            &.note {
-                .icon {
-                    background: #E0F4FF;
-                }
-                .content {
-                    border-color: #1DA4F0;
-                }
-            }
-
-            &.tip {
-                .icon {
-                    background: #FFF9D7;
-                }
-                .content {
-                    border-color: #F9D208;
-                }
-            }
-
-            &.important,
-            &.warning,
-            &.caution {
-                .icon {
-                    background: #FFE3E3;
-                }
-                .content {
-                    border-color: #E80606;
-                }
-            }
+        td.content {
+          border-width: 4px;
+          background: #F7F9FD;
+          padding: 1em 1.25em;
+          word-wrap: anywhere;
+          overflow: hidden;
         }
+
+        td.icon {
+          padding: 1em;
+
+          @media (max-width: 780px) {
+            width: 50px;
+
+            img {
+              width: 20px;
+              height: 20px;
+            }
+          }
+        }
+      }
+
+      &.note {
+        .icon {
+          background: #E0F4FF;
+        }
+
+        .content {
+          border-color: #1DA4F0;
+        }
+      }
+
+      &.tip {
+        .icon {
+          background: #FFF9D7;
+        }
+
+        .content {
+          border-color: #F9D208;
+        }
+      }
+
+      &.important,
+      &.warning,
+      &.caution {
+        .icon {
+          background: #FFE3E3;
+        }
+
+        .content {
+          border-color: #E80606;
+        }
+      }
     }
+  }
 }

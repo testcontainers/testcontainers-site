@@ -4,334 +4,334 @@ $left-step: 13em;
 $bottom-step: 7.5em;
 
 @mixin cubeGrid($row, $col) {
-    left: ($left-margin + ($left-step * $col));
-    bottom: ($bottom-margin + ($bottom-step * $row));
+  left: ($left-margin + ($left-step * $col));
+  bottom: ($bottom-margin + ($bottom-step * $row));
 }
 
 .hero-banner {
-    overflow: visible;
-    overflow-x: clip;
-    padding: -70px 0 40px 0;
-    margin-bottom: 30px;
+  overflow: visible;
+  overflow-x: clip;
+  padding: -70px 0 40px 0;
+  margin-bottom: 30px;
 
-    &::before {
-        content: "";
-        position: absolute;
-        z-index: 2;
-        right: 0;
-        top: 0;
-        width: 100%;
-        height: 50%;
-        background: linear-gradient(199deg, #fff 10%, rgba(#fff, 0) 50%);
-        pointer-events: none;
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(199deg, #fff 10%, rgba(#fff, 0) 50%);
+    pointer-events: none;
 
-        body.has-announcement & {
-            top: 40px;
-        }
+    body.has-announcement & {
+      top: 40px;
+    }
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(180deg, #fff 10%, rgba(#fff, 0) 100%);
+    pointer-events: none;
+
+    body.has-announcement & {
+      top: 40px;
+    }
+  }
+
+
+
+  @media (min-width: 500px) {
+    padding: -88px 0 0 0;
+  }
+
+  @media (min-width: 1024px) {
+    margin-bottom: 0;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+
+    @media (min-width: 860px) {
+      flex-direction: row-reverse;
+    }
+  }
+
+  .content {
+    position: relative;
+    z-index: 3;
+    font-size: rem(14px);
+
+    @media (min-width: 860px) {
+      width: 50%;
+      font-size: rem(18px);
+
+      h1,
+      div {
+        max-width: 450px;
+      }
     }
 
-    &::after {
-        content: "";
-        position: absolute;
-        z-index: 2;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100px;
-        background: linear-gradient(180deg, #fff 10%, rgba(#fff, 0) 100%);
-        pointer-events: none;
-
-        body.has-announcement & {
-            top: 40px;
-        }
+    @media (min-width: 1200px) {
+      padding-bottom: 20px;
+      width: 42%;
     }
+  }
 
-    
+  h1 {
+    margin-top: 0;
+  }
+
+  .image {
+    position: relative;
+    width: 100%;
+    max-width: 360px;
+    height: 200px;
 
     @media (min-width: 500px) {
-        padding: -88px 0 0 0;
+      height: 300px;
+      max-width: 600px;
     }
 
-    @media (min-width: 1024px) {
-        margin-bottom: 0;
-    }
-    
-    .container {
-        display: flex;
-        flex-direction: column;
-        gap: 40px;
-        align-items: center;
-
-        @media (min-width: 860px) {
-            flex-direction: row-reverse;   
-        }
+    @media (min-width: 860px) {
+      width: 50%;
+      height: 400px;
     }
 
-    .content {
-        position: relative;
-        z-index: 3;
-        font-size: rem(14px);
+    @media (min-width: 1200px) {
+      max-width: 100%;
+      width: 58%;
+      height: 500px;
+    }
+  }
 
-        @media (min-width: 860px) {
-            width: 50%;
-            font-size: rem(18px);
 
-            h1,
-            div {
-                max-width: 450px;
-            }
-        }
+  .illustration {
+    position: absolute;
+    width: 100%;
+    height: 100%;
 
-        @media (min-width: 1200px) {
-            padding-bottom: 20px;
-            width: 42%;
-        }
+    font-size: 5px;
+
+    @media (min-width: 500px) {
+      font-size: 8px;
     }
 
-    h1 {
-        margin-top: 0;
+    @media (min-width: 1200px) {
+      font-size: 10px;
     }
 
-    .image {
-        position: relative;
-        width: 100%;
-        max-width: 360px;
-        height: 200px;
+    img {
+      display: block;
+      height: 100%;
+      width: auto;
+    }
+  }
 
-        @media (min-width: 500px) {
-            height: 300px;
-            max-width: 600px;
-        }
+  .laptop {
+    position: absolute;
+    left: 0;
+    bottom: 0;
 
-        @media (min-width: 860px) {
-            width: 50%;
-            height: 400px;
-        }
+    height: 21em;
+  }
 
-        @media (min-width: 1200px) {
-            max-width: 100%;
-            width: 58%;
-            height: 500px;
-        }
+  .cubes {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+  }
+
+  @keyframes cubeHover {
+    from {
+      transform: translateY(0);
     }
 
-    
-    .illustration {
-        position: absolute;
-        width: 100%;
-        height: 100%;
+    to {
+      transform: translateY(-1em);
+    }
+  }
 
-        font-size: 5px;
-
-        @media (min-width: 500px) {
-            font-size: 8px;
-        }
-
-        @media (min-width: 1200px) {
-            font-size: 10px;
-        }
-
-        img {
-            display: block;
-            height: 100%;
-            width: auto;
-        }
+  @keyframes cubeShadow {
+    from {
+      transform: translateY(0);
+      filter: blur(0px);
+      opacity: 1;
     }
 
-    .laptop {
-        position: absolute;
-        left: 0;
-        bottom: 0;
+    to {
+      transform: translateY(1em);
+      filter: blur(.2em);
+      opacity: .5;
+    }
+  }
 
-        height: 21em;
+  .cube {
+    position: absolute;
+    width: 10em;
+    height: 11.9em;
+    padding: 2.5em 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url("/images/cube-background.svg") no-repeat;
+    background-size: contain;
+
+    img {
+      position: relative;
+      z-index: 1;
+      background: radial-gradient(circle, rgba(231, 234, 251, 1) 30%, rgba(231, 234, 251, 0) 70%);
     }
 
-    .cubes {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        left: 0;
-        bottom: 0;
+    //animation: cubeHover .3s ease-in-out infinite alternate;
+
+    &:before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      z-index: -1;
+      height: 6em;
+      width: 15em;
+      background: url("/images/cube-shadow.svg") no-repeat;
+      background-position: bottom left;
+      background-size: contain;
+
+      //animation: cubeShadow .3s ease-in-out infinite alternate;
     }
 
-    @keyframes cubeHover {
-        from {
-            transform: translateY(0);
-        }
-
-        to {
-            transform: translateY(-1em);
-        }
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 10em;
+      height: 11.9em;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      background: url("/images/cube-foreground.svg") no-repeat;
+      background-size: contain;
     }
 
-    @keyframes cubeShadow {
-        from {
-            transform: translateY(0);
-            filter: blur(0px);
-            opacity: 1;
-        }
-
-        to {
-            transform: translateY(1em);
-            filter: blur(.2em);
-            opacity: .5;
-        }
+    &.c1 {
+      @include cubeGrid(0, 2);
     }
 
-    .cube {
-        position: absolute;
-        width: 10em;
-        height: 11.9em;
-        padding: 2.5em 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: url("/images/cube-background.svg") no-repeat;
-        background-size: contain;
-
-        img {
-            position: relative;
-            z-index: 1;
-            background: radial-gradient(circle, rgba(231,234,251,1) 30%, rgba(231,234,251,0) 70%);
-        }
-
-        //animation: cubeHover .3s ease-in-out infinite alternate;
-
-        &:before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            z-index: -1;
-            height: 6em;
-            width: 15em;
-            background: url("/images/cube-shadow.svg") no-repeat;
-            background-position: bottom left;
-            background-size: contain;
-
-            //animation: cubeShadow .3s ease-in-out infinite alternate;
-        }
-
-        &:after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 10em;
-            height: 11.9em;
-            top: 0;
-            left: 0;
-            z-index: 0;
-            background: url("/images/cube-foreground.svg") no-repeat;
-            background-size: contain;
-        }
-
-        &.c1 {
-            @include cubeGrid(0, 2);
-        }
-
-        &.c2 {
-            @include cubeGrid(1, 1);
-        }
-
-        &.c3 {
-            @include cubeGrid(2, 0);
-        }
-
-        &.c4 {
-            @include cubeGrid(0, 4);
-        }
-
-        &.c5 {
-            @include cubeGrid(1, 3);
-        }
-
-        &.c6 {
-            @include cubeGrid(2, 2);
-        }
-
-        &.c7 {
-            @include cubeGrid(3, 1);
-        }
-
-        &.c8 {
-            @include cubeGrid(4, 0);
-        }
-
-        &.c9 {
-            @include cubeGrid(0, 6);
-        }
-
-        &.c10 {
-            @include cubeGrid(1, 5);
-        }
-
-        &.c11 {
-            @include cubeGrid(2, 4);
-        }
-
-        &.c12 {
-            @include cubeGrid(3, 3);
-        }
-
-        &.c13 {
-            @include cubeGrid(4, 2);
-        }
-
-        &.c14 {
-            @include cubeGrid(5, 1);
-        }
-
-        &.c15 {
-            @include cubeGrid(1, 7);
-        }
-
-        &.c16 {
-            @include cubeGrid(2, 6);
-        }
-
-        &.c17 {
-            @include cubeGrid(3, 5);
-        }
-
-        &.c18 {
-            @include cubeGrid(4, 4);
-        }
-
-        &.c19 {
-            @include cubeGrid(5, 3);
-        }
-
-        &.c20 {
-            @include cubeGrid(2, 8);
-        }
-
-        &.c21 {
-            @include cubeGrid(3, 7);
-        }
-
-        &.c22 {
-            @include cubeGrid(4, 6);
-        }
-
-        &.c23 {
-            @include cubeGrid(5, 5);
-        }
-
-        &.c24 {
-            @include cubeGrid(3, 9);
-        }
-
-        &.c25 {
-            @include cubeGrid(4, 8);
-        }
-
-        &.c26 {
-            @include cubeGrid(5, 7);
-        } 
-
-        &.c27 {
-            @include cubeGrid(5, 9);
-        } 
+    &.c2 {
+      @include cubeGrid(1, 1);
     }
+
+    &.c3 {
+      @include cubeGrid(2, 0);
+    }
+
+    &.c4 {
+      @include cubeGrid(0, 4);
+    }
+
+    &.c5 {
+      @include cubeGrid(1, 3);
+    }
+
+    &.c6 {
+      @include cubeGrid(2, 2);
+    }
+
+    &.c7 {
+      @include cubeGrid(3, 1);
+    }
+
+    &.c8 {
+      @include cubeGrid(4, 0);
+    }
+
+    &.c9 {
+      @include cubeGrid(0, 6);
+    }
+
+    &.c10 {
+      @include cubeGrid(1, 5);
+    }
+
+    &.c11 {
+      @include cubeGrid(2, 4);
+    }
+
+    &.c12 {
+      @include cubeGrid(3, 3);
+    }
+
+    &.c13 {
+      @include cubeGrid(4, 2);
+    }
+
+    &.c14 {
+      @include cubeGrid(5, 1);
+    }
+
+    &.c15 {
+      @include cubeGrid(1, 7);
+    }
+
+    &.c16 {
+      @include cubeGrid(2, 6);
+    }
+
+    &.c17 {
+      @include cubeGrid(3, 5);
+    }
+
+    &.c18 {
+      @include cubeGrid(4, 4);
+    }
+
+    &.c19 {
+      @include cubeGrid(5, 3);
+    }
+
+    &.c20 {
+      @include cubeGrid(2, 8);
+    }
+
+    &.c21 {
+      @include cubeGrid(3, 7);
+    }
+
+    &.c22 {
+      @include cubeGrid(4, 6);
+    }
+
+    &.c23 {
+      @include cubeGrid(5, 5);
+    }
+
+    &.c24 {
+      @include cubeGrid(3, 9);
+    }
+
+    &.c25 {
+      @include cubeGrid(4, 8);
+    }
+
+    &.c26 {
+      @include cubeGrid(5, 7);
+    }
+
+    &.c27 {
+      @include cubeGrid(5, 9);
+    }
+  }
 }
