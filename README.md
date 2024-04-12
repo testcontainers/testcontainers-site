@@ -118,15 +118,37 @@ It requires the module logo image to be in `png` format so we use a preprocessin
 
 The styles for modules can be found in `/assets/sass/modules/`.
 
+### Community Champions
+
+An example champion file can be found at `/content/community-champions/_example.md.example`.
+
+Champion pages require a photo (`/assets/images/community-champions/page-name.jpg`) and share image (`/assets/images/community-champions/page-name-share.png`) in the assets folder with matching files names. These files are created from a [template in Figma here](https://www.figma.com/file/S947tvp4er8plrum5lyg21/%F0%9F%8F%86-TC-Community-Champions?type=design&node-id=0-1&mode=design).
+
+#### Countries
+
+The champions country of residence is set using the ISO alpha-2 country code. A list of codes is maintained in `/data/countries.yml` and matching flags are kept in `/assets/images/flags/`.
+
+#### Languages
+
+Any lanugages used by champions should be added to `/data/languages.yml`. See the *Programming Languages* section below for details.
+
+#### Social Links
+
+The existing supported social links are listed in the example champion file. When adding a new one a matching logo should be added to `/assets/images/social/`.
+
 ### Programming Languages
 
 Acrosss the site we make references to programming languages. This might mean we need the language logo or title or the link to the TC implementation in that language. To cut down on duplication we store all of this information in `/data/languages.yml` and refrerence it in templates.
 
-This list should be kept up to date and include any language that is reference in guide or module.
+This list should be kept up to date and include any language that is reference in guide, module or community champion page.
 
 Languages must have an `order` which controls the order they are listed in templates.
 
 *In Hugo dictionaries are converted to maps when used in `range` loops and are by default sorted alphabetically so we use the `order` param and a `sort` in the range to control it*.
+
+#### Code highlighting
+
+Highlighting is done using [highlight.js](https://highlightjs.org/) which is configured to support the currently used languages. If additional languages are needed then `/static/js/highlight.min.js` will need to be [regenerated](https://highlightjs.org/download) with the new languages included.
 
 ### Tags
 
@@ -155,3 +177,31 @@ The site is deployed to [netlify](https://www.netlify.com/) which requires PRs t
 ### Redirects
 
 Redirects are configured in `netlify.toml`
+
+##  Analytics
+
+The site uses [iubenda](https://www.iubenda.com/) to manage tracking consent.
+
+Tracking scripts are loaded via [Google Tag Manager](https://tagmanager.google.com/#/container/accounts/6068072463/containers/116206463/workspaces/9)
+
+Analytics are recorded in [Google Analytics](https://analytics.google.com/analytics/web/#/p373834203/reports/home) and [Heap](https://heapanalytics.com/app/env/4204607514/dashboard/Testcontainers-Overview-278374)
+
+### TCD install attribution
+
+During Testcontainers Desktop client authorization users are redirected to `https://testcontainers.com/desktop/authorized/`. 
+
+This page sends an `attribution` event to [Mixpanel](https://eu.mixpanel.com/project/2717988/view/3254192/app/events#pYPErQ1bEeiU) that links any attribution information in the users cookies (utms, referrer etc) to the client install ID.
+
+The code for this page is found in `/layouts/authorized/baseof.html`.
+
+The script that saves that attribution data to the users cookies is in the Google Tag Manager container.
+
+## Additional Notes
+
+### Testcontainers Slack channel link
+
+Links to join the Testcontainers community Slack channel can point to `slack.testcontainers.com` or `slack.testcontainers.org`. Both of these subdomains have redirects configured in [Cloudflare Page Rules](https://dash.cloudflare.com/f63a64e586bd3d268acd5a0bb85846f5/testcontainers.com/rules) that point to `https://join.slack.com/t/testcontainers/shared_invite/...`. This link must be refreshed after 400 people have used it to join the channel. When it is refreshed the Page Rules for both domains must be updated to use the new link.
+
+### Testcontainers documentation sites
+
+The core Testcontainers documentation sites ([Java](https://java.testcontainers.org/), [Go](https://golang.testcontainers.org/), [.NET](https://dotnet.testcontainers.org/), [Node.js](https://node.testcontainers.org/)) use a modified MkDocs theme that emulates the testcontainers.com site header and general theme as well as the list of supported languages. Any changes to these three things should be propogated to the documentation sites as well.
