@@ -1,40 +1,40 @@
 .toc {
-    align-self: flex-start;
-    font-size: 15px;
-    flex: 0 0 auto;
+  align-self: flex-start;
+  font-size: 15px;
+  flex: 0 0 auto;
 
-    @media (min-width: 1024px) {
-        position: sticky;
-        top: 20px;
-        width: 320px;
-        max-height: calc(100vh - 40px);
-        overflow-y: auto;
+  @media (min-width: 1024px) {
+    position: sticky;
+    top: 20px;
+    width: 320px;
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
+  }
+
+  a {
+    display: inline-block;
+    border-left: 4px solid $mist;
+    text-decoration: none;
+    transition: border-color 0.3s ease;
+    color: $storm;
+    padding: 8px 0px 8px 20px;
+    line-height: 1.125;
+    word-break: break-word;
+
+    &:hover {
+      color: $aqua;
     }
 
-    a {
-        display: inline-block;
-        border-left: 4px solid $mist;
-        text-decoration: none;
-        transition: border-color 0.3s ease;
-        color: $storm;
-        padding: 8px 0px 8px 20px;
-        line-height: 1.125;
-        word-break: break-word;
-
-        &:hover {
-            color: $aqua;
-        }
-
-        &.current {
-            @media (min-width: 1024px) {
-                border-color: $aqua;
-            }
-        }
+    &.current {
+      @media (min-width: 1024px) {
+        border-color: $aqua;
+      }
     }
+  }
 
-    nav > ul > li > a {
-        color: $eggplant;
-        font-weight: 500;
-        padding: 8px 0px 8px 10px;
-    }
+  nav>ul>li>a {
+    color: $eggplant;
+    font-weight: 500;
+    padding: 8px 0px 8px 10px;
+  }
 }

@@ -1,13 +1,19 @@
+{{/*
+- partial: alternating-download-image
+  title: Lorem ipsum
+  description: |
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+*/}}
 <section class="alternating-download-image">
-    <div class="container">
-        <div class="image">
-            {{ with .section.image }}
-                {{ partial "img.html" (dict "image" (resources.Get .) "alt" "" "lazy" "true") }}
-            {{ end }}
-        </div>
-        <div class="content">
-            <h2>{{ .section.title | markdownify }}</h2>
-            <div class="description">{{ .section.description | markdownify }}</div>
-        </div>
+  <div class="container">
+    <div class="image">
+      {{ with .section.image }}
+        {{ partial "img.html" (dict "image" (resources.Get .) "alt" "" "lazy" "true") }}
+      {{ end }}
     </div>
+    <div class="content">
+      <h2>{{ .section.title | markdownify }}</h2>
+      <div class="description">{{ .section.description | markdownify }}</div>
+    </div>
+  </div>
 </section>

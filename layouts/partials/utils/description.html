@@ -1,0 +1,22 @@
+{{ $description := .Site.Params.Description }}
+
+{{/* Set page description */}}
+{{ with .Page.Description }}
+  {{ $description = . }}
+{{ end }}
+
+{{ if and (not .IsSection) (eq .Section "modules") }}
+  {{/* Override description for single modules pages */}}
+  {{ $moduleLanguages := partial "utils/module-languages" . }}
+  {{ with .Page.Title }}
+    {{ $description = printf "Start testing with real dependencies using the %s Module for Testcontainers for %s" . (delimit $moduleLanguages ", " ", and ") }}
+  {{ end }}
+
+{{ else if and (not .IsSection) (eq .Section "community-champions") }}
+  {{/* Override description for single community champions pages */}}
+  {{ with .Page.Title }}
+    {{ $description = printf "View the Testcontainers Community Champion profile for %s" . }}
+  {{ end }}
+{{ end }}
+
+{{ return $description }}

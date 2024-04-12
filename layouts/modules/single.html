@@ -6,7 +6,7 @@
 {{ end }}
 
 {{ define "main" }}
-  {{ $langaugesData := .Site.Data.languages }}
+  {{ $languages := site.Data.languages }}
   <main>
     <article>
       <div class="module-top-header">
@@ -57,12 +57,11 @@
                     {{ end }}
                   </div>
                 {{ end }}
-                {{ if .Params.Docs }}
+                {{ $moduleLanguages := partial "utils/module-languages" . }}
+                {{ with $moduleLanguages }}
                   <ul class="languages">
-                    {{ range .Params.Docs }}
-                      {{ $language := where $langaugesData "id" .id }}
-                      {{ $lang := index $language 0 }}
-                      <li class="language">{{ $lang.label }}</li>
+                    {{ range . }}
+                      <li class="language">{{ .title }}</li>
                     {{ end }}
                   </ul>
                 {{ end }}
@@ -74,13 +73,12 @@
               <h2>Documentation</h2>
               {{ $communityDocs := false }}
               {{ range .Params.Docs }}
-                {{ $language := where $langaugesData "id" .id }}
-                {{ $lang := index $language 0 }}
+                {{ $language := index $languages (.id | lower)}}
                 <a href="{{ .url }}" target="_blank">
-                  {{ with $lang.logo }}
-                    {{ partial "img.html" (dict "image" (resources.Get $lang.logo) "alt" "") }}
+                  {{ with $language.logo }}
+                    {{ partial "img.html" (dict "image" (resources.Get $language.logo) "alt" "") }}
                   {{ end }}
-                  {{ $lang.label }}
+                  {{ $language.title }}
                   {{ if or (eq .maintainer "community") .isThirdParty }}
                     {{ $communityDocs = true }}
                     <svg class="icon-community" height="16" viewBox="0 0 40 32">
@@ -141,19 +139,16 @@
                 <div class="code-examples examples">
                   <div class="tab-labels">
                     {{ range $index, $doc := .Params.Docs }}
-                      {{ $language := where $langaugesData "id" $doc.id }}
-                      {{ $lang := index $language 0 }}
+                      {{ $language := index $languages (.id | lower) }}
                       {{ if eq $index 0 }}
-                        <button class="active" data-target="{{ $doc.id }}">{{ $lang.label }}</button>
+                        <button class="active" data-target="{{ $doc.id }}">{{ $language.title }}</button>
                       {{ else }}
-                        <button data-target="{{ $doc.id }}">{{ $lang.label }}</button>
+                        <button data-target="{{ $doc.id }}">{{ $language.title }}</button>
                       {{ end }}
                     {{ end }}
                   </div>
                   <div class="tab-panels">
                     {{ range $index, $doc := .Params.Docs }}
-                      {{ $language := where $langaugesData "id" $doc.id }}
-                      {{ $lang := index $language 0 }}
                       {{ if eq $index 0 }}
                         <div class="tab-panel active" data-id="{{ $doc.id }}">
                           {{ $doc.example | markdownify }}

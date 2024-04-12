@@ -1,168 +1,171 @@
 {{ if .Site.Params.Announcement }}
-    <div id="announcement-banner" class="announcement-banner">
-        <a href="{{ index (.Site.Params.announcement).url }}" target="_blank" rel="noopener">{{ index (.Site.Params.announcement).text }}</a>
-        <button id="announcement-banner-button" type="button" class="announcement-close">
-            <span class="sr-only">Dismiss Announcement</span>
-            {{ partial "svgs/close" }}
-        </button>
-    </div>
+  <div id="announcement-banner" class="announcement-banner">
+    <a href="{{ index (.Site.Params.announcement).url }}" target="_blank" rel="noopener">{{ index
+      (.Site.Params.announcement).text }}</a>
+    <button id="announcement-banner-button" type="button" class="announcement-close">
+      <span class="sr-only">Dismiss Announcement</span>
+      {{ partial "svgs/close" }}
+    </button>
+  </div>
 {{ end }}
 <header id="site-header">
-    <div class="brand">
-        <a href="/" class="logo">
-            {{ partial "img.html" (dict "image" (resources.Get "/images/testcontainers-logo.svg") "alt" "Testcontainers Logo") }}
+  <div class="brand">
+    <a href="/" class="logo">
+      {{ partial "img.html" (dict "image" (resources.Get "/images/testcontainers-logo.svg") "alt" "Testcontainers Logo") }}
+    </a>
+    <button id="mobile-menu-toggle">
+      Menu
+      <svg width="30" height="30" viewBox="0 0 30 30" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <rect y="22" width="30" height="4" rx="2" />
+        <rect y="13" width="30" height="4" rx="2" />
+        <rect y="4" width="30" height="4" rx="2" />
+      </svg>
+    </button>
+  </div>
+  <nav>
+    <ul class="menu">
+      <li class="menu-item">
+        <a href="/desktop/">
+          Desktop
+          <span class="badge rounded-pill">NEW</span>
         </a>
-        <button id="mobile-menu-toggle">
-            Menu
-            <svg width="30" height="30" viewBox="0 0 30 30" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <rect y="22" width="30" height="4" rx="2"/>
-                <rect y="13" width="30" height="4" rx="2"/>
-                <rect y="4" width="30" height="4" rx="2"/>
-            </svg>        
+      </li>
+      <li class="menu-item">
+        <a href="/cloud/">
+          Cloud
+        </a>
+      </li>
+      <li class="menu-item">
+        <a href="/getting-started/">
+          Getting Started
+        </a>
+      </li>
+      <li class="menu-item">
+        <a href="/guides/">
+          Guides
+        </a>
+      </li>
+      <li class="menu-item">
+        <a href="/modules/">
+          Modules
+        </a>
+      </li>
+      <li class="menu-item has-children">
+        <button>
+          Docs
+          <svg class="icon-caret" height="10" viewBox="0 0 10 10">
+            <use href="#icon-caret"></use>
+          </svg>
         </button>
-    </div>
-    <nav>
-        <ul class="menu">
-            <li class="menu-item">
-                <a href="/desktop/">
-                    Desktop
-                <span class="badge rounded-pill">NEW</span>
+        <ul class="menu-dropdown">
+          {{ range sort site.Data.languages "order" }}
+            {{ if and .link .logo }}
+              <li class="menu-dropdown-item">
+                <a href="{{ .link }}" target="_blank" target="_blank">
+                  {{ partial "img.html" (dict "image" (resources.Get .logo) "alt" "") }}
+                  <span>{{ .title }}</span>
+                  <svg class="icon-external" width="15" height="17" viewBox="0 0 15 17">
+                    <use href="#icon-external"></use>
+                  </svg>
                 </a>
-            </li>
-            <li class="menu-item">
-                <a href="/cloud/">
-                    Cloud
-                </a>
-            </li>
-            <li class="menu-item">
-                <a href="/getting-started/">
-                    Getting Started
-                </a>
-            </li>
-            <li class="menu-item">
-                <a href="/guides/">
-                    Guides
-                </a>
-            </li>
-            <li class="menu-item">
-                <a href="/modules/">
-                    Modules
-                </a>
-            </li>
-            <li class="menu-item has-children">
-                <button>
-                    Docs
-                    <svg class="icon-caret" height="10" viewBox="0 0 10 10">
-                        <use href="#icon-caret"></use>
-                    </svg>
-                </button>
-                <ul class="menu-dropdown">
-                    {{ range .Site.Data.languages }}
-                        <li class="menu-dropdown-item">
-                            <a href="{{ .link }}" target="_blank" target="_blank">
-                                {{ partial "img.html" (dict "image" (resources.Get .logo) "alt" "") }}
-                                <span>{{ .label }}</span>
-                                <svg class="icon-external" width="15" height="17" viewBox="0 0 15 17">
-                                    <use href="#icon-external"></use>
-                                </svg>
-                            </a>
-                        </li>
-                    {{ end }}
-                </ul>
-            </li>
-            <li class="menu-item">
-                <a href="https://atomicjar.com/category/testcontainers/">
-                    <span>Blog</span>
-                    <svg class="icon-external" width="15" height="17" viewBox="0 0 15 17">
-                        <use href="#icon-external"></use>
-                    </svg>
-                </a>
-            </li>
-            <li class="menu-item">
-                <a href="https://slack.testcontainers.org/" target="_blank">
-                    {{ partial "svgs/slack" }}
-                    <span class="sr-only">Slack</span>
-                </a>
-            </li>
-            <li class="menu-item">
-                <a href="https://github.com/testcontainers/" target="_blank">
-                    {{ partial "svgs/github" }}
-                    <span class="sr-only">GitHub</span>
-                </a>
-            </li>
+              </li>
+            {{ end }}
+          {{ end }}
         </ul>
-    </nav>
+      </li>
+      <li class="menu-item">
+        <a href="https://atomicjar.com/category/testcontainers/">
+          <span>Blog</span>
+          <svg class="icon-external" width="15" height="17" viewBox="0 0 15 17">
+            <use href="#icon-external"></use>
+          </svg>
+        </a>
+      </li>
+      <li class="menu-item">
+        <a href="https://slack.testcontainers.org/" target="_blank">
+          {{ partial "svgs/slack" }}
+          <span class="sr-only">Slack</span>
+        </a>
+      </li>
+      <li class="menu-item">
+        <a href="https://github.com/testcontainers/" target="_blank">
+          {{ partial "svgs/github" }}
+          <span class="sr-only">GitHub</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
 </header>
 {{ define "subheader" }}
-    {{ if eq .Params.submenu "cloud" }}
+  {{ if eq .Params.submenu "cloud" }}
     <div id="subheader">
-        <a class="subheader-title" href="/cloud/">Testcontainers Cloud</a>
-        <button id="mobile-submenu-toggle">
-            <span class="sr-only">Subheader Menu</span>
-            <svg width="30" height="30" viewBox="0 0 30 30" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <rect y="22" width="30" height="4" rx="2"/>
-                <rect y="13" width="30" height="4" rx="2"/>
-                <rect y="4" width="30" height="4" rx="2"/>
-            </svg>        
-        </button>
-        <nav>
-            <ul class="subheader-menu">
-                <li class="menu-item">
-                    <a href="/cloud/desktop/">
-                        On Desktop
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="/cloud/ci/">
-                        On CI
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="/cloud/pricing/">
-                        Pricing
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="/cloud/docs/">
-                        Docs
-                    </a>
-                </li>
-            </ul>
-        </nav>
-        <ul class="subheader-buttons">
-            <li class="menu-item">
-                <a href="https://app.testcontainers.cloud">
-                    Log In
-                </a>
-            </li>
-            <li class="menu-item alt">
-                <a href="https://app.testcontainers.cloud/signup">
-                    Free Trial
-                </a>
-            </li>
+      <a class="subheader-title" href="/cloud/">Testcontainers Cloud</a>
+      <button id="mobile-submenu-toggle">
+        <span class="sr-only">Subheader Menu</span>
+        <svg width="30" height="30" viewBox="0 0 30 30" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <rect y="22" width="30" height="4" rx="2" />
+          <rect y="13" width="30" height="4" rx="2" />
+          <rect y="4" width="30" height="4" rx="2" />
+        </svg>
+      </button>
+      <nav>
+        <ul class="subheader-menu">
+          <li class="menu-item">
+            <a href="/cloud/desktop/">
+              On Desktop
+            </a>
+          </li>
+          <li class="menu-item">
+            <a href="/cloud/ci/">
+              On CI
+            </a>
+          </li>
+          <li class="menu-item">
+            <a href="/cloud/pricing/">
+              Pricing
+            </a>
+          </li>
+          <li class="menu-item">
+            <a href="/cloud/docs/">
+              Docs
+            </a>
+          </li>
         </ul>
+      </nav>
+      <ul class="subheader-buttons">
+        <li class="menu-item">
+          <a href="https://app.testcontainers.cloud">
+            Log In
+          </a>
+        </li>
+        <li class="menu-item alt">
+          <a href="https://app.testcontainers.cloud/signup">
+            Free Trial
+          </a>
+        </li>
+      </ul>
     </div>
-    {{ end }}
-    {{ if eq .Params.submenu "desktop" }}
+  {{ end }}
+  {{ if eq .Params.submenu "desktop" }}
     <div id="subheader">
-        <a class="subheader-title" href="/desktop/">Testcontainers Desktop</a>
-        <button id="mobile-submenu-toggle">
-            <span class="sr-only">Subheader Menu</span>
-            <svg width="30" height="30" viewBox="0 0 30 30" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <rect y="22" width="30" height="4" rx="2"/>
-                <rect y="13" width="30" height="4" rx="2"/>
-                <rect y="4" width="30" height="4" rx="2"/>
-            </svg>        
-        </button>
-        <nav>
-            <ul class="subheader-menu">
-                <li class="menu-item">
-                    <a href="/desktop/docs/">
-                        Docs
-                    </a>
-                </li>
-            </ul>
-        </nav>
+      <a class="subheader-title" href="/desktop/">Testcontainers Desktop</a>
+      <button id="mobile-submenu-toggle">
+        <span class="sr-only">Subheader Menu</span>
+        <svg width="30" height="30" viewBox="0 0 30 30" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <rect y="22" width="30" height="4" rx="2" />
+          <rect y="13" width="30" height="4" rx="2" />
+          <rect y="4" width="30" height="4" rx="2" />
+        </svg>
+      </button>
+      <nav>
+        <ul class="subheader-menu">
+          <li class="menu-item">
+            <a href="/desktop/docs/">
+              Docs
+            </a>
+          </li>
+        </ul>
+      </nav>
     </div>
-    {{ end }}
+  {{ end }}
 {{ end }}

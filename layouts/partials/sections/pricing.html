@@ -1,77 +1,96 @@
+{{/*
+- partial: pricing
+  title: Lorem ipsum
+  headingLevel: 1
+  buttons:
+    - label: Lorem ipsum
+      url: https://testcontainers.com
+  features:
+    - Lorem ipsum
+  plans:
+    - title: Lorem ipsum
+      description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      prices:
+        - label: Lorem ipsum
+          value: $0
+          discountValue:
+      features:
+        - value: Lorem ipsum
+          checkmark: true 
+*/}}
 {{ $features := .section.features }}
 {{ $headingLevel := 2 }}
 {{ with .section.headingLevel }}
-{{ $headingLevel = . }}
+  {{ $headingLevel = . }}
 {{ end }}
 <section class="pricing">
-    <div class="container">
-        <div class="content">
-            <h{{$headingLevel}}>{{ .section.title }}</h{{$headingLevel}}>
-        </div>
-        <div class="pricing-table">
-            <div class="info">
-                <div class="details">
-                    {{ partial "img.html" (dict "image" (resources.Get "/images/testcontainers-cloud-logo.svg") "alt" "") }}
-                </div>
-                <div class="features">
-                    
-                    {{ range $features }}
-                        <div class="feature">{{ . | markdownify }}</div>
-                    {{ end }}
-                </div>
-            </div>
-            <div class="plans">
-                {{ range .section.plans }}
-                    <div class="plan">
-                        <div class="details">
-                            <h3>{{ .title }}</h3>
-                            <div>{{ .description | markdownify }}</div>
-                            <div class="prices">
-                                {{ range .prices }}
-                                    <div class="price">
-                                        {{ if .discountValue }}
-                                            <span class="price-discount">{{ .discountValue }}</span>
-                                        {{ end }}
-                                        <span class="price-value">{{ .value }}</span>
-                                        {{ if .label }}
-                                            <span class="price-label">{{ .label }}</span>
-                                        {{ end }}
-                                    </div>
-                                {{ end }}
-                            </div>
-                            {{ if .discount }}
-                                <div class="discount">
-                                    <span class="discount-title">{{ .discount.title }}</span>
-                                    {{ .discount.description | markdownify }}
-                                </div>
-                            {{ end }}
-                        </div>
-                        <div class="features">
-                            {{ $planFeatures := .features }}
-                            {{ range $index, $feature := $features }}
-                                {{ $planFeature := index $planFeatures $index }}
-                                <div class="feature" data-label="{{ $feature | markdownify }}">
-                                    {{ if $planFeature.checkmark }}
-                                        <svg class="icon-check" width="16" height="16" viewBox="0 0 10 10">
-                                            <use href="#icon-check"></use>
-                                        </svg>
-                                    {{ end }}
-                                    {{ $planFeature.value }}
-                                </div>
-                            {{ end }}
-                        </div>
-                    </div>
-                {{ end }}
-            </div>
-        </div>
-        <div class="buttons">
-            {{ range .section.buttons }}
-                {{ $buttonClasses := slice "button" }}
-                {{ with .style }}
-                    {{ $buttonClasses = $buttonClasses | append . }}
-                {{ end }}
-                <a class='{{ delimit $buttonClasses " " }}' href="{{ .url }}" target="{{ .target }}">{{ .label }}</a>
-            {{ end }}
-        </div>
+  <div class="container">
+    <div class="content">
+      <h{{$headingLevel}}>{{ .section.title }}</h{{$headingLevel}}>
     </div>
+    <div class="pricing-table">
+      <div class="info">
+        <div class="details">
+          {{ partial "img.html" (dict "image" (resources.Get "/images/testcontainers-cloud-logo.svg") "alt" "") }}
+        </div>
+        <div class="features">
+          {{ range $features }}
+            <div class="feature">{{ . | markdownify }}</div>
+          {{ end }}
+        </div>
+      </div>
+      <div class="plans">
+        {{ range .section.plans }}
+          <div class="plan">
+            <div class="details">
+              <h3>{{ .title }}</h3>
+              <div>{{ .description | markdownify }}</div>
+              <div class="prices">
+                {{ range .prices }}
+                  <div class="price">
+                    {{ if .discountValue }}
+                      <span class="price-discount">{{ .discountValue }}</span>
+                    {{ end }}
+                    <span class="price-value">{{ .value }}</span>
+                    {{ if .label }}
+                      <span class="price-label">{{ .label }}</span>
+                    {{ end }}
+                  </div>
+                {{ end }}
+              </div>
+              {{ if .discount }}
+                <div class="discount">
+                  <span class="discount-title">{{ .discount.title }}</span>
+                  {{ .discount.description | markdownify }}
+                </div>
+              {{ end }}
+            </div>
+            <div class="features">
+              {{ $planFeatures := .features }}
+              {{ range $index, $feature := $features }}
+                {{ $planFeature := index $planFeatures $index }}
+                <div class="feature" data-label="{{ $feature | markdownify }}">
+                  {{ if $planFeature.checkmark }}
+                    <svg class="icon-check" width="16" height="16" viewBox="0 0 10 10">
+                      <use href="#icon-check"></use>
+                    </svg>
+                  {{ end }}
+                  {{ $planFeature.value }}
+                </div>
+              {{ end }}
+            </div>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+    <div class="buttons">
+      {{ range .section.buttons }}
+        {{ $buttonClasses := slice "button" }}
+        {{ with .style }}
+          {{ $buttonClasses = $buttonClasses | append . }}
+        {{ end }}
+        <a class='{{ delimit $buttonClasses " " }}' href="{{ .url }}" target="{{ .target }}">{{ .label }}</a>
+      {{ end }}
+    </div>
+  </div>
 </section>

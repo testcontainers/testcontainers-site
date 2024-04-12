@@ -1,160 +1,160 @@
 .experience-columns {
-    padding: 40px 0;
+  padding: 40px 0;
+
+  @media (min-width: 780px) {
+    padding: 60px 0;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .content {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 40px;
+
+    h2 {
+      @media (min-width: 860px) {
+        font-size: rem(36px);
+      }
+    }
+
+    div {
+      max-width: 1024px;
+
+      @media (min-width: 860px) {
+        font-size: rem(18px);
+      }
+    }
+  }
+
+  .columns {
+    display: grid;
+    gap: 30px;
 
     @media (min-width: 780px) {
-        padding: 60px 0;
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    border: 1px solid $mist;
+    border-radius: 6px;
+    padding: 30px 20px;
+  }
+
+  .icon {
+    &.testcontainers {
+      display: flex;
+      justify-content: center;
+
+      img {
+        height: 30px;
+
+        @media (min-width: 860px) {
+          height: 60px;
+        }
+      }
     }
 
-    .container {
-        display: flex;
-        flex-direction: column;
-        gap: 40px;
+    &.languages {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      height: 30px;
+      align-items: center;
+
+      img {
+        height: 30px;
+      }
+
+      @media (min-width: 860px) {
+        height: 60px;
+
+        img {
+          height: 36px;
+        }
+      }
     }
 
-    .content {
-        margin-bottom: 20px;
+    &.modules {
+      font-size: 4px;
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+
+      @media (min-width: 860px) {
+        font-size: 6px;
+      }
+
+      .cube {
+        position: relative;
+        width: 10em;
+        height: 11.9em;
+        padding: 2.5em 0;
         display: flex;
-        flex-direction: column;
         align-items: center;
-        text-align: center;
-        gap: 40px;
-
-        h2 {
-            @media (min-width: 860px) {
-                font-size: rem(36px);
-            }
-        }
-        
-        div {
-            max-width: 1024px;
-
-            @media (min-width: 860px) {
-                font-size: rem(18px);
-            }
-        }
-    }
-
-    .columns {
-        display: grid;
-        gap: 30px;
-
-        @media (min-width: 780px) {
-            grid-template-columns: repeat(3, 1fr);
-        }
-    }
-
-    .column {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
         justify-content: center;
-        border: 1px solid $mist;
-        border-radius: 6px;
-        padding: 30px 20px;
-    }
+        background: url("/images/cube-background.svg") no-repeat;
+        background-size: contain;
 
-    .icon {
-        &.testcontainers {
-            display: flex;
-            justify-content: center;
-
-            img {
-                height: 30px;
-
-                @media (min-width: 860px) {
-                    height: 60px;
-                }
-            } 
+        img {
+          height: 100%;
+          position: relative;
+          z-index: 1;
+          background: radial-gradient(circle, rgba(231, 234, 251, 1) 30%, rgba(231, 234, 251, 0) 70%);
         }
 
-        &.languages {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            height: 30px;
-            align-items: center;
-
-            img {
-                height: 30px;
-            }
-
-            @media (min-width: 860px) {
-                height: 60px;
-
-                img {
-                    height: 36px;
-                }
-            }
+        &:before {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          z-index: -1;
+          height: 6em;
+          width: 15em;
+          background: url("/images/cube-shadow.svg") no-repeat;
+          background-position: bottom left;
+          background-size: contain;
         }
 
-        &.modules {
-            font-size: 4px;
-            display: flex;
-            gap: 30px;
-            justify-content: center;
-
-            @media (min-width: 860px) {
-                font-size: 6px;
-            }
-
-            .cube {
-                position: relative;
-                width: 10em;
-                height: 11.9em;
-                padding: 2.5em 0;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                background: url("/images/cube-background.svg") no-repeat;
-                background-size: contain;
-        
-                img {
-                    height: 100%;
-                    position: relative;
-                    z-index: 1;
-                    background: radial-gradient(circle, rgba(231,234,251,1) 30%, rgba(231,234,251,0) 70%);
-                }
-        
-                &:before {
-                    content: '';
-                    position: absolute;
-                    bottom: 0;
-                    left: 0;
-                    z-index: -1;
-                    height: 6em;
-                    width: 15em;
-                    background: url("/images/cube-shadow.svg") no-repeat;
-                    background-position: bottom left;
-                    background-size: contain;
-                }
-        
-                &:after {
-                    content: '';
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 10em;
-                    height: 11.9em;
-                    top: 0;
-                    left: 0;
-                    z-index: 0;
-                    background: url("/images/cube-foreground.svg") no-repeat;
-                    background-size: contain;
-                }
-            }
+        &:after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 10em;
+          height: 11.9em;
+          top: 0;
+          left: 0;
+          z-index: 0;
+          background: url("/images/cube-foreground.svg") no-repeat;
+          background-size: contain;
         }
+      }
     }
+  }
 
-    h3 {
-        color: $eggplant;
-        margin-top: auto;
-        text-align: center;
-    }
+  h3 {
+    color: $eggplant;
+    margin-top: auto;
+    text-align: center;
+  }
 
-    .buttons {
-        display: flex;
-        gap: 20px;
-        justify-content: center;
-        align-items: center;
-    }
+  .buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+  }
 }

@@ -1,32 +1,41 @@
+{{/*
+- partial: quotes
+  quotes:
+    - quote: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      name: Lorem ipsum
+      role: Lorem ipsum
+      image: /images/quotes/nicolai-baldin.jpg
+*/}}
 <section class="quotes">
-    <div class="container">
-        <div>
-            <div class="glide">
-                <div class="glide__track" data-glide-el="track">
-                    <ul class="glide__slides">
-                        {{ range .section.quotes }}
-                            <li class="glide__slide">
-                                <figure>
-                                    <svg width="25" height="16" viewBox="0 0 25 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M14.6073 16C14.1098 16 13.7506 15.8342 13.5295 15.5026C13.3085 15.171 13.2256 14.7565 13.2808 14.2591L15.1047 2.40414C15.2152 1.74093 15.4363 1.18826 15.7679 0.746114C16.1548 0.248705 16.7351 0 17.5088 0H22.9803C23.4225 0 23.7541 0.165803 23.9751 0.497408C24.2515 0.773746 24.3896 1.07772 24.3896 1.40933C24.3896 1.85147 24.2791 2.29361 24.058 2.73575L19.7472 14.0933C19.5261 14.6459 19.2221 15.1157 18.8352 15.5026C18.5036 15.8342 17.9786 16 17.2601 16H14.6073ZM1.34301 16C0.900864 16 0.541624 15.8342 0.265285 15.5026C0.0442141 15.171 -0.0386874 14.7565 0.0165804 14.2591L1.92332 2.40414C2.03385 1.74093 2.25492 1.18826 2.58653 0.746114C2.9734 0.248705 3.52608 0 4.24456 0H9.79896C10.1858 0 10.4898 0.165803 10.7109 0.497408C10.9872 0.773746 11.1254 1.07772 11.1254 1.40933C11.1254 1.85147 11.0149 2.29361 10.7938 2.73575L6.4829 14.0933C6.26183 14.6459 5.95786 15.1157 5.57098 15.5026C5.23938 15.8342 4.71434 16 3.99586 16H1.34301Z"/>
-                                    </svg>
-                                    <blockquote>{{ .quote }}</blockquote>
-                                    <figcaption>
-                                        {{ partial "img.html" (dict "image" (resources.Get .image) "alt" "") }}
-                                        <div class="name">{{ .name }}</div>
-                                        <div class="role">{{ .role }}</div>
-                                    </figcaption>
-                                </figure>
-                            </li>
-                        {{ end }}
-                    </ul>
-                </div>
-                <div class="glide__bullets" data-glide-el="controls[nav]">
-                    {{ range $index, $quote := .section.quotes }}
-                        <button class="glide__bullet" data-glide-dir="={{ $index }}"></button>
-                    {{ end }}
-                </div>
-            </div>
+  <div class="container">
+    <div>
+      <div class="glide">
+        <div class="glide__track" data-glide-el="track">
+          <ul class="glide__slides">
+            {{ range .section.quotes }}
+              <li class="glide__slide">
+                <figure>
+                  <svg width="25" height="16" viewBox="0 0 25 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M14.6073 16C14.1098 16 13.7506 15.8342 13.5295 15.5026C13.3085 15.171 13.2256 14.7565 13.2808 14.2591L15.1047 2.40414C15.2152 1.74093 15.4363 1.18826 15.7679 0.746114C16.1548 0.248705 16.7351 0 17.5088 0H22.9803C23.4225 0 23.7541 0.165803 23.9751 0.497408C24.2515 0.773746 24.3896 1.07772 24.3896 1.40933C24.3896 1.85147 24.2791 2.29361 24.058 2.73575L19.7472 14.0933C19.5261 14.6459 19.2221 15.1157 18.8352 15.5026C18.5036 15.8342 17.9786 16 17.2601 16H14.6073ZM1.34301 16C0.900864 16 0.541624 15.8342 0.265285 15.5026C0.0442141 15.171 -0.0386874 14.7565 0.0165804 14.2591L1.92332 2.40414C2.03385 1.74093 2.25492 1.18826 2.58653 0.746114C2.9734 0.248705 3.52608 0 4.24456 0H9.79896C10.1858 0 10.4898 0.165803 10.7109 0.497408C10.9872 0.773746 11.1254 1.07772 11.1254 1.40933C11.1254 1.85147 11.0149 2.29361 10.7938 2.73575L6.4829 14.0933C6.26183 14.6459 5.95786 15.1157 5.57098 15.5026C5.23938 15.8342 4.71434 16 3.99586 16H1.34301Z" />
+                  </svg>
+                  <blockquote>{{ .quote }}</blockquote>
+                  <figcaption>
+                    {{ partial "img.html" (dict "image" (resources.Get .image) "alt" "") }}
+                    <div class="name">{{ .name }}</div>
+                    <div class="role">{{ .role }}</div>
+                  </figcaption>
+                </figure>
+              </li>
+            {{ end }}
+          </ul>
         </div>
+        <div class="glide__bullets" data-glide-el="controls[nav]">
+          {{ range $index, $quote := .section.quotes }}
+            <button class="glide__bullet" data-glide-dir="={{ $index }}"></button>
+          {{ end }}
+        </div>
+      </div>
     </div>
+  </div>
 </section>

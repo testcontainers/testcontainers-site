@@ -1,0 +1,14 @@
+{{/* Loops through the `docs` param in `/content/modules/` files and returns an array of matching languages */}}
+
+{{ $languages := site.Data.languages }}
+{{ $moduleLanguages := slice }}
+
+{{ with .Page.Params.Docs }}
+  {{ range . }}
+    {{ with index $languages (.id | lower) }}
+      {{ $moduleLanguages = $moduleLanguages | append . }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{ return $moduleLanguages }}

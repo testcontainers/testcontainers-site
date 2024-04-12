@@ -1,231 +1,231 @@
 .module {
-    padding: 0 0 50px 0;
+  padding: 0 0 50px 0;
 
-    @media (min-width: 680px) {
-        padding: 20px 0 50px 0;
+  @media (min-width: 680px) {
+    padding: 20px 0 50px 0;
+  }
+
+  .container {
+    display: grid;
+    gap: 50px;
+
+    @media (min-width: 1024px) {
+      gap: 50px 100px;
+      grid-template-columns: 1fr 300px;
+      grid-template-areas:
+        "header sidebar"
+        "content sidebar";
     }
-
-    .container {
-        display: grid;
-        gap: 50px ;
-
-        @media (min-width: 1024px) {
-            gap: 50px 100px ;
-            grid-template-columns: 1fr 300px;
-            grid-template-areas: 
-                "header sidebar"
-                "content sidebar";
-        }
-    }
+  }
 }
 
 .module-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  @media (min-width: 1024px) {
+    grid-area: sidebar;
+  }
+
+  >div {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 10px;
+  }
 
-    @media (min-width: 1024px) {
-        grid-area: sidebar;
+  h2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .icon-award {
+    color: $violet;
+    display: block;
+  }
+
+  .icon-community {
+    display: block;
+    color: $teal;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid $mist;
+    border-radius: 6px;
+    padding: 10px;
+    text-decoration: none;
+    color: $eggplant;
+    font-weight: 500;
+    transition:
+      color 0.2s ease,
+      background 0.2s ease;
+
+    @media (min-width: 650px) {
+      padding: 10px 15px;
     }
 
-    > div {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    } 
-
-    h2 {
-        display: flex;
-        align-items: center;
-        gap: 10px;
+    .third-party {
+      font-size: rem(14px);
+      padding: 3px 15px;
+      background: $teal;
+      color: $catskill;
+      border-radius: 1000px;
     }
 
-    .icon-award {
-        color: $violet;
-        display: block;
+    .icon-external {
+      height: rem(15px);
+      flex-shrink: 0;
+      color: $fog;
+      margin-left: auto;
+
+      @media (min-width: 600px) {
+        height: rem(15px);
+      }
     }
 
-    .icon-community {
-        display: block;
-        color: $teal;
+    &:hover {
+      color: $topaz;
+      background: rgba($catskill, 0.45);
+
+      .icon-external {
+        color: $topaz;
+      }
     }
-
-    a {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        border: 1px solid $mist;
-        border-radius: 6px;
-        padding: 10px;
-        text-decoration: none;
-        color: $eggplant;
-        font-weight: 500;
-        transition: 
-            color 0.2s ease,
-            background 0.2s ease;
-
-        @media (min-width: 650px) {  
-            padding: 10px 15px;
-        }
-
-        .third-party {
-            font-size: rem(14px);
-            padding: 3px 15px;
-            background: $teal;
-            color: $catskill;
-            border-radius: 1000px;
-        }
-
-        .icon-external {
-            height: rem(15px);
-            flex-shrink: 0;
-            color: $fog;
-            margin-left: auto;
-
-            @media (min-width: 600px) {
-                height: rem(15px);
-            }
-        } 
-
-        &:hover {
-            color: $topaz;
-            background: rgba($catskill, 0.45);
-
-            .icon-external {
-                color: $topaz;
-            }
-        }
-    }
+  }
 }
 
 .module-content {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  overflow: hidden;
+  font-size: rem(16px);
+
+  @media (min-width: 1024px) {
+    font-size: rem(18px);
+    grid-area: content;
+  }
+
+  h2 {
+    margin-bottom: 10px;
+  }
+
+  .code-examples.examples {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 40px;
-    overflow: hidden;
-    font-size: rem(16px);
+    gap: 20px;
+    padding: 0;
+  }
 
-    @media (min-width: 1024px) {
-        font-size: rem(18px);
-        grid-area: content;
+  .tab-labels {
+    display: flex;
+    position: relative;
+    gap: 30px;
+    overflow: auto;
+    box-shadow: inset 0 -3px 0 0 $mist;
+
+    button {
+      background: none;
+      border: none;
+      padding: 10px 0;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      font-weight: 500;
+      color: $storm;
+      transition:
+        color 0.2s ease,
+        border-color 0.2s ease;
+
+      &:hover {
+        color: $topaz;
+      }
+
+      &.active {
+        color: $topaz;
+        border-color: $aqua;
+      }
+    }
+  }
+
+  .tab-panels {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .tab-panel {
+    width: 100%;
+
+    @at-root body.js & {
+      display: none;
+    }
+
+    @at-root body.js &.active {
+      display: block;
+    }
+  }
+
+  pre {
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    border-radius: 6px;
+
+    >code {
+      display: block;
+      overflow-x: auto;
+      font-family: "Roboto Mono", 'Courier New', Courier, monospace;
+      font-size: .88em;
+      background: $plum;
+      color: $catskill;
+      padding: 20px;
+      border-radius: 6px;
+
+      @media (min-width: 500px) {
+        padding: 40px;
+      }
+    }
+  }
+
+  .section.content {
+    h1 {
+      color: $eggplant;
+      font-size: rem(24px);
+      font-weight: 700;
+      line-height: 1.1;
+
+      @media (min-width: 780px) {
+        font-size: rem(48px);
+      }
     }
 
     h2 {
-        margin-bottom: 10px;
+      color: $eggplant;
+      font-size: rem(20px);
+      font-weight: 500;
+      margin: 0;
+
+      @media (min-width: 780px) {
+        font-size: rem(24px);
+      }
     }
 
-    .code-examples.examples {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        padding: 0;
+    h3 {
+      color: $eggplant;
+      font-size: rem(18px);
+      font-weight: 500;
+      margin: 0;
+
+      @media (min-width: 780px) {
+        font-size: rem(20px);
+
+      }
     }
-
-    .tab-labels {
-        display: flex;
-        position: relative;
-        gap: 30px;
-        overflow: auto;
-        box-shadow: inset 0 -3px 0 0 $mist;
-
-        button {
-            background: none;
-            border: none;
-            padding: 10px 0;
-            cursor: pointer;
-            border-bottom: 3px solid transparent;
-            font-weight: 500;
-            color: $storm;
-            transition: 
-                color 0.2s ease,
-                border-color 0.2s ease;
-
-            &:hover {
-                color: $topaz;
-            }
-
-            &.active {
-                color: $topaz;
-                border-color: $aqua;
-            }
-        }
-    }
-
-    .tab-panels {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .tab-panel {
-        width: 100%;
-
-        @at-root body.js & {
-            display: none;
-        }
-
-        @at-root body.js &.active {
-            display: block;
-        }
-    }
-
-    pre {
-        position: relative;
-        overflow: hidden;
-        margin: 0;
-        border-radius: 6px;
-
-        > code {
-            display: block;
-            overflow-x: auto;
-            font-family: "Roboto Mono", 'Courier New', Courier, monospace;
-            font-size: .88em;
-            background: $plum;
-            color: $catskill;
-            padding: 20px;
-            border-radius: 6px;
-    
-            @media (min-width: 500px) {
-                padding: 40px;
-            }
-        }
-    }
-
-    .section.content {
-        h1 {
-            color: $eggplant;
-            font-size: rem(24px);
-            font-weight: 700;
-            line-height: 1.1;
-        
-            @media (min-width: 780px) {
-                font-size: rem(48px);
-            } 
-        }
-        
-        h2 {
-            color: $eggplant;
-            font-size: rem(20px);
-            font-weight: 500;
-            margin: 0;
-        
-            @media (min-width: 780px) {
-                font-size: rem(24px);
-            } 
-        }
-        
-        h3 {
-            color: $eggplant;
-            font-size: rem(18px);
-            font-weight: 500;
-            margin: 0;
-        
-            @media (min-width: 780px) {
-                font-size: rem(20px);
-            
-            }
-        }
-    }
+  }
 }

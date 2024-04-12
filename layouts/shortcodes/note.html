@@ -1,7 +1,7 @@
 {{ $classes := slice "note" }}
 {{ with .Get 0 }}
-    {{ $classes = $classes | append . }}
+  {{ $classes = $classes | append . }}
 {{ end }}
 <div class='{{ delimit $classes " " }}'>
-{{ .Inner | markdownify }}
+  {{ .Inner | markdownify }}
 </div>

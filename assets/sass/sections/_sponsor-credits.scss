@@ -1,68 +1,68 @@
 .sponsor-credits {
-    padding: 40px 0;
-    
+  padding: 40px 0;
+
+  @media (min-width: 780px) {
+    padding: 60px 0;
+  }
+
+  .container {
+    display: grid;
+    gap: 20px;
+  }
+
+  .small-header {
+    margin: 0;
+  }
+
+  .sponsors,
+  .donors {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    justify-items: center;
+    align-items: center;
+    padding: 0 0 20px 0;
+    border-bottom: 1px solid $mist;
+
+    a {
+      display: flex;
+      height: 40px;
+      align-items: center;
+      transition: opacity 0.2s ease;
+
+      &:hover {
+        opacity: .45;
+      }
+
+      img {
+        max-height: 100%;
+      }
+    }
+
+    @media (min-width: 500px) {
+      grid-template-columns: repeat(5, 1fr);
+
+      a {
+        height: 50px;
+      }
+    }
+  }
+
+  .backers {
+    column-gap: 40px;
+
+    @media (min-width: 380px) {
+      columns: 2;
+    }
+
     @media (min-width: 780px) {
-        padding: 60px 0;
+      columns: 3;
     }
 
-    .container {
-        display: grid;
-        gap: 20px;
+    a {
+      display: block;
+      max-width: max-content;
+      margin-bottom: 10px;
     }
-
-    .small-header {
-        margin: 0;
-    }
-
-    .sponsors,
-    .donors {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 40px;
-        justify-items: center;
-        align-items: center;
-        padding: 0 0 20px 0;
-        border-bottom: 1px solid $mist;
-
-        a {
-            display: flex;
-            height: 40px;
-            align-items: center;
-            transition: opacity 0.2s ease;
-
-            &:hover {
-                opacity: .45;
-            }
-
-            img {
-                max-height: 100%;
-            }
-        }
-
-        @media (min-width: 500px) {
-            grid-template-columns: repeat(5, 1fr);
-
-            a {
-                height: 50px;
-            }
-        }
-    }
-
-    .backers {
-        column-gap: 40px;
-
-        @media (min-width: 380px) {
-            columns: 2;
-        }
-
-        @media (min-width: 780px) {
-            columns: 3;
-        }
-
-        a {
-            display: block;
-            max-width: max-content;
-            margin-bottom: 10px;
-        }
-    }
+  }
 }

@@ -1,7 +1,7 @@
 @import "variables";
 
 @function rem($px) {
-    @return ($px / 16px) * 1rem;
+  @return ($px / 16px) * 1rem;
 }
 
 @import "guides/guide-content";

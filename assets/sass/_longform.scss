@@ -1,160 +1,160 @@
 .longform-content {
 
-    .single & {
-        padding: 0 0 60px 0;
+  .single & {
+    padding: 0 0 60px 0;
+
+    @media (min-width: 500px) {
+      padding: 0 0 100px 0;
+    }
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    @media (min-width: 1024px) {
+      flex-direction: row-reverse;
+      justify-content: space-between;
+    }
+  }
+
+  .toc+.content {
+    @media (min-width: 1024px) {
+      max-width: 820px;
+      width: calc(100% - 380px);
+    }
+  }
+
+  .container>.content,
+  .section.content {
+    flex: 1 1 auto;
+    font-size: rem(16px);
+
+    @media (min-width: 1024px) {
+      font-size: rem(18px);
+    }
+
+    &>*:first-child {
+      margin-top: 0;
+    }
+
+    @import "guides/asciidoctor.scss";
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      .heading-link {
+        width: 0px;
+        height: 1em;
+        display: inline-block;
+        vertical-align: middle;
+        position: relative;
+
+        a {
+          position: absolute;
+          color: $fog;
+          display: block;
+          line-height: 1.2;
+          margin-left: 8px;
+          top: 50%;
+          transform: translate(0, -50%);
+
+          &:hover,
+          &:focus {
+            color: $teal;
+          }
+        }
+
+        svg {
+          display: block;
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    pre {
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      margin: 0 0 1.25rem 0;
+      border-radius: 6px;
+
+      code {
+        width: 100%;
+        display: block;
+        overflow-x: auto;
+        font-family: "Roboto Mono", 'Courier New', Courier, monospace;
+        font-size: 0.88em;
+        background: $plum;
+        color: $catskill;
+        padding: 20px;
+        border-radius: 6px;
 
         @media (min-width: 500px) {
-            padding: 0 0 100px 0;
+          padding: 40px;
         }
+
+        &[data-lang]::before {
+          content: attr(data-lang);
+          position: absolute;
+          font-size: .75em;
+          top: 0.425rem;
+          left: 0.5rem;
+          line-height: 1;
+          text-transform: uppercase;
+          color: #c3c7e6;
+        }
+      }
     }
 
-    .container {
-        display: flex;
-        flex-direction: column;
-        gap: 30px;
+    .screenshot {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: $ghost;
+      border-radius: 6px;
+      padding: 1rem;
+      margin: 1em 0;
 
-        @media (min-width: 1024px) {
-            flex-direction: row-reverse;
-            justify-content: space-between;
-        }
-    }
+      &.fixedheight {
+        aspect-ratio: 16 / 9;
+      }
 
-    .toc + .content {
-        @media (min-width: 1024px) {
-            max-width: 820px;
-            width: calc(100% - 380px);
-        }
-    }
-
-    .container > .content,
-    .section.content {
-        flex: 1 1 auto;
-        font-size: rem(16px);
-
-        @media (min-width: 1024px) {
-            font-size: rem(18px);
-        }
-
-        & > *:first-child {
-            margin-top: 0;
-        }
-
-        @import "guides/asciidoctor.scss";
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            .heading-link {
-                width: 0px;
-                height: 1em;
-                display: inline-block;
-                vertical-align: middle;
-                position: relative;
-
-                a {
-                    position: absolute;
-                    color: $fog;
-                    display: block;
-                    line-height: 1.2;
-                    margin-left: 8px;
-                    top: 50%;
-                    transform: translate(0, -50%);
-
-                    &:hover,
-                    &:focus {
-                        color: $teal;
-                    }
-                }
-
-                svg {
-                    display: block;
-                    width: 20px;
-                    height: 20px;
-                }
-            }
-        }
+      &.nowrapper {
+        padding: 0;
+        background-color: transparent;
 
         img {
-            max-width: 100%;
-            height: auto;
+          border-radius: 6px;
         }
+      }
 
-        pre {
-            width: 100%;
-            position: relative;
-            overflow: hidden;
-            margin: 0 0 1.25rem 0;
-            border-radius: 6px;
-
-            code { 
-                width: 100%;
-                display: block;
-                overflow-x: auto;
-                font-family: "Roboto Mono", 'Courier New', Courier, monospace;
-                font-size: 0.88em;
-                background: $plum;
-                color: $catskill;
-                padding: 20px;
-                border-radius: 6px;
-        
-                @media (min-width: 500px) {
-                    padding: 40px;
-                }
-
-                &[data-lang]::before {
-                    content: attr(data-lang);
-                    position: absolute;
-                    font-size: .75em;
-                    top: 0.425rem;
-                    left: 0.5rem;
-                    line-height: 1;
-                    text-transform: uppercase;
-                    color: #c3c7e6;
-                }
-            }
-        }
-
-        .screenshot {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: $ghost;
-            border-radius: 6px;
-            padding: 1rem;
-            margin: 1em 0;
-
-            &.fixedheight {
-                aspect-ratio: 16 / 9;
-            }
-
-            &.nowrapper {
-                padding: 0;
-                background-color: transparent;
-
-                img {
-                    border-radius: 6px;
-                }
-            }
-
-            img {
-                max-height: 100%;
-                border-radius: 4px;
-            }
-        }
-
-        .note {
-            display: block;
-            background-color: $ghost;
-            border-radius: 6px;
-            padding: 1rem;
-            margin: 1em 0;
-
-            > *:last-child {
-                margin-bottom: 0;
-            }
-        }
+      img {
+        max-height: 100%;
+        border-radius: 4px;
+      }
     }
+
+    .note {
+      display: block;
+      background-color: $ghost;
+      border-radius: 6px;
+      padding: 1rem;
+      margin: 1em 0;
+
+      >*:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
 }

@@ -12,21 +12,21 @@ allGuides.forEach((guide) => guides.push({ element: guide, data: JSON.parse(guid
 const fuse = new Fuse(guides, { keys: ['data.title', 'data.description', 'data.languages', 'data.tags'], ignoreLocation: true });
 
 function showSearchResults(searchTerm) {
-    if (!searchTerm) {
-        searchEmpty.classList.remove('show');
-        return guidesList.replaceChildren(...guides.map((guide) => guide.element));
-    }
+  if (!searchTerm) {
+    searchEmpty.classList.remove('show');
+    return guidesList.replaceChildren(...guides.map((guide) => guide.element));
+  }
 
-    const result = fuse.search(searchTerm);
-    const resultElements = result.map((result) => result.item.element);
+  const result = fuse.search(searchTerm);
+  const resultElements = result.map((result) => result.item.element);
 
-    guidesList.replaceChildren(...resultElements);
+  guidesList.replaceChildren(...resultElements);
 
-    if (!result.length) {
-        searchEmpty.classList.add('show');
-    } else {
-        searchEmpty.classList.remove('show');
-    }
+  if (!result.length) {
+    searchEmpty.classList.add('show');
+  } else {
+    searchEmpty.classList.remove('show');
+  }
 }
 
 search.addEventListener('keyup', (_) => showSearchResults(search.value));

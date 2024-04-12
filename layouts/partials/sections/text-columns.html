@@ -1,27 +1,33 @@
+{{/*
+- partial: text-columns
+  columns:
+    - title: Lorem ipsum
+      description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+*/}}
 <section class="text-columns">
-    <div class="container">
-        {{ if .section.title }}
-            <div class="content">
-                <h2>{{ .section.title }}</h2>
-                <div>{{ .section.description | markdownify }}</div>
-            </div>
-        {{ end }}
-        <div class="columns">
-            {{ range .section.columns }}
-                <div class="column">
-                    <h3>{{ .title }}</h3>
-                    <div class="description">{{ .description | markdownify }}</div>
-                </div>
-            {{ end }}
+  <div class="container">
+    {{ if .section.title }}
+      <div class="content">
+        <h2>{{ .section.title }}</h2>
+        <div>{{ .section.description | markdownify }}</div>
+      </div>
+    {{ end }}
+    <div class="columns">
+      {{ range .section.columns }}
+        <div class="column">
+          <h3>{{ .title }}</h3>
+          <div class="description">{{ .description | markdownify }}</div>
         </div>
-        <div class="buttons">
-            {{ range .section.buttons }}
-                {{ $buttonClasses := slice "button" }}
-                {{ with .style }}
-                    {{ $buttonClasses = $buttonClasses | append . }}
-                {{ end }}
-                <a class='{{ delimit $buttonClasses " " }}' href="{{ .url }}" target="{{ .target }}">{{ .label }}</a>
-            {{ end }}
-        </div>
+      {{ end }}
     </div>
+    <div class="buttons">
+      {{ range .section.buttons }}
+        {{ $buttonClasses := slice "button" }}
+        {{ with .style }}
+          {{ $buttonClasses = $buttonClasses | append . }}
+        {{ end }}
+        <a class='{{ delimit $buttonClasses " " }}' href="{{ .url }}" target="{{ .target }}">{{ .label }}</a>
+      {{ end }}
+    </div>
+  </div>
 </section>

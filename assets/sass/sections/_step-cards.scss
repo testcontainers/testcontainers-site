@@ -1,176 +1,176 @@
 .step-cards {
-    padding: 40px 0;
+  padding: 40px 0;
 
-    @media (min-width: 780px) {
-        padding: 60px 0;
+  @media (min-width: 780px) {
+    padding: 60px 0;
+  }
+
+  .container {
+    display: grid;
+    gap: 40px;
+    justify-items: center;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  h2 {
+    @media (min-width: 860px) {
+      font-size: rem(36px);
+    }
+  }
+
+  .cards-wrapper {
+    display: grid;
+    justify-items: center;
+    gap: 40px;
+
+    @media (min-width: 860px) {
+      gap: 0;
+    }
+  }
+
+  .addendum-connector {
+    width: 100%;
+    display: none;
+
+    @media (min-width: 860px) {
+      display: grid;
     }
 
-    .container {
-        display: grid;
-        gap: 40px;
-        justify-items: center;
+    &::before {
+      content: "";
+      height: 40px;
+      width: calc(50% + 15px);
+      border: 1px solid $mist;
+      border-top: none;
+      border-radius: 6px;
+      justify-self: center;
     }
 
-    .content {
+    &::after {
+      content: "";
+      width: 1px;
+      height: 40px;
+      background: $mist;
+      justify-self: center;
+    }
+  }
+
+  .addendum {
+    border: 1px solid $mist;
+    border-radius: 6px;
+    padding: 30px;
+    position: relative;
+
+    @media (min-width: 860px) {
+      font-size: rem(18px);
+    }
+
+    @media (max-width: 859px) {
+      text-align: center;
+    }
+
+    &::before {
+      content: "+";
+      position: absolute;
+      left: 50%;
+      top: 0;
+      transform: translate(-50%, -50%);
+      background: $aqua;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      color: #fff;
+      border-radius: 1000px;
+    }
+  }
+
+  .cards {
+    width: 100%;
+    display: grid;
+    gap: 30px;
+
+    @media (min-width: 860px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .card {
+    border: 1px solid $mist;
+    border-radius: 6px;
+    padding: 30px;
+    display: grid;
+    gap: 30px;
+
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+
+      img {
+        height: 45px;
+        width: auto;
+
+        @media (min-width: 860px) {
+          height: 60px;
+        }
+      }
+
+      h3 {
+        @media (min-width: 860px) {
+          font-size: rem(24px);
+        }
+
+        a {
+          color: inherit;
+          text-decoration: none;
+
+          &:hover {
+            color: $aqua;
+          }
+        }
+      }
+    }
+
+    .description {
+      @media (min-width: 860px) {
+        font-size: rem(16px);
+      }
+    }
+
+    .steps {
+      padding: 0;
+      list-style: none;
+    }
+
+    .step {
+      list-style: none;
+      counter-increment: step;
+      display: flex;
+      gap: 16px;
+      line-height: 1.25;
+      padding-top: 5px;
+      text-align: left;
+
+      &::before {
+        content: counter(step);
+        background: $aqua;
         display: flex;
-        flex-direction: column;
-        gap: 40px;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        color: #fff;
+        border-radius: 1000px;
+        flex: 0 0 auto;
+        transform: translateY(-5px);
+      }
     }
-
-    h2 {
-        @media (min-width: 860px) {
-            font-size: rem(36px);
-        }
-    }
-
-    .cards-wrapper {
-        display: grid;
-        justify-items: center;
-        gap: 40px;
-
-        @media (min-width: 860px) {
-            gap: 0;
-        }
-    }
-
-    .addendum-connector {
-        width: 100%;
-        display: none;
-
-        @media (min-width: 860px) {
-            display: grid;
-        }
-
-        &::before {
-            content: "";
-            height: 40px;
-            width: calc(50% + 15px);
-            border: 1px solid $mist;
-            border-top: none;
-            border-radius: 6px;
-            justify-self: center;
-        }
-
-        &::after {
-            content: "";
-            width: 1px;
-            height: 40px;
-            background: $mist;
-            justify-self: center;
-        }
-    }
-
-    .addendum {
-        border: 1px solid $mist;
-        border-radius: 6px;
-        padding: 30px;
-        position: relative;
-
-        @media (min-width: 860px) {
-            font-size: rem(18px);
-        }
-
-        @media (max-width: 859px) {
-            text-align: center;
-        }
-
-        &::before {
-            content: "+";
-            position: absolute;
-            left: 50%;
-            top: 0;
-            transform: translate(-50%, -50%);
-            background: $aqua;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 30px;
-            height: 30px;
-            color: #fff;
-            border-radius: 1000px;
-        }
-    }
-
-    .cards {
-        width: 100%;
-        display: grid;
-        gap: 30px;
-
-        @media (min-width: 860px) {
-            grid-template-columns: repeat(2, 1fr);
-        }
-    }
-
-    .card {
-        border: 1px solid $mist;
-        border-radius: 6px;
-        padding: 30px;
-        display: grid;
-        gap: 30px;
-
-        .header {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-
-            img {
-                height: 45px;
-                width: auto;
-
-                @media (min-width: 860px) {
-                    height: 60px;
-                }
-            }
-             
-            h3 {
-                @media (min-width: 860px) {
-                    font-size: rem(24px);
-                }
-
-                a {
-                    color: inherit;
-                    text-decoration: none;
-
-                    &:hover {
-                        color: $aqua;
-                    }
-                }
-            }
-        }
-
-        .description {
-            @media (min-width: 860px) {
-                font-size: rem(16px);
-            }
-        }
-
-        .steps {
-            padding: 0;
-            list-style: none;
-        }
-
-        .step {
-            list-style: none;
-            counter-increment: step;
-            display: flex;
-            gap: 16px;
-            line-height: 1.25;
-            padding-top: 5px;
-            text-align: left;
-
-            &::before {
-                content: counter(step);
-                background: $aqua;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                width: 30px;
-                height: 30px;
-                color: #fff;
-                border-radius: 1000px;
-                flex: 0 0 auto;
-                transform: translateY(-5px);
-            }
-        }
-    }
+  }
 }

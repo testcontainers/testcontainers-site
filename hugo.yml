@@ -1,0 +1,66 @@
+title: Testcontainers
+baseURL: https://testcontainers.com
+disableKinds:
+  - RSS
+languageCode: en-us
+paginate: 9999
+
+markup:
+  highlight:
+    codeFences: false
+  asciidocExt:
+    attributes:
+      allow-uri-read: ""
+      icons: image
+      iconsdir: /images/icons
+      icontype: svg
+
+minify:
+  minifyOutput: true
+
+module:
+  mounts:
+    - source: content
+      target: content
+    - source: static
+      target: static
+    - source: layouts
+      target: layouts
+    - source: data
+      target: data
+    - source: assets
+      target: assets
+    - source: archetypes
+      target: archetypes
+    - source: content/modules
+      target: content/modules
+    - source: community-module-registry/modules
+      target: content/modules
+    - source: assets/images/modules
+      target: assets/images/modules
+    - source: community-module-registry/assets
+      target: assets/images/modules
+
+params:
+  Description: Testcontainers is an opensource framework for providing lightweight, throwaway instances of common databases, Selenium web browsers, or anything else that can run in a Docker container.
+  announcement:
+    url: https://www.atomicjar.com/2023/12/atomicjar-is-now-part-of-docker/
+    text: 🚨 AtomicJar is now part of Docker 🐋! Read the blog
+
+security:
+  enableInlineShortcodes: false
+  exec:
+    allow: 
+      - ^asciidoctor$
+  http:
+    methods:
+      - (?i)GET|POST
+    urls:
+      - .*
+
+sitemap:
+  filename: sitemap.xml
+
+taxonomies:
+  tag: tags
+  category: categories

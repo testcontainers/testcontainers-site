@@ -1,40 +1,73 @@
-- id: java
-  label: Java
+java:
+  slug: java
+  title: Java
   logo: /images/language-logos/java.svg
   link: https://java.testcontainers.org/
-- id: go
-  label: Go
+  order: 0
+go:
+  slug: go
+  title: Go
   logo: /images/language-logos/go.svg
   link: https://golang.testcontainers.org/
-- id: dotnet
-  label: .NET
+  order: 1
+dotnet:
+  slug: dotnet
+  title: .NET
   logo: /images/language-logos/dotnet.svg
   link: https://dotnet.testcontainers.org/
-- id: nodejs
-  label: Node.js
+  order: 2
+nodejs:
+  slug: nodejs
+  title: Node.js
   logo: /images/language-logos/nodejs.svg
   link: https://node.testcontainers.org/
-- id: python
-  label: Python
-  logo: /images/language-logos/python.svg
-  link: https://testcontainers-python.readthedocs.io/en/latest/
-- id: rust
-  label: Rust
-  logo: /images/language-logos/rust.svg
-  link: https://docs.rs/testcontainers/latest/testcontainers/
-- id: haskell
-  label: Haskell
-  logo: /images/language-logos/haskell.svg
-  link: https://github.com/testcontainers/testcontainers-hs
-- id: ruby
-  label: Ruby
-  logo: /images/language-logos/ruby.svg
-  link: https://github.com/testcontainers/testcontainers-ruby
-- id: clojure
-  label: Clojure
+  order: 3
+c:
+  slug: c
+  title: C/C++
+  order: 4
+clojure:
+  slug: clojure
+  title: Clojure
   logo: /images/language-logos/clojure.svg
   link: https://cljdoc.org/d/clj-test-containers/clj-test-containers/
-- id: elixir
-  label: Elixir
+  order: 5
+csharp:
+  slug: csharp
+  title: C#
+  order: 6
+elixir:
+  slug: elixir
+  title: Elixir
   logo: /images/language-logos/elixir.svg
   link: https://github.com/testcontainers/testcontainers-elixir
+  order: 7
+haskell:
+  slug: haskell
+  title: Haskell
+  logo: /images/language-logos/haskell.svg
+  link: https://github.com/testcontainers/testcontainers-hs
+  order: 8
+kotlin:
+  slug: kotlin
+  title: Kotlin
+  logo: /images/language-logos/kotlin.svg
+  order: 9
+python:
+  slug: python
+  title: Python
+  logo: /images/language-logos/python.svg
+  link: https://testcontainers-python.readthedocs.io/en/latest/
+  order: 10
+ruby:
+  slug: ruby
+  title: Ruby
+  logo: /images/language-logos/ruby.svg
+  link: https://github.com/testcontainers/testcontainers-ruby
+  order: 11
+rust:
+  slug: rust
+  title: Rust
+  logo: /images/language-logos/rust.svg
+  link: https://docs.rs/testcontainers/latest/testcontainers/
+  order: 12

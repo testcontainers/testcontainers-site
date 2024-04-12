@@ -1,17 +1,17 @@
 {{ define "pageScripts" }}
-    {{ $style := resources.Get "/sass/champions.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
-    <link rel="stylesheet" href="{{ $style.RelPermalink }}">
+  {{ $style := resources.Get "/sass/champions.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
+  <link rel="stylesheet" href="{{ $style.RelPermalink }}">
 {{ end }}
 
 {{ define "main" }}
   <main>
     <section class="champions-banner">
-        <div class="container">
-          <div class="content">
-            <h1>{{ .Title }}</h1>
-            <div class="description">{{ .Description | markdownify }}</div>
-          </div>
+      <div class="container">
+        <div class="content">
+          <h1>{{ .Title }}</h1>
+          <div class="description">{{ .Description | markdownify }}</div>
         </div>
+      </div>
     </section>
     <section class="champions-list">
       <div class="container">

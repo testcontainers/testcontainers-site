@@ -1,98 +1,103 @@
+{{/*
+- partial: hero-banner
+  title: Lorem ipsum
+  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+*/}}
 <section class="hero-banner">
-    <div class="container">
-        <div class="image">
-            <div class="illustration">
-                <div class="cubes">
-                    <div class="cube c27">
-                        {{ partial "img.html" (dict "image" (resources.Get "/images/hero-illustration/microsoft-sql-server.svg") "alt" "") }}
-                    </div>
-                    <div class="cube c26">
-                        {{ partial "img.html" (dict "image" (resources.Get "/images/hero-illustration/solr.svg") "alt" "") }}
-                    </div>
-                    <div class="cube c25">
-                        {{ partial "img.html" (dict "image" (resources.Get "/images/hero-illustration/influxdb.svg") "alt" "") }}
-                    </div>
-                    <div class="cube c24">
-                        {{ partial "img.html" (dict "image" (resources.Get "/images/hero-illustration/nginx.svg") "alt" "") }}
-                    </div>
-                    <div class="cube c23">
-                        {{ partial "img.html" (dict "image" (resources.Get "/images/hero-illustration/selenium.svg") "alt" "") }}
-                    </div>
-                    <div class="cube c22">
-                        {{ partial "img.html" (dict "image" (resources.Get "/images/hero-illustration/k3s.svg") "alt" "") }}
-                    </div>
-                    <div class="cube c21">
-                        {{ partial "img.html" (dict "image" (resources.Get "/images/hero-illustration/presto.svg") "alt" "") }}
-                    </div>
-                    <div class="cube c20">
-                        {{ partial "img.html" (dict "image" (resources.Get "/images/hero-illustration/questdb.svg") "alt" "") }}
-                    </div>
-                    <div class="cube c19">
-                        {{ partial "img.html" (dict "image" (resources.Get "/images/hero-illustration/clickhouse.svg") "alt" "") }}
-                    </div>
-                    <div class="cube c18">
-                        {{ partial "img.html" (dict "image" (resources.Get "/images/hero-illustration/localstack.svg") "alt" "") }}
-                    </div>
-                    <div class="cube c17">
-                        {{ partial "img.html" (dict "image" (resources.Get "/images/hero-illustration/hivemq.svg") "alt" "") }}
-                    </div>
-                    <div class="cube c16">
-                        {{ partial "img.html" (dict "image" (resources.Get "/images/hero-illustration/tidb.svg") "alt" "") }}
-                    </div>
-                    <div class="cube c15">
-                        {{ partial "img.html" (dict "image" (resources.Get "/images/hero-illustration/vault.svg") "alt" "") }}
-                    </div>
-                    <div class="cube c14">
-                        {{ partial "img.html" (dict "image" (resources.Get "/images/hero-illustration/rabbitmq.svg") "alt" "") }}
-                    </div>
-                    <div class="cube c13">
-                        {{ partial "img.html" (dict "image" (resources.Get "/images/hero-illustration/neo4j.svg") "alt" "") }}
-                    </div>
-                    <div class="cube c12">
-                        {{ partial "img.html" (dict "image" (resources.Get "/images/hero-illustration/couchbase.svg") "alt" "") }}
-                    </div>
-                    <div class="cube c11">
-                        {{ partial "img.html" (dict "image" (resources.Get "/images/hero-illustration/google-cloud.svg") "alt" "") }}
-                    </div>
-                    <div class="cube c10">
-                        {{ partial "img.html" (dict "image" (resources.Get "/images/hero-illustration/azure.svg") "alt" "") }}
-                    </div>
-                    <div class="cube c9">
-                        {{ partial "img.html" (dict "image" (resources.Get "/images/hero-illustration/consul.svg") "alt" "") }}
-                    </div>
-                    <div class="cube c8">
-                        {{ partial "img.html" (dict "image" (resources.Get "/images/hero-illustration/kubernetes.svg") "alt" "") }}
-                    </div>
-                    <div class="cube c7">
-                        {{ partial "img.html" (dict "image" (resources.Get "/images/hero-illustration/cassandra.svg") "alt" "") }}
-                    </div>
-                    <div class="cube c6">
-                        {{ partial "img.html" (dict "image" (resources.Get "/images/hero-illustration/elastic.svg") "alt" "") }}
-                    </div>
-                    <div class="cube c5">
-                        {{ partial "img.html" (dict "image" (resources.Get "/images/hero-illustration/mysql.svg") "alt" "") }}
-                    </div>
-                    <div class="cube c4">
-                        {{ partial "img.html" (dict "image" (resources.Get "/images/hero-illustration/redpanda.svg") "alt" "") }}
-                    </div>
-                    <div class="cube c3">
-                        {{ partial "img.html" (dict "image" (resources.Get "/images/hero-illustration/postgresql.svg") "alt" "") }}
-                    </div>
-                    <div class="cube c2">
-                        {{ partial "img.html" (dict "image" (resources.Get "/images/hero-illustration/kafka.svg") "alt" "") }}
-                    </div>
-                    <div class="cube c1">
-                        {{ partial "img.html" (dict "image" (resources.Get "/images/hero-illustration/mongo.svg") "alt" "") }}
-                    </div>
-                </div>
-                <div class="laptop">
-                    {{ partial "img.html" (dict "image" (resources.Get "/images/hero-illustration/laptop.svg") "alt" "") }}
-                </div>
-            </div>
+  <div class="container">
+    <div class="image">
+      <div class="illustration">
+        <div class="cubes">
+          <div class="cube c27">
+            {{ partial "img.html" (dict "image" (resources.Get "/images/hero-illustration/microsoft-sql-server.svg") "alt" "") }}
+          </div>
+          <div class="cube c26">
+            {{ partial "img.html" (dict "image" (resources.Get "/images/hero-illustration/solr.svg") "alt" "") }}
+          </div>
+          <div class="cube c25">
+            {{ partial "img.html" (dict "image" (resources.Get "/images/hero-illustration/influxdb.svg") "alt" "") }}
+          </div>
+          <div class="cube c24">
+            {{ partial "img.html" (dict "image" (resources.Get "/images/hero-illustration/nginx.svg") "alt" "") }}
+          </div>
+          <div class="cube c23">
+            {{ partial "img.html" (dict "image" (resources.Get "/images/hero-illustration/selenium.svg") "alt" "") }}
+          </div>
+          <div class="cube c22">
+            {{ partial "img.html" (dict "image" (resources.Get "/images/hero-illustration/k3s.svg") "alt" "") }}
+          </div>
+          <div class="cube c21">
+            {{ partial "img.html" (dict "image" (resources.Get "/images/hero-illustration/presto.svg") "alt" "") }}
+          </div>
+          <div class="cube c20">
+            {{ partial "img.html" (dict "image" (resources.Get "/images/hero-illustration/questdb.svg") "alt" "") }}
+          </div>
+          <div class="cube c19">
+            {{ partial "img.html" (dict "image" (resources.Get "/images/hero-illustration/clickhouse.svg") "alt" "") }}
+          </div>
+          <div class="cube c18">
+            {{ partial "img.html" (dict "image" (resources.Get "/images/hero-illustration/localstack.svg") "alt" "") }}
+          </div>
+          <div class="cube c17">
+            {{ partial "img.html" (dict "image" (resources.Get "/images/hero-illustration/hivemq.svg") "alt" "") }}
+          </div>
+          <div class="cube c16">
+            {{ partial "img.html" (dict "image" (resources.Get "/images/hero-illustration/tidb.svg") "alt" "") }}
+          </div>
+          <div class="cube c15">
+            {{ partial "img.html" (dict "image" (resources.Get "/images/hero-illustration/vault.svg") "alt" "") }}
+          </div>
+          <div class="cube c14">
+            {{ partial "img.html" (dict "image" (resources.Get "/images/hero-illustration/rabbitmq.svg") "alt" "") }}
+          </div>
+          <div class="cube c13">
+            {{ partial "img.html" (dict "image" (resources.Get "/images/hero-illustration/neo4j.svg") "alt" "") }}
+          </div>
+          <div class="cube c12">
+            {{ partial "img.html" (dict "image" (resources.Get "/images/hero-illustration/couchbase.svg") "alt" "") }}
+          </div>
+          <div class="cube c11">
+            {{ partial "img.html" (dict "image" (resources.Get "/images/hero-illustration/google-cloud.svg") "alt" "") }}
+          </div>
+          <div class="cube c10">
+            {{ partial "img.html" (dict "image" (resources.Get "/images/hero-illustration/azure.svg") "alt" "") }}
+          </div>
+          <div class="cube c9">
+            {{ partial "img.html" (dict "image" (resources.Get "/images/hero-illustration/consul.svg") "alt" "") }}
+          </div>
+          <div class="cube c8">
+            {{ partial "img.html" (dict "image" (resources.Get "/images/hero-illustration/kubernetes.svg") "alt" "") }}
+          </div>
+          <div class="cube c7">
+            {{ partial "img.html" (dict "image" (resources.Get "/images/hero-illustration/cassandra.svg") "alt" "") }}
+          </div>
+          <div class="cube c6">
+            {{ partial "img.html" (dict "image" (resources.Get "/images/hero-illustration/elastic.svg") "alt" "") }}
+          </div>
+          <div class="cube c5">
+            {{ partial "img.html" (dict "image" (resources.Get "/images/hero-illustration/mysql.svg") "alt" "") }}
+          </div>
+          <div class="cube c4">
+            {{ partial "img.html" (dict "image" (resources.Get "/images/hero-illustration/redpanda.svg") "alt" "") }}
+          </div>
+          <div class="cube c3">
+            {{ partial "img.html" (dict "image" (resources.Get "/images/hero-illustration/postgresql.svg") "alt" "") }}
+          </div>
+          <div class="cube c2">
+            {{ partial "img.html" (dict "image" (resources.Get "/images/hero-illustration/kafka.svg") "alt" "") }}
+          </div>
+          <div class="cube c1">
+            {{ partial "img.html" (dict "image" (resources.Get "/images/hero-illustration/mongo.svg") "alt" "") }}
+          </div>
         </div>
-        <div class="content">
-            <h1>{{ .section.title }}</h1>
-            <div>{{ .section.description | markdownify }}</div>
+        <div class="laptop">
+          {{ partial "img.html" (dict "image" (resources.Get "/images/hero-illustration/laptop.svg") "alt" "") }}
         </div>
+      </div>
     </div>
+    <div class="content">
+      <h1>{{ .section.title }}</h1>
+      <div>{{ .section.description | markdownify }}</div>
+    </div>
+  </div>
 </section>

@@ -1,52 +1,63 @@
+{{/*
+- partial: special-article-links
+  small_title: Lorem ipsum
+  articles:
+    - name: Lorem ipsum
+      favicon: /images/link-favicons/youtube.png
+      link: https://www.youtube.com/watch?v=EwFicsmbl_A
+      thumbnail: /images/gradle-dpe-2023.jpg
+      domain: youtube.com
+      description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+*/}}
 <section class="special-article-links">
-    <div class="container">
-        {{ if or .section.small_title .section.title }}
-            <div class="content">
-                {{ if .section.small_title }}
-                    <div class="small-header gradient">{{ .section.small_title }}</div>
-                {{ end }}
-                {{ if .section.title }}
-                    <h2>{{ .section.title }}</h2>
-                {{ end }}
-            </div>
+  <div class="container">
+    {{ if or .section.small_title .section.title }}
+      <div class="content">
+        {{ if .section.small_title }}
+          <div class="small-header gradient">{{ .section.small_title }}</div>
         {{ end }}
-        <div class="articles">
-            {{ range .section.articles }}
-                <a href="{{ .link }}" target="_blank">
-                    <div class="details">
-                        {{ if .domain }}
-                            <div class="domain">
-                                {{ if .favicon }}
-                                    {{ partial "img.html" (dict "image" (resources.Get .favicon) "alt" "") }}
-                                {{ end }}
-                                <div class="domain-name">
-                                    {{ .domain }}
-                                </div>
-                                <svg class="icon-external" width="15" height="17" viewBox="0 0 15 17">
-                                    <use href="#icon-external"></use>
-                                </svg>
-                            </div>
-                        {{ end }}
-                        <div class="body">
-                            {{ if .name }}
-                                <div class="name">
-                                    {{ .name }}
-                                </div>
-                            {{ end }}
-                            {{ if .description }}
-                                <div class="description">
-                                    {{ .description }}
-                                </div>
-                            {{ end }}
-                        </div>
-                    </div>
-                    <div class="thumbnail">
-                        {{ if .favicon }}
-                            {{ partial "img.html" (dict "image" (resources.Get .thumbnail) "alt" "") }}
-                        {{ end }}
-                    </div>
-                </a>
+        {{ if .section.title }}
+          <h2>{{ .section.title }}</h2>
+        {{ end }}
+      </div>
+    {{ end }}
+    <div class="articles">
+      {{ range .section.articles }}
+        <a href="{{ .link }}" target="_blank">
+          <div class="details">
+            {{ if .domain }}
+              <div class="domain">
+                {{ if .favicon }}
+                  {{ partial "img.html" (dict "image" (resources.Get .favicon) "alt" "") }}
+                {{ end }}
+                <div class="domain-name">
+                  {{ .domain }}
+                </div>
+                <svg class="icon-external" width="15" height="17" viewBox="0 0 15 17">
+                  <use href="#icon-external"></use>
+                </svg>
+              </div>
             {{ end }}
-        </div>
+            <div class="body">
+              {{ if .name }}
+                <div class="name">
+                  {{ .name }}
+                </div>
+              {{ end }}
+              {{ if .description }}
+                <div class="description">
+                  {{ .description }}
+                </div>
+              {{ end }}
+            </div>
+          </div>
+          <div class="thumbnail">
+            {{ if .favicon }}
+              {{ partial "img.html" (dict "image" (resources.Get .thumbnail) "alt" "") }}
+            {{ end }}
+          </div>
+        </a>
+      {{ end }}
     </div>
+  </div>
 </section>

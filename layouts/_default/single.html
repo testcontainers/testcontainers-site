@@ -1,61 +1,61 @@
 {{ define "footerScripts" }}
-<script src="/js/fslightbox.js" defer></script>
-<script src="/js/glide.js"></script>
-<script src="/js/ua-parser.min.js"></script>
-<script>
+  <script src="/js/fslightbox.js" defer></script>
+  <script src="/js/glide.js"></script>
+  <script src="/js/ua-parser.min.js"></script>
+  <script>
     if (document.querySelectorAll(".quotes .glide").length > 0)
-        new Glide('.quotes .glide', {
-            startAt: 0,
-            perView: 1,
-            autoplay: 8000,
-            hoverpause: true,
-            type: "carousel"
-        }).mount();
+      new Glide('.quotes .glide', {
+        startAt: 0,
+        perView: 1,
+        autoplay: 8000,
+        hoverpause: true,
+        type: "carousel"
+      }).mount();
     if (document.querySelectorAll(".tweets .glide").length > 0)
-        new Glide('.tweets .glide', {
-            perView: 4,
-            perSwipe: '|',
-            bound: true,
-            breakpoints: {
-                1340: {
-                    perView: 3
-                },
-                1024: {
-                    perView: 2
-                },
-                720: {
-                    perView: 1
-                }
-            }
-        }).mount();
-</script>
+      new Glide('.tweets .glide', {
+        perView: 4,
+        perSwipe: '|',
+        bound: true,
+        breakpoints: {
+          1340: {
+            perView: 3
+          },
+          1024: {
+            perView: 2
+          },
+          720: {
+            perView: 1
+          }
+        }
+      }).mount();
+  </script>
 {{ end }}
 
 {{ define "main" }}
-    <main class="single">
-        {{ range $section := .Params.Sections  }}
-            {{ partial (printf "%s%s" "sections/" .partial) (dict "section" $section )}}
-        {{ end }}
-        {{ if .Params.showTitle }}
-            <div class="container">
-                <h1>
-                    {{ .Title }}
-                </h1>
-            </div>
-        {{ end }}
-        {{ if .Content }}
-            <div class="longform-content">
-                <div class="container">
-                    {{ if .Params.showToc }}
-                        <aside class="toc">
-                            {{ .TableOfContents }}
-                        </aside>
-                    {{ end }}
-                    <div class="content">    
-                        {{ partial "heading-link.html" .Content }}
-                    </div>
-                </div>
-            </div>
-        {{ end }}
-    </main>
+  <main class="single">
+    {{ range $section := .Params.Sections  }}
+      {{ partial (printf "%s%s" "sections/" .partial) (dict "site" "test" "section" $section )}}
+    {{ end }}
+    {{ if .Params.showTitle }}
+      <div class="container">
+        <h1>
+          {{ .Title }}
+        </h1>
+      </div>
+    {{ end }}
+    {{ if .Content }}
+      <div class="longform-content">
+        <div class="container">
+          {{ if .Params.showToc }}
+            <aside class="toc">
+              {{ .TableOfContents }}
+            </aside>
+          {{ end }}
+          <div class="content">    
+            {{ partial "heading-link.html" .Content }}
+          </div>
+        </div>
+      </div>
+    {{ end }}
+  </main>
 {{ end }}

@@ -1,50 +1,59 @@
+{{/*
+- partial: event-banner
+  label: Lorem ipsum
+  title: Lorem ipsum
+  location: Lorem ipsum
+  date: 9 - 11 April 2024 
+  description: In an effort to reduce carbon emissions and to improve the environmental friendliness of our booth, we've decided to offer digital versions of our collateral.
+  image: images/devnexus.png  
+*/}}
 <section class="event-banner">
-    <div class="container">
-        <div class="content">
-            {{ if or .section.title .section.label .section.location .section.date }}
-                <div class="title-wrapper">
-                    {{ with .section.label }}
-                        <div class="label small-header gradient">{{ . }}</div>
-                    {{ end }}
-                    {{ with .section.title }}
-                        <h1>{{ . | markdownify }}</h1>
-                    {{ end }}
-                    {{ if or .section.location .section.date }}
-                        <div class="location">
-                            {{ with .section.location }}
-                                <div class="label">{{ . }}</div>
-                            {{ end }}
-                            {{ if and .section.location .section.date }}
-                                <div class="separator">|</div>
-                            {{ end }}
-                            {{ with .section.date }}
-                                <div class="label">{{ . }}</div>
-                            {{ end }}
-                        </div>
-                    {{ end }}
-                </div>
+  <div class="container">
+    <div class="content">
+      {{ if or .section.title .section.label .section.location .section.date }}
+        <div class="title-wrapper">
+          {{ with .section.label }}
+            <div class="label small-header gradient">{{ . }}</div>
+          {{ end }}
+          {{ with .section.title }}
+            <h1>{{ . | markdownify }}</h1>
             {{ end }}
-            {{ with .section.description }}
-                <div class="description">{{ . | markdownify }}</div>
-            {{ end }}
-            {{ with .section.buttons }}
-                <div class="buttons-wrapper">
-                    <div class="buttons">
-                        {{ range . }}
-                            {{ $buttonClasses := slice "button" }}
-                            {{ with .style }}
-                                {{ $buttonClasses = $buttonClasses | append . }}
-                            {{ end }}
-                            <a class='{{ delimit $buttonClasses " " }}' href="{{ .url }}" target="{{ .target }}">{{ .label }}</a>
-                        {{ end }}
-                    </div>
-                </div>
-            {{ end }}
-        </div>
-        {{ with .section.image }}
-            <div class="image">
-                <img src="{{ . }}" alt=""/>
+            {{ if or .section.location .section.date }}
+            <div class="location">
+              {{ with .section.location }}
+                <div class="label">{{ . }}</div>
+              {{ end }}
+              {{ if and .section.location .section.date }}
+                <div class="separator">|</div>
+              {{ end }}
+              {{ with .section.date }}
+                <div class="label">{{ . }}</div>
+              {{ end }}
             </div>
-        {{ end }}
+          {{ end }}
+        </div>
+      {{ end }}
+      {{ with .section.description }}
+        <div class="description">{{ . | markdownify }}</div>
+      {{ end }}
+      {{ with .section.buttons }}
+        <div class="buttons-wrapper">
+          <div class="buttons">
+            {{ range . }}
+              {{ $buttonClasses := slice "button" }}
+              {{ with .style }}
+                {{ $buttonClasses = $buttonClasses | append . }}
+              {{ end }}
+              <a class='{{ delimit $buttonClasses " " }}' href="{{ .url }}" target="{{ .target }}">{{ .label }}</a>
+            {{ end }}
+          </div>
+        </div>
+      {{ end }}
     </div>
+    {{ with .section.image }}
+      <div class="image">
+        <img src="{{ . }}" alt="" />
+      </div>
+    {{ end }}
+  </div>
 </section>

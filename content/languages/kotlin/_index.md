@@ -1,4 +1,0 @@
----
-title: Kotlin
-slug: kotlin
----

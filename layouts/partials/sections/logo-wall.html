@@ -1,34 +1,45 @@
+{{/*
+- partial: logo-wall
+  small_title: Lorem ipsum
+  title: Lorem ipsum
+  buttons:
+    - label: Lorem ipsum
+      url: /
+      style: outline
+  logos:
+    - /images/company-logos/postgresql.svg
+*/}}
 {{- $sectionClass := cond (eq .section.display "flex") " display-flex" " display-grid" -}}
 <section class="logo-wall {{- $sectionClass -}}">
-    <div class="container">
-        <div class="header">
-            {{ with .section.small_title }}
-                <div class="small-header gradient">{{ . }}</div>
-            {{ end }}
-            {{ with .section.title }}
-                <h2>{{ . }}</h2>
-            {{ end }}
-        </div>
-        <div class="logos">
-            {{ range .section.logos }}
-                {{ partial "img.html" (dict "image" (resources.Get .) "alt" "") }}
-            {{ end }}
-        </div>
-        {{ with .section.buttons }}
-            <div class="buttons">
-                {{ range . }}
-                    {{ $buttonClasses := slice "logo-wall-button" }}
-                    {{ with .style }}
-                        {{ $buttonClasses = $buttonClasses | append . }}
-                    {{ end }}
-                    <a class='{{ delimit $buttonClasses " " }}' href="{{ .url }}" target="{{ .target }}">
-                        {{ .label }}
-                        <svg class="icon-caret" height="10" viewBox="0 0 10 10">
-                            <use href="#icon-caret"></use>
-                        </svg>
-                    </a>
-                {{ end }}
-            </div>
-        {{ end }}
+  <div class="container">
+    <div class="header">
+      {{ with .section.small_title }}
+        <div class="small-header gradient">{{ . }}</div>
+      {{ end }}
+      {{ with .section.title }}
+        <h2>{{ . }}</h2>
+      {{ end }}
     </div>
+    <div class="logos">
+      {{ range .section.logos }}
+        {{ partial "img.html" (dict "image" (resources.Get .) "alt" "") }}
+      {{ end }}
+    </div>
+    {{ with .section.buttons }}
+      <div class="buttons">
+        {{ range . }}
+          {{ $buttonClasses := slice "logo-wall-button" }}
+          {{ with .style }}
+            {{ $buttonClasses = $buttonClasses | append . }}
+          {{ end }}
+          <a class='{{ delimit $buttonClasses " " }}' href="{{ .url }}" target="{{ .target }}">
+            {{ .label }}
+            <svg class="icon-caret" height="10" viewBox="0 0 10 10">
+              <use href="#icon-caret"></use>
+            </svg>
+          </a>
+        {{ end }}
+      </div>
+    {{ end }}
+  </div>
 </section>

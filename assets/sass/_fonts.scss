@@ -1,36 +1,39 @@
 @font-face {
-    font-family: 'Rubik';
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: local(''),
-        url('/fonts/rubik-v21-latin-regular.woff2') format('woff2'),
-        url('/fonts/rubik-v21-latin-regular.woff') format('woff');
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local(''),
+    url('/fonts/rubik-v21-latin-regular.woff2') format('woff2'),
+    url('/fonts/rubik-v21-latin-regular.woff') format('woff');
 }
+
 @font-face {
-    font-family: 'Rubik';
-    font-style: normal;
-    font-weight: 500;
-    font-display: swap;
-    src: local(''),
-         url('/fonts/rubik-v21-latin-500.woff2') format('woff2'),
-         url('/fonts/rubik-v21-latin-500.woff') format('woff'); 
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: local(''),
+    url('/fonts/rubik-v21-latin-500.woff2') format('woff2'),
+    url('/fonts/rubik-v21-latin-500.woff') format('woff');
 }
+
 @font-face {
-    font-family: 'Rubik';
-    font-style: normal;
-    font-weight: 700;
-    font-display: swap;
-    src: local(''),
-        url('/fonts/rubik-v21-latin-700.woff2') format('woff2'),
-        url('/fonts/rubik-v21-latin-700.woff') format('woff');
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local(''),
+    url('/fonts/rubik-v21-latin-700.woff2') format('woff2'),
+    url('/fonts/rubik-v21-latin-700.woff') format('woff');
 }
+
 @font-face {
-    font-family: 'Roboto Mono';
-    font-style: normal;
-    font-weight: 500;
-    font-display: swap;
-    src: local(''),
-         url('/fonts/roboto-mono-v22-latin-500.woff2') format('woff2'),
-         url('/fonts/roboto-mono-v22-latin-500.woff') format('woff');
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: local(''),
+    url('/fonts/roboto-mono-v22-latin-500.woff2') format('woff2'),
+    url('/fonts/roboto-mono-v22-latin-500.woff') format('woff');
 }
