@@ -37,6 +37,8 @@ https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
 
     The guides and modules are maintained in separate repositories. If you want to preview the site with that content during development this script will clone and process it.
 
+    It's possible to run the site for a pull request in the `Community Module Registry` repository by running `COMMUNITY_MODULE_PR=<PR_NUMBER> sh dev.sh`. This will clone the repository and checkout the PR branch.
+
 2. **Run the local server**
 
     Run `hugo serve` to bring up a local development server that will watch changes and serve a preview at http://localhost:1313/ 
