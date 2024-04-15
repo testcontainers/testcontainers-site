@@ -3,11 +3,21 @@
 GIT_ORG="https://github.com/testcontainers"
 echo "----------------- Downloading Community modules -----------------"
 COMMUNITY_MODULE_REPO="community-module-registry"
+# PR number to checkout: If not set, it will checkout the latest commit
+COMMUNITY_MODULE_PR="${COMMUNITY_MODULE_PR:-}"
 
 rm -rf ${COMMUNITY_MODULE_REPO}
 
 echo "Cloning ${GIT_ORG}/${COMMUNITY_MODULE_REPO}.git"
 git clone "${GIT_ORG}/${COMMUNITY_MODULE_REPO}.git"
+
+if [ -n "${COMMUNITY_MODULE_PR}" ]; then
+  echo "Checking out PR: ${COMMUNITY_MODULE_PR}"
+  cd ${COMMUNITY_MODULE_REPO}
+  git fetch origin pull/${COMMUNITY_MODULE_PR}/head:pr-${COMMUNITY_MODULE_PR}
+  git checkout pr-${COMMUNITY_MODULE_PR}
+  cd ..
+fi
 
 echo "---------------- Downloading Guides -----------------------------"
 GUIDE_REPOS=(
