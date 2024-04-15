@@ -35,7 +35,7 @@ https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
 
     Run `sh dev.sh` from the project root folder.
 
-    The guides and modules are maintined in seperate repositories. If you want to preview the site with that content during development this script will clone and process it.
+    The guides and modules are maintained in separate repositories. If you want to preview the site with that content during development this script will clone and process it.
 
 2. **Run the local server**
 
