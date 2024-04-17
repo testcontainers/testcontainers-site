@@ -12,7 +12,7 @@ WORKDIR /app
 
 # Build the site
 ARG COMMUNITY_MODULE_PR=
-RUN COMMUNITY_MODULE_PR=${COMMUNITY_MODULE_PR} /app/dev.sh
+RUN COMMUNITY_MODULE_PR=${COMMUNITY_MODULE_PR} bash /app/dev.sh
 
 FROM klakegg/hugo:${HUGO_VERSION}-ext-asciidoctor
 
