@@ -15,33 +15,42 @@ A list of current live and development guides can be found in `build.sh` and `de
 
 ## Development Requirements
 
-### Go
+### Docker
     
-https://go.dev/
+https://docs.docker.com/get-docker/
 
-### Hugo *(extended)* 
-
-https://gohugo.io/
-
-### Node.js + NPM
+### Make
     
-https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
+https://www.gnu.org/software/make/#download
 
 ## Development
 
+The project offers a `Makefile` with targets to simplify the development process. This file accepts the following variables in order to customise the build process:
+
+- NodeJS version, default is 20.3.0. Make variable: `NODE_VERSION=20.3.0`.
+- Port for the website, default is 1313. Make variable: `PORT=1313`.
+- Community Modules Site PR, default is empty. Make variable: `COMMUNITY_MODULE_PR=`.
+- Container name, default is testcontainers-site. Make variable: `CONTAINER_NAME=testcontainers-site`.
+
+So please feel free to use them when running the targets.
+
 ### Running the project locally
 
-1. **Import external content** *(optional)* 
+1. **Import external content** *(required)* 
 
-    Run `sh dev.sh` from the project root folder.
+    Run `make build` from the project root folder.
 
-    The guides and modules are maintained in separate repositories. If you want to preview the site with that content during development this script will clone and process it.
+    The guides and modules are maintained in separate repositories. If you want to preview the site with that content during development this target will clone and process it.
 
-    It's possible to run the site for a pull request in the `Community Module Registry` repository by running `COMMUNITY_MODULE_PR=<PR_NUMBER> sh dev.sh`. This will clone the repository and checkout the PR branch.
+    It's possible to run the site for a pull request in the `Community Module Registry` repository by running `COMMUNITY_MODULE_PR=<PR_NUMBER> make build`. This will clone the repository and checkout the PR branch.
 
 2. **Run the local server**
 
-    Run `hugo serve` to bring up a local development server that will watch changes and serve a preview at http://localhost:1313/ 
+    Run `make run` to bring up a Docker container using a consistent version of Hugo that will watch changes and serve a preview at http://localhost:1313/ (or the specified port).
+
+3. **Getting container logs**
+
+    Run `make logs` to fetch the logs from the running container.
 
 ### Pages
 
