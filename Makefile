@@ -29,15 +29,20 @@ run:
 	@docker run --rm -d \
 		--name $(CONTAINER_NAME) \
 		-p $(PORT):1313 \
-		-v $(PWD)/archetypes:/src/archetypes \
-		-v $(PWD)/assets:/src/assets \
-		-v $(PWD)/content:/src/content \
-		-v $(PWD)/data:/src/data \
-		-v $(PWD)/layout:/src/layout \
-		-v $(PWD)/layouts:/src/layouts \
-		-v $(PWD)/static:/src/static \
+		-v "$(CURDIR)/archetypes:/src/archetypes" \
+		-v "$(CURDIR)/assets:/src/assets" \
+		-v "$(CURDIR)/content:/src/content" \
+		-v "$(CURDIR)/data:/src/data" \
+		-v "$(CURDIR)/layout:/src/layout" \
+		-v "$(CURDIR)/layouts:/src/layouts" \
+		-v "$(CURDIR)/static:/src/static" \
 		testcontainers/site:latest
+ifeq ($(OS),Windows_NT)
+# Windows specific browser open and ignore exit error code 1
+	-@explorer http://localhost:$(PORT)
+else
 	@open http://localhost:$(PORT)
+endif
 # ------------------------------
 .PHONY: logs
 logs:
