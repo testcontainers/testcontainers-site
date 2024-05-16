@@ -112,7 +112,7 @@ Note that Turbo mode is currently restricted for [free accounts](/cloud/docs/#wh
 
 #### Start using Turbo Mode with Testcontainers Cloud on Desktop
 
-In the Testcontainers Cloud Desktop application you can select the checkbox Turbo mode to enable the mode locally.
+In the Testcontainers Desktop application you can select the checkbox Turbo mode to enable the mode locally.
 
 {{<screenshot fixedheight>}}![Testcontainers Desktop turbo mode](../images/tcd-turbo-mode.png){{</screenshot>}}
 
@@ -193,7 +193,7 @@ Currently, it's not possible to extend or limit memory usage for a single Testco
 
 ### Check tests are running in the cloud
 
-Explore the Connection section in the Testcontainers Cloud Desktop application.
+Explore the Connection section in the Testcontainers Desktop application.
 
 If you installed the Testcontainers Cloud application on your local machine you should see the icon in the tray menu. To check that your tests are running with the Testcontainers Cloud application just click on the Testcontainers Cloud application icon, you'll see the connection state: Running or Passive. If you click on the Connection sub-menu you'll see the detailed connection information. 
 
@@ -221,6 +221,26 @@ If you installed the Testcontainers Cloud application on your local machine you 
 To bring more convenience into user experience we added an Autostart checkbox in the menu of our desktop application. If you want to start Testcontainers Cloud automatically after you turn on or restart your computer, just enable this checkbox. It works the same for all supported operating systems. 
 
 {{<screenshot fixedheight>}}![Testcontainers Desktop autostart](../images/tcd-autostart.png){{</screenshot>}}
+
+
+## Tag test sessions by project
+
+When you run your tests with Testcontainers Cloud, you can specify the [project](https://newsletter.testcontainers.com/announcements/tag-your-test-sessions-by-project) or [workflow](https://newsletter.testcontainers.com/announcements/link-your-test-sessions-to-your-ci-pipeline) name and URL. This information will be displayed in the Testcontainers Cloud dashboard, making it easier to identify the tests and workflows that are running.
+
+{{<screenshot fixedheight>}}![Testcontainers Desktop project and workflow](../images/tcc-project-and-workflow.png){{</screenshot>}}
+
+Please note, that url is optional and could be omitted. If you use GitHub Actions, the workflow name and URL will be automatically detected and displayed in the Testcontainers Cloud dashboard.
+
+### Via environment variables on CI
+
+Set the 
+- `TCC_PROJECT_KEY`/`TCC_PROJECT_URL` environment variables. Alternatively, you could set the `tcc.project.key` and `tcc.project.url` properties (e.g. in your `~/.testcontainers.properties` file).
+- For workflow, you could use the `TCC_WORKFLOW_KEY` and `TCC_WORKFLOW_URL` environment variables. Alternatively, you could set the `tcc.workflow.key` and `tcc.workflow.url` properties.
+
+### Via container labels (in your testcontainers tests)
+
+- `cloud.testcontainers.tcc.project.key`/`cloud.testcontainers.tcc.project.url` - for project
+- `cloud.testcontainers.tcc.workflow.key`/`cloud.testcontainers.tcc.workflow.url` - for workflow
 
 ## Optimizing usage
 
@@ -288,7 +308,7 @@ You can find more examples of working with files [in the library documentation](
 
 For users who need to pull images from a ‘private’ registry that is not accessible from the public internet. Docker Hub, Amazon ECR, GCR, etc users *do not* need to use this feature, as these registries are exposed to the public internet.
 
-#### Testcontainers Cloud Desktop usage:
+#### Testcontainers Desktop usage:
 
 Set per-user configuration in the `~/.testcontainers.properties` file:
 
@@ -455,7 +475,7 @@ Writing to a specific logfile supported out of the box in the official [GitHub A
 
 This can be useful for debugging issues with the help of additional debug log level enabled in the agent logs
 
-#### Testcontainers Cloud Desktop usage:
+#### Testcontainers Desktop usage:
 
 Add a property into a per-user configuration in the `~/.testcontainers.properties` file:
 
@@ -479,7 +499,7 @@ the same result could be achieved with the help of the environmental variable
 TC_CLOUD_LOGS_VERBOSE=true
 ```
 
-Agent CLI will also respect the property value from the Testcontainers Cloud Desktop usage section.
+Agent CLI will also respect the property value from the Testcontainers Desktop usage section.
 
 #### Alternatively, on linux, you could try: 
 
@@ -494,13 +514,13 @@ export TC_CLOUD_LOGS_VERBOSE=true
 It's possible to run desktop client from the terminal with full access to the environment variables management for debugging purposes:
 
 ```shell
-open -W --stdout $(tty) --stderr $(tty) /Applications/Testcontainers\ Cloud\ Desktop.app
+open -W --stdout $(tty) --stderr $(tty) /Applications/Testcontainers\ Desktop.app
 ```
 
 this way all the environment variables could be defined inline: 
 
 ```shell
-TC_CLOUD_LOGS_VERBOSE=true open -W --stdout $(tty) --stderr $(tty) /Applications/Testcontainers\ Cloud\ Desktop.app
+TC_CLOUD_LOGS_VERBOSE=true open -W --stdout $(tty) --stderr $(tty) /Applications/Testcontainers\ Desktop.app
 ```
 
 #### How to verify if it was enabled:
@@ -566,7 +586,7 @@ By navigating to [dashboard](https://app.testcontainers.cloud/dashboard), it's p
 The connect feature is part of the Testcontainers Cloud binary. If you don't already have the agent, you can download it from the [install page](https://app.testcontainers.cloud/dashboard/install?target=linux-ci) or directly at https://get.testcontainers.cloud/bash.
 
 ```shell
-curl -o tcc-agent -L https://app.testcontainers.cloud/download/testcontainers-cloud-agent_next_darwin_arm64
+curl -o tcc-agent -L https://get.testcontainers.cloud/testcontainers-cloud-agent_darwin_arm64
 chmod +x tcc-agent
 ```
 
@@ -590,7 +610,7 @@ If you'd like to pass the token manually, you can either set the `TC_CLOUD_TOKEN
 
 ### Slower tests
 
-Generally, with fast internet, tests should be on par or faster than with the local Docker Desktop. If you notice the test speed downgrade - check the Connection submenu of the Testcontainers Cloud Desktop app, it will show the last captured latency. Ideally the connection latency should be below 20ms.
+Generally, with fast internet, tests should be on par or faster than with the local Docker Desktop. If you notice the test speed downgrade - check the Connection submenu of the Testcontainers Desktop app, it will show the last captured latency. Ideally the connection latency should be below 20ms.
 
 Also, with TCC, you can run tests in parallel, and, with the [Turbo Mode](#fine-tune-turbo-mode) enabled, you can have each test fork connected to its own VM, so you can literally run tests 3-4 times faster.
 
@@ -680,7 +700,7 @@ steps:
       args:
           - "-c"
           - |
-              curl -fsSL https://app.testcontainers.cloud/bash | bash
+              curl -fsSL https://get.testcontainers.cloud/bash | sh
               cp ~/.testcontainers.properties /root/.testcontainers.properties
               # Your test command like "mvn test" or "npm test"
       dir: "${_APP_NAME}"
@@ -707,7 +727,7 @@ image: "docker-image:tag" # ex: maven:3-eclipse-temurin-19
 job_name:
     stage: test
     script:
-        - curl -fsSL https://app.testcontainers.cloud/bash | bash
+        - curl -fsSL https://get.testcontainers.cloud/bash | sh
         -  # ... existing steps go here (run tests, etc.)
 ```
 
@@ -755,7 +775,7 @@ pipeline {
     stages {
         stage('TCC SetUp') {
             steps {
-                sh "curl -fsSL https://get.testcontainers.cloud/bash | sh "
+                sh "curl -fsSL https://get.testcontainers.cloud/bash | sh"
             }
         }
         stage('Test') {
