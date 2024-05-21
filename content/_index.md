@@ -69,8 +69,10 @@ sections:
         external: true
         code: |
           ```rust
-          let docker = clients::Cli::default();
-          let redis = docker.run(redis::Redis::default());
+          let redis = GenericImage::new("redis", "7.2.4")
+              .with_exposed_port(6379)
+              .with_wait_for(WaitFor::message_on_stdout("Ready to accept connections"))
+              .start();
           ```
       - id: haskell
         url: https://github.com/testcontainers/testcontainers-hs
