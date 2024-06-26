@@ -39,3 +39,9 @@
     from = "/community-champions/joshua-boylan-long/"
     to = "/community-champions/josh-long/"
     status = 301
+
+# Try to fix image loading errors by forcing cache headers
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
