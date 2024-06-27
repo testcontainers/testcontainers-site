@@ -286,6 +286,8 @@ sections:
         link: https://github.com/recrsn
       - name: Paris Apostolopoulos
         link: https://opencollective.com/paris-apostolopoulos
+      - name: XDEV Software
+        link: https://xdev.software/en/
   - partial: featured-champions
     small_title: Community Champions
     title: Inspirational members of the community
