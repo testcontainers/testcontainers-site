@@ -17,14 +17,14 @@ COMMUNITY_MODULE_PR ?=
 CONTAINER_NAME ?= testcontainers-site
 COMMUNITY_MODULE_PATH ?=
 COMMUNITY_MODULE_VOLUME =
-ifneq ($(COMMUNITY_MODULE_PATH),"")
+ifneq ($(COMMUNITY_MODULE_PATH),)
 		COMMUNITY_MODULE_VOLUME = -v "$(COMMUNITY_MODULE_PATH):/src/community-module-registry"
 endif
 # ------------------------------
 .PHONY: build
 build:
 	@echo "Building the project..."
-	docker build \
+	docker build --no-cache \
 		--build-arg "NODE_VERSION=$(NODE_VERSION)" \
 		--build-arg "COMMUNITY_MODULE_PR=$(COMMUNITY_MODULE_PR)" \
 		-t testcontainers/site:latest .
