@@ -28,7 +28,7 @@
     grid-area: sidebar;
   }
 
-  >div {
+  > div {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -60,9 +60,7 @@
     text-decoration: none;
     color: $eggplant;
     font-weight: 500;
-    transition:
-      color 0.2s ease,
-      background 0.2s ease;
+    transition: color 0.2s ease, background 0.2s ease;
 
     @media (min-width: 650px) {
       padding: 10px 15px;
@@ -122,6 +120,20 @@
     padding: 0;
   }
 
+  .code-example {
+    margin-bottom: 20px;
+  }
+
+  .code-example-title {
+    text-transform: uppercase;
+    font-size: rem(14px);
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+
+  .code-example-block {
+  }
+
   .tab-labels {
     display: flex;
     position: relative;
@@ -137,9 +149,7 @@
       border-bottom: 3px solid transparent;
       font-weight: 500;
       color: $storm;
-      transition:
-        color 0.2s ease,
-        border-color 0.2s ease;
+      transition: color 0.2s ease, border-color 0.2s ease;
 
       &:hover {
         color: $topaz;
@@ -177,11 +187,11 @@
     margin: 0;
     border-radius: 6px;
 
-    >code {
+    > code {
       display: block;
       overflow-x: auto;
-      font-family: "Roboto Mono", 'Courier New', Courier, monospace;
-      font-size: .88em;
+      font-family: "Roboto Mono", "Courier New", Courier, monospace;
+      font-size: 0.88em;
       background: $plum;
       color: $catskill;
       padding: 20px;
@@ -224,7 +234,6 @@
 
       @media (min-width: 780px) {
         font-size: rem(20px);
-
       }
     }
   }

@@ -135,57 +135,37 @@
             {{ end }}
             {{ if .Params.Docs }}
               <div class="section">
-                <h2>Install</h2>
-                <div class="code-examples examples">
-                  <div class="tab-labels">
-                    {{ range $index, $doc := .Params.Docs }}
-                      {{ $language := index $languages (.id | lower) }}
-                      {{ if eq $index 0 }}
-                        <button class="active" data-target="{{ $doc.id }}">{{ $language.title }}</button>
-                      {{ else }}
-                        <button data-target="{{ $doc.id }}">{{ $language.title }}</button>
-                      {{ end }}
-                    {{ end }}
-                  </div>
-                  <div class="tab-panels">
-                    {{ range $index, $doc := .Params.Docs }}
-                      {{ if eq $index 0 }}
-                        <div class="tab-panel active" data-id="{{ $doc.id }}">
-                          {{ $doc.installation | markdownify }}
-                        </div>
-                      {{ else }}
-                        <div class="tab-panel" data-id="{{ $doc.id }}">
-                          {{ $doc.installation | markdownify }}
-                        </div>
-                      {{ end }}
-                    {{ end }}
-                  </div>
-                </div>
-              </div>
-              <div class="section">
                 <h2>Examples</h2>
                 <div class="code-examples examples">
                   <div class="tab-labels">
-                    {{ range $index, $doc := .Params.Docs }}
-                      {{ $language := index $languages (.id | lower) }}
-                      {{ if eq $index 0 }}
-                        <button class="active" data-target="{{ $doc.id }}">{{ $language.title }}</button>
+                    {{ range $index, $doc := .Params.Docs }} 
+                      {{ $language := index $languages (.id | lower) }} {{ if eq $index 0 }}
+                        <button class="active" data-target="{{ $doc.id }}">
+                          {{ $language.title }}
+                        </button>
                       {{ else }}
-                        <button data-target="{{ $doc.id }}">{{ $language.title }}</button>
+                        <button data-target="{{ $doc.id }}">
+                          {{ $language.title }}
+                        </button>
                       {{ end }}
                     {{ end }}
                   </div>
                   <div class="tab-panels">
                     {{ range $index, $doc := .Params.Docs }}
-                      {{ if eq $index 0 }}
-                        <div class="tab-panel active" data-id="{{ $doc.id }}">
+                    <div class="tab-panel{{ if eq $index 0 }} active{{ end }}" data-id="{{ $doc.id }}">
+                      <div class="code-example">
+                        <div class="code-example-title">Dependency:</div>
+                        <div class="code-example-block">
+                          {{ $doc.installation | markdownify }}
+                        </div>
+                      </div>
+                      <div class="code-example">
+                        <div class="code-example-title">Usage:</div>
+                        <div class="code-example-block">
                           {{ $doc.example | markdownify }}
                         </div>
-                      {{ else }}
-                        <div class="tab-panel" data-id="{{ $doc.id }}">
-                          {{ $doc.example | markdownify }}
-                        </div>
-                      {{ end }}
+                      </div>
+                    </div>
                     {{ end }}
                   </div>
                 </div>
