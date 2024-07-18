@@ -11,15 +11,91 @@
   {{/* Override default share image for single modules pages */}}
   {{ $image = printf "%s/images/module-share-image.png" $siteBaseUrl }}
 
+  {{ $moduleTitle := .Page.Title }}
+  {{ $moduleCategories := slice }}
+  {{ $moduleLanguages := partial "utils/module-languages" . }}
+  {{ $isOfficial := or .Params.officialPartner .Params.isOfficial }}
+
+  {{ if .GetTerms "categories" }}
+      {{ $categoriesList := (.GetTerms "categories") }}
+      {{ $categoriesListLength := (len $categoriesList) }}
+      {{ range $categoriesList }}
+        {{$moduleCategories = $moduleCategories | append .Title }}
+      {{ end }}
+  {{ end }}
+
+
+  {{ if gt ($moduleTitle | len) 25 }}
+    {{ $moduleTitle = printf "%s.." (substr $moduleTitle 0 20) }}
+  {{ end }}
+
+  {{ $categoriesString := delimit $moduleCategories ", " }}
+  {{ if gt ($categoriesString | len) 36 }}
+    {{ $categoriesString = printf "%s.." (substr $categoriesString 0 36) }}
+  {{ end }}
+
   {{/* Generated a custom share image using the module logo */}}
-  {{- with resources.Get (printf "/images/modules/share-logos/%s.png" $fileBaseName) }}
-  {{- $logoImg := . -}}
-  {{- $finalFilter := (images.Overlay $logoImg 814 173 ) -}}
-    {{- $shareImage := resources.Get "/images/modules/module-share-image.png" }}
+  {{ with resources.Get (printf "/images/modules/share-logos/%s.png" $fileBaseName) }}
+    {{ $logoImg := . }}
+
+    {{ $rubikRegular := resources.Get "/fonts/Rubik-Regular.ttf" }}
+    {{ $rubikMedium := resources.Get "/fonts/Rubik-Medium.ttf" }}
+    {{ $languageImages := dict 
+      "java" (resources.Get "/images/modules/language-java.png")
+      "go" (resources.Get "/images/modules/language-go.png")
+      "dotnet" (resources.Get "/images/modules/language-dotnet.png")
+      "nodejs" (resources.Get "/images/modules/language-node.png")
+      "python" (resources.Get "/images/modules/language-python.png")
+    }}
+
+    {{ $titleTextOptions := dict
+      "font" $rubikMedium
+      "color" "#28193E"
+      "size" 65
+      "x" 250
+      "y" 76
+    }}
+    {{ $categoryTextOptions := dict
+      "font" $rubikRegular
+      "color" "#575079"
+      "size" 42
+      "x" 250
+      "y" 185
+    }}
+    {{ $testTextOptions := dict
+      "color" "#575079"
+      "size" 42
+      "x" 0
+      "y" 0
+    }}
+
+    {{ $filters := slice
+      (images.Overlay $logoImg 50 50)
+      (images.Text $moduleTitle $titleTextOptions)
+      (images.Text $categoriesString $categoryTextOptions)
+    }}
+
+    {{ $languageXOffset := 0 }}
+    {{ range $moduleLanguages }}
+      {{ $xOffset := add 250 $languageXOffset }}
+      {{ with (index $languageImages .slug) }}
+        {{ $size := partial "utils/image-size" . }}
+        {{ $languageFilter := (images.Overlay . $xOffset 275) }}
+        {{ $filters = $filters | append $languageFilter }}
+        {{ $languageXOffset = add $languageXOffset $size.width 20 }}
+      {{ end }}
+    {{ end }}
+
+    {{ $shareImage := resources.Get "/images/modules/module-share-background.png" }}
+
+    {{ if $isOfficial }}
+      {{ $shareImage = resources.Get "/images/modules/official-module-share-background.png" }}
+    {{ end }}
+
     {{ if $shareImage }}
-    {{- $shareImage = $shareImage | images.Filter $finalFilter -}}
+      {{ $shareImage = $shareImage | images.Filter $filters }}
       {{ $image = $shareImage.Permalink }}
-    {{- end }}
+    {{ end }}
   {{ end }}
 
   {{/* Overide the image if there is a share image in the module folder */}}
