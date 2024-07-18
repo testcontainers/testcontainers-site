@@ -24,7 +24,6 @@
       {{ end }}
   {{ end }}
 
-
   {{ if gt ($moduleTitle | len) 25 }}
     {{ $moduleTitle = printf "%s.." (substr $moduleTitle 0 20) }}
   {{ end }}
@@ -35,67 +34,70 @@
   {{ end }}
 
   {{/* Generated a custom share image using the module logo */}}
+  {{ $logoImg := resources.Get "/images/modules/none.png" }}
+  {{ $hasLogo := false }}
   {{ with resources.Get (printf "/images/modules/share-logos/%s.png" $fileBaseName) }}
-    {{ $logoImg := . }}
+    {{ $logoImg = . }}
+    {{ $hasLogo = true }}
+  {{ end }}
 
-    {{ $rubikRegular := resources.Get "/fonts/Rubik-Regular.ttf" }}
-    {{ $rubikMedium := resources.Get "/fonts/Rubik-Medium.ttf" }}
-    {{ $languageImages := dict 
-      "java" (resources.Get "/images/modules/language-java.png")
-      "go" (resources.Get "/images/modules/language-go.png")
-      "dotnet" (resources.Get "/images/modules/language-dotnet.png")
-      "nodejs" (resources.Get "/images/modules/language-node.png")
-      "python" (resources.Get "/images/modules/language-python.png")
-    }}
+  {{ $rubikRegular := resources.Get "/fonts/Rubik-Regular.ttf" }}
+  {{ $rubikMedium := resources.Get "/fonts/Rubik-Medium.ttf" }}
+  {{ $languageImages := dict 
+    "java" (resources.Get "/images/modules/language-java.png")
+    "go" (resources.Get "/images/modules/language-go.png")
+    "dotnet" (resources.Get "/images/modules/language-dotnet.png")
+    "nodejs" (resources.Get "/images/modules/language-node.png")
+    "python" (resources.Get "/images/modules/language-python.png")
+  }}
 
-    {{ $titleTextOptions := dict
-      "font" $rubikMedium
-      "color" "#28193E"
-      "size" 65
-      "x" 250
-      "y" 76
-    }}
-    {{ $categoryTextOptions := dict
-      "font" $rubikRegular
-      "color" "#575079"
-      "size" 42
-      "x" 250
-      "y" 185
-    }}
-    {{ $testTextOptions := dict
-      "color" "#575079"
-      "size" 42
-      "x" 0
-      "y" 0
-    }}
+  {{ $titleTextOptions := dict
+    "font" $rubikMedium
+    "color" "#28193E"
+    "size" 65
+    "x" 250
+    "y" 76
+  }}
+  {{ $categoryTextOptions := dict
+    "font" $rubikRegular
+    "color" "#575079"
+    "size" 42
+    "x" 250
+    "y" 172
+  }}
 
-    {{ $filters := slice
-      (images.Overlay $logoImg 50 50)
-      (images.Text $moduleTitle $titleTextOptions)
-      (images.Text $categoriesString $categoryTextOptions)
-    }}
+  {{ $filters := slice
+    (images.Text $moduleTitle $titleTextOptions)
+    (images.Text $categoriesString $categoryTextOptions)
+  }}
 
-    {{ $languageXOffset := 0 }}
-    {{ range $moduleLanguages }}
-      {{ $xOffset := add 250 $languageXOffset }}
-      {{ with (index $languageImages .slug) }}
-        {{ $size := partial "utils/image-size" . }}
-        {{ $languageFilter := (images.Overlay . $xOffset 275) }}
-        {{ $filters = $filters | append $languageFilter }}
-        {{ $languageXOffset = add $languageXOffset $size.width 20 }}
-      {{ end }}
+  {{ if $hasLogo }}
+    {{ $filters = $filters | append (images.Overlay $logoImg 50 50) }}
+  {{ else }}
+    {{ $filters = $filters | append (images.Overlay $logoImg -6 50) }}
+  {{ end }}
+
+  {{ $languageXOffset := 0 }}
+  {{ range $moduleLanguages }}
+    {{ $xOffset := add 250 $languageXOffset }}
+    {{ with (index $languageImages .slug) }}
+      {{ $size := partial "utils/image-size" . }}
+      {{ $languageFilter := (images.Overlay . $xOffset 267) }}
+      {{ $filters = $filters | append $languageFilter }}
+      {{ $languageXOffset = add $languageXOffset $size.width 20 }}
     {{ end }}
+  {{ end }}
 
-    {{ $shareImage := resources.Get "/images/modules/module-share-background.png" }}
+  {{ $shareImage := resources.Get "/images/modules/module-share-background.png" }}
 
-    {{ if $isOfficial }}
-      {{ $shareImage = resources.Get "/images/modules/official-module-share-background.png" }}
-    {{ end }}
+  {{ if $isOfficial }}
+    {{ $shareImage = resources.Get "/images/modules/official-module-share-background.png" }}
+  {{ end }}
 
-    {{ if $shareImage }}
-      {{ $shareImage = $shareImage | images.Filter $filters }}
-      {{ $image = $shareImage.Permalink }}
-    {{ end }}
+  {{ if $shareImage }}
+    {{ $shareImage = $shareImage | images.Filter $filters }}
+    {{ $shareImage = slice $shareImage | resources.Concat (printf "/images/modules/%s-module-share-image.png" $fileBaseName) }}
+    {{ $image = $shareImage.Permalink }}
   {{ end }}
 
   {{/* Overide the image if there is a share image in the module folder */}}
