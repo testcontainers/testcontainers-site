@@ -235,7 +235,8 @@ The "Users" tab lists all users within your organization, and their associated r
 
 You also have the option to delete a specific user from the team or grant them admin rights.
 
-To invite new users, open the "Invite Users" menu, copy the secret invitation link, and share it with them. When a user signs up with the invitation link, they join your organization instead of creating their own, and their name gets added to the list of active members.
+To invite new users, open the "Invite Users" menu, copy the secret invitation link, and share it with them. 
+You can also invite your team members by email, just add a comma-separated list of emails in the form, and they'll receive an invitation link. When a user signs up with the invitation link, they join your organization instead of creating their own, and their name gets added to the list of active members.
 
 ### Join a different organization
 
@@ -252,7 +253,7 @@ A user belongs to a single organization at a time. If you wish to leave your cur
 If you need to switch between multiple organizations, you need a separate user account for each. You can achieve this by signing up with a different email address or provider (e.g. github, gmail). To switch the Testcontainers Desktop application from one organization to another, follow these steps:
 
 1. Log out from https://app.testcontainers.cloud. 
-2. Click on "Reset" under the Testcontainers Desktop application preferences.
+2. Click on "Sign out" under the Testcontainers Desktop application username.
 3. Once you're redirected to the "Sign up for Testcontainers Desktop" page, click on "Log In" and authenticate with the credentials associated with the organization you wish to join.
 
 To verify which account is associated with the Testcontainers Desktop application, expand the tray icon and check the username and authentication provider listed below the title and version. 
