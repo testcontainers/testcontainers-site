@@ -30,6 +30,7 @@ The project offers a `Makefile` with targets to simplify the development process
 - NodeJS version, default is 20.3.0. Make variable: `NODE_VERSION=20.3.0`.
 - Port for the website, default is 1313. Make variable: `PORT=1313`.
 - Community Modules Site PR, default is empty. Make variable: `COMMUNITY_MODULE_PR=`.
+- Community Modules Site Path, default is empty. Make variable: `COMMUNITY_MODULE_PATH=`. Use this variable if you want to update the community modules site with a local path.
 - Container name, default is testcontainers-site. Make variable: `CONTAINER_NAME=testcontainers-site`.
 
 So please feel free to use them when running the targets.
@@ -44,9 +45,11 @@ So please feel free to use them when running the targets.
 
     It's possible to run the site for a pull request in the `Community Module Registry` repository by running `COMMUNITY_MODULE_PR=<PR_NUMBER> make build`. This will clone the repository and checkout the PR branch.
 
+    It's also possible to run the site with a local path for the `Community Module Registry` repository by running `COMMUNITY_MODULE_PATH=<PATH_TO_REPO> make run`. This will mount a volume with the local path to the repository.
+
 2. **Run the local server**
 
-    Run `make run` to bring up a Docker container using a consistent version of Hugo that will watch changes and serve a preview at http://localhost:1313/ (or the specified port).
+    Run `make run` to bring up a Docker container using a consistent version of Hugo that will watch changes and serve a preview at http://localhost:1313/ (or the specified port). Please consider passing the Community Module Registry PR or Path variables if you want to preview the site with that content.
 
 3. **Getting container logs**
 
