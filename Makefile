@@ -10,11 +10,13 @@
 # - Port for the website, default is 1313
 # - Community Modules Site PR, default is empty
 # - Container name, default is testcontainers-site
+# - Hugo version override, default is 0.123.1
 # - Community Modules Site path, default is empty, in case you want to use a local version of the community modules site.
 NODE_VERSION ?= 20.3.0
 PORT ?= 1313
 COMMUNITY_MODULE_PR ?=
 CONTAINER_NAME ?= testcontainers-site
+HUGO_VERSION_OVERRIDE ?= 0.123.1
 COMMUNITY_MODULE_PATH ?=
 COMMUNITY_MODULE_VOLUME =
 ifneq ($(COMMUNITY_MODULE_PATH),)
@@ -35,6 +37,7 @@ run:
 	@echo "$(COMMUNITY_MODULE_VOLUME)"
 	@docker run --rm -d \
 		--name $(CONTAINER_NAME) \
+		-e "HUGO_VERSION_OVERRIDE=$(HUGO_VERSION_OVERRIDE)" \
 		-p $(PORT):1313 \
 		-v "$(CURDIR)/archetypes:/src/archetypes" \
 		-v "$(CURDIR)/assets:/src/assets" \
