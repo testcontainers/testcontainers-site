@@ -45,19 +45,19 @@
                   {{ end }}
                 </div>
               </div>
-              
-              {{ if (.GetTerms "languages") }}
+              {{ $languages := site.Data.languages }}
+              {{ with .Params.languages }}
                 <div class="languages">
                   <h2>Languages</h2>
                   <ul class="languages-list">
-                    {{ range (.GetTerms "languages") }}
-                       {{ if .Params.slug }}
+                    {{ range . }}
+                      {{ with index $languages (. | lower) }}
                         <li class="language">
-                          {{ $languageImage := resources.Get (printf "/images/language-logos/%s.svg" .Params.slug) }}
+                          {{ $languageImage := resources.Get .logo }}
                           {{ if  $languageImage }}
                             {{ partial "img.html" (dict "image" $languageImage "alt" "" "lazy" true) }}
                           {{ end }}
-                          {{ .Title }}
+                          {{ .title }}
                         </li>
                       {{ end }}
                     {{ end }}
