@@ -25,13 +25,13 @@ socialLinks:
 
 ## Bio
 
-Andres is a Java/Groovy developer and a Java Champion with more than 2 decades of experience in software design and development. He has been involved in web and desktop application development since the early days of Java. Andres is a true believer in open source and has participated on popular projects like Groovy, Griffon, and DbUnit, as well as starting his own projects. Founding member of the Griffon framework and Hackergarten community event. Author of JReleaser.
+Andres is a Java/Groovy developer and a Java Champion with more than two decades of experience in software design and development. He has been involved in web and desktop application development since the early days of Java. Andres is a true believer in open source and has participated on popular projects like Groovy, Griffon, and DbUnit, as well as starting his own projects. Founding member of the Griffon framework and Hackergarten community event. Author of JReleaser.
 
 ## Q&A
 
 ### What were your first experiences with Testcontainers?
 
-Ixchel Ruiz and Kevin Witteck showed me Testcontainers years ago at Gr8Conf. They convinced me that TC was the way to go to have better results for integration and functional tests.
+Ixchel Ruiz and Kevin Wittek showed me Testcontainers years ago at Gr8Conf. They convinced me that Testcontainers was the way to go to have better results for integration and functional tests.
 
 ### What’s your favourite Testcontainers module?
 
