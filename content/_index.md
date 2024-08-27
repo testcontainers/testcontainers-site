@@ -255,6 +255,9 @@ sections:
       - name: Gradle Devlocity
         logo: /images/sponsor-logos/develocity.svg
         link: https://gradle.com/develocity/
+      - name: Route4Me
+        logo: /images/sponsor-logos/route4me.svg
+        link: https://route4me.com/
     donors:
       - name: RedHat
         logo: /images/sponsor-logos/redhat.svg
