@@ -6,6 +6,9 @@ languageCode: en-us
 paginate: 9999
 
 markup:
+  goldmark:
+    renderer:
+      unsafe: true
   highlight:
     codeFences: false
   asciidocExt:
@@ -50,7 +53,7 @@ params:
 security:
   enableInlineShortcodes: false
   exec:
-    allow: 
+    allow:
       - ^asciidoctor$
   http:
     methods:
