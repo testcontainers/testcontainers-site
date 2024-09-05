@@ -34,7 +34,7 @@ sections:
         url: /cloud/desktop/
         description: Test everything on your laptop without worrying about resources. No local docker daemon needed!
         icon: /images/tcc-desktop.svg
-        steps: 
+        steps:
           - Sign up for free
           - Download the Testcontainers Desktop app
           - Run the app and sign in
@@ -43,7 +43,7 @@ sections:
         url: /cloud/ci/
         description: Run your ever-growing test suite without scaling your CI, and speed it up by running tests in parallel. No system privileges required!
         icon: /images/tcc-ci.svg
-        steps: 
+        steps:
           - Sign up for free
           - Create a Service Account token
           - Add the agent to your CI workflow
@@ -60,7 +60,7 @@ sections:
         image: /images/quotes/roberto-perez-alcolea.jpg
   - partial: experience-columns
     title: Full Testcontainers Experience
-    description: Testcontainers is an open source framework for providing throwaway, lightweight instances of databases, message brokers, web browsers, or just about anything that can run in a Docker container. Testcontainers Cloud lets you have the same great experience wherever you are running your tests.
+    description: Testcontainers is an open source library for providing throwaway, lightweight instances of databases, message brokers, web browsers, or just about anything that can run in a Docker container. Testcontainers Cloud lets you have the same great experience wherever you are running your tests.
     columns:
       - icon: testcontainers
         title: Unit Tests With Real Dependencies
