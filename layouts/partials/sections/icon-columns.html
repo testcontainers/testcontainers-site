@@ -12,7 +12,7 @@
   <div class="container">
     <div class="content">
       <div class="small-header gradient">{{ .section.small_title }}</div>
-      <h2>{{ .section.title }}</h2>
+      <h2>{{ .section.title | markdownify }}</h2>
     </div>
     <div class="columns">
       {{ range .section.columns }}
