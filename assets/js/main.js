@@ -48,35 +48,54 @@ const allTabLabels = document.querySelectorAll(".code-examples .tab-labels butto
 allTabLabels.forEach((label) => {
   label.addEventListener("click", (e) => {
     const targetId = e.currentTarget.dataset.target;
-
-    const tabLabels = e.currentTarget.closest(".examples").querySelectorAll(".tab-labels button");
-    tabLabels.forEach((label) => {
-      if (label.dataset.target === targetId) {
-        label.classList.add("active");
-      } else {
-        label.classList.remove("active");
-      }
-    });
-
-    const tabPanels = e.target.closest(".examples").querySelectorAll(".tab-panels .tab-panel");
-    tabPanels.forEach((panel) => {
-      if (panel.dataset.id === targetId) {
-        panel.classList.add("active");
-      } else {
-        panel.classList.remove("active");
-      }
-    });
-
-    const gettingStartedButtons = e.target.closest(".code-examples").querySelectorAll(".getting-started-button");
-    gettingStartedButtons.forEach((button) => {
-      if (button.dataset.id === targetId) {
-        button.classList.add("active");
-      } else {
-        button.classList.remove("active");
-      }
-    });
+    setQueryParam("language", targetId);
+    setActiveTab(targetId);
   });
 });
+
+const languageQuery = new URL(window.location.href).searchParams.get('language');
+if (languageQuery) {
+  setActiveTab(languageQuery);
+}
+
+function setActiveTab(targetId) {
+  const tabLabels = document.querySelectorAll(".code-examples .tab-labels button");
+
+  if ([...tabLabels].filter(label => label.dataset.target === targetId).length === 0) 
+    return;
+
+  tabLabels.forEach((label) => {
+    if (label.dataset.target === targetId) {
+      label.classList.add("active");
+    } else {
+      label.classList.remove("active");
+    }
+  });
+
+  const tabPanels = document.querySelectorAll(".code-examples .tab-panels .tab-panel");
+  tabPanels.forEach((panel) => {
+    if (panel.dataset.id === targetId) {
+      panel.classList.add("active");
+    } else {
+      panel.classList.remove("active");
+    }
+  });
+
+  const gettingStartedButtons = document.querySelectorAll(".code-examples .getting-started-button");
+  gettingStartedButtons.forEach((button) => {
+    if (button.dataset.id === targetId) {
+      button.classList.add("active");
+    } else {
+      button.classList.remove("active");
+    }
+  });
+}
+
+function setQueryParam(param, value) {
+  const url = new URL(window.location.href);
+  url.searchParams.set(param, value);
+  history.replaceState(history.state, "", url.href);
+}
 
 // Handle UTMs
 const utms = [];

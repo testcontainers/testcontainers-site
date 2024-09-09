@@ -5,7 +5,7 @@
     {{ $guidesstyle := resources.Get "/sass/guides.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
     <link rel="stylesheet" href="{{ $guidesstyle.RelPermalink }}">
 
-    {{ $script := resources.Get "/js/modules.js" | js.Build | resources.Minify }}
+    {{ $script := resources.Get "/js/modules.js" | js.Build | resources.Minify | resources.Fingerprint }}
     <script src="{{ $script.RelPermalink }}" defer></script>
 {{ end }}
 
