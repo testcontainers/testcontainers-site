@@ -69,5 +69,5 @@ rust:
   slug: rust
   title: Rust
   logo: /images/language-logos/rust.svg
-  link: https://docs.rs/testcontainers/latest/testcontainers/
+  link: https://rust.testcontainers.org/
   order: 12
