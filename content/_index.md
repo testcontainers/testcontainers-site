@@ -65,7 +65,7 @@ sections:
           wait_for_logs(redis, "Ready to accept connections")
           ```
       - id: rust
-        url: https://docs.rs/testcontainers/latest/testcontainers/
+        url: https://rust.testcontainers.org/
         external: true
         code: |
           ```rust
