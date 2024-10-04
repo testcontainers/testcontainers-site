@@ -107,9 +107,22 @@ function handleFilterToggle() {
   document.body.classList.toggle('filter-toggled');
 }
 
+function handleModuleLinkClick(e) {
+  const pageUrl = new URL(window.location.href);
+  const language = pageUrl.searchParams.get('language');
+  if (language) {
+    const url = new URL(e.currentTarget.href);
+    url.searchParams.set('language', language);
+    e.currentTarget.href = url.href;
+  }
+}
+
+all.forEach((moduleItem) => {
+  moduleItem.addEventListener('click', handleModuleLinkClick);
+});
 inputs.forEach((input) => {
   input.addEventListener('change', showFilterResults);
-})
+});
 search.addEventListener('keyup', showFilterResults);
 clearFilter.addEventListener('click', clearTheFilter);
 filterToggle.addEventListener('click', handleFilterToggle);

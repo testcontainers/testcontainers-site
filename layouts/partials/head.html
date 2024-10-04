@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="{{ $style.RelPermalink }}">
 
 <script src="/js/highlight.min.js" defer></script>
-{{ $script := resources.Get "/js/main.js" | resources.Minify }}
+{{ $script := resources.Get "/js/main.js" | resources.Minify | resources.Fingerprint }}
 <script src="{{ $script.RelPermalink }}" defer></script>
 
 <link rel="icon" href="/favicon.ico" sizes="any">
