@@ -1,7 +1,7 @@
 ARG NODE_VERSION=20.3.0-alpine
 ARG HUGO_VERSION=0.111.3
 
-FROM node:${NODE_VERSION}-alpine3.18 as builder
+FROM node:${NODE_VERSION}-alpine3.18 AS builder
 
 # Install tools
 RUN apk update && apk --no-cache add bash git
