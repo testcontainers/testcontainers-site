@@ -9,7 +9,7 @@
     <script type="text/javascript">
       const MIXPANEL_CUSTOM_LIB_URL = "https://telemetry.svc.testcontainers.cloud/lib.min.js";
       function redirectToDashboard() {
-        const redirectUrl = new URL("https://app.testcontainers.cloud/api/auth/login");
+        const redirectUrl = new URL("https://app.testcontainers.cloud");
         const account = new URLSearchParams(window.location.search).get("account");
         if (account) {
           redirectUrl.searchParams.append("account", account);
