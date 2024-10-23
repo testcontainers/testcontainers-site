@@ -6,5 +6,6 @@ languages:
   - go
   - dotnet
   - nodejs
+  - python
   - rust
 ---
