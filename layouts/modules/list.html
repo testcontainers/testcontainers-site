@@ -103,10 +103,13 @@
                   <use href="#icon-community"></use>
                 </svg> Comunity Modules</h2>
               <div>These modules are maintained by the community, outside of the core Testcontainers project.</div>
-              <div>Want to contribute? Visit the <a href="https://github.com/testcontainers/community-module-registry" target="_blank">Community module registry</a></div>
             </div>
         </div>
         <div class="content">
+          <div class="description">
+            Want to contribute a module? Visit the <a href="https://github.com/testcontainers/community-module-registry" target="_blank">Community module registry</a>
+            to learn more about how to contribute.
+          </div>
           <div class="modules-list-items">
             {{ range .Paginator.Pages }}
               {{ $moduleLanguages := partial "utils/module-languages" . }}
