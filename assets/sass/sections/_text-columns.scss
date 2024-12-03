@@ -38,13 +38,30 @@
     }
   }
 
+  .afterword {
+    max-width: 1024px;
+    text-align: center;
+    margin: 0 auto;
+  }
+
   .columns {
     display: grid;
     gap: 30px;
 
     @media (min-width: 780px) {
       gap: 60px;
-      grid-template-columns: repeat(3, 1fr);
+
+      &.cols-2 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      &.cols-3 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      &.cols-4 {
+        grid-template-columns: repeat(4, 1fr);
+      }
     }
   }
 

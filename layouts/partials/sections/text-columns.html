@@ -1,9 +1,15 @@
 {{/*
 - partial: text-columns
+  title: Lorem ipsum
+  description: Lorem ipsum dolor sit amet
+  cols: 3
   columns:
     - title: Lorem ipsum
       description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+  afterword: Lorem ipsum dolor sit amet
 */}}
+{{ $cols := .section.cols | default 3 }}
+{{ $columnClasses := printf "%s cols-%d" "columns" $cols }}
 <section class="text-columns">
   <div class="container">
     {{ if .section.title }}
@@ -12,7 +18,7 @@
         <div>{{ .section.description | markdownify }}</div>
       </div>
     {{ end }}
-    <div class="columns">
+    <div class="{{ $columnClasses }}">
       {{ range .section.columns }}
         <div class="column">
           <h3>{{ .title | markdownify }}</h3>
@@ -29,5 +35,8 @@
         <a class='{{ delimit $buttonClasses " " }}' href="{{ .url }}" target="{{ .target }}">{{ .label }}</a>
       {{ end }}
     </div>
+    {{ with .section.afterword }}
+      <div class="afterword">{{ . | markdownify }}</div>
+    {{ end }}
   </div>
 </section>

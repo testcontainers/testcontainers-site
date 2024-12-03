@@ -46,9 +46,9 @@ module:
 
 params:
   Description: Testcontainers is an opensource library for providing lightweight, throwaway instances of common databases, Selenium web browsers, or anything else that can run in a Docker container.
-  announcement:
-    url: https://www.atomicjar.com/2023/12/atomicjar-is-now-part-of-docker/
-    text: 🚨 AtomicJar is now part of Docker 🐋! Read the blog
+  #announcement:
+  #  url: https://www.atomicjar.com/2023/12/atomicjar-is-now-part-of-docker/
+  #  text: 🚨 AtomicJar is now part of Docker 🐋! Read the blog
 
 security:
   enableInlineShortcodes: false
