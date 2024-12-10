@@ -1,5 +1,5 @@
 {{/*
-- partial: page-banner
+- partial: text-callout
   title: Lorem ipsum
   description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
   buttons:
@@ -8,19 +8,20 @@
     - label: Lorem ipsum
       url: https://testcontainers.com
       style: outline
-  afterword: Lorem ipsum dolor sit amet
-  image: images/tcc-desktop.svg
 */}}
-<section class="page-banner">
+{{ $title := .section.title }}
+{{ $description := .section.description }}
+{{ $buttons := .section.buttons }}
+<section class="text-callout">
   <div class="container">
     <div class="content">
-      {{ with .section.title }}
-        <h1>{{ . | markdownify }}</h1>
+      {{ with $title  }}
+        <h2>{{ . | markdownify }}</h2>
       {{ end }}
-      {{ with .section.description }}
+      {{ with $description }}
         <div class="description">{{ . | markdownify }}</div>
       {{ end }}
-      {{ with .section.buttons }}
+      {{ with $buttons }}
         <div class="buttons-wrapper">
           <div class="buttons">
             {{ range . }}
@@ -33,14 +34,6 @@
           </div>
         </div>
       {{ end }}
-      {{ with .section.afterword }}
-        <div class="afterword">{{ . | markdownify }}</div>
-      {{ end }}
     </div>
-    {{ with .section.image }}
-      <div class="image">
-        {{ partial "img.html" (dict "image" (resources.Get .) "alt" "") }}
-      </div>
-    {{ end }}
   </div>
 </section>

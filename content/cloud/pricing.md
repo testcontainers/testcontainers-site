@@ -2,78 +2,33 @@
 title: Testcontainers Cloud Pricing
 submenu: cloud
 sections:
-  - partial: pricing
-    title: Pricing
-    headingLevel: 1
+  - partial: page-banner
+    title: |
+      **Testcontainers Cloud is now part of Docker plans**
     buttons:
-      - label: Start For Free
-        url: https://app.testcontainers.cloud/signup
-      - label: Read About Metering & Billing
-        url: /cloud/docs/#how-usage-is-measured-and-billed
+      - label: Find your right Docker Plan
+        url: https://www.docker.com/pricing/
         style: outline
-    features:
-      - Test Dependencies As Code
-      - Requires Local Docker Environment
-      - Cloud Runtime
-      - |
-        [Preconfigured Modules](/modules)
-      - Max Users (desktop)
-      - Service Accounts (CI)
-      - |
-        [Turbo mode](/cloud/docs/#parallelize-your-tests-with-turbo-mode)
-      - Max Concurrent Workers Per Service Account (CI)
-    plans:
-      - title: Free
+      - label: Start for Free
+        url: https://app.testcontainers.cloud/signup
+  - partial: text-columns
+    style: pt-none
+    cols: 2
+    columns:
+      - title: Simplified access
         description: |
-          Free access to Testcontainers Desktop for individual developers, with 300 minutes per month of cloud runtime included.
-        prices:
-          - label: 
-            value: $0
-            discountValue:
-        features:
-          - value: |
-              Yes
-            checkmark: true
-          - value: |
-              No
-            checkmark: true
-          - value: 300 minutes / month
-          - value: 50+
-            checkmark: true
-          - value: 1
-            checkmark: false
-          - value: 30-day free trial
-            checkmark: false
-          - value: Not Available
-            checkmark: false
-          - value: 1
-            checkmark: false
-      - title: Team
-        description: The full power of Testcontainers Cloud for teams, on Desktop and in your CI.
-        prices:
-          - label: / Seat per Month (on Desktop)
-            value: $35
-          - label: / Worker Minute (in the CI)
-            value: $0.02
-        features:
-          - value: |
-              Yes
-            checkmark: true
-          - value: |
-              No
-            checkmark: true
-          - value: Unlimited
-            checkmark: true
-          - value: 50+
-            checkmark: true
-          - value: Unlimited
-            checkmark: true
-          - value: Unlimited
-            checkmark: true
-          - value: Available
-            checkmark: true
-          - value: 16
-            checkmark: true
+          We’ve made it easier to access Testcontainers Cloud. Per-seat licenses for Testcontainers Cloud have been waived for Docker Pro, Docker Team, and Docker Business subscribers.
+      - title: Included runtime minutes
+        description: |
+          Docker Pro includes 100 runtime minutes per month, Docker Team includes 500 runtime minutes per month, and Docker Business includes 1,500 runtime minutes per month.  These minutes are yours to use on Desktop, in your CI, or both.
+      - title: Scale with consumption-based pricing
+        description: |
+          Need additional runtime minutes? Buy what you need, when you need it.
+      - title: All Docker products, one subscription
+        description: |
+          In addition to Testcontainers Cloud, Docker subscriptions include Docker Hub, Docker Desktop, Docker Scout, and Docker Build Cloud. Everything you need to accelerate development in one plan.
+    afterword: |
+      Got questions? [Visit our FAQs page](https://www.docker.com/pricing/faq/#testcontainers)
   - partial: centered-text
     title: Open Source Libraries
     description: The Testcontainers libraries are open source and free to use.

@@ -199,8 +199,13 @@ sub {
 @import "sections/sponsor-credits";
 @import "sections/step-cards";
 @import "sections/supported-languages";
+@import "sections/text-callout";
 @import "sections/text-columns";
 @import "sections/tweets";
 @import "subheader";
 @import "shortcodes/languages";
 @import "toc";
+
+.pt-none {
+  padding-top: 0;
+}

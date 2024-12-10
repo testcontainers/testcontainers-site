@@ -11,7 +11,14 @@
     align-items: center;
 
     @media (min-width: 860px) {
-      grid-template-columns: 3fr 2fr;
+      &:has(.image) {
+        grid-template-columns: 3fr 2fr;
+
+        .content {
+          align-items: flex-start;
+          text-align: left;
+        }
+      }
     }
   }
 
@@ -22,14 +29,11 @@
     position: relative;
     z-index: 3;
     font-size: rem(14px);
+    align-items: center;
+    text-align: center;
 
     @media (min-width: 860px) {
       font-size: rem(18px);
-    }
-
-    @media (max-width: 859px) {
-      align-items: center;
-      text-align: center;
     }
   }
 
