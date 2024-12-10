@@ -832,7 +832,7 @@ spec:
 
 This is a flexible approach you can use to run Testcontainers Cloud in Tekton with the tests in other languages by swapping the `mvn` command for the corresponding build tool call.
 
-## Billing
+## Billing (Legacy Standalone plans)
 
 ### How usage is measured and billed
 
