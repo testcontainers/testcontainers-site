@@ -4,7 +4,9 @@ showTitle: true
 showToc: true
 submenu: desktop
 ---
+
 ## Overview
+
 [Testcontainers Desktop](/desktop/) is a companion app for the [open source Testcontainers libraries](/) that makes local development and testing with real dependencies simple. It's a closed-source app available on macOS, Windows, and Linux, that includes a [free plan](/cloud/pricing/) for individual developers. It's lightweight and runs in your system tray, so you can remain in your IDE while developing.
 
 {{<screenshot fixedheight>}}![Testcontainers Desktop overview](../images/tcd_overview.png){{</screenshot>}}
@@ -22,7 +24,7 @@ Open source Testcontainers libraries must remain self-sufficient to write and ru
 
 Go to the [download page](/desktop/), select your OS-specific distribution, and install it.
 
-Alternatively, if you use macOS, you can install the app via [Homebrew](https://brew.sh/): 
+Alternatively, if you use macOS, you can install the app via [Homebrew](https://brew.sh/):
 
 ```
 brew install atomicjar/tap/testcontainers-desktop
@@ -30,19 +32,30 @@ brew install atomicjar/tap/testcontainers-desktop
 
 ### Create a free account or sign in
 
-The first time Testcontainers Desktop starts it asks you to create a free account at [app.testcontainers.cloud](https://app.testcontainers.cloud/). If you already have an account, you should sign in instead. If you'd like to join a colleague's organization, you can ask them to invite you from the [members page](https://app.testcontainers.cloud/dashboard/members). Unauthenticated usage is not supported at this time. 
+The first time Testcontainers Desktop starts it will ask you to sign in with a [Docker](https://www.docker.com) account. If you don't already have one you can sign up for free. Unauthenticated usage is not supported at this time.
+
+### Selecting your account profile
+
+When signing in to Testcontainers Desktop you must select which profile to use. Here you will see your peronal account as well as any organiazations your are a member of. Each profile tracks usage and billing separately.
+
+{{<screenshot>}}![Testcontainers Desktop profile selection](../images/tcd_select_profile.png){{</screenshot>}}
+
+You can see which profile Testcontainers Desktop is currently using in the system tray dropdown, above the option to use another account.
+
+{{<screenshot>}}![Testcontainers Desktop current profile](../images/tcd_switch_profile.png){{</screenshot>}}
 
 ## User guide
 
 ### Select a container runtime
+
 Open source Testcontainers libraries rely on a container runtime compatible with the Docker API. The following container runtime environments are officially supported:
 
-* [Docker Desktop](https://www.docker.com/products/docker-desktop/)
-* [Docker Engine](https://docs.docker.com/engine/install/) on Linux
-* [Testcontainers Cloud](https://testcontainers.com/cloud/)
-* Testcontainer Desktop's [embedded runtime](https://newsletter.testcontainers.com/announcements/adopt-testcontainers-desktop-as-your-container-runtime-early-access) (macOS only)
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+- [Docker Engine](https://docs.docker.com/engine/install/) on Linux
+- [Testcontainers Cloud](https://testcontainers.com/cloud/)
+- Testcontainer Desktop's [embedded runtime](https://newsletter.testcontainers.com/announcements/adopt-testcontainers-desktop-as-your-container-runtime-early-access) (macOS only)
 
-Refer to [this page](https://java.testcontainers.org/supported_docker_environment/) for more extensive information on supported container runtime environments, as well as known limitations of 
+Refer to [this page](https://java.testcontainers.org/supported_docker_environment/) for more extensive information on supported container runtime environments, as well as known limitations of
 alternative container runtime environments.
 
 #### Switch between local runtimes
@@ -55,7 +68,7 @@ Testcontainers Desktop lets you switch between local container runtimes. This is
 
 {{<screenshot>}}![Testcontainers Desktop embedded runtime](../images/tcd_local_runtime.png){{</screenshot>}}
 
-Testcontainers Desktop aims to deliver a batteries-included developer experience for local development and testing. As of version `1.4.18` Testcontainers Desktop embeds a lightweight and fast runtime, optimized for Testcontainers usage. The embedded runtime is currently in beta, and only available on macOS 11 or later to benefit from Apple's native Virtualization Framework. It is available as the top option for local runtimes. 
+Testcontainers Desktop aims to deliver a batteries-included developer experience for local development and testing. As of version `1.4.18` Testcontainers Desktop embeds a lightweight and fast runtime, optimized for Testcontainers usage. The embedded runtime is currently in beta, and only available on macOS 11 or later to benefit from Apple's native Virtualization Framework. It is available as the top option for local runtimes.
 
 The runtime takes a few seconds to initialize the first time you run a command, displaying "Embedded Runtime (Starting...)" in the menu. The menu changes to "Embedded Runtime (Started)" and the icon displays a "play" icon when ready. If you run into any issues, join us in the [#testcontainers-desktop](https://testcontainers.slack.com/archives/C05JGR9CSQY) channel of the [public slack](https://slack.testcontainers.org/) to troubleshoot.
 
@@ -67,7 +80,7 @@ Testcontainers Desktop provides seamless access to Testcontainers Cloud to run c
 
 The [free plan](https://testcontainers.com/cloud/pricing/) for individual developers includes a free monthly quota of 300 minutes of cloud runtime. Paid plans are available to users who need to lift this restriction. See [this knowledge article](/cloud/docs/#how-usage-is-measured-and-billed) for details on usage metering and billing.
 
-To switch to the cloud runtime, select "Run with Testcontainers Cloud" in the menu. Once selected, the menu displays "Testcontainers Cloud" as confirmation. When Testcontainers libraries run containers, a cloud worker is allocated dynamically and the icon changes to display the "play" icon. Testcontainers Desktop supports parallelizing test execution across multiple workers via [Turbo mode](/cloud/docs/#parallelize-your-tests-with-turbo-modee), which requires a paid account. 
+To switch to the cloud runtime, select "Run with Testcontainers Cloud" in the menu. Once selected, the menu displays "Testcontainers Cloud" as confirmation. When Testcontainers libraries run containers, a cloud worker is allocated dynamically and the icon changes to display the "play" icon. Testcontainers Desktop supports parallelizing test execution across multiple workers via [Turbo mode](/cloud/docs/#parallelize-your-tests-with-turbo-modee), which requires a paid account.
 
 The "Connected" sub-menu containers useful troubleshooting information, including the worker-id and associated latency, and also confirmation of whether the self-check was successful, potentially identifying any connectivity issues. See the [knowledge base](/cloud/docs/#troubleshooting) for further troubleshooting information.
 
@@ -101,7 +114,7 @@ Note: if you'd like to connect to someone else's cloud worker instead, for examp
 
 Testcontainers libraries dynamically map the container’s ports onto random ports on the host machine to avoid conflicts, ensuring that automated tests run reliably. However, during development it can be cumbersome to check which random port is assigned on the host to connect local debugging tools such as an IDE plugin to inspect a datastore, or k9s to manage a Kubernetes cluster. Testcontainers Desktop simplifies debugging by letting you define services and exposing them on fixed ports for debugging purposes.
 
-A "service" is a collection of running containers and associated mechanisms to interract with them. To configure services, click on _Services → Open config location_. The app ships with 15+ preconfigured configuration files for popular technologies, including postgres, kafka, and many others. Simply rename a file from `.example` to a `.toml` extension to get started with the corresponding technology. 
+A "service" is a collection of running containers and associated mechanisms to interract with them. To configure services, click on _Services → Open config location_. The app ships with 15+ preconfigured configuration files for popular technologies, including postgres, kafka, and many others. Simply rename a file from `.example` to a `.toml` extension to get started with the corresponding technology.
 
 A minimal configuration file called `postgres-datastore.toml` might look as follows:
 
@@ -131,7 +144,7 @@ Configured services are listed under the "Services" menu alongside their exposed
 
 When running automated tests it's possible for multiple containers belonging to the same service to run concurrently. In order to provide a stable experience, Testcontainers Desktop maps the fixed port to the oldest running container, and only switches over if it terminates.
 
-The example files also contain instructions to go beyond the default configuration. For example, you might be running 2 separate services based on the same image, or you might want to target the leader and replicas separately. If so, follow the instructions to fine-tune how the service selects containers based on labels, which open source Testcontainers libraries let you add easily from your code. 
+The example files also contain instructions to go beyond the default configuration. For example, you might be running 2 separate services based on the same image, or you might want to target the leader and replicas separately. If so, follow the instructions to fine-tune how the service selects containers based on labels, which open source Testcontainers libraries let you add easily from your code.
 
 The following service configuration selects all running containers that contain the string "postgres" in the image name AND the specified docker label:
 
@@ -158,7 +171,7 @@ Testcontainers Desktop simplifies debugging by letting you [define services](htt
 
 {{<screenshot fixedheight>}}![Testcontainers Desktop freeze containers shutdown](../images/tcd_freeze_containers_shutdown.png){{</screenshot>}}
 
-While running your tests, you may want to inspect data before the test terminates and the container is automatically cleaned up. You can use the "Freeze containers shutdown" to halt containers termination. 
+While running your tests, you may want to inspect data before the test terminates and the container is automatically cleaned up. You can use the "Freeze containers shutdown" to halt containers termination.
 
 Turning on this feature is conceptually similar to setting a dynamic breakpoint before any container termination. When enabled, Testcontainers Desktop prevents your application from shuting down containers, effectively keeping the tests running indefinitely. Once you're done with your investigation, uncheck the "Freeze containers shutdown" button to resume normal test execution, including clean-up. Alternatively, see the next section on how to "Terminate containers".
 
@@ -168,20 +181,20 @@ Freezing containers shutdown lets you inspect development services via a fixed p
 
 This feature is currently in beta, with the following known limitations:
 
-* Some test frameworks have a built-in timeout configured and will terminate a test and associated containers if frozen for too long.
-* Freeze only supports containers with a managed lifecycle. For example, in Testcontainers Java, it's common practice to manage the lifecycle of containers via the `@Container` annotation or inside a "try-with-resources" block. Such containers will be properly frozen when the code attempts to `close()` them. It is not currently possible to freeze long-lived, unmanaged containers such as those defined by a [singleton pattern](https://java.testcontainers.org/test_framework_integration/manual_lifecycle_control/#singleton-containers) and [reusable containers](https://java.testcontainers.org/features/reuse/).
+- Some test frameworks have a built-in timeout configured and will terminate a test and associated containers if frozen for too long.
+- Freeze only supports containers with a managed lifecycle. For example, in Testcontainers Java, it's common practice to manage the lifecycle of containers via the `@Container` annotation or inside a "try-with-resources" block. Such containers will be properly frozen when the code attempts to `close()` them. It is not currently possible to freeze long-lived, unmanaged containers such as those defined by a [singleton pattern](https://java.testcontainers.org/test_framework_integration/manual_lifecycle_control/#singleton-containers) and [reusable containers](https://java.testcontainers.org/features/reuse/).
 
 #### Terminate containers
 
 {{<screenshot fixedheight>}}![Testcontainers Desktop terminate containers](../images/tcd_terminate_containers.png){{</screenshot>}}
 
-By default, Testcontainers libraries spin up ephemeral containers that are automatically cleaned up when your tests complete. You can use the "Terminate containers" command to clean up all running Testcontainers-powered containers, while sparing other vanilla containers. 
+By default, Testcontainers libraries spin up ephemeral containers that are automatically cleaned up when your tests complete. You can use the "Terminate containers" command to clean up all running Testcontainers-powered containers, while sparing other vanilla containers.
 
 This command is useful when working with long-lived containers, such as when you:
 
-* Rely on reusable containers to speed up your tests and local development. 
-* Disable "Ryuk" (i.e. the resource reaper).
-* Enable "Freeze containers shutdown".
+- Rely on reusable containers to speed up your tests and local development.
+- Disable "Ryuk" (i.e. the resource reaper).
+- Enable "Freeze containers shutdown".
 
 A notification confirms how many containers are terminated:
 
@@ -195,11 +208,11 @@ A notification confirms how many containers are terminated:
 
 This feature is currently in beta, with the following known limitations:
 
-* Some Testcontainers languages do not yet implement `reuse`.
-* `reuse` in Testcontainers Java does not currently support networks, in the sense that they can change the container's configuration and prevent reuse. In turn, this can impact methods such as `exposeHostPorts`.
-* Testcontainers Go matches the container on `req.Name` alone, instead of its full configuration, and within a single package. This can lead to accidental reuse if separate containers share the same name.
-* Testcontainers Node does not rely on the `testcontainers.reuse.enable=true` property, and therefore this feature cannot deactivate reuse as expected.
-* While `reuse` prevents Ryuk from cleaning-up containers, they are stopped by regular lifecycle commands (e.g. `close()` or similar). In practice, this means they're best defined via the singleton pattern.
+- Some Testcontainers languages do not yet implement `reuse`.
+- `reuse` in Testcontainers Java does not currently support networks, in the sense that they can change the container's configuration and prevent reuse. In turn, this can impact methods such as `exposeHostPorts`.
+- Testcontainers Go matches the container on `req.Name` alone, instead of its full configuration, and within a single package. This can lead to accidental reuse if separate containers share the same name.
+- Testcontainers Node does not rely on the `testcontainers.reuse.enable=true` property, and therefore this feature cannot deactivate reuse as expected.
+- While `reuse` prevents Ryuk from cleaning-up containers, they are stopped by regular lifecycle commands (e.g. `close()` or similar). In practice, this means they're best defined via the singleton pattern.
 
 ### Track and analyze test sessions
 
@@ -207,17 +220,17 @@ This feature is currently in beta, with the following known limitations:
 
 Testcontainers Desktop tracks and analyzes your testing sessions to provide insights into your development and testing patterns. You can access your dashboard by clicking _"Open dashboard..."_ or directly at https://app.testcontainers.cloud/dashboard.
 
-Dashboards are collaborative: they aggregate test data across desktop and CI, as well as across all users in the same organization. Testcontainers Desktop tracks test data for both local and cloud runtimes, though additional insights are available when running containers in the cloud. 
+Dashboards are collaborative: they aggregate test data across desktop and CI, as well as across all users in the same organization. Testcontainers Desktop tracks test data for both local and cloud runtimes, though additional insights are available when running containers in the cloud.
 
 {{<screenshot>}}![Testcontainers Desktop dashboard widgets](../images/tcd_dashboard_widgets.png){{</screenshot>}}
 
 Dashboards contain widgets for your testing sessions that let you answer questions such as:
 
-* How consistently do we test on desktop before pushing to the CI?
-* Has a recent release impacted our team's testing velocity?
-* What are the most popular container images we test with?
-* Are there outdated dependencies used in test suites?
-* Etc.
+- How consistently do we test on desktop before pushing to the CI?
+- Has a recent release impacted our team's testing velocity?
+- What are the most popular container images we test with?
+- Are there outdated dependencies used in test suites?
+- Etc.
 
 {{<screenshot>}}![Testcontainers Desktop dashboard session](../images/tcd_dashboard_session.png){{</screenshot>}}
 
@@ -225,9 +238,13 @@ Dashboards contain a detailed timeline of each testing session, which can help i
 
 ## Account management
 
+{{<note info>}}
+This section referres to legacy organizations only. All new accounts are managed from the Docker Admin Console.
+{{</note>}}
+
 ### Invite and remove users
 
-View and manage your team by visiting the [Account page](https://app.testcontainers.cloud/dashboard/members).  
+View and manage your team by visiting the [Account page](https://app.testcontainers.cloud/dashboard/members).
 
 The "Users" tab lists all users within your organization, and their associated roles. If you have Admin rights, you can manage access for existing team members.
 
@@ -244,18 +261,18 @@ A user belongs to a single organization at a time. If you wish to leave your cur
 1. Navigate to your [Account page](https://app.testcontainers.cloud/dashboard/members)
 2. Click on the three dots next to your user row and select the "Leave" option. {{<screenshot>}}![Testcontainers Desktop Account tab](../images/tcd_leave_account.png){{</screenshot>}}
 3. Once you're redirected to the authentication page, click on "Log Out" under your profile menu, and then close the tab.
-4. To log off from Testcontainers Desktop, open the application and select "Reset" under the Preferences tab. 
-{{<screenshot>}}![Testcontainers Desktop Reset](../images/tcd_reset.png){{</screenshot>}}
+4. To log off from Testcontainers Desktop, open the application and select "Reset" under the Preferences tab.
+   {{<screenshot>}}![Testcontainers Desktop Reset](../images/tcd_reset.png){{</screenshot>}}
 5. In the new web page called "Sign up for Testcontainers Desktop", you can either sign up and create a new organization, or follow the invitation link provided by your colleague to join their organization.
-{{<screenshot>}}![Testcontainers Desktop Sign Up](../images/tcd_sign_up_page.png){{</screenshot>}}
+   {{<screenshot>}}![Testcontainers Desktop Sign Up](../images/tcd_sign_up_page.png){{</screenshot>}}
 
 If you need to switch between multiple organizations, you need a separate user account for each. You can achieve this by signing up with a different email address or provider (e.g. github, gmail). To switch the Testcontainers Desktop application from one organization to another, follow these steps:
 
-1. Log out from https://app.testcontainers.cloud. 
+1. Log out from https://app.testcontainers.cloud.
 2. Click on "Reset" under the Testcontainers Desktop application preferences.
 3. Once you're redirected to the "Sign up for Testcontainers Desktop" page, click on "Log In" and authenticate with the credentials associated with the organization you wish to join.
 
-To verify which account is associated with the Testcontainers Desktop application, expand the tray icon and check the username and authentication provider listed below the title and version. 
+To verify which account is associated with the Testcontainers Desktop application, expand the tray icon and check the username and authentication provider listed below the title and version.
 
 ## Troubleshooting
 
