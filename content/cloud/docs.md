@@ -4,13 +4,16 @@ showTitle: true
 showToc: true
 submenu: cloud
 ---
+
 ## Overview
+
 Running your Testcontainers tests with Testcontainers Cloud works out of the box. It gives you access to the same Testcontainers modules to test applications using popular technologies, without spinning heavy containers on your local machine.
 
 ## How does Testcontainers Cloud work?
+
 The Testcontainers Cloud agent opens an SSH tunnel and connects to the Docker daemon in the cloud environment
 
-Testcontainers Cloud removes the need for running containers locally. When you trigger your tests in a local environment Testcontainers Cloud agent opens an SSH tunnel and connects to the Docker daemon in the cloud environment. It will pull a Docker image and start the container defined in your Testcontainers-based test, both in the connected cloud environment. Connection to the cloud environment will be active while your tests are running. When your test suite completes, Testcontainers Cloud will wait for a short period of time and then close the connection and remove allocated resources automatically. 
+Testcontainers Cloud removes the need for running containers locally. When you trigger your tests in a local environment Testcontainers Cloud agent opens an SSH tunnel and connects to the Docker daemon in the cloud environment. It will pull a Docker image and start the container defined in your Testcontainers-based test, both in the connected cloud environment. Connection to the cloud environment will be active while your tests are running. When your test suite completes, Testcontainers Cloud will wait for a short period of time and then close the connection and remove allocated resources automatically.
 {{<screenshot>}}![Testcontainers Desktop cloud connection diagram](../images/tcd_cloud_diagram.png){{</screenshot>}}
 
 ## Getting Started
@@ -29,12 +32,15 @@ If you don't have existing tests that use Testcontainers, you can use one of the
 ### Example Projects
 
 #### .NET
+
 ```shell
 git clone https://github.com/AtomicJar/testcontainers-cloud-dotnet-example
 cd testcontainers-cloud-dotnet-example
 dotnet test --logger:"console;verbosity=detailed"
 ```
+
 #### Go
+
 ```shell
 git clone https://github.com/AtomicJar/testcontainers-cloud-go-example
 cd testcontainers-cloud-go-example
@@ -43,6 +49,7 @@ go test -v -count=1
 ```
 
 #### Java
+
 ```shell
 git clone https://github.com/AtomicJar/testcontainers-cloud-java-example
 cd testcontainers-cloud-java-example
@@ -50,6 +57,7 @@ cd testcontainers-cloud-java-example
 ```
 
 #### Node.js
+
 ```shell
 git clone https://github.com/AtomicJar/testcontainers-cloud-nodejs-example
 cd testcontainers-cloud-nodejs-example
@@ -71,19 +79,19 @@ If you want to switch back to local Docker just stop Testcontainers Cloud Client
 Sometimes a system has access to both a Docker daemon and Testcontainers Cloud. To resolve which Docker environment to use Testcontainers libraries do the following in order:
 
 1. Read the `~/.testcontainers.properties` file (if it exists):
-    - Find the Docker daemon location from its `tc.host` property
+   - Find the Docker daemon location from its `tc.host` property
 2. Obtain Docker daemon location from the environment variable `DOCKER_HOST`
-3. Fall back to trying the default Docker locations for the current operating system 
+3. Fall back to trying the default Docker locations for the current operating system
 
-Testcontainers Cloud Agent, both Desktop and CI, configures its own location in the `~/.testcontainers.properties` file, which makes the tests automatically prefer it. 
+Testcontainers Cloud Agent, both Desktop and CI, configures its own location in the `~/.testcontainers.properties` file, which makes the tests automatically prefer it.
 
-You can also configure individual projects not to consider the configuration in the `~/.testcontainers.properties` file. 
+You can also configure individual projects not to consider the configuration in the `~/.testcontainers.properties` file.
 
 ### Disable for a specific project
 
-When started Testcontainers Cloud configures the local environment to use it for Testcontainers tests by default. Sometimes you might want to opt-out from using it in a specific project, for example because it uses older Testcontainers libraries not yet compatible with Testcontainers Cloud or code patterns that are not ideal for a cloud-based container execution. 
+When started Testcontainers Cloud configures the local environment to use it for Testcontainers tests by default. Sometimes you might want to opt-out from using it in a specific project, for example because it uses older Testcontainers libraries not yet compatible with Testcontainers Cloud or code patterns that are not ideal for a cloud-based container execution.
 
-You can configure a particular project not to use the global Testcontainers Cloud configuration by updating the dockerconfig.source property in the `testcontainers.properties` configuration file within the project (on your classpath). 
+You can configure a particular project not to use the global Testcontainers Cloud configuration by updating the dockerconfig.source property in the `testcontainers.properties` configuration file within the project (on your classpath).
 
 This option is only available in Testcontainers for Java.
 
@@ -98,13 +106,13 @@ You can keep the Testcontainers Cloud client app running and no more changes are
 ### Parallelize your tests with Turbo mode
 
 Testcontainers Cloud Turbo mode allows you to run tests in parallel so that each test process receives its own cloud environment making tests parallelization scalable.
-Parallelizing tests is one of the ways to speed up the execution of your build. 
+Parallelizing tests is one of the ways to speed up the execution of your build.
 
-Depending on the composition of a test suite, and compute resources available parallel tests might not improve performance due to bottlenecking on local compute resources. Testcontainers Cloud Turbo mode enables one cloud environment per process running  Testcontainers tests.
+Depending on the composition of a test suite, and compute resources available parallel tests might not improve performance due to bottlenecking on local compute resources. Testcontainers Cloud Turbo mode enables one cloud environment per process running Testcontainers tests.
 
-This means that increasing the number of processes simultaneously running tests doesn't increase the load on local compute resources linearly and the scalability of the cloud environment helps to run you tests faster. 
+This means that increasing the number of processes simultaneously running tests doesn't increase the load on local compute resources linearly and the scalability of the cloud environment helps to run you tests faster.
 
-Turbo mode will benefit users who struggle with massive test suites which run longer than is acceptable. Here's how you can enable Testcontainers Cloud Turbo mode and configure your tests to run in parallel. 
+Turbo mode will benefit users who struggle with massive test suites which run longer than is acceptable. Here's how you can enable Testcontainers Cloud Turbo mode and configure your tests to run in parallel.
 
 {{<note>}}
 Note that Turbo mode is currently restricted for [free accounts](/cloud/docs/#what-is-a-free-plan).
@@ -118,33 +126,33 @@ In the Testcontainers Desktop application you can select the checkbox Turbo mode
 
 #### Turn on Turbo mode in CI:
 
-When starting the agent in CI specify the `--max-concurrency=N` flag to enable a maximum of N concurrent Testcontainers Cloud environments available to processes using this agent. 
+When starting the agent in CI specify the `--max-concurrency=N` flag to enable a maximum of N concurrent Testcontainers Cloud environments available to processes using this agent.
 
-The default value for `--max-concurrency` is 4. 
+The default value for `--max-concurrency` is 4.
 
-You can also configure the concurrency option via an environment variable `TC_CLOUD_CONCURRENCY`, for example setting: 
+You can also configure the concurrency option via an environment variable `TC_CLOUD_CONCURRENCY`, for example setting:
 
 ```shell
 export TC_CLOUD_CONCURRENCY=2
 ```
 
-Now you're ready to run tests in parallel using scalability of Testcontainers Cloud. If you're new to running tests in parallel here's a quick instruction on how to try it with common build tools. 
+Now you're ready to run tests in parallel using scalability of Testcontainers Cloud. If you're new to running tests in parallel here's a quick instruction on how to try it with common build tools.
 
 #### How to turn on Turbo mode with a Java project using Gradle
 
-To run tests in parallel with Gradle add maxParallelForks to the test task in your gradle.build file: 
+To run tests in parallel with Gradle add maxParallelForks to the test task in your gradle.build file:
 
 ```none
 test.maxParallelForks = 4
 ```
 
-This will instruct Gradle to use up to 4 forked processes to run tests and if you configured Turbo mode, containers created in each fork will not overload the same Docker environment. 
+This will instruct Gradle to use up to 4 forked processes to run tests and if you configured Turbo mode, containers created in each fork will not overload the same Docker environment.
 
 If you would like to try Turbo mode on a Java project, consider using the sample project by following the instructions in its [GitHub repo](https://github.com/AtomicJar/testcontainers-cloud-turbo-mode-sample).
 
 #### How to turn on Turbo mode with a Java project using Maven
 
-If you're using Maven as your build tool, you're probably using Surefire plugin for test execution. Surefire plugin supports parallel test execution and you can read the docs on how to enable it. In general to run tests in parallel with Maven you can add the parallel and forkCount properties to the configuration of Maven Surefire or Failsafe plugins in your pom.xml. Note that you need a modern version of the Surefire plugin, here's a sample configuration for it:  
+If you're using Maven as your build tool, you're probably using Surefire plugin for test execution. Surefire plugin supports parallel test execution and you can read the docs on how to enable it. In general to run tests in parallel with Maven you can add the parallel and forkCount properties to the configuration of Maven Surefire or Failsafe plugins in your pom.xml. Note that you need a modern version of the Surefire plugin, here's a sample configuration for it:
 
 ```java
 <plugin>
@@ -170,32 +178,33 @@ When you enabled Turbo mode for Testcontainers Cloud and parallel tests in your 
 
 We use sessions to distinguish containers, so the same process will connecting to the same cloud environment for example if a test needs to start several containers.
 
-But a parallel process runs will receive a new cloud environment if the maximum concurrency configuration for the currently running Testcontainers Cloud agent allows creating more cloud environments. 
+But a parallel process runs will receive a new cloud environment if the maximum concurrency configuration for the currently running Testcontainers Cloud agent allows creating more cloud environments.
 
-So if you have configured Turbo mode,  but only one test process, then all the containers used in the tests will run in the same cloud environment, even if you are running tests in parallel within one process.
+So if you have configured Turbo mode, but only one test process, then all the containers used in the tests will run in the same cloud environment, even if you are running tests in parallel within one process.
 
-If you have multiple test processes (for example forked JVMs), then with Turbo Mode each  JVM will, if possible, receive to a dedicated cloud environment. 
+If you have multiple test processes (for example forked JVMs), then with Turbo Mode each JVM will, if possible, receive to a dedicated cloud environment.
 
 ### Memory limit
 
 <!-- TODO: Technically this is 8-16 GB depending on the zone. -->
+
 Each Testcontainers Cloud session gets 8G of RAM. You can see this information in the logs when the connection is established:
 
 ```shell
-Connected to docker: 
+Connected to docker:
   Server Version: 70+testcontainerscloud
   API Version: 1.41
   Operating System: Ubuntu 22.04 LTS
   Total Memory: 7396 MB
 ```
 
-Currently, it's not possible to extend or limit memory usage for a single Testcontainers Cloud session. 
+Currently, it's not possible to extend or limit memory usage for a single Testcontainers Cloud session.
 
 ### Check tests are running in the cloud
 
 Explore the Connection section in the Testcontainers Desktop application.
 
-If you installed the Testcontainers Cloud application on your local machine you should see the icon in the tray menu. To check that your tests are running with the Testcontainers Cloud application just click on the Testcontainers Cloud application icon, you'll see the connection state: Running or Passive. If you click on the Connection sub-menu you'll see the detailed connection information. 
+If you installed the Testcontainers Cloud application on your local machine you should see the icon in the tray menu. To check that your tests are running with the Testcontainers Cloud application just click on the Testcontainers Cloud application icon, you'll see the connection state: Running or Passive. If you click on the Connection sub-menu you'll see the detailed connection information.
 
 **Connected to:** zone/region you are connected to (connection latency in ms)
 
@@ -216,12 +225,12 @@ If you installed the Testcontainers Cloud application on your local machine you 
 {{<screenshot>}}![Testcontainers Desktop cloud connection status - passive](../images/tcd-cloud-connection-passive.png){{</screenshot>}}
 
 <!-- TODO: Move autostart section desktop docs? -->
+
 ### Automatically start the client on system restart
 
-To bring more convenience into user experience we added an Autostart checkbox in the menu of our desktop application. If you want to start Testcontainers Cloud automatically after you turn on or restart your computer, just enable this checkbox. It works the same for all supported operating systems. 
+To bring more convenience into user experience we added an Autostart checkbox in the menu of our desktop application. If you want to start Testcontainers Cloud automatically after you turn on or restart your computer, just enable this checkbox. It works the same for all supported operating systems.
 
 {{<screenshot fixedheight>}}![Testcontainers Desktop autostart](../images/tcd-autostart.png){{</screenshot>}}
-
 
 ## Tag test sessions by project
 
@@ -233,7 +242,8 @@ Please note, that url is optional and could be omitted. If you use GitHub Action
 
 ### Via environment variables on CI
 
-Set the 
+Set the
+
 - `TCC_PROJECT_KEY`/`TCC_PROJECT_URL` environment variables. Alternatively, you could set the `tcc.project.key` and `tcc.project.url` properties (e.g. in your `~/.testcontainers.properties` file).
 - For workflow, you could use the `TCC_WORKFLOW_KEY` and `TCC_WORKFLOW_URL` environment variables. Alternatively, you could set the `tcc.workflow.key` and `tcc.workflow.url` properties.
 
@@ -271,7 +281,7 @@ If you want to see information about CPU/memory usage for TCC sessions you can t
 docker stats
 ```
 
-Or 
+Or
 
 ```none
 DOCKER_CONTEXT=tcc docker stats
@@ -280,6 +290,7 @@ DOCKER_CONTEXT=tcc docker stats
 However, note that Testcontainers Cloud is not a generic “Docker-as-a-Service” and this should be considered an implementation detail.
 
 <!-- TODO: Soon to be inaccurate once bind mounting is available in Desktop? -->
+
 ### Mounting the local filesystem
 
 Mounting of files from the local filesystem into containers is not implemented. Consider using the copyFileToContainer and copyFileFromContainer methods instead.
@@ -306,7 +317,7 @@ You can find more examples of working with files [in the library documentation](
 
 ### Using internal Docker registries
 
-For users who need to pull images from a ‘private’ registry that is not accessible from the public internet. Docker Hub, Amazon ECR, GCR, etc users *do not* need to use this feature, as these registries are exposed to the public internet.
+For users who need to pull images from a ‘private’ registry that is not accessible from the public internet. Docker Hub, Amazon ECR, GCR, etc users _do not_ need to use this feature, as these registries are exposed to the public internet.
 
 #### Testcontainers Desktop usage:
 
@@ -363,7 +374,7 @@ Add flags to the CLI invocation (the flag can be specified for each registry you
 Enable images such as `private.registry.example.com:8999/prefix/name` or `private.registry.example.com:8999/name` to be pulled.
 
 ```none
---private-registry-allowed-image-name-globs=** 
+--private-registry-allowed-image-name-globs=**
 ```
 
 Or more precisely:
@@ -413,31 +424,39 @@ no_proxy=host1, host2
 ```
 
 to the `cloud.properties` file at one of the following locations:
+
 ##### MacOS and Linux
-If `$XDG_CONFIG_HOME` is set: 
+
+If `$XDG_CONFIG_HOME` is set:
+
 ```none
 $XDG_CONFIG_HOME/testcontainers/cloud.properties
 ```
 
-Otherwise: 
+Otherwise:
+
 ```none
 $HOME/.config/testcontainers/cloud.properties
 ```
 
 ##### Windows
-If `$XDG_CONFIG_HOME` is set: 
+
+If `$XDG_CONFIG_HOME` is set:
+
 ```none
 %xdg_config_home%\testcontainers\cloud.properties
 ```
 
-Otherwise: 
+Otherwise:
+
 ```none
 %userprofile%\.config\testcontainers\cloud.properties
 ```
 
 #### 3. Using the Testcontainers Settings
-Alternatively, you can also provide the proxy settings in the `$HOME/.testcontainers.properties` file. 
-The keys are the same as for Testcontainers Cloud properties file above. 
+
+Alternatively, you can also provide the proxy settings in the `$HOME/.testcontainers.properties` file.
+The keys are the same as for Testcontainers Cloud properties file above.
 
 ## Troubleshooting
 
@@ -501,7 +520,7 @@ TC_CLOUD_LOGS_VERBOSE=true
 
 Agent CLI will also respect the property value from the Testcontainers Desktop usage section.
 
-#### Alternatively, on linux, you could try: 
+#### Alternatively, on linux, you could try:
 
 Adding the following line into `~/.profile` file:
 
@@ -517,7 +536,7 @@ It's possible to run desktop client from the terminal with full access to the en
 open -W --stdout $(tty) --stderr $(tty) /Applications/Testcontainers\ Desktop.app
 ```
 
-this way all the environment variables could be defined inline: 
+this way all the environment variables could be defined inline:
 
 ```shell
 TC_CLOUD_LOGS_VERBOSE=true open -W --stdout $(tty) --stderr $(tty) /Applications/Testcontainers\ Desktop.app
@@ -535,7 +554,7 @@ If everything is correct, you will see in the log a similar line very early in t
 
 #### Common Causes
 
-You may sometimes encounter a warning message stating *"this worker was requested by the Testcontainers Cloud agent but seemingly didn’t run any containers."* This warning indicates that the worker did not perform any expected work. This can happen when:
+You may sometimes encounter a warning message stating _"this worker was requested by the Testcontainers Cloud agent but seemingly didn’t run any containers."_ This warning indicates that the worker did not perform any expected work. This can happen when:
 
 1. **Running Docker commands directly in the terminal.** Typically, Testcontainers Cloud users rely on the Testcontainers open-source libraries to control the lifecycle of their containers. Executing raw Docker commands directly against the TCC Docker context is unsupported. For example, if you run Docker commands (e.g. `docker ps`) directly on your machine while the Testcontainers Cloud agent is active but no worker is currently connected, you might accidentally start a new worker.
 
@@ -567,7 +586,7 @@ By navigating to [dashboard](https://app.testcontainers.cloud/dashboard), it's p
 
 {{<screenshot>}}![Testcontainers Cloud connect to worker](../images/tcc-connect.png){{</screenshot>}}
 
-One the web terminal is open clicking "Connect Terminal" will initiate a secure connection to the selected worker. 
+One the web terminal is open clicking "Connect Terminal" will initiate a secure connection to the selected worker.
 
 {{<screenshot>}}![Testcontainers Cloud connect to worker terminal](../images/tcc-connect-terminal.png){{</screenshot>}}
 
@@ -617,6 +636,7 @@ Also, with TCC, you can run tests in parallel, and, with the [Turbo Mode](#fine-
 ## TCC for CI
 
 <!-- TODO: Update? Link to the CI install page in the app? -->
+
 ### Starting the agent in a CI job
 
 To use Testcontainers Cloud in your CI environment please add a step to your CI job that starts the Testcontainers Cloud agent before you run your tests. Do not forget to set your Testcontainers Cloud token as well.
@@ -624,7 +644,7 @@ To use Testcontainers Cloud in your CI environment please add a step to your CI 
 It is also recommended that you make use of the built-in `wait` command to block until a successful connection to Testcontainers Cloud has been established, so you can be confident that your tests will interact with Testcontainers Cloud in a ready state:
 
 ```shell
-# get the agent binary and execute it immediately 
+# get the agent binary and execute it immediately
 sh -c "$(curl -fsSL https://get.testcontainers.cloud/bash)"
 
 # run your Testcontainers powered tests as usual
@@ -658,17 +678,17 @@ You can also use Testcontainers Cloud in Kubernetes based CI environments (such 
 
 ```yaml
 command:
-    - sh -c "$(curl -fsSL https://get.testcontainers.cloud/bash)"
-    - mvn verify
+  - sh -c "$(curl -fsSL https://get.testcontainers.cloud/bash)"
+  - mvn verify
 envs:
-    - name: TC_CLOUD_TOKEN
-      valueFromSecretRef: tccToken
+  - name: TC_CLOUD_TOKEN
+    valueFromSecretRef: tccToken
 ```
 
 ### Using TCC with CircleCI
 
 To use Testcontainers Cloud with CircleCI you need to set `TC_CLOUD_TOKEN` to your corresponding service account token. You can generate the token in the [Testcontainers Cloud dashboard](http://app.testcontainers.cloud/dashboard/install?target=circleci). Then add the token to your CircleCI [workflow by setting the environment variable in your CircleCI Project Settings](https://circleci.com/docs/set-environment-variable/#set-an-environment-variable-in-a-project).
- 
+
 Next you need to configure your CircleCI workflow to install and use Testcontainers Cloud. You can add the [testcontainers-cloud-orb](https://circleci.com/developer/orbs/orb/atomicjar/testcontainers-cloud-orb) setup as a pre-step to your CircleCI Job. And configure it to start the Testcontainers Cloud agent before running the tests.
 
 You can use the following script to add the steps to your workflow, note the "tcc:" orb, and the "tcc/setup" config in the "pre-steps":
@@ -690,27 +710,27 @@ workflows:
 
 To use Testcontainers Cloud with Google Cloud Build you need to set `TC_CLOUD_TOKEN` to your corresponding service account token. You can generate the token in the [Testcontainers Cloud dashboard](https://app.testcontainers.cloud/dashboard/install?target=cloudbuild). You can store your service account token securely in [Google Cloud Secrets Manager](https://cloud.google.com/build/docs/securing-builds/use-secrets). Once the secret is created, grant access to the principal `YOUR_PROJECT_ID@cloudbuild.gserviceaccount.com`, and assign the `Secret Manager Secret Accessor` role to it.
 
-Next you need to install and start Testcontainers Cloud agent by setting `TC_CLOUD_TOKEN` environment variable by looking up the value from `Google Cloud Secrets Manager`. 
+Next you need to install and start Testcontainers Cloud agent by setting `TC_CLOUD_TOKEN` environment variable by looking up the value from `Google Cloud Secrets Manager`.
 
 You can use the following script for your `cloudbuild.yaml` configuration:
 
 ```yaml
 steps:
-    - name: "docker-image:tag" # ex: maven:3-eclipse-temurin-19
-      args:
-          - "-c"
-          - |
-              curl -fsSL https://get.testcontainers.cloud/bash | sh
-              cp ~/.testcontainers.properties /root/.testcontainers.properties
-              # Your test command like "mvn test" or "npm test"
-      dir: "${_APP_NAME}"
-      entrypoint: bash
-      secretEnv:
-          - TC_CLOUD_TOKEN
+  - name: "docker-image:tag" # ex: maven:3-eclipse-temurin-19
+    args:
+      - "-c"
+      - |
+        curl -fsSL https://get.testcontainers.cloud/bash | sh
+        cp ~/.testcontainers.properties /root/.testcontainers.properties
+        # Your test command like "mvn test" or "npm test"
+    dir: "${_APP_NAME}"
+    entrypoint: bash
+    secretEnv:
+      - TC_CLOUD_TOKEN
 availableSecrets:
-    secretManager:
-        - versionName: projects/<PROJECT_ID>/secrets/TC_CLOUD_TOKEN/versions/latest
-          env: TC_CLOUD_TOKEN
+  secretManager:
+    - versionName: projects/<PROJECT_ID>/secrets/TC_CLOUD_TOKEN/versions/latest
+      env: TC_CLOUD_TOKEN
 ```
 
 ### Using TCC with GitLab CI/CD
@@ -725,15 +745,15 @@ You can use the following configuration for your `.gitlab-ci.yml`:
 image: "docker-image:tag" # ex: maven:3-eclipse-temurin-19
 
 job_name:
-    stage: test
-    script:
-        - curl -fsSL https://get.testcontainers.cloud/bash | sh
-        -  # ... existing steps go here (run tests, etc.)
+  stage: test
+  script:
+    - curl -fsSL https://get.testcontainers.cloud/bash | sh
+    -  # ... existing steps go here (run tests, etc.)
 ```
 
 ### Using TCC with Azure Pipelines
 
-To use Testcontainers Cloud with Azure Pipelines you need to set TC_CLOUD_TOKEN to your corresponding service account token. You can generate the token in the [Testcontainers Cloud dashboard](https://app.testcontainers.cloud/dashboard/install?target=azure-pipeline). Then add the token to your pipeline by [setting an variable in your pipeline settings](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch) and using it as an environment variable in for the task. 
+To use Testcontainers Cloud with Azure Pipelines you need to set TC_CLOUD_TOKEN to your corresponding service account token. You can generate the token in the [Testcontainers Cloud dashboard](https://app.testcontainers.cloud/dashboard/install?target=azure-pipeline). Then add the token to your pipeline by [setting an variable in your pipeline settings](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch) and using it as an environment variable in for the task.
 
 Next you need to configure your Azure Pipelines pipeline job to install and use Testcontainers Cloud. You can use the Testcontainers Cloud agent installation script and start it before running your tests.
 
@@ -741,12 +761,12 @@ You can use the following configuration step for your `azure-pipelines.yml` befo
 
 ```yaml
 steps:
-- task: Bash@3
-  inputs:
-    targetType: 'inline'
-    script: 'sh -c "$(curl -fsSL https://get.testcontainers.cloud/bash)"'
-  env:
-    TC_CLOUD_TOKEN: $(TC_CLOUD_TOKEN)
+  - task: Bash@3
+    inputs:
+      targetType: "inline"
+      script: 'sh -c "$(curl -fsSL https://get.testcontainers.cloud/bash)"'
+    env:
+      TC_CLOUD_TOKEN: $(TC_CLOUD_TOKEN)
 ```
 
 ### Using TCC with Jenkins
@@ -762,7 +782,7 @@ To use Testcontainers Cloud with Jenkins first you need generate the token in th
 
 Next, you should configure your Jenkins Pipeline to look up the credentials and set the `TC_CLOUD_TOKEN` environment variable. You can use the Testcontainers Cloud agent installation script and start it before running your tests.
 
-You can use the following configuration step for your `Jenkinsfile` before the pipeline executes the build tool command to run the tests. 
+You can use the following configuration step for your `Jenkinsfile` before the pipeline executes the build tool command to run the tests.
 
 ```groovy
 pipeline {
@@ -789,7 +809,7 @@ pipeline {
 
 ### Using TCC with Tekton
 
-To use Testcontainers Cloud with Tekton you need to set `TC_CLOUD_TOKEN` to your corresponding service account token. You can generate the token in the [Testcontainers Cloud dashboard](https://app.testcontainers.cloud/dashboard/install?target=tekton). Then add the token to your pipeline by creating a secret and using it as a  variable in your pipeline task. 
+To use Testcontainers Cloud with Tekton you need to set `TC_CLOUD_TOKEN` to your corresponding service account token. You can generate the token in the [Testcontainers Cloud dashboard](https://app.testcontainers.cloud/dashboard/install?target=tekton). Then add the token to your pipeline by creating a secret and using it as a variable in your pipeline task.
 
 For example, you can define a secret in a separate secret.yaml file like in the following example:
 
@@ -831,6 +851,10 @@ spec:
 ```
 
 This is a flexible approach you can use to run Testcontainers Cloud in Tekton with the tests in other languages by swapping the `mvn` command for the corresponding build tool call.
+
+## Billing
+
+Testcontainers Cloud is now part of Docker plans. For more information on billing see the [Docker pricing FAQ](https://www.docker.com/pricing/faq/#testcontainers).
 
 ## Billing (Legacy Standalone plans)
 
