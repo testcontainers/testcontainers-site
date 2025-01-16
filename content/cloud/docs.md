@@ -918,15 +918,15 @@ For the following months of usage, Testcontainers Cloud for CI is billed based o
 
 While a Seat grants "unlimited" usage of Testcontainers Cloud for Desktop, some practical limits exist to deter potential abuse of the service (e.g. crypto-mining). Under the Fair Use policy, a Seat grants a quota of 3,000 Worker Minutes per month. This quota is above the upper range that we observe in practice for the vast majority of users. Moreover, because quotas are summed for all the Seats used, even a few "power users" within an Organization typically don't exhaust the entire quota for their team.
 
-### What is a free plan?
+### What is a free trial plan?
 
 With Testcontainers Desktop being free for solo developers, access to Testcontainers Cloud has some restrictions. Simply reach out to us to lift the restrictions and try all of Testcontainers Cloud!
 
-#### What features are restricted in a free plan?
+#### What features are restricted in a free trial plan?
 
-To make it easy to burst your tests to the cloud, we are offering a monthly quota of free for solo developers Testcontainers Cloud usage with the following restrictions:
+To make it easy to burst your tests to the cloud, we are offering free for solo developers Testcontainers Cloud usage with the following restrictions:
 
-- You can use Testcontainers Cloud on the desktop with a monthly limit of 300 minutes of cloud runtime.
+- You can use Testcontainers Cloud on the desktop with a one-time limit of 50 minutes of cloud runtime.
 - You can use Testcontainers Cloud on the desktop, but [Turbo mode](#parallelize-your-tests-with-turbo-mode) is disabled, which means that all tests execute on a single worker.
-- You can use Testcontainers Cloud on the desktop, but only in solo.
-- You can try Testcontainers Cloud with your CI but with a single Service Account running a single session at a time (i.e., no concurrent builds and no turbo mode).
+- You can use Testcontainers Desktop with local runtime of your choice which won't be counted towards the limit of cloud usage.
+- You can try Testcontainers Cloud with your CI but with a single Service Account running a single session at a time (i.e., no concurrent builds and no turbo mode). This usage will count towards the free cloud runtime minutes limit.
