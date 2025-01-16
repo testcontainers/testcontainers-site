@@ -924,7 +924,6 @@ With Testcontainers Desktop being free for solo developers, access to Testcontai
 
 #### What features are restricted in a free trial plan?
 
-To make it easy to burst your tests to the cloud, we are offering free for solo developers Testcontainers Cloud usage with the following restrictions:
 
 - You can use Testcontainers Cloud on the desktop with a one-time limit of 50 minutes of cloud runtime.
 - You can use Testcontainers Cloud on the desktop, but [Turbo mode](#parallelize-your-tests-with-turbo-mode) is disabled, which means that all tests execute on a single worker.
