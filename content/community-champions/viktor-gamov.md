@@ -1,6 +1,6 @@
 ---
 title: Viktor Gamov
-role: StarTree
+role: Confluent
 country: US
 languages:
   - java
@@ -12,9 +12,14 @@ socialLinks:
   - id: youtube
     label: "@ViktorGamov"
     url: https://youtube.com/@ViktorGamov
+  - id: sessionize
+    label: "vikgamov"
+    url: https://sessionize.com/vikgamov
 ---
 ## Bio
-Viktor Gamov is Head of Developer Advocacy at StarTree. Viktor has comprehensive expertise in building distributed systems and cloud-native architectures using open source technologies. He enjoys helping architects and developers design and develop low latency, scalable, and highly available systems. He is a Java Champion and professional conference speaker on distributed systems, streaming data, JVM, and DevOps topics. He’s a regular at events including JavaOne, Devoxx, SpringOne, QCon, and others. Furthermore, he co-authored two books: O’Reilly’s "Enterprise Web Development" and Manning’s "Apache Kafka® in Action." He blogs at http://gamov.io
+Viktor Gamov is a Principal Developer Advocate at Confluent, founded by the original creators of Apache Kafka®. With a rich background in implementing and advocating for distributed systems and cloud-native architectures, Viktor excels in open-source technologies. He is passionate about assisting architects, developers, and operators in crafting systems that are not only low in latency and scalable but also highly available.
+
+As a Java Champion and an esteemed speaker, Viktor is known for his insightful presentations at top industry events like JavaOne, Devoxx, Kafka Summit, and QCon. His expertise spans distributed systems, real-time data streaming, JVM, and DevOps. Viktor has co-authored “Enterprise Web Development” and “Apache Kafka® in Action”.  Follow Viktor on X - @gamussa to stay updated with Viktor’s latest thoughts on technology, his gym and food adventures, and insights into open-source and developer advocacy.
 
 ## Q&A
 ### What were your first experiences with Testcontainers?
