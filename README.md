@@ -57,6 +57,30 @@ So please feel free to use them when running the targets.
 
     Run `make logs` to fetch the logs from the running container.
 
+### Testcontainers Languages
+
+In order to add a new language to the Testcontainers site, you need to follow these steps:
+
+1. Add the language logo to the `assets/images/language-logos` folder, in SVG format.
+2. Add the language to the `data/languages.yml` file. Make sure to fill in the `slug`, `title`, `logo`, `link` and `order` fields.
+3. Add the language to the `$filterLanguages` variable in the `layouts/modules/list.html` file.
+4. Add the language pill image as `/images/modules/language-$LANGUAGE.png`, in PNG format.
+  - Generate the pill container:
+    - height: 60px
+    - padding x: 30px
+    - corner radius: full
+    - background: #E6EAFA
+  - Place the text on top of the base image.
+  - Generate the image pill using the following font options:
+    - family: Rubik
+    - weight: Medium
+    - size: 30px
+    - color: #291A3F
+5. Add the language to the `$languageImages` dict variable in the `layouts/partials/utils/share-image.html` file.
+6. Add the language to the `languages` array in the `content/modules/_index.md` file.
+7. Add the language to the `content/community-champions/_example.md.example` file, as a reference for adding a champion for the language.
+8. Add the code example for creating a Redis container in the `content/_index.md` file. Make sure to fill in the `id`, `url`, `external`, and `code` fields.
+
 ### Pages
 
 Pages that are not long form content (e.g. `/getting-started`) and not populated by listed content (e.g. `/modules/`) primarily use sectioned content defined in the markdown frontmatter like this:
