@@ -111,6 +111,16 @@ sections:
           config = %Testcontainers.Container{image: "redis:5.0.3-alpine"}
           {:ok, container} = Testcontainers.start_container(config)
           ```
+      - id: php
+        url: https://github.com/testcontainers/testcontainers-php
+        external: true
+        code: |
+          ```php
+          $container = (new RedisContainer())->start();
+
+          $redis = new \Redis();
+          $redis->connect($container->getHost(), $container->getFirstMappedPort());
+          ```
   - partial: logo-wall
     small_title: Modules
     title: "Test Anything You Can Containerize: Database, Message Broker, And More"

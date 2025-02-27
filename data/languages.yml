@@ -71,3 +71,9 @@ rust:
   logo: /images/language-logos/rust.svg
   link: https://rust.testcontainers.org/
   order: 12
+php:
+  slug: php
+  title: PHP
+  logo: /images/language-logos/php.svg
+  link: https://github.com/testcontainers/testcontainers-php
+  order: 13
