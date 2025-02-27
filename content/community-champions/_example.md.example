@@ -7,7 +7,14 @@ languages:
   - go
   - dotnet
   - nodejs
+  - python
+  - rust
+  - haskell
+  - ruby
+  - clojure
+  - elixir
   - kotlin
+  - php
 socialLinks:
   - id: github
     label: example-champion
