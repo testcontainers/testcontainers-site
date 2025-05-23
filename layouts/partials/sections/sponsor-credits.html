@@ -1,9 +1,14 @@
 {{/*
 - partial: sponsor-credits
     small_title: Lorem ipsum
+    silver_sponsors_title: Lorem ipsum
     bronze_sponsors_title: Lorem ipsum
     donors_title: Lorem ipsum
     backers_title: Lorem ipsum
+    silver_sponsors:
+      - name: Lorem ipsum
+        logo: /images/sponsor-logos/amex.svg
+        link: /
     bronze_sponsors:
       - name: Lorem ipsum
         logo: /images/sponsor-logos/cirrusci.svg
@@ -19,6 +24,14 @@
 <section class="sponsor-credits">
   <div class="container">
     <div class="small-header gradient">{{ .section.small_title }}</div>
+    <h2>{{ .section.silver_sponsors_title }}</h2>
+    <div class="sponsors">
+      {{ range .section.silver_sponsors }}
+        <a href="{{ .link }}" target="_blank">
+          {{ partial "img.html" (dict "image" (resources.Get .logo) "alt" .name) }}
+        </a>
+      {{ end }}
+    </div>
     <h2>{{ .section.bronze_sponsors_title }}</h2>
     <div class="sponsors">
       {{ range .section.bronze_sponsors }}

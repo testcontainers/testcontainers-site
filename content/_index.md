@@ -244,9 +244,14 @@ sections:
         description: Learn how to consistently build and test with environment parity from development to production with Emulators and open-source Testcontainers.
   - partial: sponsor-credits
     small_title: A huge thankyou to our sponsors
+    silver_sponsors_title: Silver Sponsors
     bronze_sponsors_title: Bronze Sponsors
     donors_title: Donors
     backers_title: Backers
+    silver_sponsors:
+      - name: American Express
+        logo: /images/sponsor-logos/amex.svg
+        link: https://www.americanexpress.com/
     bronze_sponsors:
       - name: CirrusCI
         logo: /images/sponsor-logos/cirrusci.svg
