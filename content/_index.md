@@ -274,6 +274,9 @@ sections:
       - name: Route4Me
         logo: /images/sponsor-logos/route4me.svg
         link: https://route4me.com/
+      - name: InterviewPal
+        logo: /images/sponsor-logos/interviewpal.svg
+        link: https://interviewpal.com/
     donors:
       - name: RedHat
         logo: /images/sponsor-logos/redhat.svg
