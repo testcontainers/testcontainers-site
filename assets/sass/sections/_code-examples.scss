@@ -6,6 +6,9 @@
   }
 
   .container {
+    max-width: none;
+    margin: 0 auto;
+    padding: 0 60px; // Add more breathing room on sides
     display: grid;
     grid-template-columns: minmax(0, 1fr);
     gap: 20px;
