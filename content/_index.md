@@ -121,6 +121,22 @@ sections:
           $redis = new \Redis();
           $redis->connect($container->getHost(), $container->getFirstMappedPort());
           ```
+      - id: native
+        url: https://github.com/testcontainers/testcontainers-native
+        external: true
+        code: |
+          ```c
+          int requestId = tc_new_container_request(DEFAULT_IMAGE);
+          tc_with_exposed_tcp_port(requestId, 8080);
+          tc_with_wait_for_http(requestId, 8080, "/__admin/mappings");
+          tc_with_file(requestId, "test_data/hello.json", "/home/wiremock/mappings/hello.json");
+          struct tc_run_container_return ret = tc_run_container(requestId);
+          int containerId = ret.r0;
+          if (!ret.r1) {
+              printf("Failed to run the container: %s\n", ret.r2);
+              return -1;
+          }
+          ```
   - partial: logo-wall
     small_title: Modules
     title: "Test Anything You Can Containerize: Database, Message Broker, And More"
