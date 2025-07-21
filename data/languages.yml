@@ -77,3 +77,9 @@ php:
   logo: /images/language-logos/php.svg
   link: https://github.com/testcontainers/testcontainers-php
   order: 13
+native:
+  slug: native
+  title: Native
+  logo: /images/language-logos/c.svg
+  link: https://github.com/testcontainers/testcontainers-native
+  order: 14
