@@ -293,6 +293,9 @@ sections:
       - name: InterviewPal
         logo: /images/sponsor-logos/interviewpal.svg
         link: https://interviewpal.com/
+      - name: LambdaTest
+        logo: /images/sponsor-logos/lambdatest.svg
+        link: https://lambdatest.com/
     donors:
       - name: RedHat
         logo: /images/sponsor-logos/redhat.svg
