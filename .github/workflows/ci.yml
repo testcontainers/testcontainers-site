@@ -1,0 +1,24 @@
+name: CI tasks
+
+on:
+  pull_request
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.sha }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    runs-on: "ubuntu-latest"
+    steps:
+      - name: Check out project
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332  # v4
+
+      - name: Install yamllint
+        run: pip install --force-reinstall -v "yamllint==1.35.1"
+
+      - name: List YAML files
+        run: yamllint -c .yamllint --list-files .
+
+      - name: Lint YAML files
+        run: find . -name '*.md' | xargs yamllint --no-warnings -c .yamllint
