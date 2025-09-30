@@ -264,69 +264,103 @@ sections:
     bronze_sponsors_title: Bronze Sponsors
     donors_title: Donors
     backers_title: Backers
+    past_supporters_title: Past Sponsors and Backers
     silver_sponsors:
       - name: American Express
         logo: /images/sponsor-logos/amex.svg
         link: https://www.americanexpress.com/
     bronze_sponsors:
-      - name: CirrusCI
-        logo: /images/sponsor-logos/cirrusci.svg
-        link: https://cirrusci.com
-      - name: Vivy
-        logo: /images/sponsor-logos/vivy.svg
-        link: https://vivy.com
-      - name: JOOQ
-        logo: /images/sponsor-logos/jooq.svg
-        link: https://jooq.org
-      - name: Backbase
-        logo: /images/sponsor-logos/backbase.svg
-        link: https://backbase.com
-      - name: Elastic
+      - name: Elastic Sponsorship
         logo: /images/sponsor-logos/elastic.svg
-        link: https://elastic.co
-      - name: Gradle Devlocity
-        logo: /images/sponsor-logos/develocity.svg
-        link: https://gradle.com/develocity/
-      - name: Route4Me
-        logo: /images/sponsor-logos/route4me.svg
-        link: https://route4me.com/
-      - name: InterviewPal
-        logo: /images/sponsor-logos/interviewpal.svg
-        link: https://interviewpal.com/
+        link: https://elastic.co/
       - name: LambdaTest
         logo: /images/sponsor-logos/lambdatest.svg
         link: https://lambdatest.com/
+      - name: Mercedes-Benz Group
+        logo: /images/sponsor-logos/mercedes-benz.svg
+        link: https://group.mercedes-benz.com/
+      - name: Shipfox
+        logo: /images/sponsor-logos/shipfox.svg
+        link: https://www.shipfox.io/
     donors:
-      - name: RedHat
+      - name: GitHub
+        logo: /images/sponsor-logos/github.svg
+        link: https://github.com
+      - name: Gradle Develocity
+        logo: /images/sponsor-logos/develocity.svg
+        link: https://gradle.com/develocity/
+      - name: Red Hat
         logo: /images/sponsor-logos/redhat.svg
         link: https://redhat.com
       - name: Spotify
         logo: /images/sponsor-logos/spotify.svg
         link: https://spotify.com
-      - name: GitHub
-        logo: /images/sponsor-logos/github.svg
-        link: https://github.com
-    backers:
-      - name: Philip Riecks
-        link: https://github.com/rieckpil
-      - name: Karl Heinz Marbaise
-        link: https://github.com/khmarbaise
-      - name: Sascha Frinken
-        link: https://github.com/sascha-frinken
-      - name: Christoph Dreis
-        link: https://github.com/dreis2211
-      - name: Nikita Zhevnitskiy
-        link: https://github.com/zhenik
-      - name: Bas Stoker
-        link: https://github.com/bastoker
-      - name: Oleg Nenashev
-        link: https://github.com/oleg-nenashev
-      - name: Rik Glover
-        link: https://github.com/rikglover
+    past_supporters:
       - name: Amitosh Swain Mahapatra
         link: https://github.com/recrsn
+      - name: Backbase
+        link: https://backbase.com
+      - name: Bas Stoker
+        link: https://github.com/bastoker
+      - name: Brian Heineman
+        link: https://github.com/brianheineman
+      - name: ByoungUk Lee
+        link: https://github.com/nimdrak
+      - name: Christoph Dreis
+        link: https://github.com/dreis2211
+      - name: CirrusCI
+        link: https://cirrusci.com
+      - name: David Liu
+        link: https://github.com/davidkhala
+      - name: DevOpsCon
+        link: https://devopscon.io/
+      - name: Frederik Hahne
+        link: https://opencollective.com/atomfrede
+      - name: InterviewPal
+        link: https://interviewpal.com/
+      - name: JOOQ
+        link: https://www.jooq.org/
+      - name: Josh (joshchoo)
+        link: https://github.com/joshchoo
+      - name: Komapper
+        link: https://opencollective.com/komapper
+      - name: minimumdepositcasinos.org
+        link: https://www.minimumdepositcasinos.org/
+      - name: Nikita Zhevnitskiy
+        link: https://github.com/zhenik
+      - name: Oleg Nenashev
+        link: https://github.com/oleg-nenashev
+      - name: Oscar Veldman
+        link: https://github.com/oveldman
       - name: Paris Apostolopoulos
         link: https://opencollective.com/paris-apostolopoulos
+      - name: Philip Riecks
+        link: https://github.com/rieckpil
+      - name: Rik Glover
+        link: https://github.com/rikglover
+      - name: Route4Me
+        link: https://route4me.com/
+      - name: Sascha Frinken
+        link: https://github.com/sascha-frinken
+      - name: snapit-cypher
+        link: https://github.com/snapit-cypher
+      - name: Vijaya Krishna Pondala
+        link: https://opencollective.com/vijaya-krishna-pondala
+      - name: Vivy
+        link: https://vivy.com
+    backers:
+      - name: Arkadius Jonczek
+        link: https://github.com/arkadiusjonczek
+      - name: Doma
+        link: https://opencollective.com/doma
+      - name: Gaurav Mukherjee
+        link: https://github.com/xycloops123
+      - name: Karl Heinz Marbaise
+        link: https://github.com/khmarbaise
+      - name: Open Elements
+        link: https://github.com/OpenElements
+      - name: sugawani
+        link: https://github.com/sugawani
       - name: XDEV Software
         link: https://xdev.software/en/
   - partial: featured-champions
