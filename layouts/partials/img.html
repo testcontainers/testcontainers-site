@@ -1,4 +1,4 @@
 {{- $image := resources.Get .image -}}
 {{- $size := partial "utils/image-size" .image -}}
-{{- $lazy := .lazy | default false -}}
-<img class="{{- .class -}}" src="{{- $image.RelPermalink -}}" alt="{{- .alt -}}" title="{{- .title -}}" width="{{- $size.width -}}" height="{{- $size.height -}}" lazy="{{- $lazy -}}">
+{{- $lazy := .lazy | default true -}}
+<img class="{{- .class -}}" src="{{- $image.RelPermalink -}}" alt="{{- .alt -}}" title="{{- .title -}}" width="{{- $size.width -}}" height="{{- $size.height -}}"{{- if $lazy -}} loading="lazy"{{- end -}}>
