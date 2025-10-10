@@ -97,60 +97,6 @@ function setQueryParam(param, value) {
   history.replaceState(history.state, "", url.href);
 }
 
-// Handle UTMs
-const utms = [];
-
-if (document.referrer) {
-  utms.push({
-    key: "original_referrer",
-    value: document.referrer
-  });
-}
-
-const queryParams = parseUtms(new URLSearchParams(window.location.search));
-utms.push(...queryParams);
-
-function parseUtms(params) {
-  const utms = [];
-  const utmKeys = [
-    "utm_campaign",
-    "utm_source",
-    "utm_medium",
-    "utm_term",
-    "utm_content"
-  ];
-  utmKeys.forEach((key) => {
-    const value = params.get(key) || false;
-    if (value) utms.push({
-      key: key,
-      value: value
-    });
-  });
-  return utms;
-}
-
-signupLinks = document.querySelectorAll("a[href*='app.testcontainers.cloud/signup']");
-signupLinks.forEach(link => {
-  const url = new URL(link.href);
-  const query = new URLSearchParams(url.search);
-  utms.forEach(utm => {
-    query.set(utm.key, utm.value);
-  });
-  const queryString = (query.toString() != "") ? "?" + query.toString() : "";
-  url.search = queryString;
-  link.href = url.toString();
-});
-signupForms = document.querySelectorAll(".tcc-signup-form");
-signupForms.forEach(form => {
-  utms.forEach(utm => {
-    const field = document.createElement("input");
-    field.setAttribute("type", "hidden");
-    field.setAttribute("name", utm.key);
-    field.setAttribute("value", utm.value);
-    form.appendChild(field);
-  });
-});
-
 hljs.addPlugin({
   "after:highlightElement": ({ el, result, text }) => {
     let button = Object.assign(document.createElement("button"), {

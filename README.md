@@ -224,14 +224,6 @@ The site uses [iubenda](https://www.iubenda.com/) to manage tracking consent.
 
 Analytics are recorded in [Google Analytics](https://analytics.google.com/analytics/web/#/p373834203/reports/home) and [Heap](https://heapanalytics.com/app/env/4204607514/dashboard/Testcontainers-Overview-278374)
 
-### TCD install attribution
-
-During Testcontainers Desktop client authorization users are redirected to `https://testcontainers.com/desktop/authorized/`. 
-
-This page sends an `attribution` event to [Mixpanel](https://eu.mixpanel.com/project/2717988/view/3254192/app/events#pYPErQ1bEeiU) that links any attribution information from the URL parameters (utms, referrer etc) to the client install ID.
-
-The code for this page is found in `/layouts/authorized/baseof.html`.
-
 ## Additional Notes
 
 ### Testcontainers Slack channel link
