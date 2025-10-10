@@ -26,32 +26,29 @@
       if(searchParams.has('id')){ 
         const utms = {};
 
-        const referrerCookie = getCookie("__gtm_referrer");
-        if (referrerCookie) {
-          utms.original_referrer = referrerCookie;
+        if (document.referrer) {
+          utms.original_referrer = document.referrer;
         }
 
-        const campaignCookie = getCookie("__gtm_campaign_url");
-        if (campaignCookie) {
-          const url = new URL(campaignCookie);
+        const url = new URL(window.location.href);
+        const params = new URLSearchParams(url.search);
+        const keys = [
+          "utm_campaign",
+          "utm_source",
+          "utm_medium",
+          "utm_term",
+          "utm_content"
+        ]
+        keys.forEach(key => {
+          const value = params.get(key) || false;
+          if (value) {
+            utms[key] = value;
+          }
+        });
+
+        if (url.search) {
           utms.utm_landing_page = `${url.hostname}${url.pathname}`;
-          const params = new URLSearchParams(url.search);
-          const keys = [
-            "utm_campaign",
-            "utm_source",
-            "utm_medium",
-            "utm_term",
-            "utm_content"
-          ]
-          keys.forEach(key => {
-            const value = params.get(key) || false;
-            if (value) {
-              utms[key] = value;
-            }
-          });
         }
-
-        const firstTouch = getCookie("__gtm_first_touch");
 
         function getCookie(key) {
           var cookies = document.cookie.split(";");
@@ -73,7 +70,6 @@
           "attribution", 
           {
             installation_id: searchParams.get("id"),
-            first_touch: firstTouch,
             raw_utms: utms,
             ...utms
           },

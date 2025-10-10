@@ -100,29 +100,15 @@ function setQueryParam(param, value) {
 // Handle UTMs
 const utms = [];
 
-const referrerCookie = getCookie("__gtm_referrer");
-if (referrerCookie) {
-  utms.push({
-    key: "original_referrer",
-    value: referrerCookie
-  });
-} else if (document.referrer) {
+if (document.referrer) {
   utms.push({
     key: "original_referrer",
     value: document.referrer
   });
 }
 
-const campaignCookie = getCookie("__gtm_campaign_url");
-if (campaignCookie) {
-  const url = new URL(campaignCookie);
-  const params = new URLSearchParams(url.search);
-  const cookieUtms = parseUtms(params);
-  utms.push(...cookieUtms);
-} else {
-  const queryParams = parseUtms(new URLSearchParams(window.location.search));
-  utms.push(...queryParams);
-}
+const queryParams = parseUtms(new URLSearchParams(window.location.search));
+utms.push(...queryParams);
 
 function parseUtms(params) {
   const utms = [];
