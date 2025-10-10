@@ -129,17 +129,6 @@ function parseUtms(params) {
   return utms;
 }
 
-function getCookie(key) {
-  var cookies = document.cookie.split(";");
-  for (var i = 0; i < cookies.length; i++) {
-    var cookie = cookies[i].split("=");
-    if (key == cookie[0].trim()) {
-      return decodeURIComponent(cookie[1]);
-    }
-  }
-  return null;
-}
-
 signupLinks = document.querySelectorAll("a[href*='app.testcontainers.cloud/signup']");
 signupLinks.forEach(link => {
   const url = new URL(link.href);
@@ -217,24 +206,11 @@ async function hashText(text) {
 function dismissAnnouncementBanner() {
   announcementBanner.classList.remove("not-dismissed");
   announcementBanner.classList.add("dismissed");
-  hashText(announcementBanner.innerHTML)
-    .then((hash) => {
-      localStorage.setItem("dismissedAnnouncement", hash);
-    });
 }
 const announcementBanner = document.getElementById("announcement-banner");
 if (announcementBanner) {
   const announcementBannerButton = document.getElementById("announcement-banner-button");
   announcementBannerButton.addEventListener('click', dismissAnnouncementBanner);
-  hashText(announcementBanner.innerHTML)
-    .then((hash) => {
-      if (localStorage.getItem("dismissedAnnouncement") && localStorage.getItem("dismissedAnnouncement") === hash) {
-        announcementBanner.classList.remove("not-dismissed");
-        announcementBanner.classList.add("dismissed");
-      } else {
-        announcementBanner.classList.add("not-dismissed");
-      }
-    })
 }
 
 function setActiveDownloadBannerSection(id) {

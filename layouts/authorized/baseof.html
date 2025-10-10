@@ -50,17 +50,6 @@
           utms.utm_landing_page = `${url.hostname}${url.pathname}`;
         }
 
-        function getCookie(key) {
-          var cookies = document.cookie.split(";");
-          for(var i = 0; i < cookies.length; i++) {
-            var cookie = cookies[i].split("=");
-            if(key == cookie[0].trim()) {
-              return decodeURIComponent(cookie[1]);
-            }
-          }
-          return null;
-        }
-
         mixpanel.init("{{- $mixpanelToken -}}", {
           track_pageview: false,
           api_host: "https://telemetry.svc.testcontainers.cloud",
