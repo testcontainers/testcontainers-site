@@ -282,6 +282,9 @@ sections:
       - name: Shipfox
         logo: /images/sponsor-logos/shipfox.svg
         link: https://www.shipfox.io/
+      - name: TestingBot
+        logo: /images/sponsor-logos/testingbot.svg
+        link: https://testingbot.com/
     donors:
       - name: GitHub
         logo: /images/sponsor-logos/github.svg
