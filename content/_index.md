@@ -270,6 +270,9 @@ sections:
         logo: /images/sponsor-logos/amex.svg
         link: https://www.americanexpress.com/
     bronze_sponsors:
+      - name: Bytebase
+        logo: /images/sponsor-logos/bytebase.svg
+        link: https://www.bytebase.com/
       - name: Elastic Sponsorship
         logo: /images/sponsor-logos/elastic.svg
         link: https://elastic.co/
