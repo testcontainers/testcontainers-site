@@ -282,6 +282,9 @@ sections:
       - name: Mercedes-Benz Group
         logo: /images/sponsor-logos/mercedes-benz.svg
         link: https://group.mercedes-benz.com/
+      - name: Route4Me
+        logo: /images/sponsor-logos/route4me.svg
+        link: https://route4me.com/
       - name: Shipfox
         logo: /images/sponsor-logos/shipfox.svg
         link: https://www.shipfox.io/
@@ -344,8 +347,6 @@ sections:
         link: https://github.com/rieckpil
       - name: Rik Glover
         link: https://github.com/rikglover
-      - name: Route4Me
-        link: https://route4me.com/
       - name: Sascha Frinken
         link: https://github.com/sascha-frinken
       - name: snapit-cypher
