@@ -132,8 +132,8 @@
                 {{ $logoImage := .Resources.GetMatch "logo.svg" }}
                 {{ $markImage := resources.Get (printf "/images/modules/%s-mark.svg" .File.BaseFileName) }}
                 {{ if $logoImage }}
-                  {{- $relImage := printf "%s/%s" .RelPermalink $logoImage -}}
-                  <img src="{{ $relImage }}" width="30" height="30" alt=""/>
+                  {{- $relImage := printf "%s%s" .RelPermalink $logoImage -}}
+                  <img src="{{ $relImage }}" width="30" height="30" alt="" loading="lazy"/>
                 {{ else if $markImage }}
                   {{ partial "img.html" (dict "image" $markImage "alt" "") }}
                 {{ else }}
