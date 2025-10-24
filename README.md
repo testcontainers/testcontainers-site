@@ -220,21 +220,7 @@ Redirects are configured in `netlify.toml`
 
 ##  Analytics
 
-The site uses [iubenda](https://www.iubenda.com/) to manage tracking consent.
-
-Tracking scripts are loaded via [Google Tag Manager](https://tagmanager.google.com/#/container/accounts/6068072463/containers/116206463/workspaces/9)
-
-Analytics are recorded in [Google Analytics](https://analytics.google.com/analytics/web/#/p373834203/reports/home) and [Heap](https://heapanalytics.com/app/env/4204607514/dashboard/Testcontainers-Overview-278374)
-
-### TCD install attribution
-
-During Testcontainers Desktop client authorization users are redirected to `https://testcontainers.com/desktop/authorized/`. 
-
-This page sends an `attribution` event to [Mixpanel](https://eu.mixpanel.com/project/2717988/view/3254192/app/events#pYPErQ1bEeiU) that links any attribution information in the users cookies (utms, referrer etc) to the client install ID.
-
-The code for this page is found in `/layouts/authorized/baseof.html`.
-
-The script that saves that attribution data to the users cookies is in the Google Tag Manager container.
+Historical analytics data can be found in [Google Analytics](https://analytics.google.com/analytics/web/#/p373834203/reports/home) and [Heap](https://heapanalytics.com/app/env/4204607514/dashboard/Testcontainers-Overview-278374). Analytics are no longer being recorded on this site.
 
 ## Additional Notes
 
