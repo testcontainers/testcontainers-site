@@ -220,8 +220,6 @@ Redirects are configured in `netlify.toml`
 
 ##  Analytics
 
-The site uses [iubenda](https://www.iubenda.com/) to manage tracking consent.
-
 Analytics are recorded in [Google Analytics](https://analytics.google.com/analytics/web/#/p373834203/reports/home) and [Heap](https://heapanalytics.com/app/env/4204607514/dashboard/Testcontainers-Overview-278374)
 
 ## Additional Notes
