@@ -39,3 +39,8 @@
     from = "/community-champions/joshua-boylan-long/"
     to = "/community-champions/josh-long/"
     status = 301
+
+[[redirects]]
+    from = "/desktop/authorized/"
+    to = "https://app.testcontainers.cloud/api/auth/login"
+    status = 302

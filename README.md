@@ -220,7 +220,7 @@ Redirects are configured in `netlify.toml`
 
 ##  Analytics
 
-Analytics are recorded in [Google Analytics](https://analytics.google.com/analytics/web/#/p373834203/reports/home) and [Heap](https://heapanalytics.com/app/env/4204607514/dashboard/Testcontainers-Overview-278374)
+Historical analytics data can be found in [Google Analytics](https://analytics.google.com/analytics/web/#/p373834203/reports/home) and [Heap](https://heapanalytics.com/app/env/4204607514/dashboard/Testcontainers-Overview-278374). Analytics are no longer being recorded on this site.
 
 ## Additional Notes
 
