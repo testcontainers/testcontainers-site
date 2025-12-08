@@ -97,85 +97,6 @@ function setQueryParam(param, value) {
   history.replaceState(history.state, "", url.href);
 }
 
-// Handle UTMs
-const utms = [];
-
-const referrerCookie = getCookie("__gtm_referrer");
-if (referrerCookie) {
-  utms.push({
-    key: "original_referrer",
-    value: referrerCookie
-  });
-} else if (document.referrer) {
-  utms.push({
-    key: "original_referrer",
-    value: document.referrer
-  });
-}
-
-const campaignCookie = getCookie("__gtm_campaign_url");
-if (campaignCookie) {
-  const url = new URL(campaignCookie);
-  const params = new URLSearchParams(url.search);
-  const cookieUtms = parseUtms(params);
-  utms.push(...cookieUtms);
-} else {
-  const queryParams = parseUtms(new URLSearchParams(window.location.search));
-  utms.push(...queryParams);
-}
-
-function parseUtms(params) {
-  const utms = [];
-  const utmKeys = [
-    "utm_campaign",
-    "utm_source",
-    "utm_medium",
-    "utm_term",
-    "utm_content"
-  ];
-  utmKeys.forEach((key) => {
-    const value = params.get(key) || false;
-    if (value) utms.push({
-      key: key,
-      value: value
-    });
-  });
-  return utms;
-}
-
-function getCookie(key) {
-  var cookies = document.cookie.split(";");
-  for (var i = 0; i < cookies.length; i++) {
-    var cookie = cookies[i].split("=");
-    if (key == cookie[0].trim()) {
-      return decodeURIComponent(cookie[1]);
-    }
-  }
-  return null;
-}
-
-signupLinks = document.querySelectorAll("a[href*='app.testcontainers.cloud/signup']");
-signupLinks.forEach(link => {
-  const url = new URL(link.href);
-  const query = new URLSearchParams(url.search);
-  utms.forEach(utm => {
-    query.set(utm.key, utm.value);
-  });
-  const queryString = (query.toString() != "") ? "?" + query.toString() : "";
-  url.search = queryString;
-  link.href = url.toString();
-});
-signupForms = document.querySelectorAll(".tcc-signup-form");
-signupForms.forEach(form => {
-  utms.forEach(utm => {
-    const field = document.createElement("input");
-    field.setAttribute("type", "hidden");
-    field.setAttribute("name", utm.key);
-    field.setAttribute("value", utm.value);
-    form.appendChild(field);
-  });
-});
-
 hljs.addPlugin({
   "after:highlightElement": ({ el, result, text }) => {
     let button = Object.assign(document.createElement("button"), {
@@ -231,24 +152,11 @@ async function hashText(text) {
 function dismissAnnouncementBanner() {
   announcementBanner.classList.remove("not-dismissed");
   announcementBanner.classList.add("dismissed");
-  hashText(announcementBanner.innerHTML)
-    .then((hash) => {
-      localStorage.setItem("dismissedAnnouncement", hash);
-    });
 }
 const announcementBanner = document.getElementById("announcement-banner");
 if (announcementBanner) {
   const announcementBannerButton = document.getElementById("announcement-banner-button");
   announcementBannerButton.addEventListener('click', dismissAnnouncementBanner);
-  hashText(announcementBanner.innerHTML)
-    .then((hash) => {
-      if (localStorage.getItem("dismissedAnnouncement") && localStorage.getItem("dismissedAnnouncement") === hash) {
-        announcementBanner.classList.remove("not-dismissed");
-        announcementBanner.classList.add("dismissed");
-      } else {
-        announcementBanner.classList.add("not-dismissed");
-      }
-    })
 }
 
 function setActiveDownloadBannerSection(id) {
