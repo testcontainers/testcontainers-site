@@ -282,6 +282,9 @@ sections:
       - name: Mercedes-Benz Group
         logo: /images/sponsor-logos/mercedes-benz.svg
         link: https://group.mercedes-benz.com/
+      - name: N-iX
+        logo: /images/sponsor-logos/n-ix.svg
+        link: https://opencollective.com/n-ix
       - name: Route4Me
         logo: /images/sponsor-logos/route4me.svg
         link: https://route4me.com/
