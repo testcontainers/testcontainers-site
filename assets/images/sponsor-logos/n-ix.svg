@@ -1,3 +1,8 @@
 <svg width="150" height="50" viewBox="0 0 150 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <text x="10" y="35" font-family="Arial, sans-serif" font-size="36" font-weight="600" fill="#1C1E23">N-iX</text>
+  <g>
+    <path d="M20 10 L20 40 L24 40 L24 28 L36 40 L40 40 L40 10 L36 10 L36 22 L24 10 L20 10 Z" fill="#0066CC"/>
+    <path d="M45 32 L50 32 L50 18 L45 18 L45 32 Z" fill="#0066CC"/>
+    <path d="M52 10 L57 10 L57 40 L52 40 L52 10 Z" fill="#0066CC"/>
+    <path d="M70 10 L65 10 L75 25 L65 40 L70 40 L80 25 L70 10 Z" fill="#0066CC"/>
+  </g>
 </svg>

@@ -284,7 +284,7 @@ sections:
         link: https://group.mercedes-benz.com/
       - name: N-iX
         logo: /images/sponsor-logos/n-ix.svg
-        link: https://opencollective.com/n-ix
+        link: https://www.n-ix.com/
       - name: Route4Me
         logo: /images/sponsor-logos/route4me.svg
         link: https://route4me.com/
