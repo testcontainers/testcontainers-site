@@ -212,7 +212,7 @@ sections:
         link: https://capitalone.com
       - name: Elastic
         logo: /images/company-logos/elastic.svg
-        link: https://elastic.com
+        link: https://elastic.co
       - name: Wise
         logo: /images/company-logos/wise.svg
         link: https://wise.com
