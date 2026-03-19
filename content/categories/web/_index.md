@@ -1,5 +1,5 @@
 ---
 title: Web
 slug: web
-weight: 5
+weight: 10
 ---

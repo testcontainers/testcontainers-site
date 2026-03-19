@@ -1,5 +1,5 @@
 ---
 title: Vector Database
 slug: vector-database
-weight: 3
+weight: 9
 ---
