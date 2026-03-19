@@ -1,5 +1,5 @@
 ---
 title: Relational Database
 slug: relational-database
-weight: 6
+weight: 7
 ---

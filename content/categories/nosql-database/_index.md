@@ -1,5 +1,5 @@
 ---
 title: NoSQL Database
 slug: nosql-database
-weight: 5
+weight: 6
 ---
