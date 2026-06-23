@@ -22,25 +22,29 @@ nodejs:
   logo: /images/language-logos/nodejs.svg
   link: https://node.testcontainers.org/
   order: 3
-c:
-  slug: c
-  title: C/C++
+python:
+  slug: python
+  title: Python
+  logo: /images/language-logos/python.svg
+  link: https://testcontainers-python.readthedocs.io/en/latest/
   order: 4
-clojure:
-  slug: clojure
-  title: Clojure
-  logo: /images/language-logos/clojure.svg
-  link: https://cljdoc.org/d/clj-test-containers/clj-test-containers/
+rust:
+  slug: rust
+  title: Rust
+  logo: /images/language-logos/rust.svg
+  link: https://rust.testcontainers.org/
   order: 5
-csharp:
-  slug: csharp
-  title: C#
+ruby:
+  slug: ruby
+  title: Ruby
+  logo: /images/language-logos/ruby.svg
+  link: https://github.com/testcontainers/testcontainers-ruby
   order: 6
-elixir:
-  slug: elixir
-  title: Elixir
-  logo: /images/language-logos/elixir.svg
-  link: https://github.com/testcontainers/testcontainers-elixir
+php:
+  slug: php
+  title: PHP
+  logo: /images/language-logos/php.svg
+  link: https://php.testcontainers.org
   order: 7
 haskell:
   slug: haskell
@@ -48,38 +52,40 @@ haskell:
   logo: /images/language-logos/haskell.svg
   link: https://github.com/testcontainers/testcontainers-hs
   order: 8
-kotlin:
-  slug: kotlin
-  title: Kotlin
-  logo: /images/language-logos/kotlin.svg
+clojure:
+  slug: clojure
+  title: Clojure
+  logo: /images/language-logos/clojure.svg
+  link: https://cljdoc.org/d/clj-test-containers/clj-test-containers/
   order: 9
-python:
-  slug: python
-  title: Python
-  logo: /images/language-logos/python.svg
-  link: https://testcontainers-python.readthedocs.io/en/latest/
+elixir:
+  slug: elixir
+  title: Elixir
+  logo: /images/language-logos/elixir.svg
+  link: https://github.com/testcontainers/testcontainers-elixir
   order: 10
-ruby:
-  slug: ruby
-  title: Ruby
-  logo: /images/language-logos/ruby.svg
-  link: https://github.com/testcontainers/testcontainers-ruby
+scala:
+  slug: scala
+  title: Scala
+  logo: /images/language-logos/scala.svg
+  link: https://github.com/testcontainers/testcontainers-scala/
   order: 11
-rust:
-  slug: rust
-  title: Rust
-  logo: /images/language-logos/rust.svg
-  link: https://rust.testcontainers.org/
-  order: 12
-php:
-  slug: php
-  title: PHP
-  logo: /images/language-logos/php.svg
-  link: https://github.com/testcontainers/testcontainers-php
-  order: 13
 native:
   slug: native
   title: Native
   logo: /images/language-logos/c.svg
   link: https://github.com/testcontainers/testcontainers-native
+  order: 12
+c:
+  slug: c
+  title: C/C++
+  order: 13
+csharp:
+  slug: csharp
+  title: C#
   order: 14
+kotlin:
+  slug: kotlin
+  title: Kotlin
+  logo: /images/language-logos/kotlin.svg
+  order: 15
