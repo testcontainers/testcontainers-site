@@ -24,6 +24,14 @@
 <section class="sponsor-credits">
   <div class="container">
     <div class="small-header gradient">{{ .section.small_title }}</div>
+    <h2>{{ .section.gold_sponsors_title }}</h2>
+    <div class="sponsors">
+      {{ range .section.gold_sponsors }}
+        <a href="{{ .link }}" target="_blank">
+          {{ partial "img.html" (dict "image" (resources.Get .logo) "alt" .name) }}
+        </a>
+      {{ end }}
+    </div>
     <h2>{{ .section.silver_sponsors_title }}</h2>
     <div class="sponsors">
       {{ range .section.silver_sponsors }}
