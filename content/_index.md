@@ -260,6 +260,11 @@ sections:
         description: Learn how to consistently build and test with environment parity from development to production with Emulators and open-source Testcontainers.
   - partial: sponsor-credits
     small_title: A huge thankyou to our sponsors
+    gold_sponsors_title: Gold Sponsors
+    gold_sponsors:
+      - name: CodeRabbit
+        logo: /images/sponsor-logos/coderabbit.svg
+        link: https://www.coderabbit.ai/
     silver_sponsors_title: Silver Sponsors
     bronze_sponsors_title: Bronze Sponsors
     donors_title: Donors
