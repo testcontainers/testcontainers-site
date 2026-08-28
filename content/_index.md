@@ -281,9 +281,9 @@ sections:
       - name: Elastic Sponsorship
         logo: /images/sponsor-logos/elastic.svg
         link: https://elastic.co/
-      - name: LambdaTest
-        logo: /images/sponsor-logos/lambdatest.svg
-        link: https://lambdatest.com/
+      - name: TestMu AI
+        logo: /images/sponsor-logos/testmuai.svg
+        link: https://www.testmuai.com/?utm_medium=sponsor&utm_source=testcontainers
       - name: Mercedes-Benz Group
         logo: /images/sponsor-logos/mercedes-benz.svg
         link: https://group.mercedes-benz.com/
