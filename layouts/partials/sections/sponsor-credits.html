@@ -32,6 +32,7 @@
         </a>
       {{ end }}
     </div>
+    {{ if .section.silver_sponsors }}
     <h2>{{ .section.silver_sponsors_title }}</h2>
     <div class="sponsors">
       {{ range .section.silver_sponsors }}
@@ -40,6 +41,7 @@
         </a>
       {{ end }}
     </div>
+    {{ end }}
     <h2>{{ .section.bronze_sponsors_title }}</h2>
     <div class="sponsors">
       {{ range .section.bronze_sponsors }}
@@ -62,5 +64,13 @@
         <a href="{{ .link }}" target="_blank">{{ .name }}</a>
       {{ end }}
     </div>
+    {{ if .section.past_supporters }}
+    <h2>{{ .section.past_supporters_title }}</h2>
+    <div class="backers">
+      {{ range .section.past_supporters }}
+        <a href="{{ .link }}" target="_blank">{{ .name }}</a>
+      {{ end }}
+    </div>
+    {{ end }}
   </div>
 </section>
