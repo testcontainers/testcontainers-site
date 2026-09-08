@@ -270,10 +270,7 @@ sections:
     donors_title: Donors
     backers_title: Backers
     past_supporters_title: Past Sponsors and Backers
-    silver_sponsors:
-      - name: American Express
-        logo: /images/sponsor-logos/amex.svg
-        link: https://www.americanexpress.com/
+    silver_sponsors: []
     bronze_sponsors:
       - name: Bytebase
         logo: /images/sponsor-logos/bytebase.svg
@@ -287,21 +284,12 @@ sections:
       - name: TestMu AI
         logo: /images/sponsor-logos/testmuai.svg
         link: https://www.testmuai.com/?utm_medium=sponsor&utm_source=testcontainers
-      - name: Mercedes-Benz Group
-        logo: /images/sponsor-logos/mercedes-benz.svg
-        link: https://group.mercedes-benz.com/
       - name: N-iX
         logo: /images/sponsor-logos/n-ix.svg
         link: https://www.n-ix.com/
       - name: Route4Me
         logo: /images/sponsor-logos/route4me.svg
         link: https://route4me.com/
-      - name: Shipfox
-        logo: /images/sponsor-logos/shipfox.svg
-        link: https://www.shipfox.io/
-      - name: TestingBot
-        logo: /images/sponsor-logos/testingbot.svg
-        link: https://testingbot.com/
     donors:
       - name: GitHub
         logo: /images/sponsor-logos/github.svg
@@ -316,6 +304,8 @@ sections:
         logo: /images/sponsor-logos/spotify.svg
         link: https://spotify.com
     past_supporters:
+      - name: American Express
+        link: https://www.americanexpress.com/
       - name: Amitosh Swain Mahapatra
         link: https://github.com/recrsn
       - name: Backbase
@@ -336,6 +326,8 @@ sections:
         link: https://devopscon.io/
       - name: Frederik Hahne
         link: https://opencollective.com/atomfrede
+      - name: Gaurav Mukherjee
+        link: https://github.com/xycloops123
       - name: InterviewPal
         link: https://interviewpal.com/
       - name: JOOQ
@@ -344,24 +336,30 @@ sections:
         link: https://github.com/joshchoo
       - name: Komapper
         link: https://opencollective.com/komapper
+      - name: Mercedes-Benz Group
+        link: https://group.mercedes-benz.com/
       - name: minimumdepositcasinos.org
         link: https://www.minimumdepositcasinos.org/
       - name: Nikita Zhevnitskiy
         link: https://github.com/zhenik
       - name: Oleg Nenashev
         link: https://github.com/oleg-nenashev
+      - name: Open Elements
+        link: https://github.com/OpenElements
       - name: Oscar Veldman
         link: https://github.com/oveldman
       - name: Paris Apostolopoulos
         link: https://opencollective.com/paris-apostolopoulos
-      - name: Philip Riecks
-        link: https://github.com/rieckpil
       - name: Rik Glover
         link: https://github.com/rikglover
       - name: Sascha Frinken
         link: https://github.com/sascha-frinken
+      - name: Shipfox
+        link: https://www.shipfox.io/
       - name: snapit-cypher
         link: https://github.com/snapit-cypher
+      - name: TestingBot
+        link: https://testingbot.com/
       - name: Vijaya Krishna Pondala
         link: https://opencollective.com/vijaya-krishna-pondala
       - name: Vivy
@@ -371,12 +369,14 @@ sections:
         link: https://github.com/arkadiusjonczek
       - name: Doma
         link: https://opencollective.com/doma
-      - name: Gaurav Mukherjee
-        link: https://github.com/xycloops123
       - name: Karl Heinz Marbaise
         link: https://github.com/khmarbaise
-      - name: Open Elements
-        link: https://github.com/OpenElements
+      - name: M. Toyokura
+        link: https://github.com/MToyokura
+      - name: Philip Riecks
+        link: https://github.com/rieckpil
+      - name: Steven Kuhn
+        link: https://github.com/stevenkuhn
       - name: sugawani
         link: https://github.com/sugawani
       - name: XDEV Software
