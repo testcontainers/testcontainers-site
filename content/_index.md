@@ -281,6 +281,9 @@ sections:
       - name: Elastic Sponsorship
         logo: /images/sponsor-logos/elastic.svg
         link: https://elastic.co/
+      - name: Galaxy
+        logo: /images/sponsor-logos/galaxy.svg
+        link: https://getgalaxy.io/
       - name: TestMu AI
         logo: /images/sponsor-logos/testmuai.svg
         link: https://www.testmuai.com/?utm_medium=sponsor&utm_source=testcontainers
